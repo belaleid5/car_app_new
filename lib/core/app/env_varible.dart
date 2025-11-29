@@ -12,7 +12,7 @@ class EnvVariable {
     // Load environment variables here if needed
     switch (envType) {
       case EnvType.dev:
-        await dotenv.load(fileName: '.env.dev');
+        await dotenv.load(fileName: '.env.dev',);
       case EnvType.prod:
         await dotenv.load(fileName: '.env.prod');
     }
