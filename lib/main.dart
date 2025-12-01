@@ -12,5 +12,3 @@ void main() async{
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const CarApp());
 }
-
-

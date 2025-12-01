@@ -1,6 +1,9 @@
 import 'package:car_app_new/core/app/connectivitiy_controller.dart';
 import 'package:car_app_new/core/app/env_varible.dart';
 import 'package:car_app_new/core/common/screens/no_network.dart';
+import 'package:car_app_new/core/routes/app_routes.dart';
+import 'package:car_app_new/core/routes/routes_names.dart';
+import 'package:car_app_new/core/styles/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class CarApp extends StatelessWidget {
@@ -14,20 +17,15 @@ class CarApp extends StatelessWidget {
         if (value) {
           return MaterialApp(
             debugShowCheckedModeBanner: EnvVariable.instance.isDebugMode,
-            builder: (_, child) {
-              return Scaffold(
-                appBar: AppBar(
-                  title: const Text('Car App'),
-                ),
-                body: Center(
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('Connected to Internet'),
-                  ),
-                ),
-              );
-            
-            },
+            onGenerateRoute: AppRouter.onGenerateRoute,
+            initialRoute: AppRoutesNames.splashRoute,
+
+            // ✔️ Light Theme
+            theme: themeLight(),
+
+            darkTheme: themeDark(),
+
+            themeMode: ThemeMode.system,
           );
         } else {
           return MaterialApp(

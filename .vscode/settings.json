@@ -1,3 +1,7 @@
 {
-    "cmake.sourceDirectory": "D:/project_clean_arch/car_app_new/linux"
+    "cmake.sourceDirectory": "D:/project_clean_arch/car_app_new/linux",
+    "cSpell.words": [
+        "connectivitiy",
+        "varible"
+    ]
 }
