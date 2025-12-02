@@ -17,23 +17,30 @@ class CarApp extends StatelessWidget {
       valueListenable: ConnectivityController.instance.isConnected,
       builder: (_, value, _) {
         if (value) {
-          return MaterialApp(
-            debugShowCheckedModeBanner: EnvVariable.instance.isDebugMode,
-            onGenerateRoute: AppRouter.onGenerateRoute,
-            initialRoute: AppRoutesNames.splashRoute,
-
-            // ✔️ Light Theme
-            theme: themeLight(),
-
-            darkTheme: themeDark(),
-
-            themeMode: ThemeMode.system,
-            supportedLocales: AppLocalizationsSetup.supportedLocales,
-            localizationsDelegates:
-                AppLocalizationsSetup.localizationsDelegates,
-                locale:const Locale("en"),
-                localeResolutionCallback: AppLocalizationsSetup.localeResolutionCallback,
-
+          return GestureDetector(
+            onTap: () {
+          
+                FocusManager.instance.primaryFocus?.unfocus();
+              
+            },
+            child: MaterialApp(
+              debugShowCheckedModeBanner: EnvVariable.instance.isDebugMode,
+              onGenerateRoute: AppRouter.onGenerateRoute,
+              initialRoute: AppRoutesNames.splashRoute,
+            
+              // ✔️ Light Theme
+              theme: themeLight(),
+            
+              darkTheme: themeDark(),
+            
+              themeMode: ThemeMode.system,
+              supportedLocales: AppLocalizationsSetup.supportedLocales,
+              localizationsDelegates:
+                  AppLocalizationsSetup.localizationsDelegates,
+                  locale:const Locale("en"),
+                  localeResolutionCallback: AppLocalizationsSetup.localeResolutionCallback,
+            
+            ),
           );
         } else {
           return MaterialApp(
