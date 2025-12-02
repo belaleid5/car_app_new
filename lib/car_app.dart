@@ -1,6 +1,8 @@
 import 'package:car_app_new/core/app/connectivitiy_controller.dart';
 import 'package:car_app_new/core/app/env_varible.dart';
 import 'package:car_app_new/core/common/screens/no_network.dart';
+import 'package:car_app_new/core/language/app_localizations.dart';
+import 'package:car_app_new/core/language/app_localizations_setup.dart';
 import 'package:car_app_new/core/routes/app_routes.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
 import 'package:car_app_new/core/styles/theme/app_theme.dart';
@@ -26,6 +28,12 @@ class CarApp extends StatelessWidget {
             darkTheme: themeDark(),
 
             themeMode: ThemeMode.system,
+            supportedLocales: AppLocalizationsSetup.supportedLocales,
+            localizationsDelegates:
+                AppLocalizationsSetup.localizationsDelegates,
+                locale:const Locale("en"),
+                localeResolutionCallback: AppLocalizationsSetup.localeResolutionCallback,
+
           );
         } else {
           return MaterialApp(

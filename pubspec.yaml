@@ -78,7 +78,7 @@ flutter:
     - assets/icons/
     - assets/images/
     - lang/ar.json
-    - lang/eng.json
+    - lang/en.json
 
   fonts:
     # Arabic Font
