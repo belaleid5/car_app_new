@@ -1,5 +1,9 @@
 class AppRoutesNames{
-  static const splashRoute = '/splash';
+  static const mainBoarding = '/main_boarding';
+
+  static const pageViewBoarding = '/page_view_boarding';
+  static const firstOnBoarding = '/first_onBoarding';
+    static const secondOnBoarding = '/second_onBoarding';
   static const loginRoute = '/login';
   static const signUpRoute = '/signin';
 

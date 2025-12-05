@@ -1,6 +1,20 @@
-class FontFamilyHelper {
-  static const String fontArabic = 'Cairo';
-  static const String fontEnglish = 'Poppins';
 
-  
+import 'package:car_app_new/core/services/shared_pref/shared_kyes.dart';
+import 'package:car_app_new/core/services/shared_pref/shared_pref.dart';
+
+class FontFamilyHelper {
+  const FontFamilyHelper._();
+
+  static const String cairoArabic = 'Cairo';
+
+  static const String poppinsEnglish = 'Poppins';
+
+  static String geLocalizedFontFamily() {
+    final currentLanguage = SharedPref().getString(PrefKeys.language);
+    if (currentLanguage == 'ar') {
+      return cairoArabic;
+    } else {
+      return poppinsEnglish;
+    }
+  }
 }
