@@ -12,4 +12,9 @@ class AppImages {
       'assets/images/on_boarding_imge_one.png';
   static const String onBoardingScreenTow =
       'assets/images/on_boarding_image_tow.png';
+
+//social icon
+  static const String googleIcon = 'assets/icons/googleIcon.svg';
+  static const String appleIcon = 'assets/icons/appleIcon.svg';
+  
 }

@@ -1,5 +1,10 @@
+import 'package:car_app_new/core/common/widgets/custom_button.dart';
+import 'package:car_app_new/core/extensions/animation_extensions.dart';
+import 'package:car_app_new/core/extensions/context_extensions.dart';
+import 'package:car_app_new/features/auth/presention/widgets/button_auth.dart';
 import 'package:car_app_new/features/auth/presention/widgets/login/custom_form_password.dart';
 import 'package:car_app_new/features/auth/presention/widgets/login/custom_text_form_email.dart';
+import 'package:car_app_new/features/auth/presention/widgets/login/section_rememper_user_and_forget_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,8 +19,23 @@ class SectionLoginAuth extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       spacing: 10.h,
       children: [
-        CustomTextFormEmail(controller: TextEditingController()),
-        CustomTextFormPassword(controller: TextEditingController()),
+        CustomTextFormEmail(
+          controller: TextEditingController(),
+        ).animateRightLeft(
+          duration: const Duration(
+            milliseconds: 1450,
+          ),
+        ),
+        CustomTextFormPassword(
+          controller: TextEditingController(),
+        ).animateRightLeft(duration: const Duration(milliseconds: 1500)),
+        const SectionRememberUserWithForgetPassword(),
+        
+        const ButtonAuth().animateRightLeft(
+          duration: const Duration(milliseconds: 1550),
+        ),
+
+       
       ],
     );
   }
