@@ -1,5 +1,6 @@
 import 'package:car_app_new/core/routes/routes_names.dart';
 import 'package:car_app_new/features/auth/presention/screens/login_page.dart';
+import 'package:car_app_new/features/auth/presention/screens/sign_up_page.dart';
 import 'package:car_app_new/features/onBording/presention/pages/main_onBorading_page.dart';
 import 'package:car_app_new/features/onBording/presention/pages/on_boarding_oage_tow.dart';
 import 'package:car_app_new/features/onBording/presention/pages/on_boarding_page_one.dart';
@@ -11,6 +12,10 @@ class AppRouter {
     switch (settings.name) {
       case AppRoutesNames.loginRoute:
         return MaterialPageRoute(builder: (_) => const LoginPage());
+      
+
+        case AppRoutesNames.signUpRoute:
+        return MaterialPageRoute(builder: (_) => const SignUpPage());
       
       case AppRoutesNames.mainBoarding:  // ✅ أضف ده
         return MaterialPageRoute(builder: (_) => const MainOnboardingPage());
