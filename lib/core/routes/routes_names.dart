@@ -6,5 +6,6 @@ class AppRoutesNames{
     static const secondOnBoarding = '/second_onBoarding';
   static const loginRoute = '/login';
   static const signUpRoute = '/signin';
+  static const settingsRoute = '/settings';
 
 }

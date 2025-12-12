@@ -5,6 +5,7 @@ import 'package:car_app_new/features/onBording/presention/pages/main_onBorading_
 import 'package:car_app_new/features/onBording/presention/pages/on_boarding_oage_tow.dart';
 import 'package:car_app_new/features/onBording/presention/pages/on_boarding_page_one.dart';
 import 'package:car_app_new/features/onBording/presention/pages/page_view_on_boarding.dart';
+import 'package:car_app_new/features/settings/presention/screens/settings_page.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -28,7 +29,9 @@ class AppRouter {
       
       case AppRoutesNames.secondOnBoarding:
         return MaterialPageRoute(builder: (_) => const OnBoardingPageTwo());
-      
+      case AppRoutesNames.settingsRoute:
+        return MaterialPageRoute(builder: (_) => const SettingsPage());
+        // ✅ أضف ده
       default:
         // ✅ غير الـ default لصفحة خطأ أو 404
         return MaterialPageRoute(

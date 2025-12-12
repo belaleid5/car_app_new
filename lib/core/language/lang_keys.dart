@@ -1,4 +1,8 @@
+// core/language/lang_keys.dart
+// أضف المفاتيح دي في ملف LangKeys الموجود عندك
+
 class LangKeys {
+  // المفاتيح الموجودة عندك...
   static const String language = 'language';
   static const String appName = 'app_name';
   static const String login = 'login';
@@ -34,7 +38,23 @@ class LangKeys {
   static const String langCode = 'lang_code';
   static const String notifications = 'notifications';
   static const String subscribedToNotifications = 'subscribed_to_notifications';
-  static const String unsubscribedToNotifications =
-      'unsubscribed_to_notifications';
+  static const String unsubscribedToNotifications = 'unsubscribed_to_notifications';
   static const String viewAll = 'view_all';
+
+  // ========== Profile Screen Keys (ضيف دول) ==========
+  static const String profile = 'profile';
+  static const String editProfile = 'edit_profile';
+  static const String general = 'general';
+  static const String favoriteCars = 'favorite_cars';
+  static const String previousRent = 'previous_rent';
+  static const String notification = 'notification';
+  static const String connectedPartnerships = 'connected_partnerships';
+  static const String support = 'support';
+  static const String settings = 'settings';
+  static const String languages = 'languages';
+  static const String inviteFriends = 'invite_friends';
+  static const String privacyPolicy = 'privacy_policy';
+  static const String helpSupport = 'help_support';
+  static const String darkModeEnabled = 'dark_mode_enabled';
+  static const String lightModeEnabled = 'light_mode_enabled';
 }

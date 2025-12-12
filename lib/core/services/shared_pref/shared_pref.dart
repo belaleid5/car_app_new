@@ -11,7 +11,7 @@ class SharedPref {
   static late SharedPreferences sharedPreferences;
 
   ///Below method is to initialize the SharedPreference instance.
-  Future<dynamic> instantiatePreferences() async {
+  Future<dynamic> initPreferences() async {
     sharedPreferences = await SharedPreferences.getInstance();
   }
 

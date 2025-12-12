@@ -1,4 +1,5 @@
 import 'package:car_app_new/core/extensions/adabtive_text_form_field_extensions.dart';
+import 'package:car_app_new/core/helper/app_regix.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormFullName extends StatelessWidget {
@@ -13,7 +14,7 @@ class CustomTextFormFullName extends StatelessWidget {
 
       controller: TextEditingController(),
       hintText: '  Full Name ',
-      keyboardType: TextInputType.phone,
+      keyboardType: TextInputType.text,
     );
   }
 }
