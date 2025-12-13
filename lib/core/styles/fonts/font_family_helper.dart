@@ -1,5 +1,5 @@
 
-import 'package:car_app_new/core/services/shared_pref/shared_kyes.dart';
+import 'package:car_app_new/core/services/shared_pref/shared_keys.dart';
 import 'package:car_app_new/core/services/shared_pref/shared_pref.dart';
 
 class FontFamilyHelper {

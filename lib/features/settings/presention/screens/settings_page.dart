@@ -51,23 +51,23 @@ class DarkAndLangButtons extends StatelessWidget {
                     );
                   },
                   child: Icon(
-                    cubit.isDarkMode ? Icons.dark_mode : Icons.light_mode,
-                    key: ValueKey(cubit.isDarkMode),
-                    color: cubit.isDarkMode 
+                    cubit.isDark ? Icons.dark_mode : Icons.light_mode,
+                    key: ValueKey(cubit.isDark),
+                    color: cubit.isDark 
                         ? Colors.blue 
                         : Colors.orange,
                   ),
                 ),
                 onPressed: () async {
                   // ✅ استخدم toggleTheme للسهولة
-                  await cubit.toggleTheme();
+                  await cubit.changeAppThemeMode();
                   
                   // ✅ عرض رسالة تأكيد
                   if (context.mounted) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(
-                          cubit.isDarkMode 
+                          cubit.isDark 
                               ? 'Dark mode enabled' 
                               : 'Light mode enabled',
                         ),

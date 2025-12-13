@@ -5,13 +5,13 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'  # ✅ صح
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   # Flutter
   flutter:
     sdk: flutter
-  flutter_localizations:  # ✅ أضفته
+  flutter_localizations:
     sdk: flutter
   
   # State Management
@@ -31,6 +31,15 @@ dependencies:
   shared_preferences: ^2.5.3
   visibility_detector: ^0.4.0+2
   
+  # API
+  retrofit: ^4.9.1
+  dio: ^5.1.2
+  json_annotation: ^4.8.0
+  pretty_dio_logger: ^1.2.1
+  
+  # Dependency Injection
+  get_it: ^9.2.0
+  
   # Code Quality
   freezed_annotation: ^3.1.0
   very_good_analysis: ^10.0.0
@@ -38,7 +47,6 @@ dependencies:
   # Icons & Splash
   flutter_launcher_icons: ^0.14.4
   flutter_native_splash: ^2.4.7
-  get_it: ^9.2.0
 
 flutter_launcher_icons:
   android: true
@@ -57,6 +65,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^3.2.3
+  retrofit_generator: 10.2.0  # ✅ أضفت الـ version
+  json_serializable: ^6.6.1
 
 flutter:
   uses-material-design: true

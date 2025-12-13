@@ -13,7 +13,7 @@ part of 'app_cubit_cubit.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-mixin _$AppCubitState {
+mixin _$AppState {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
@@ -25,17 +25,17 @@ mixin _$AppCubitState {
 
   @override
   String toString() {
-    return 'AppCubitState()';
+    return 'AppState()';
   }
 }
 
 /// @nodoc
-class $AppCubitStateCopyWith<$Res> {
-  $AppCubitStateCopyWith(AppState _, $Res Function(AppState) __);
+class $AppStateCopyWith<$Res> {
+  $AppStateCopyWith(AppState _, $Res Function(AppState) __);
 }
 
 /// Adds pattern-matching-related methods to [AppState].
-extension AppCubitStatePatterns on AppState {
+extension AppStatePatterns on AppState {
   /// A variant of `map` that fallback to returning `orElse`.
   ///
   /// It is equivalent to doing:
@@ -51,15 +51,18 @@ extension AppCubitStatePatterns on AppState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(ThemeChangeMode value)? themeChangeMode,
+    TResult Function(_ThemeChangeMode value)? themeChangeMode,
+    TResult Function(_LanguageChange value)? languageChange,
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
       case _Initial() when initial != null:
         return initial(_that);
-      case ThemeChangeMode() when themeChangeMode != null:
+      case _ThemeChangeMode() when themeChangeMode != null:
         return themeChangeMode(_that);
+      case _LanguageChange() when languageChange != null:
+        return languageChange(_that);
       case _:
         return orElse();
     }
@@ -81,14 +84,17 @@ extension AppCubitStatePatterns on AppState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(ThemeChangeMode value) themeChangeMode,
+    required TResult Function(_ThemeChangeMode value) themeChangeMode,
+    required TResult Function(_LanguageChange value) languageChange,
   }) {
     final _that = this;
     switch (_that) {
       case _Initial():
         return initial(_that);
-      case ThemeChangeMode():
+      case _ThemeChangeMode():
         return themeChangeMode(_that);
+      case _LanguageChange():
+        return languageChange(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -109,14 +115,17 @@ extension AppCubitStatePatterns on AppState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(ThemeChangeMode value)? themeChangeMode,
+    TResult? Function(_ThemeChangeMode value)? themeChangeMode,
+    TResult? Function(_LanguageChange value)? languageChange,
   }) {
     final _that = this;
     switch (_that) {
       case _Initial() when initial != null:
         return initial(_that);
-      case ThemeChangeMode() when themeChangeMode != null:
+      case _ThemeChangeMode() when themeChangeMode != null:
         return themeChangeMode(_that);
+      case _LanguageChange() when languageChange != null:
+        return languageChange(_that);
       case _:
         return null;
     }
@@ -137,15 +146,18 @@ extension AppCubitStatePatterns on AppState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(bool isDarkMode)? themeChangeMode,
+    TResult Function(bool isDark)? themeChangeMode,
+    TResult Function(String languageCode)? languageChange,
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
       case _Initial() when initial != null:
         return initial();
-      case ThemeChangeMode() when themeChangeMode != null:
-        return themeChangeMode(_that.isDarkMode);
+      case _ThemeChangeMode() when themeChangeMode != null:
+        return themeChangeMode(_that.isDark);
+      case _LanguageChange() when languageChange != null:
+        return languageChange(_that.languageCode);
       case _:
         return orElse();
     }
@@ -167,14 +179,17 @@ extension AppCubitStatePatterns on AppState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(bool isDarkMode) themeChangeMode,
+    required TResult Function(bool isDark) themeChangeMode,
+    required TResult Function(String languageCode) languageChange,
   }) {
     final _that = this;
     switch (_that) {
       case _Initial():
         return initial();
-      case ThemeChangeMode():
-        return themeChangeMode(_that.isDarkMode);
+      case _ThemeChangeMode():
+        return themeChangeMode(_that.isDark);
+      case _LanguageChange():
+        return languageChange(_that.languageCode);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -195,14 +210,17 @@ extension AppCubitStatePatterns on AppState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(bool isDarkMode)? themeChangeMode,
+    TResult? Function(bool isDark)? themeChangeMode,
+    TResult? Function(String languageCode)? languageChange,
   }) {
     final _that = this;
     switch (_that) {
       case _Initial() when initial != null:
         return initial();
-      case ThemeChangeMode() when themeChangeMode != null:
-        return themeChangeMode(_that.isDarkMode);
+      case _ThemeChangeMode() when themeChangeMode != null:
+        return themeChangeMode(_that.isDark);
+      case _LanguageChange() when languageChange != null:
+        return languageChange(_that.languageCode);
       case _:
         return null;
     }
@@ -225,71 +243,135 @@ class _Initial implements AppState {
 
   @override
   String toString() {
-    return 'AppCubitState.initial()';
+    return 'AppState.initial()';
   }
 }
 
 /// @nodoc
 
-class ThemeChangeMode implements AppState {
-  const ThemeChangeMode({required this.isDarkMode});
+class _ThemeChangeMode implements AppState {
+  const _ThemeChangeMode({required this.isDark});
 
-  final bool isDarkMode;
+  final bool isDark;
 
-  /// Create a copy of AppCubitState
+  /// Create a copy of AppState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  $ThemeChangeModeCopyWith<ThemeChangeMode> get copyWith =>
-      _$ThemeChangeModeCopyWithImpl<ThemeChangeMode>(this, _$identity);
+  _$ThemeChangeModeCopyWith<_ThemeChangeMode> get copyWith =>
+      __$ThemeChangeModeCopyWithImpl<_ThemeChangeMode>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ThemeChangeMode &&
-            (identical(other.isDarkMode, isDarkMode) ||
-                other.isDarkMode == isDarkMode));
+            other is _ThemeChangeMode &&
+            (identical(other.isDark, isDark) || other.isDark == isDark));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isDarkMode);
+  int get hashCode => Object.hash(runtimeType, isDark);
 
   @override
   String toString() {
-    return 'AppCubitState.themeChangeMode(isDarkMode: $isDarkMode)';
+    return 'AppState.themeChangeMode(isDark: $isDark)';
   }
 }
 
 /// @nodoc
-abstract mixin class $ThemeChangeModeCopyWith<$Res>
-    implements $AppCubitStateCopyWith<$Res> {
-  factory $ThemeChangeModeCopyWith(
-          ThemeChangeMode value, $Res Function(ThemeChangeMode) _then) =
-      _$ThemeChangeModeCopyWithImpl;
+abstract mixin class _$ThemeChangeModeCopyWith<$Res>
+    implements $AppStateCopyWith<$Res> {
+  factory _$ThemeChangeModeCopyWith(
+          _ThemeChangeMode value, $Res Function(_ThemeChangeMode) _then) =
+      __$ThemeChangeModeCopyWithImpl;
   @useResult
-  $Res call({bool isDarkMode});
+  $Res call({bool isDark});
 }
 
 /// @nodoc
-class _$ThemeChangeModeCopyWithImpl<$Res>
-    implements $ThemeChangeModeCopyWith<$Res> {
-  _$ThemeChangeModeCopyWithImpl(this._self, this._then);
+class __$ThemeChangeModeCopyWithImpl<$Res>
+    implements _$ThemeChangeModeCopyWith<$Res> {
+  __$ThemeChangeModeCopyWithImpl(this._self, this._then);
 
-  final ThemeChangeMode _self;
-  final $Res Function(ThemeChangeMode) _then;
+  final _ThemeChangeMode _self;
+  final $Res Function(_ThemeChangeMode) _then;
 
-  /// Create a copy of AppCubitState
+  /// Create a copy of AppState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? isDarkMode = null,
+    Object? isDark = null,
   }) {
-    return _then(ThemeChangeMode(
-      isDarkMode: null == isDarkMode
-          ? _self.isDarkMode
-          : isDarkMode // ignore: cast_nullable_to_non_nullable
+    return _then(_ThemeChangeMode(
+      isDark: null == isDark
+          ? _self.isDark
+          : isDark // ignore: cast_nullable_to_non_nullable
               as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _LanguageChange implements AppState {
+  const _LanguageChange({required this.languageCode});
+
+  final String languageCode;
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$LanguageChangeCopyWith<_LanguageChange> get copyWith =>
+      __$LanguageChangeCopyWithImpl<_LanguageChange>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _LanguageChange &&
+            (identical(other.languageCode, languageCode) ||
+                other.languageCode == languageCode));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, languageCode);
+
+  @override
+  String toString() {
+    return 'AppState.languageChange(languageCode: $languageCode)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$LanguageChangeCopyWith<$Res>
+    implements $AppStateCopyWith<$Res> {
+  factory _$LanguageChangeCopyWith(
+          _LanguageChange value, $Res Function(_LanguageChange) _then) =
+      __$LanguageChangeCopyWithImpl;
+  @useResult
+  $Res call({String languageCode});
+}
+
+/// @nodoc
+class __$LanguageChangeCopyWithImpl<$Res>
+    implements _$LanguageChangeCopyWith<$Res> {
+  __$LanguageChangeCopyWithImpl(this._self, this._then);
+
+  final _LanguageChange _self;
+  final $Res Function(_LanguageChange) _then;
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? languageCode = null,
+  }) {
+    return _then(_LanguageChange(
+      languageCode: null == languageCode
+          ? _self.languageCode
+          : languageCode // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }

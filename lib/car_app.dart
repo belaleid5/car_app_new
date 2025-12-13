@@ -6,7 +6,7 @@ import 'package:car_app_new/core/di/di.dart';
 import 'package:car_app_new/core/language/app_localizations_setup.dart';
 import 'package:car_app_new/core/routes/app_routes.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
-import 'package:car_app_new/core/services/shared_pref/shared_kyes.dart';
+import 'package:car_app_new/core/services/shared_pref/shared_keys.dart';
 import 'package:car_app_new/core/services/shared_pref/shared_pref.dart';
 import 'package:car_app_new/core/styles/theme/app_theme.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +28,7 @@ class CarApp extends StatelessWidget {
             },
             child: BlocProvider(
               create: (context) => sl<AppCubit>()
-                ..changeThemeMode(
+                ..changeAppThemeMode(
                   sharedMode:
                       SharedPref().getBoolean(PrefKeys.themeMode) ?? false,
                 ),
@@ -48,7 +48,7 @@ class CarApp extends StatelessWidget {
                           EnvVariable.instance.isDebugMode,
                       onGenerateRoute: AppRouter.onGenerateRoute,
                       initialRoute: AppRoutesNames.settingsRoute,
-                      theme: cubit.isDarkMode ? themeLight() : themeDark(),
+                      theme: cubit.isDark ? themeLight() : themeDark(),
                       supportedLocales: AppLocalizationsSetup.supportedLocales,
                       localizationsDelegates:
                           AppLocalizationsSetup.localizationsDelegates,
