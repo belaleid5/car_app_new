@@ -8,8 +8,8 @@ abstract class BaseAuthDataSource {
 }
 
 
-class AuthDataSource implements BaseAuthDataSource {
-  AuthDataSource(this.apiService);
+class RemoteAuthDataSource implements BaseAuthDataSource {
+  RemoteAuthDataSource(this.apiService);
   final ApiService apiService;
 
   @override
@@ -19,5 +19,5 @@ class AuthDataSource implements BaseAuthDataSource {
   }
 
 
-  
+
 }
