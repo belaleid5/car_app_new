@@ -1,13 +1,15 @@
 class ApiConstants {
-  static const String baseUrl = 'https://api.example.com';
-  static const String apiVersion = '/v1';
+  static const String baseUrl = 'https://qent.azurewebsites.net/api';
   
   // Endpoints
-  static const String carsEndpoint = '$baseUrl$apiVersion/cars';
-  static const String carDetailsEndpoint = '$baseUrl$apiVersion/cars';
-  static const String createCarEndpoint = '$baseUrl$apiVersion/cars';
-  static const String updateCarEndpoint = '$baseUrl$apiVersion/cars';
-  static const String deleteCarEndpoint = '$baseUrl$apiVersion/cars';
+  static const String carsEndpoint = '$baseUrl/cars';
+  static const String carDetailsEndpoint = '$baseUrl/cars';
+  static const String createCarEndpoint = '$baseUrl/cars';
+  static const String updateCarEndpoint = '$baseUrl/cars';
+  static const String deleteCarEndpoint = '$baseUrl/cars';
+  static const String loginEndpoint = '$baseUrl/auth/login/';
+  static const String signUpEndpoint = '$baseUrl/auth/register/';
+
   
   // Timeouts
   static const Duration connectionTimeout = Duration(seconds: 30);
