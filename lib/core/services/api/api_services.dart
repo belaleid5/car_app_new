@@ -13,7 +13,7 @@ abstract class ApiService {
 
   // ========== Authentication Endpoints ==========
   
-  @POST('/auth/login')
+ /* @POST('/auth/login')
   Future<LoginResponse> login(
     @Body() LoginRequest request,
   );
@@ -22,6 +22,6 @@ abstract class ApiService {
   Future<SignUpResponse> signUp(
     @Body() SignUpRequest request,
   );
-
+*/
   
 }

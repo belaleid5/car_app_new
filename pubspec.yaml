@@ -5,7 +5,7 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: '>=3.8.0 <4.0.0'  # ✅ محدث
 
 dependencies:
   # Flutter
@@ -34,7 +34,7 @@ dependencies:
   # API
   retrofit: ^4.9.1
   dio: ^5.1.2
-  json_annotation: ^4.8.0
+  json_annotation: ^4.9.0  # ✅ محدث
   pretty_dio_logger: ^1.2.1
   
   # Dependency Injection
@@ -47,17 +47,9 @@ dependencies:
   # Icons & Splash
   flutter_launcher_icons: ^0.14.4
   flutter_native_splash: ^2.4.7
-
-flutter_launcher_icons:
-  android: true
-  ios: true
-  image_path: "assets/icons/app_icon.png"
-  min_sdk_android: 21
-  web:
-    generate: true
-    image_path: "assets/icons/app_icon.png"
-    background_color: "#ffffff"
-    theme_color: "#ffffff"
+  
+  # Functional Programming
+  dartz: ^0.10.1
 
 dev_dependencies:
   build_runner: ^2.10.4
@@ -65,7 +57,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^3.2.3
-  retrofit_generator: 10.2.0  # ✅ أضفت الـ version
+  retrofit_generator: ^10.2.0
   json_serializable: ^6.6.1
 
 flutter:
@@ -80,7 +72,6 @@ flutter:
     - lang/en.json
 
   fonts:
-    # Arabic Font
     - family: Cairo
       fonts:
         - asset: assets/fonts/arabic/cairo/Cairo-Bold.ttf
@@ -89,7 +80,6 @@ flutter:
           weight: 500
         - asset: assets/fonts/arabic/cairo/Cairo-Regular.ttf
           weight: 400
-    # English Font
     - family: Poppins
       fonts:
         - asset: assets/fonts/english/poppins/Poppins-Bold.ttf
