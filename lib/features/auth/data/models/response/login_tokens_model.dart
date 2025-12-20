@@ -1,17 +1,22 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'login_tokens_model.g.dart';
-@JsonSerializable()
-class TokensResponseModel {
-  const TokensResponseModel({
+
+@JsonSerializable(explicitToJson: true) // 🔥 أضف explicitToJson
+class TokensModel {
+
+  TokensModel({
     required this.accessToken,
     required this.refreshToken,
   });
-
-
-  factory TokensResponseModel.fromJson(Map<String, dynamic> json)=>_$TokensResponseModelFromJson(json);
   @JsonKey(name: 'access')
   final String accessToken;
+  
   @JsonKey(name: 'refresh')
   final String refreshToken;
+
+  factory TokensModel.fromJson(Map<String, dynamic> json) =>
+      _$TokensModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$TokensModelToJson(this); // 🔥 أضف toJson
 }

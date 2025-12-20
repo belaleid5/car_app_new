@@ -8,17 +8,15 @@ part of 'user_info_model.dart';
 
 UserInfoModel _$UserInfoModelFromJson(Map<String, dynamic> json) =>
     UserInfoModel(
+      id: (json['id'] as num).toInt(),
       fullName: json['full_name'] as String,
       email: json['email'] as String,
       phone: json['phone'] as String,
-      phoneIsVerified: json['phone_is_verified'] as String,
-      country: CountryResponseModel.fromJson(
-        json['country'] as Map<String, dynamic>,
-      ),
-      location: LocationResponseModel.fromJson(
+      phoneIsVerified: json['phone_is_verified'] as bool,
+      country: CountryModel.fromJson(json['country'] as Map<String, dynamic>),
+      location: LocationModel.fromJson(
         json['location'] as Map<String, dynamic>,
       ),
-      id: (json['id'] as num).toInt(),
     );
 
 Map<String, dynamic> _$UserInfoModelToJson(UserInfoModel instance) =>
@@ -28,6 +26,6 @@ Map<String, dynamic> _$UserInfoModelToJson(UserInfoModel instance) =>
       'email': instance.email,
       'phone': instance.phone,
       'phone_is_verified': instance.phoneIsVerified,
-      'country': instance.country,
-      'location': instance.location,
+      'country': instance.country.toJson(),
+      'location': instance.location.toJson(),
     };

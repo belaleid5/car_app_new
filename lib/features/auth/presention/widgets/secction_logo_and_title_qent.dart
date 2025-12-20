@@ -12,7 +12,7 @@ class SectionLogoAndTitleQent extends StatelessWidget {
     return const Row(
       spacing: 8,
       children: [
-      LogoCarDarkSmall(),
+        LogoCarDarkSmall(),
         CustomTextQent(),
       ],
     );

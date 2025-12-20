@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomCheckBox extends StatefulWidget {
-
   const CustomCheckBox({
     super.key,
     this.initialValue = false,
@@ -34,7 +33,7 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
           borderRadius: BorderRadius.circular(5.r),
         ),
         side: BorderSide(
-          color: context.color.primary,
+          color: context.color.button,
           width: 2.w,
         ),
         splashRadius: 25.r,

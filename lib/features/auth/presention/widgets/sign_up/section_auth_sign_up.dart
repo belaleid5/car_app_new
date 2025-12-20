@@ -1,3 +1,4 @@
+import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/styles/theme/my_colors.dart';
 import 'package:car_app_new/features/auth/presention/widgets/button_auth.dart';
 import 'package:car_app_new/features/auth/presention/widgets/login/custom_form_password.dart';
@@ -24,7 +25,14 @@ class SectionAuthSignUP extends StatelessWidget {
         const CustomTextFormCountry(),
         const CustomTextFormLocation(),
         ButtonAuth(
-          titleButton: 'Sign Up',
+          widgetTitle: Text(
+            context.translate('Sign Up'),
+            style: context.textStyle.copyWith(
+              color: context.colors.white,
+              fontSize: 16.sp,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           backgroundColor: context.colors.black,
           onPressed: () {},
         ),

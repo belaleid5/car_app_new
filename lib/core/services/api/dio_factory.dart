@@ -1,3 +1,4 @@
+import 'package:car_app_new/core/constants/api_constants.dart';
 import 'package:car_app_new/core/services/shared_pref/shared_keys.dart';
 import 'package:car_app_new/core/services/shared_pref/shared_pref.dart';
 import 'package:dio/dio.dart';
@@ -32,24 +33,86 @@ class DioFactory {
   static void addDioInterceptor() {
     dio?.interceptors.add(
       PrettyDioLogger(
-        request: false,
+        request: true,
+        requestHeader: true,
+        requestBody: true,
+        responseBody: true,
+        responseHeader: false,
+        error: true,
         compact: false,
       ),
     );
+
     dio?.interceptors.add(
       InterceptorsWrapper(
-        onRequest: (options, handler) {
-          options.headers['Authorization'] =
-              'Bearer ${SharedPref().getString(PrefKeys.accessToken)}';
+        onRequest: (options, handler) async {
+          // 🔥 قائمة الـ endpoints اللي متحتاجش token
+          final publicEndpoints = [
+            ApiConstants.loginEndpoint,
+            '/api/auth/register/',
+            '/api/auth/forgot-password/',
+            '/api/auth/reset-password/',
+          ];
+
+          // ❌ لو الـ request في القائمة دي، متحطش token
+          final isPublicEndpoint = publicEndpoints.any(
+            (endpoint) => options.path.contains(endpoint),
+          );
+
+          if (isPublicEndpoint) {
+            debugPrint('🚫 Public endpoint detected: ${options.path}');
+            debugPrint('🚫 Skipping Authorization header');
+            options.headers.remove('Authorization');
+          } else {
+            // ✅ لو مش public endpoint، حط الـ token
+            final token = SharedPref().getString(PrefKeys.accessToken);
+            
+            if (token != null && token.isNotEmpty && token != 'null') {
+              options.headers['Authorization'] = 'Bearer $token';
+              debugPrint('✅ Authorization header added');
+            } else {
+              debugPrint('⚠️ No valid token found');
+            }
+          }
 
           return handler.next(options);
         },
+        onResponse: (response, handler) {
+          debugPrint('✅ Response: ${response.statusCode} - ${response.requestOptions.path}');
+          return handler.next(response);
+        },
         onError: (error, handler) async {
+          debugPrint('❌ Error: ${error.response?.statusCode} - ${error.message}');
+          debugPrint('❌ Path: ${error.requestOptions.path}');
+          
           if (error.response?.statusCode == 401) {
-         //   await AppLogout().logout();
+            // ❌ لو unauthorized ومش login request، اعمل logout
+            final isLoginRequest = error.requestOptions.path.contains(
+              ApiConstants.loginEndpoint,
+            );
+            
+            if (!isLoginRequest) {
+              debugPrint('🔴 Unauthorized - Logging out');
+              // await AppLogout().logout();
+            } else {
+              debugPrint('⚠️ Login failed with 401');
+            }
           }
+          
+          return handler.next(error);
         },
       ),
     );
+  }
+
+  // 🔄 Method لتحديث الـ Dio بعد Login
+  static void updateToken(String newToken) {
+    debugPrint('🔄 Token updated in DioFactory');
+    // الـ Interceptor هياخد الـ token الجديد من SharedPrefs تلقائياً
+  }
+
+  // 🗑️ Method لمسح الـ Token
+  static void clearToken() {
+    debugPrint('🗑️ Token cleared from DioFactory');
   }
 }

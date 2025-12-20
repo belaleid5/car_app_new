@@ -8,7 +8,9 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.colors.secondary,
+      resizeToAvoidBottomInset: true, // يخلي الصفحة تطلع لفوق تلقائي
+
+      backgroundColor: context.colors.primary,
       body: const LoginPageBody(),
     );
   }

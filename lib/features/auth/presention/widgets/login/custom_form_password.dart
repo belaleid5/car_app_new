@@ -47,6 +47,7 @@ class _CustomTextFormPasswordState extends State<CustomTextFormPassword> {
       controller: widget.controller,
       title: widget.title,
       hintText: widget.hintText ?? (widget.isConfirmPassword ? 'Confirm Password' : 'Password'),
+    
       validate: widget.validate,
       keyboardType: TextInputType.visiblePassword,
       textCapitalization: TextCapitalization.none, // ✅  

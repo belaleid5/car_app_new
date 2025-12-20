@@ -2,7 +2,7 @@ import 'package:car_app_new/core/errors/api_error_handler.dart';
 import 'package:car_app_new/core/services/api/api_result.dart';
 import 'package:car_app_new/core/services/api/api_services.dart';
 import 'package:car_app_new/features/auth/data/models/request/login_request_model.dart';
-import 'package:car_app_new/features/auth/data/models/response/login_resons_model.dart';
+import 'package:car_app_new/features/auth/data/models/response/login_response_model.dart';
 
 class LoginRepo {
   LoginRepo(this._apiService);

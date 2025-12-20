@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 
 class DontHaveOrHaveAnAccountText extends StatelessWidget {
   const DontHaveOrHaveAnAccountText({
-    super.key, required this.firstTitle, required this.secondTitle, 
+    required this.firstTitle,
+    required this.secondTitle,
     required this.onTap,
+    super.key,
   });
   final String firstTitle;
   final String secondTitle;
@@ -20,11 +22,10 @@ class DontHaveOrHaveAnAccountText extends StatelessWidget {
           TextSpan(
             text: secondTitle,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: context.color.primary,
+              color: context.color.textPrimary,
               fontWeight: FontWeight.bold,
             ),
-            recognizer: TapGestureRecognizer()
-              ..onTap = onTap,
+            recognizer: TapGestureRecognizer()..onTap = onTap,
           ),
         ],
       ),
