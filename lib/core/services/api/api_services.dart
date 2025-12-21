@@ -1,6 +1,7 @@
 import 'package:car_app_new/core/constants/api_constants.dart';
 import 'package:car_app_new/features/auth/data/models/request/login_request_model.dart';
-import 'package:car_app_new/features/auth/data/models/response/login_response_model.dart'; // 🔥 أضف ده
+import 'package:car_app_new/features/auth/data/models/request/register_request_model.dart';
+import 'package:car_app_new/features/auth/data/models/response/user_response_model.dart'; // 🔥 أضف ده
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -11,7 +12,12 @@ abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
   @POST(ApiConstants.loginEndpoint)
-  Future<LoginResponseModel> login( // 🔥 تأكد من الاسم ده
+  Future<UserResponseModel> login(
     @Body() LoginRequestModel loginRequestBody,
+  );
+
+  @POST(ApiConstants.registerEndpoint)
+  Future<UserResponseModel> register(
+    @Body() RegisterRequestModel registerRequestBody,
   );
 }

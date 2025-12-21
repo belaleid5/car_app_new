@@ -1,19 +1,19 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'login_response_model.dart';
+part of 'user_response_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-LoginResponseModel _$LoginResponseModelFromJson(Map<String, dynamic> json) =>
-    LoginResponseModel(
+UserResponseModel _$LoginResponseModelFromJson(Map<String, dynamic> json) =>
+    UserResponseModel(
       message: json['message'] as String,
       userInfo: UserInfoModel.fromJson(json['user'] as Map<String, dynamic>),
       tokens: TokensModel.fromJson(json['tokens'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$LoginResponseModelToJson(LoginResponseModel instance) =>
+Map<String, dynamic> _$LoginResponseModelToJson(UserResponseModel instance) =>
     <String, dynamic>{
       'message': instance.message,
       'user': instance.userInfo.toJson(),

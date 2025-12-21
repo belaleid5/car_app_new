@@ -2,7 +2,7 @@ import 'package:car_app_new/core/extensions/animation_extensions.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/helper/app_regix.dart';
 import 'package:car_app_new/core/language/lang_keys.dart';
-import 'package:car_app_new/features/auth/presention/manger/bloc/login_bloc.dart';
+import 'package:car_app_new/features/auth/presention/manger/bloc_login/login_bloc.dart';
 import 'package:car_app_new/features/auth/presention/widgets/login/custom_form_password.dart';
 import 'package:car_app_new/features/auth/presention/widgets/login/custom_text_form_email.dart';
 import 'package:car_app_new/features/auth/presention/widgets/login/login_bloc_linstener.dart';

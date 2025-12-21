@@ -1,10 +1,11 @@
+import 'package:car_app_new/core/common/widgets/custom_toast.dart';
 import 'package:car_app_new/core/extensions/animation_extensions.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/functions/spink_kit.dart';
 import 'package:car_app_new/core/language/lang_keys.dart';
-import 'package:car_app_new/features/auth/presention/manger/bloc/login_bloc.dart';
-import 'package:car_app_new/features/auth/presention/manger/bloc/login_event.dart';
-import 'package:car_app_new/features/auth/presention/manger/bloc/login_state.dart';
+import 'package:car_app_new/features/auth/presention/manger/bloc_login/login_bloc.dart';
+import 'package:car_app_new/features/auth/presention/manger/bloc_login/login_event.dart';
+import 'package:car_app_new/features/auth/presention/manger/bloc_login/login_state.dart';
 import 'package:car_app_new/features/auth/presention/widgets/button_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,8 +42,17 @@ class CustomBlocBuilderLoginAuth extends StatelessWidget {
   }
 
   void validateAuth(BuildContext context) {
-    if (context.read<LoginBloc>().formKey.currentState!.validate()) {
-      context.read<LoginBloc>().add( const LoginEvent.login());
+  final loginBloc = context.read<LoginBloc>();
+  if (loginBloc.formKey.currentState!.validate()) {
+    
+    if (!loginBloc.rememberMe) {
+      CustomToast.show(
+        context,
+       'Please check Remember Me to continue',
+      );
+      return;
     }
+    loginBloc.add(const LoginEvent.login());
   }
+}
 }
