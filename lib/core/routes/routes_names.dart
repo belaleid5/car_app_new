@@ -7,5 +7,5 @@ class AppRoutesNames{
   static const loginRoute = '/login';
   static const signUpRoute = '/signin';
   static const settingsRoute = '/settings';
-
+  static const homePage = '/home_page';
 }

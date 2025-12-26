@@ -1,6 +1,8 @@
 // features/onboarding/presentation/pages/onboarding_main_page.dart
 import 'package:car_app_new/core/common/widgets/custom_button.dart';
 import 'package:car_app_new/core/extensions/animation_extensions.dart';
+import 'package:car_app_new/core/extensions/context_extensions.dart';
+import 'package:car_app_new/core/routes/routes_names.dart';
 import 'package:car_app_new/core/styles/theme/my_colors.dart';
 import 'package:car_app_new/features/onBording/presention/pages/on_boarding_oage_tow.dart';
 import 'package:car_app_new/features/onBording/presention/pages/on_boarding_page_one.dart';
@@ -39,8 +41,7 @@ class _OnBoardingPageViewState extends State<OnBoardingPageView> {
         curve: Curves.easeInOut,
       );
     } else {
-      // Navigate to home
-      Navigator.pushNamed(context, '/home');
+      context.pushReplacementNamed(AppRoutesNames.loginRoute);
     }
   }
 
@@ -49,7 +50,6 @@ class _OnBoardingPageViewState extends State<OnBoardingPageView> {
     return Scaffold(
       body: Stack(
         children: [
-          // PageView for swipeable pages
           PageView(
             controller: _pageController,
             onPageChanged: _onPageChanged,
@@ -59,7 +59,6 @@ class _OnBoardingPageViewState extends State<OnBoardingPageView> {
             ],
           ),
 
-          // Fixed Bottom Section with Indicator and Button
           Positioned(
             left: 0,
             right: 0,

@@ -1,7 +1,6 @@
 import 'package:car_app_new/core/extensions/animation_extensions.dart';
 import 'package:car_app_new/core/extensions/app_validators.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
-import 'package:car_app_new/core/helper/app_regix.dart';
 import 'package:car_app_new/core/language/lang_keys.dart';
 import 'package:car_app_new/features/auth/presention/manger/bloc_login/login_bloc.dart';
 import 'package:car_app_new/features/auth/presention/widgets/login/custom_form_password.dart';
@@ -48,5 +47,4 @@ class SectionLoginAuth extends StatelessWidget {
     );
   }
 
-  /// Email validation
 }

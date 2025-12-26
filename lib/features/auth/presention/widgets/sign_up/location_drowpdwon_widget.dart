@@ -1,17 +1,12 @@
 import 'package:car_app_new/core/styles/theme/my_colors.dart';
 import 'package:car_app_new/features/auth/data/models/response/location_model.dart';
-import 'package:car_app_new/features/auth/presention/widgets/sign_up/custom_text_form_location.dart';
 import 'package:car_app_new/features/auth/presention/widgets/sign_up/locaation_input_decortion.dart';
-import 'package:car_app_new/features/auth/presention/widgets/sign_up/location_dworpdwon_item_location.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LocationDropdownWidget extends StatelessWidget {
   const LocationDropdownWidget({
-    super.key,
-    required this.locations,
-    required this.selectedId,
-    required this.onChanged,
+    required this.locations, required this.selectedId, required this.onChanged, super.key,
   });
 
   final List<LocationModel> locations;
