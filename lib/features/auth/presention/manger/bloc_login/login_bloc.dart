@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:car_app_new/core/services/api/api_result.dart';
 import 'package:car_app_new/core/services/shared_pref/shared_keys.dart';
@@ -18,12 +19,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
-  
+
   // 🔥 أضف RememberMe state
   bool rememberMe = false;
   String? rememberMeError;
 
-  // 🔥 Method لتغيير RememberMe
   // ignore: avoid_positional_boolean_parameters
   void toggleRememberMe(bool value) {
     rememberMe = value;
@@ -43,17 +43,17 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   FutureOr<void> _login(LoginEvent event, Emitter<LoginState> emit) async {
     try {
-      
       if (!validateRememberMe()) {
-        emit(LoginState.error(error: rememberMeError ?? 'Remember Me is required'));
+        emit(
+          LoginState.error(error: rememberMeError ?? 'Remember Me is required'),
+        );
         return;
       }
-      
 
       await removeSharedPreference();
-      
+
       emit(const LoginState.loading());
-      
+
       final result = await _authRepo.login(
         LoginRequestModel(
           email: emailController.text.trim(),
@@ -61,52 +61,43 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         ),
       );
 
-
-    
       await result.when(
         success: (loginResponse) async {
-        
-                    await SharedPref().setString(
+          await SharedPref().setString(
             PrefKeys.accessToken,
             loginResponse.tokens.accessToken,
           );
-          
+
           await SharedPref().setString(
             PrefKeys.refreshToken,
             loginResponse.tokens.refreshToken,
           );
-          
+
           await SharedPref().setInt(
             PrefKeys.userId,
             loginResponse.userInfo.id,
           );
-          
-          await SharedPref().setBoolean(PrefKeys.rememberMe, rememberMe);          
+
+          await SharedPref().setBoolean(PrefKeys.rememberMe, rememberMe);
           if (!emit.isDone) {
             emit(LoginState.success(loginResponse));
           }
-          
-          
         },
         failure: (error) async {
-         
-          
           if (!emit.isDone) {
             emit(LoginState.error(error: error));
           }
         },
       );
     } catch (e) {
-     
-      
-      
-        emit(const LoginState.error(error: 'An error occurred. Please try again.'));
-      
+      emit(
+        const LoginState.error(error: 'An error occurred. Please try again.'),
+      );
     }
   }
 
   Future<void> removeSharedPreference() async {
-     await SharedPref().removePreference(PrefKeys.accessToken);
+    await SharedPref().removePreference(PrefKeys.accessToken);
     await SharedPref().removePreference(PrefKeys.refreshToken);
     await SharedPref().removePreference(PrefKeys.userId);
   }

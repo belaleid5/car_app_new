@@ -6,6 +6,7 @@ import 'package:car_app_new/features/auth/data/data_source/register_data_source.
 import 'package:car_app_new/features/auth/data/repo/login_repo.dart';
 import 'package:car_app_new/features/auth/data/repo/register_repo.dart';
 import 'package:car_app_new/features/auth/presention/manger/bloc_login/login_bloc.dart';
+import 'package:car_app_new/features/auth/presention/manger/bloc_register/register_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 final GetIt sl = GetIt.instance;
@@ -36,7 +37,7 @@ Future<void> _initAuth() async {
 
 
   // Register Feature
-  
+   ..registerFactory<RegisterBloc>(() => RegisterBloc(sl()))
     ..registerLazySingleton<RegisterRepo>(() => RegisterRepo(apiService: sl()))
     ..registerLazySingleton<BaseRegisterDataSource>(
       () => RemoteRegisterDataSource(sl()),

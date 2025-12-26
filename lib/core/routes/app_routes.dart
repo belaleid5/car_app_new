@@ -1,6 +1,7 @@
 import 'package:car_app_new/core/di/di.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
 import 'package:car_app_new/features/auth/presention/manger/bloc_login/login_bloc.dart';
+import 'package:car_app_new/features/auth/presention/manger/bloc_register/register_bloc.dart';
 import 'package:car_app_new/features/auth/presention/screens/login_page.dart';
 import 'package:car_app_new/features/auth/presention/screens/sign_up_page.dart';
 import 'package:car_app_new/features/onBording/presention/pages/main_onBorading_page.dart';
@@ -16,14 +17,19 @@ class AppRouter {
     switch (settings.name) {
       case AppRoutesNames.loginRoute:
         return MaterialPageRoute(
-          builder: (_) =>  BlocProvider(
+          builder: (_) => BlocProvider(
             create: (context) => sl<LoginBloc>(),
             child: const LoginPage(),
           ),
         );
 
       case AppRoutesNames.signUpRoute:
-        return MaterialPageRoute(builder: (_) => const SignUpPage());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => sl<RegisterBloc>(),
+            child: const SignUpPage(),
+          ),
+        );
 
       case AppRoutesNames.mainBoarding: // ✅ أضف ده
         return MaterialPageRoute(builder: (_) => const MainOnboardingPage());

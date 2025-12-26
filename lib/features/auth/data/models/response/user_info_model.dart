@@ -1,9 +1,13 @@
-import 'package:car_app_new/features/auth/data/models/response/country_model.dart';
-import 'package:car_app_new/features/auth/data/models/response/location_response_model.dart' hide CountryModel;
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:car_app_new/features/auth/data/models/response/location_model.dart';
+import 'package:json_annotation/json_annotation.dart';
+
 part 'user_info_model.g.dart';
-@JsonSerializable(explicitToJson: true) 
+
+@JsonSerializable()
 class UserInfoModel {
+
+  factory UserInfoModel.fromJson(Map<String, dynamic> json) =>
+      _$UserInfoModelFromJson(json);
 
   UserInfoModel({
     required this.id,
@@ -11,8 +15,8 @@ class UserInfoModel {
     required this.email,
     required this.phone,
     required this.phoneIsVerified,
-    required this.country,
-    required this.location,
+    this.country,
+    this.location,
   });
   final int id;
   
@@ -25,11 +29,26 @@ class UserInfoModel {
   @JsonKey(name: 'phone_is_verified')
   final bool phoneIsVerified;
   
-  final CountryModel country;
-  final LocationModel location;
-
-  factory UserInfoModel.fromJson(Map<String, dynamic> json) =>
-      _$UserInfoModelFromJson(json);
+  final CountryModel? country;
+  final LocationModel? location;
 
   Map<String, dynamic> toJson() => _$UserInfoModelToJson(this);
+}
+
+@JsonSerializable()
+class CountryModel {
+
+  CountryModel({
+    required this.id,
+    required this.country,
+    required this.abbreviation,
+  });
+
+  factory CountryModel.fromJson(Map<String, dynamic> json) =>
+      _$CountryModelFromJson(json);
+  final int id;
+  final String country;
+  final String abbreviation;
+
+  Map<String, dynamic> toJson() => _$CountryModelToJson(this);
 }

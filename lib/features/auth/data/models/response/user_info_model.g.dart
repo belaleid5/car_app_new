@@ -13,10 +13,12 @@ UserInfoModel _$UserInfoModelFromJson(Map<String, dynamic> json) =>
       email: json['email'] as String,
       phone: json['phone'] as String,
       phoneIsVerified: json['phone_is_verified'] as bool,
-      country: CountryModel.fromJson(json['country'] as Map<String, dynamic>),
-      location: LocationModel.fromJson(
-        json['location'] as Map<String, dynamic>,
-      ),
+      country: json['country'] == null
+          ? null
+          : CountryModel.fromJson(json['country'] as Map<String, dynamic>),
+      location: json['location'] == null
+          ? null
+          : LocationModel.fromJson(json['location'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$UserInfoModelToJson(UserInfoModel instance) =>
@@ -26,6 +28,19 @@ Map<String, dynamic> _$UserInfoModelToJson(UserInfoModel instance) =>
       'email': instance.email,
       'phone': instance.phone,
       'phone_is_verified': instance.phoneIsVerified,
-      'country': instance.country.toJson(),
-      'location': instance.location.toJson(),
+      'country': instance.country,
+      'location': instance.location,
+    };
+
+CountryModel _$CountryModelFromJson(Map<String, dynamic> json) => CountryModel(
+  id: (json['id'] as num).toInt(),
+  country: json['country'] as String,
+  abbreviation: json['abbreviation'] as String,
+);
+
+Map<String, dynamic> _$CountryModelToJson(CountryModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'country': instance.country,
+      'abbreviation': instance.abbreviation,
     };

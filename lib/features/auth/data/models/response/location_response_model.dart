@@ -1,46 +1,23 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:car_app_new/features/auth/data/models/response/location_model.dart';
+import 'package:car_app_new/features/auth/data/models/response/pagination_location.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'location_response_model.g.dart';
-@JsonSerializable()
-class CountryModel {
-  final int id;
-  final String country;
-  final String abbreviation;
 
-  CountryModel({
-    required this.id,
-    required this.country,
-    required this.abbreviation,
+@JsonSerializable(explicitToJson: true)
+class LocationResponseModel {
+
+  LocationResponseModel({
+    required this.data,
+    this.links,
+    this.meta,
   });
 
-  factory CountryModel.fromJson(Map<String, dynamic> json) =>
-      _$CountryModelFromJson(json);
+  factory LocationResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$LocationResponseModelFromJson(json);
+  final List<LocationModel> data;
+  final PaginationLinks? links;
+  final PaginationMeta? meta;
 
-  Map<String, dynamic> toJson() => _$CountryModelToJson(this);
-}
-
-
-
-
-
-
-
-@JsonSerializable()
-class LocationModel {
-  final int id;
-  final String name;
-  final double lat;
-  final double lng;
-
-  LocationModel({
-    required this.id,
-    required this.name,
-    required this.lat,
-    required this.lng,
-  });
-
-  factory LocationModel.fromJson(Map<String, dynamic> json) =>
-      _$LocationModelFromJson(json);
-
-  Map<String, dynamic> toJson() => _$LocationModelToJson(this);
+  Map<String, dynamic> toJson() => _$LocationResponseModelToJson(this);
 }

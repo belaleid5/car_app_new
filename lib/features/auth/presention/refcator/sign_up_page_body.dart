@@ -47,7 +47,6 @@ class SignUpPageBody extends StatelessWidget {
           SliverToBoxAdapter(
             child: CustomButton(
               textColor: context.colors.black,
-
               text: 'Login',
               onPressed: () {},
             ),

@@ -1,4 +1,5 @@
 import 'package:car_app_new/core/extensions/animation_extensions.dart';
+import 'package:car_app_new/core/extensions/app_validators.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/helper/app_regix.dart';
 import 'package:car_app_new/core/language/lang_keys.dart';
@@ -27,7 +28,7 @@ class SectionLoginAuth extends StatelessWidget {
           CustomTextFormEmail(
             controller: loginBloc.emailController,
             hintText: context.translate(LangKeys.email),
-            validate: _validateEmail,
+            validate: AppValidators.validateEmail,
           ).animateRightLeft(
             duration: const Duration(milliseconds: 1450),
           ),
@@ -35,7 +36,7 @@ class SectionLoginAuth extends StatelessWidget {
           CustomTextFormPassword(
             hintText: context.translate(LangKeys.password),
             controller: loginBloc.passwordController,
-            validate: _validatePassword,
+            validate: AppValidators.validatePassword,
           ).animateRightLeft(
             duration: const Duration(milliseconds: 1500),
           ),
@@ -48,24 +49,4 @@ class SectionLoginAuth extends StatelessWidget {
   }
 
   /// Email validation
-  String? _validateEmail(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Email is required';
-    }
-    if (!AppRegex.isEmailValid(value)) {
-      return 'Please enter a valid email';
-    }
-    return null;
-  }
-
-  /// Password validation
-  String? _validatePassword(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Password is required';
-    }
-    if (value.length < 6) {
-      return 'Password must be at least 6 characters';
-    }
-    return null;
-  }
 }

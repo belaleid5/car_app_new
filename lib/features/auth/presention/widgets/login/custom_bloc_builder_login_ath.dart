@@ -1,4 +1,4 @@
-import 'package:car_app_new/core/common/widgets/custom_toast.dart';
+import 'package:car_app_new/core/extensions/custom_toast.dart';
 import 'package:car_app_new/core/extensions/animation_extensions.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/functions/spink_kit.dart';

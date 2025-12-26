@@ -12,25 +12,25 @@ class CustomToast {
     ToastType type = ToastType.info,
     Duration duration = const Duration(seconds: 5),
   }) {
-    debugPrint('🎨 CustomToast.show called');
+    debugPrint(' CustomToast.show called');
     debugPrint('   Message: $message');
     debugPrint('   Type: $type');
 
     try {
       final overlay = Overlay.of(context, rootOverlay: true);
-      debugPrint('   ✅ Overlay obtained');
+      debugPrint('    Overlay obtained');
 
       late OverlayEntry overlayEntry;
 
       overlayEntry = OverlayEntry(
         builder: (ctx) {
-          debugPrint('   🏗️ Building toast widget');
+          debugPrint('   Building toast widget');
           return _ToastWidget(
             message: message,
             type: type,
             duration: duration,
             onDismissed: () {
-              debugPrint('   🗑️ Dismissing toast');
+              debugPrint('    Dismissing toast');
               overlayEntry..remove()
               ..dispose();
             },
@@ -39,25 +39,25 @@ class CustomToast {
       );
 
       overlay.insert(overlayEntry);
-      debugPrint('   ✅ Toast inserted into overlay');
+      debugPrint('    Toast inserted into overlay');
     } catch (e, stackTrace) {
-      debugPrint('   ❌ Error showing toast: $e');
+      debugPrint('   Error showing toast: $e');
       debugPrint('   Stack: $stackTrace');
     }
   }
 
   static void showSuccess(BuildContext context, String message) {
-    debugPrint('✅ showSuccess called');
+    debugPrint(' showSuccess called');
     show(context, message, type: ToastType.success);
   }
 
   static void showError(BuildContext context, String message) {
-    debugPrint('❌ showError called');
+    debugPrint(' showError called');
     show(context, message, type: ToastType.error);
   }
 
   static void showInfo(BuildContext context, String message) {
-    debugPrint('ℹ️ showInfo called');
+    debugPrint('showInfo called');
     show(context, message);
   }
 }
@@ -88,7 +88,7 @@ class _ToastWidgetState extends State<_ToastWidget>
   @override
   void initState() {
     super.initState();
-    debugPrint('   🎬 Toast widget initState');
+    debugPrint('   Toast widget initState');
     _initAnimations();
     _scheduleAutoDismiss();
   }
@@ -116,13 +116,13 @@ class _ToastWidgetState extends State<_ToastWidget>
     );
 
     await _controller.forward();
-    debugPrint('   ▶️ Animation started');
+    debugPrint('    Animation started');
   }
 
   void _scheduleAutoDismiss() {
     Future.delayed(widget.duration, () async {
       if (mounted) {
-        debugPrint('   ⏰ Auto-dismissing toast');
+        debugPrint('   Auto-dismissing toast');
         await _dismiss();
       }
     });
@@ -135,7 +135,7 @@ class _ToastWidgetState extends State<_ToastWidget>
 
   @override
   void dispose() {
-    debugPrint('   🧹 Toast widget dispose');
+    debugPrint('    Toast widget dispose');
     _controller.dispose();
     super.dispose();
   }
@@ -162,7 +162,7 @@ class _ToastWidgetState extends State<_ToastWidget>
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('   🏗️ Building toast UI');
+    debugPrint(' Building toast UI');
     final config = _getConfig(context);
     final isDark = Theme.of(context).brightness == Brightness.dark;
 

@@ -10,11 +10,14 @@ class CustomTextFormCountry extends StatelessWidget {
     this.controller,
     this.validate,
     this.onChanged,
+    this.onCountryChanged,   
     this.initialCountryCode = 'EG',
   });
+
   final TextEditingController? controller;
   final String? Function(String?)? validate;
-  final Function(String)? onChanged;
+  final void Function(String)? onChanged;
+  final void Function(String countryCode, String dialCode)? onCountryChanged; // 🔥
   final String? initialCountryCode;
 
   @override
@@ -40,18 +43,11 @@ class CustomTextFormCountry extends StatelessWidget {
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.67.r),
         ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.67.r),
-          borderSide: const BorderSide(color: Colors.red),
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.67.r),
-          borderSide: const BorderSide(color: Colors.red, width: 2),
-        ),
       ),
       initialCountryCode: initialCountryCode,
       onChanged: (phone) {
         onChanged?.call(phone.completeNumber);
+        onCountryChanged?.call(phone.countryCode, phone.countryISOCode);
       },
       validator: (phone) {
         if (validate != null) {
@@ -67,8 +63,6 @@ class CustomTextFormCountry extends StatelessWidget {
         color: context.color.textPrimary,
         fontSize: 14.sp,
       ),
-      dropdownIconPosition: IconPosition.trailing,
-      flagsButtonPadding: EdgeInsets.symmetric(horizontal: 12.w),
     );
   }
 }
