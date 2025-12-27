@@ -46,7 +46,6 @@ class CustomBlocBuilderRegisterAuth extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-          backgroundColor: context.color.button,
           onPressed: isLoading ? () {} : () => _validateAndRegister(context),
         ).animateRightLeft(
           duration: const Duration(milliseconds: 1550),

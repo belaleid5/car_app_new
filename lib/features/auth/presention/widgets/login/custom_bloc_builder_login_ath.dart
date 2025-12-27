@@ -31,7 +31,6 @@ class CustomBlocBuilderLoginAuth extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-            backgroundColor: context.color.button,
             onPressed: () {
               validateAuth(context);
             },

@@ -9,6 +9,8 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.colors.secondary,
+            resizeToAvoidBottomInset: true,
+
       body: const SignUpPageBody(),
     );
   }

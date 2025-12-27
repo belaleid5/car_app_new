@@ -47,7 +47,7 @@ class CarApp extends StatelessWidget {
                       debugShowCheckedModeBanner:
                           EnvVariable.instance.isDebugMode,
                       onGenerateRoute: AppRouter.onGenerateRoute,
-                      initialRoute: AppRoutesNames.mainBoarding,
+                      initialRoute: AppRoutesNames.verificationRoute,
                       theme: cubit.isDark ? themeLight() : themeDark(),
                       supportedLocales: AppLocalizationsSetup.supportedLocales,
                       localizationsDelegates:

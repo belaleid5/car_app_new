@@ -4,7 +4,7 @@ import 'package:car_app_new/core/helper/spacing.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
 import 'package:car_app_new/core/styles/app_images.dart';
 import 'package:car_app_new/features/auth/presention/widgets/dont_have_an_acount.dart';
-import 'package:car_app_new/features/auth/presention/widgets/login/Custom_wlcome_text.dart';
+import 'package:car_app_new/features/auth/presention/widgets/Custom_wlcome_text.dart';
 import 'package:car_app_new/features/auth/presention/widgets/login/section_login_auht.dart';
 import 'package:car_app_new/features/auth/presention/widgets/secction_logo_and_title_qent.dart';
 import 'package:car_app_new/features/auth/presention/widgets/section_divider_or_text.dart';
@@ -27,7 +27,7 @@ class LoginPageBody extends StatelessWidget {
               const SliverToBoxAdapter(child: SectionLogoAndTitleQent()),
               SliverToBoxAdapter(child: verticalSpace(60.h)),
               SliverToBoxAdapter(
-                child: const CustomWelcomeText().animateRightLeft(),
+                child: const CustomTitleTextAuth(title: 'Welcome Back \nReady to hit the road.',).animateRightLeft(),
               ),
               SliverToBoxAdapter(child: verticalSpace(120.h)),
               const SliverToBoxAdapter(child: SectionLoginAuth()),
@@ -53,14 +53,15 @@ class LoginPageBody extends StatelessWidget {
                   firstTitle: "Don't have an account? ",
                   secondTitle: 'Sign Up',
                   onTap: () async {
-                    await context.pushReplacementNamed(AppRoutesNames.signUpRoute);
+                    await context.pushReplacementNamed(
+                      AppRoutesNames.signUpRoute,
+                    );
                   },
                 ),
               ),
             ],
           ),
         ),
-        
       ],
     );
   }

@@ -4,6 +4,7 @@ import 'package:car_app_new/features/auth/presention/manger/bloc_login/login_blo
 import 'package:car_app_new/features/auth/presention/manger/bloc_register/register_bloc.dart';
 import 'package:car_app_new/features/auth/presention/screens/login_page.dart';
 import 'package:car_app_new/features/auth/presention/screens/sign_up_page.dart';
+import 'package:car_app_new/features/auth/presention/screens/verification_page.dart';
 import 'package:car_app_new/features/onBording/presention/pages/main_onBorading_page.dart';
 import 'package:car_app_new/features/onBording/presention/pages/on_boarding_oage_tow.dart';
 import 'package:car_app_new/features/onBording/presention/pages/on_boarding_page_one.dart';
@@ -32,7 +33,7 @@ class AppRouter {
           ),
         );
 
-      case AppRoutesNames.mainBoarding: // ✅ أضف ده
+      case AppRoutesNames.mainBoarding: 
         return MaterialPageRoute(builder: (_) => const MainOnboardingPage());
 
       case AppRoutesNames.pageViewBoarding:
@@ -48,7 +49,16 @@ class AppRouter {
 
       case AppRoutesNames.settingsRoute:
         return MaterialPageRoute(builder: (_) => const SettingsPage());
+      
+      case AppRoutesNames.settingsRoute:
+        return MaterialPageRoute(builder: (_) => const SettingsPage());
+      
+      case AppRoutesNames.verificationRoute:
+        return MaterialPageRoute(builder: (_) => const VerificationPage());
+
+
       default:
+      
         return MaterialPageRoute(
           builder: (_) => Scaffold(
             body: Center(

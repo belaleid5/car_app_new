@@ -8,4 +8,5 @@ class AppRoutesNames{
   static const signUpRoute = '/signin';
   static const settingsRoute = '/settings';
   static const homePage = '/home_page';
+  static const verificationRoute = '/verification_route';
 }
