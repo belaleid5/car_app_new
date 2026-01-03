@@ -18,6 +18,7 @@ class MyColors extends ThemeExtension<MyColors> {
     required this.white,
     required this.black,
     required this.spinKitColor,
+    required this.divider,
   });
   // ========== Main Colors ==========
   final Color primary;
@@ -34,6 +35,7 @@ class MyColors extends ThemeExtension<MyColors> {
   final Color button;
   final Color icon;
   final Color background;
+    final Color divider;
 
   // ========== Common Colors ==========
   final Color white;
@@ -55,6 +57,7 @@ class MyColors extends ThemeExtension<MyColors> {
     white: Color(0xFFFFFFFF),
     black: Color(0xFF000000),
     spinKitColor: Color(0xFFFFFFFF),
+    divider: Color(0xFF767676),
   );
 
   // ========== Dark Theme Colors ==========
@@ -72,6 +75,7 @@ class MyColors extends ThemeExtension<MyColors> {
     white: Color(0xFFFFFFFF),
     black: Color(0xFF000000),
     spinKitColor: Color(0xFF000000),
+    divider: Color(0xFFFFFFFF),
   );
 
   @override
@@ -88,8 +92,10 @@ class MyColors extends ThemeExtension<MyColors> {
     Color? background,
     Color? white,
     Color? black,
+    Color ? divider,
   }) {
     return MyColors(
+
       primary: primary ?? this.primary,
       secondary: secondary ?? this.secondary,
       tertiary: tertiary ?? this.tertiary,
@@ -103,6 +109,7 @@ class MyColors extends ThemeExtension<MyColors> {
       white: white ?? this.white,
       black: black ?? this.black,
       spinKitColor: spinKitColor,
+      divider: divider ?? this.divider,
     );
   }
 
@@ -124,6 +131,7 @@ class MyColors extends ThemeExtension<MyColors> {
       white: Color.lerp(white, other.white, t)!,
       black: Color.lerp(black, other.black, t)!,
       spinKitColor: Color.lerp(spinKitColor, other.spinKitColor, t)!,
+      divider: Color.lerp(spinKitColor, other.divider, t)!,
     );
   }
 }

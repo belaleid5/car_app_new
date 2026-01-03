@@ -20,7 +20,7 @@ class CarApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: ConnectivityController.instance.isConnected,
-      builder: (_, value, __) {
+      builder: (_, value, _) {
         if (value) {
           return GestureDetector(
             onTap: () {
@@ -47,7 +47,7 @@ class CarApp extends StatelessWidget {
                       debugShowCheckedModeBanner:
                           EnvVariable.instance.isDebugMode,
                       onGenerateRoute: AppRouter.onGenerateRoute,
-                      initialRoute: AppRoutesNames.verificationRoute,
+                      initialRoute: AppRoutesNames.signUpRoute,
                       theme: cubit.isDark ? themeLight() : themeDark(),
                       supportedLocales: AppLocalizationsSetup.supportedLocales,
                       localizationsDelegates:

@@ -2,7 +2,7 @@ import 'package:car_app_new/core/constants/api_errors_constants.dart';
 import 'package:car_app_new/core/errors/api_error_model.dart';
 import 'package:dio/dio.dart';
 
-// TODO: wallahy I will refactor this .. Omar Ahmed
+
 enum DataSource {
   NO_CONTENT,
   BAD_REQUEST,
@@ -16,7 +16,6 @@ enum DataSource {
   SEND_TIMEOUT,
   CACHE_ERROR,
   NO_INTERNET_CONNECTION,
-  // API_LOGIC_ERROR,
   DEFAULT,
 }
 

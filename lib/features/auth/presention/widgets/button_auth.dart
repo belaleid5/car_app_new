@@ -5,12 +5,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ButtonAuth extends StatelessWidget {
   const ButtonAuth({
-    required this.widgetTitle,
+     this.widgetTitle,
      super.key,
     this.onPressed,
   });
   final VoidCallback? onPressed;
-  final Widget widgetTitle;
+  final Widget ? widgetTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class ButtonAuth extends StatelessWidget {
           borderRadius: BorderRadius.circular(20.r),
         ),
       ),
-      child: widgetTitle
+      child: widgetTitle ?? const SizedBox.shrink(),
     );
   }
 }

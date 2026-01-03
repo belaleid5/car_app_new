@@ -5,7 +5,7 @@ import 'package:car_app_new/features/auth/data/models/response/user_response_mod
 
 abstract class BaseRegisterDataSource {
   Future<UserResponseModel> register(RegisterRequestModel request);
-  Future<LocationResponseModel> getLocations(); // ✅ يرجع الـ full response
+  Future<LocationResponseModel> getLocations(); 
 }
 
 class RemoteRegisterDataSource implements BaseRegisterDataSource {
@@ -19,6 +19,6 @@ class RemoteRegisterDataSource implements BaseRegisterDataSource {
 
   @override
   Future<LocationResponseModel> getLocations() {
-    return apiService.getLocations(); // ✅ يرجع LocationResponseModel
+    return apiService.getLocations(); 
   }
 }

@@ -25,8 +25,8 @@ class RegisterRepo {
 
   Future<ApiResult<List<LocationModel>>> getLocations() async {
     try {
-      final response = await _apiService.getLocations(); // ✅ بيرجع LocationResponseModel
-      return ApiResult.success(response.data); // ✅ خد الـ data list
+      final response = await _apiService.getLocations(); 
+      return ApiResult.success(response.data); 
     } catch (error) {
       return ApiResult.failure(
         ErrorHandler.handle(error).apiErrorModel.message!,

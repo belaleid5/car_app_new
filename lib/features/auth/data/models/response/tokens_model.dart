@@ -12,10 +12,10 @@ class TokensModel {
 
   factory TokensModel.fromJson(Map<String, dynamic> json) =>
       _$TokensModelFromJson(json);
-  @JsonKey(name: 'access') // ✅ مهم جداً
+  @JsonKey(name: 'access')
   final String accessToken;
   
-  @JsonKey(name: 'refresh') // ✅ مهم جداً
+  @JsonKey(name: 'refresh') 
   final String refreshToken;
 
   Map<String, dynamic> toJson() => _$TokensModelToJson(this);

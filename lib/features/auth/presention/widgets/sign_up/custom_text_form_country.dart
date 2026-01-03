@@ -17,7 +17,7 @@ class CustomTextFormCountry extends StatelessWidget {
   final TextEditingController? controller;
   final String? Function(String?)? validate;
   final void Function(String)? onChanged;
-  final void Function(String countryCode, String dialCode)? onCountryChanged; // 🔥
+  final void Function(String countryISOCode, String dialCode)? onCountryChanged;
   final String? initialCountryCode;
 
   @override
@@ -47,7 +47,10 @@ class CustomTextFormCountry extends StatelessWidget {
       initialCountryCode: initialCountryCode,
       onChanged: (phone) {
         onChanged?.call(phone.completeNumber);
-        onCountryChanged?.call(phone.countryCode, phone.countryISOCode);
+        onCountryChanged?.call(
+          phone.countryISOCode,  
+          '+${phone.countryCode}', 
+        );
       },
       validator: (phone) {
         if (validate != null) {

@@ -16,9 +16,7 @@ class RegisterBlocListener extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<RegisterBloc, RegisterState>(
-      // ============= LISTENER =============
       listenWhen: (previous, current) {
-        // استمع فقط للـ success و error
         return current.maybeWhen(
           success: (_) => true,
           error: (_) => true,
@@ -30,10 +28,8 @@ class RegisterBlocListener extends StatelessWidget {
           success: (data) {
             debugPrint('🎉 Listener: Success triggered!');
             
-            // اعرض الـ Toast
             CustomToast.showSuccess(context, 'Registration successful!');
             
-            // انتقل لصفحة تسجيل الدخول
             Future.delayed(const Duration(milliseconds: 1500), () {
               if (context.mounted) {
                 debugPrint('🚀 Navigating to login...');
@@ -42,14 +38,12 @@ class RegisterBlocListener extends StatelessWidget {
             });
           },
           error: (error) {
-            debugPrint('❌ Listener: Error triggered - $error');
+            debugPrint(' Listener: Error triggered - $error');
             CustomToast.showError(context, error);
           },
         );
       },
-      // ============= BUILDER =============
       buildWhen: (previous, current) {
-        // اعمل rebuild فقط للـ loading و initial
         return current.maybeWhen(
           loading: () => true,
           initial: () => true,

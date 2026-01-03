@@ -1,3 +1,5 @@
+import 'package:car_app_new/core/extensions/context_extensions.dart';
+import 'package:car_app_new/features/user/home/presention/widgets/home_page_body.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -6,12 +8,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home Page'),
-      ),
-      body: const Center(
-        child: Text('Welcome to the Home Page!'),
-      ),
+      backgroundColor: context.color.background,
+      body: const HomePageBody(),
     );
   }
 }

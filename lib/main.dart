@@ -14,8 +14,8 @@ void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = AppBlocObserver();
-await SharedPref().initPreferences();
-await setupDI();
+  await SharedPref().initPreferences();
+  await setupDI();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const CarApp());
 }
