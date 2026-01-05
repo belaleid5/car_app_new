@@ -71,7 +71,6 @@ class SectionVerificationAuth extends StatefulWidget {
 class _SectionVerificationAuthState extends State<SectionVerificationAuth> {
   final phoneController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  String fullPhoneNumber = '';
 
   @override
   Widget build(BuildContext context) {
@@ -102,9 +101,7 @@ class _SectionVerificationAuthState extends State<SectionVerificationAuth> {
                 controller: phoneController,
                 validate: AppValidators.validatePhone,
                 onChanged: (completeNumber) {
-                  setState(() {
-                    fullPhoneNumber = completeNumber;
-                  });
+                  
                   print('Complete Phone Number: $completeNumber');
                 },
                 onCountryChanged: (countryCode, dialCode) {
@@ -128,11 +125,11 @@ class _SectionVerificationAuthState extends State<SectionVerificationAuth> {
                   if (isLoading) return;
 
                   if (_formKey.currentState!.validate()) {
-                    print('Sending Phone Number: $fullPhoneNumber');
+                    print('Sending Phone Number: $phoneController');
                     
                     context.read<VerifyCodePhoneAuthBloc>().add(
                       VerifyCodePhoneAuthEvent.verifyPhone(
-                        phoneNumber: fullPhoneNumber,
+                        phoneNumber: phoneController.text,
                         accessToken: accessToken,
                       ),
                     );

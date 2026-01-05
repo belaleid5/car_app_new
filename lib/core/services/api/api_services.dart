@@ -27,8 +27,10 @@ abstract class ApiService {
   @GET(ApiConstants.registerLocationsEndpoint)
   Future<LocationResponseModel> getLocations();
 
-  @POST(ApiConstants.verifyCodePhoneEndpoint)
+  @POST('https://qent.azurewebsites.net/api/auth/phone/request_verify_code/')
+  @FormUrlEncoded() 
   Future<VerifyPhoneResponseModel> verifyCodePhoneRequest(
-    @Body() SendCodePhoneRequestModel verifyCodePhoneRequestModel,
+    @Field('phone') String phoneNumber, // ← اسم الـ field حسب الـ API
+    @Field('access_token') String accessToken,
   );
 }

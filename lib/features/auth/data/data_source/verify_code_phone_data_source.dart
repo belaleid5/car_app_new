@@ -18,7 +18,9 @@ class RemoteVerifyCodePhoneDataSource implements BaseVerifyCodePhoneDataSource {
     required SendCodePhoneRequestModel verifyCodePhoneRequestModel,
   }) async {
     final result = await apiService.verifyCodePhoneRequest(
-      verifyCodePhoneRequestModel,
+      verifyCodePhoneRequestModel.phoneNumber,
+      verifyCodePhoneRequestModel.accessToken,
+      
     );
     return result;
   }

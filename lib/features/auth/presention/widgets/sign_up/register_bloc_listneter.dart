@@ -33,7 +33,7 @@ class RegisterBlocListener extends StatelessWidget {
             Future.delayed(const Duration(milliseconds: 1500), () {
               if (context.mounted) {
                 debugPrint('🚀 Navigating to login...');
-                context.pushReplacementNamed(AppRoutesNames.loginRoute);
+                context.pushReplacementNamed(AppRoutesNames.verificationRoute);
               }
             });
           },

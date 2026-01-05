@@ -108,18 +108,23 @@ class _ApiService implements ApiService {
 
   @override
   Future<VerifyPhoneResponseModel> verifyCodePhoneRequest(
-    SendCodePhoneRequestModel verifyCodePhoneRequestModel,
+    String phoneNumber,
+    String accessToken,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(verifyCodePhoneRequestModel.toJson());
+    final _data = {'phone': phoneNumber, 'access_token': accessToken};
     final _options = _setStreamType<VerifyPhoneResponseModel>(
-      Options(method: 'POST', headers: _headers, extra: _extra)
+      Options(
+            method: 'POST',
+            headers: _headers,
+            extra: _extra,
+            contentType: 'application/x-www-form-urlencoded',
+          )
           .compose(
             _dio.options,
-            'https://qent.azurewebsites.net/api/auth/phone/request_verify_code',
+            'https://qent.azurewebsites.net/api/auth/phone/request_verify_code/',
             queryParameters: queryParameters,
             data: _data,
           )

@@ -5,9 +5,9 @@ part 'verify_code_phone_response_model.g.dart';
 
 @JsonSerializable()
 class VerifyPhoneResponseModel {
-  VerifyPhoneResponseModel( {
+  VerifyPhoneResponseModel({
     required this.message,
-    required this.verifyCode,
+    required this.verifyToken,
     required this.code,
   });
 
@@ -15,15 +15,11 @@ class VerifyPhoneResponseModel {
       _$VerifyPhoneResponseModelFromJson(json);
 
   final String message;
-  
-  @JsonKey(name: 'verify_code')
-  final String verifyCode;
-  
-  @JsonKey(name: 'code')
+
+  @JsonKey(name: 'verify_token')
+  final String verifyToken;
+
   final String code;
-
-  
-
 
   Map<String, dynamic> toJson() => _$VerifyPhoneResponseModelToJson(this);
 }
