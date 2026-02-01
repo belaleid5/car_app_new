@@ -3,11 +3,13 @@ analyzer:
     avoid_catches_without_on_clauses: ignore
     avoid_positional_boolean_parameters: ignore
     avoid_print: ignore
+    constant_identifier_names: ignore
     deprecated_member_use: ignore
     discarded_futures: ignore
     inference_failure_on_function_invocation: ignore
     lines_longer_than_80_chars: ignore
     one_member_abstracts: ignore
+    recursive_getters: ignore
     strict_raw_type: ignore
     unreachable_switch_case: ignore
     use_setters_to_change_properties: ignore

@@ -1,9 +1,9 @@
 import 'package:car_app_new/core/styles/theme/my_colors.dart';
-import 'package:car_app_new/features/auth/presention/refcator/verivcation_page_body.dart';
+import 'package:car_app_new/features/auth/presention/refcator/confirm_page_body.dart';
 import 'package:flutter/material.dart';
 
-class VerificationPage extends StatelessWidget {
-  const VerificationPage({super.key});
+class ConfirmPage extends StatelessWidget {
+  const ConfirmPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class VerificationPage extends StatelessWidget {
       backgroundColor: context.colors.primary,
       resizeToAvoidBottomInset: true,
 
-      body:  VerificationPageBody(),
+      body: const ConfirmPageBody(),
     );
   }
 }

@@ -20,7 +20,7 @@ class CarApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: ConnectivityController.instance.isConnected,
-      builder: (_, value, __) {
+      builder: (_, value, _) {
         if (value) {
           return GestureDetector(
             onTap: () {
@@ -43,6 +43,40 @@ class CarApp extends StatelessWidget {
                 localeResolutionCallback:
                     AppLocalizationsSetup.localeResolutionCallback,
             
+            ),
+            child: BlocProvider(
+              create: (context) => sl<AppCubit>()
+                ..changeAppThemeMode(
+                  sharedMode:
+                      SharedPref().getBoolean(PrefKeys.themeMode) ?? false,
+                ),
+              child: ScreenUtilInit(
+                designSize: const Size(430, 932),
+                minTextAdapt: true,
+                splitScreenMode: true,
+                child: BlocBuilder<AppCubit, AppState>(
+                  buildWhen: (previous, current) {
+                    return previous != current;
+                  },
+                  builder: (context, state) {
+                    final cubit = context.read<AppCubit>();
+
+                    return MaterialApp(
+                      debugShowCheckedModeBanner:
+                          EnvVariable.instance.isDebugMode,
+                      onGenerateRoute: AppRouter.onGenerateRoute,
+                      initialRoute: AppRoutesNames.signUpRoute,
+                      theme: cubit.isDark ? themeLight() : themeDark(),
+                      supportedLocales: AppLocalizationsSetup.supportedLocales,
+                      localizationsDelegates:
+                          AppLocalizationsSetup.localizationsDelegates,
+                      locale: const Locale('en'),
+                      localeResolutionCallback:
+                          AppLocalizationsSetup.localeResolutionCallback,
+                    );
+                  },
+                ),
+              ),
             ),
             ),
           );

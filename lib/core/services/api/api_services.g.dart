@@ -106,6 +106,41 @@ class _ApiService implements ApiService {
     return _value;
   }
 
+  @override
+  Future<VerifyPhoneResponseModel> verifyCodePhoneRequest(
+    String phoneNumber,
+    String accessToken,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = {'phone': phoneNumber, 'access_token': accessToken};
+    final _options = _setStreamType<VerifyPhoneResponseModel>(
+      Options(
+            method: 'POST',
+            headers: _headers,
+            extra: _extra,
+            contentType: 'application/x-www-form-urlencoded',
+          )
+          .compose(
+            _dio.options,
+            'https://qent.azurewebsites.net/api/auth/phone/request_verify_code/',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late VerifyPhoneResponseModel _value;
+    try {
+      _value = VerifyPhoneResponseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, _result);
+      rethrow;
+    }
+    return _value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||

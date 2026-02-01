@@ -2,9 +2,11 @@ import 'package:car_app_new/core/di/di.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
 import 'package:car_app_new/features/auth/presention/manger/bloc_login/login_bloc.dart';
 import 'package:car_app_new/features/auth/presention/manger/bloc_register/register_bloc.dart';
+import 'package:car_app_new/features/auth/presention/manger/verify_code_phone_auth_bloc.dart';
+import 'package:car_app_new/features/auth/presention/screens/confirm_page.dart';
 import 'package:car_app_new/features/auth/presention/screens/login_page.dart';
 import 'package:car_app_new/features/auth/presention/screens/sign_up_page.dart';
-import 'package:car_app_new/features/auth/presention/screens/verification_page.dart';
+import 'package:car_app_new/features/auth/presention/screens/verifcation_page.dart';
 import 'package:car_app_new/features/onBording/presention/pages/main_onBorading_page.dart';
 import 'package:car_app_new/features/onBording/presention/pages/on_boarding_oage_tow.dart';
 import 'package:car_app_new/features/onBording/presention/pages/on_boarding_page_one.dart';
@@ -33,7 +35,7 @@ class AppRouter {
           ),
         );
 
-      case AppRoutesNames.mainBoarding: 
+      case AppRoutesNames.mainBoarding:
         return MaterialPageRoute(builder: (_) => const MainOnboardingPage());
 
       case AppRoutesNames.pageViewBoarding:
@@ -49,16 +51,22 @@ class AppRouter {
 
       case AppRoutesNames.settingsRoute:
         return MaterialPageRoute(builder: (_) => const SettingsPage());
-      
+
       case AppRoutesNames.settingsRoute:
         return MaterialPageRoute(builder: (_) => const SettingsPage());
-      
-      case AppRoutesNames.verificationRoute:
-        return MaterialPageRoute(builder: (_) => const VerificationPage());
 
+      case AppRoutesNames.ConfirmRoute:
+        return MaterialPageRoute(builder: (_) => const ConfirmPage());
+
+      case AppRoutesNames.verificationRoute:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => sl<VerifyCodePhoneAuthBloc>(),
+            child: const VerificationPage(),
+          ),
+        );
 
       default:
-      
         return MaterialPageRoute(
           builder: (_) => Scaffold(
             body: Center(

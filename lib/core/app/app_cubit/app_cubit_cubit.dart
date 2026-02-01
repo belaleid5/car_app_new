@@ -11,7 +11,7 @@ class AppCubit extends Cubit<AppState> {
   AppCubit() : super(const AppState.initial());
 
   bool isDark = true;
-  String currentLangCode = "en";
+  String currentLangCode = 'en';
 
   // Theme Mode
   Future<void> changeAppThemeMode({bool? sharedMode}) async {
