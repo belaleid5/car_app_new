@@ -10,7 +10,7 @@ class VerificationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     
         
-    return  Scaffold(
+    return  const Scaffold(
       body: VerificationPageBody(),
     );
   }

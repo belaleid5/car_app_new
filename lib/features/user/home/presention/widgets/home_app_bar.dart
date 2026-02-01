@@ -21,6 +21,7 @@ class HomeAppBar extends StatelessWidget {
         const NotificationWidgetHomeIcon(),
         horizontalSpace(10),
         const CircleUserImage(),
+        
       ],
     );
   }

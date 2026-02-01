@@ -19,4 +19,5 @@ class AppImages {
   //home assets
   static const String notificationIcon = 'assets/icons/notifications_icon.svg';
   static const String personImage = 'assets/images/person.png';
+  static const String brandImage = 'assets/images/brand_image.png';
 }

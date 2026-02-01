@@ -1,5 +1,10 @@
+import 'package:car_app_new/core/extensions/context_extensions.dart';
+import 'package:car_app_new/core/helper/spacing.dart';
+import 'package:car_app_new/core/styles/app_images.dart';
 import 'package:car_app_new/features/auth/presention/widgets/custom_divider.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/home_app_bar.dart';
+import 'package:car_app_new/features/user/home/presention/widgets/section_brands.dart';
+import 'package:car_app_new/features/user/home/presention/widgets/section_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,28 +13,35 @@ class HomePageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(right: 24.sp,left:24.sp,top:20.sp),
-      child: const CustomScrollView(
-        shrinkWrap: true,
-        slivers: [
-          HomeAppBar(),
-          SliverToBoxAdapter(child: CustomDivider(),),
-          SliverToBoxAdapter(child: SectionSearch(),)
-
-        ],
-      ),
+    return CustomScrollView(
+      shrinkWrap: true,
+      slivers: [
+        SliverPadding(
+          padding: EdgeInsets.fromLTRB(24.sp, 20.sp, 24.sp, 0),
+          sliver: const HomeAppBar(),
+        ),
+        const SliverToBoxAdapter(
+          child: Expanded(child: CustomDivider()),
+        ),
+        SliverToBoxAdapter(
+          child: verticalSpace(10.h),
+        ),
+        SliverPadding(
+          padding: EdgeInsets.symmetric(horizontal: 20.sp),
+          sliver: const SliverToBoxAdapter(
+            child: SectionSearch(),
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: verticalSpace(20.h),
+        ),
+        SliverPadding(
+          padding: EdgeInsets.symmetric(horizontal: 24.sp),
+          sliver: const SliverToBoxAdapter(
+            child: SectionBrands(),
+          ),
+        ),
+      ],
     );
-  }
-}
-
-
-class SectionSearch extends StatelessWidget {
-  const SectionSearch({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Column(
-      );
   }
 }
