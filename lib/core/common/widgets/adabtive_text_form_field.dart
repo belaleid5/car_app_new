@@ -1,13 +1,14 @@
+import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/styles/theme/my_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AdaptiveInputField extends StatelessWidget {
-
   const AdaptiveInputField({
     required this.context,
     required this.controller,
-     this.validate,
+    this.validate,
     super.key,
     this.title,
     this.counterText,
@@ -88,12 +89,11 @@ class AdaptiveInputField extends StatelessWidget {
           readOnly: readOnly,
           controller: controller,
           keyboardType: keyboardType,
-          onTapOutside:
-              doOnTapOutside
-                  ? (PointerDownEvent event) {
-                    FocusManager.instance.primaryFocus?.unfocus();
-                  }
-                  : null,
+          onTapOutside: doOnTapOutside
+              ? (PointerDownEvent event) {
+                  FocusManager.instance.primaryFocus?.unfocus();
+                }
+              : null,
           obscureText: isPassword,
           textDirection: textDirection,
           textAlign: textAlign!,
@@ -110,7 +110,14 @@ class AdaptiveInputField extends StatelessWidget {
           inputFormatters: inputFormatters,
           textCapitalization: textCapitalization,
           textAlignVertical: TextAlignVertical.center,
-          style: Theme.of(context).textTheme.bodyMedium,
+          style: context.textStyle.copyWith(
+              color: context
+                  .colors
+                  .textSecondary, // 👈 غيّر هنا من textPrimary لـ textSecondary
+              fontWeight: FontWeight.w400,
+              fontSize: 14.sp,
+            ),
+
           initialValue: initialValue,
           decoration: InputDecoration(
             icon: textFormFieldIcon,
@@ -121,7 +128,13 @@ class AdaptiveInputField extends StatelessWidget {
             contentPadding: const EdgeInsets.all(15),
             constraints: constraints,
             counterText: counterText,
-            hintStyle: Theme.of(context).textTheme.bodySmall,
+            hintStyle: context.textStyle.copyWith(
+              color: context
+                  .colors
+                  .textSecondary, // 👈 غيّر هنا من textPrimary لـ textSecondary
+              fontWeight: FontWeight.w400,
+              fontSize: 14.sp,
+            ),
             errorStyle: Theme.of(context).textTheme.labelLarge,
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.light.stroke),
@@ -153,14 +166,13 @@ class AdaptiveInputField extends StatelessWidget {
             ),
             //border: const UnderlineInputBorder(),
             prefixIcon: prefix,
-            suffixIcon:
-                suffix != null
-                    ? IconButton(
-                      onPressed: suffixPressed,
-                      icon: suffix!,
-                      color: suffixColor,
-                    )
-                    : null,
+            suffixIcon: suffix != null
+                ? IconButton(
+                    onPressed: suffixPressed,
+                    icon: suffix!,
+                    color: suffixColor,
+                  )
+                : null,
           ),
         ),
         SizedBox(height: heightAfterIt),

@@ -2,6 +2,8 @@
 import 'package:car_app_new/core/common/widgets/custom_logo_app_svg.dart';
 import 'package:car_app_new/core/extensions/animation_extensions.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
+import 'package:car_app_new/core/services/shared_pref/shared_keys.dart';
+import 'package:car_app_new/core/services/shared_pref/shared_pref.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,7 +25,9 @@ class _MainOnboardingPageState extends State<MainOnboardingPage> {
     // ignore: inference_failure_on_instance_creation
     await Future.delayed(const Duration(seconds: 3));
     if (mounted) {
-   await   Navigator.pushReplacementNamed(context, AppRoutesNames.pageViewBoarding);
+
+      
+   await   Navigator.pushReplacementNamed(context,SharedPref().getString(PrefKeys.accessToken) !=null? AppRoutesNames.homePage: AppRoutesNames.pageViewBoarding);
     }
   }
 

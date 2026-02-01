@@ -1,12 +1,13 @@
 // core/widgets/custom_button.dart
+import 'package:car_app_new/core/styles/theme/my_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomButton extends StatelessWidget {
-
   const CustomButton({
-    required this.text, 
-    required this.onPressed, super.key,
+    required this.text,
+     this.onPressed,
+    super.key,
     this.backgroundColor,
     this.textColor,
     this.width,
@@ -14,7 +15,7 @@ class CustomButton extends StatelessWidget {
     this.borderRadius,
   });
   final String text;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final Color? backgroundColor;
   final Color? textColor;
   final double? width;
@@ -29,17 +30,16 @@ class CustomButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: backgroundColor ?? 
-          Theme.of(context).colorScheme.primary,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius ?? 12.r),
-          ),
-          elevation: 0,
+        backgroundColor: context.colors.white,
+        minimumSize: Size(400.w, 62.h),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.r),
         ),
+      ),
         child: Text(
           text,
           style: TextStyle(
-            color: textColor ?? Colors.white,
+            color: textColor ?? context.colors.white,
             fontSize: 16.sp,
             fontWeight: FontWeight.w600,
           ),

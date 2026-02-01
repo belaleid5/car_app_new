@@ -12,7 +12,7 @@ class SectionRememberUserWithForgetPassword extends StatelessWidget {
     return const Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-       CustomCheckBoxAndRemember(),
+        CustomCheckBoxAndRemember(),
         WidgetForgetPassword(),
       ],
     );

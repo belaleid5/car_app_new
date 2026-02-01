@@ -1,11 +1,16 @@
+import 'package:car_app_new/core/app/app_cubit/app_cubit_cubit.dart';
 import 'package:car_app_new/core/app/connectivitiy_controller.dart';
 import 'package:car_app_new/core/app/env_varible.dart';
 import 'package:car_app_new/core/common/screens/no_network.dart';
+import 'package:car_app_new/core/di/di.dart';
 import 'package:car_app_new/core/language/app_localizations_setup.dart';
 import 'package:car_app_new/core/routes/app_routes.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
+import 'package:car_app_new/core/services/shared_pref/shared_keys.dart';
+import 'package:car_app_new/core/services/shared_pref/shared_pref.dart';
 import 'package:car_app_new/core/styles/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CarApp extends StatelessWidget {
@@ -15,7 +20,7 @@ class CarApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: ConnectivityController.instance.isConnected,
-      builder: (_, value, _) {
+      builder: (_, value, __) {
         if (value) {
           return GestureDetector(
             onTap: () {
@@ -37,13 +42,13 @@ class CarApp extends StatelessWidget {
                 locale: const Locale('en'),
                 localeResolutionCallback:
                     AppLocalizationsSetup.localeResolutionCallback,
-              ),
+            
+            ),
             ),
           );
         } else {
           return MaterialApp(
             debugShowCheckedModeBanner: EnvVariable.instance.isDebugMode,
-            title: 'No Network',
             home: const NoNetwork(),
           );
         }

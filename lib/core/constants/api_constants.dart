@@ -1,0 +1,22 @@
+class ApiConstants {
+  static const String baseUrl = 'https://qent.azurewebsites.net/api';
+
+  // Endpoints
+  static const String carsEndpoint = '$baseUrl/cars';
+  static const String carDetailsEndpoint = '$baseUrl/cars';
+  static const String createCarEndpoint = '$baseUrl/cars';
+  static const String updateCarEndpoint = '$baseUrl/cars';
+  static const String deleteCarEndpoint = '$baseUrl/cars';
+  static const String loginEndpoint = '$baseUrl/auth/login/';
+  static const String registerEndpoint = '$baseUrl/auth/register/';
+  static const String registerLocationsEndpoint =
+      '$baseUrl/public/register_locations';
+
+  // Timeouts
+  static const Duration connectionTimeout = Duration(seconds: 30);
+  static const Duration receiveTimeout = Duration(seconds: 30);
+
+  // Headers
+  static const String contentType = 'application/json';
+  static const String authorization = 'Authorization';
+}
