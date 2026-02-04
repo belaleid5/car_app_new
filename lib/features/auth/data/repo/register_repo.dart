@@ -2,7 +2,7 @@ import 'package:car_app_new/core/errors/api_error_handler.dart';
 import 'package:car_app_new/core/services/api/api_result.dart';
 import 'package:car_app_new/core/services/api/api_services.dart';
 import 'package:car_app_new/features/auth/data/models/request/register_request_model.dart';
-import 'package:car_app_new/features/auth/data/models/response/location_model.dart';
+import 'package:car_app_new/core/shared/model/location_model.dart';
 import 'package:car_app_new/features/auth/data/models/response/user_response_model.dart';
 
 class RegisterRepo {

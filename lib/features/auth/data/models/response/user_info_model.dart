@@ -1,13 +1,10 @@
-import 'package:car_app_new/features/auth/data/models/response/location_model.dart';
+import 'package:car_app_new/core/shared/model/location_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'user_info_model.g.dart';
 
 @JsonSerializable()
 class UserInfoModel {
-
-  factory UserInfoModel.fromJson(Map<String, dynamic> json) =>
-      _$UserInfoModelFromJson(json);
 
   UserInfoModel({
     required this.id,
@@ -18,6 +15,9 @@ class UserInfoModel {
     this.country,
     this.location,
   });
+
+  factory UserInfoModel.fromJson(Map<String, dynamic> json) =>
+      _$UserInfoModelFromJson(json);
   final int id;
   
   @JsonKey(name: 'full_name')

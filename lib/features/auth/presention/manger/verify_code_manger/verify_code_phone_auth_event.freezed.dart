@@ -14,62 +14,30 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$VerifyCodePhoneAuthEvent {
 
- String get phoneNumber; String get accessToken;
-/// Create a copy of VerifyCodePhoneAuthEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$VerifyCodePhoneAuthEventCopyWith<VerifyCodePhoneAuthEvent> get copyWith => _$VerifyCodePhoneAuthEventCopyWithImpl<VerifyCodePhoneAuthEvent>(this as VerifyCodePhoneAuthEvent, _$identity);
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is VerifyCodePhoneAuthEvent&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.accessToken, accessToken) || other.accessToken == accessToken));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is VerifyCodePhoneAuthEvent);
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,phoneNumber,accessToken);
+int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'VerifyCodePhoneAuthEvent(phoneNumber: $phoneNumber, accessToken: $accessToken)';
+  return 'VerifyCodePhoneAuthEvent()';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $VerifyCodePhoneAuthEventCopyWith<$Res>  {
-  factory $VerifyCodePhoneAuthEventCopyWith(VerifyCodePhoneAuthEvent value, $Res Function(VerifyCodePhoneAuthEvent) _then) = _$VerifyCodePhoneAuthEventCopyWithImpl;
-@useResult
-$Res call({
- String phoneNumber, String accessToken
-});
-
-
-
-
-}
-/// @nodoc
-class _$VerifyCodePhoneAuthEventCopyWithImpl<$Res>
-    implements $VerifyCodePhoneAuthEventCopyWith<$Res> {
-  _$VerifyCodePhoneAuthEventCopyWithImpl(this._self, this._then);
-
-  final VerifyCodePhoneAuthEvent _self;
-  final $Res Function(VerifyCodePhoneAuthEvent) _then;
-
-/// Create a copy of VerifyCodePhoneAuthEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? phoneNumber = null,Object? accessToken = null,}) {
-  return _then(_self.copyWith(
-phoneNumber: null == phoneNumber ? _self.phoneNumber : phoneNumber // ignore: cast_nullable_to_non_nullable
-as String,accessToken: null == accessToken ? _self.accessToken : accessToken // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
+class $VerifyCodePhoneAuthEventCopyWith<$Res>  {
+$VerifyCodePhoneAuthEventCopyWith(VerifyCodePhoneAuthEvent _, $Res Function(VerifyCodePhoneAuthEvent) __);
 }
 
 
@@ -87,11 +55,13 @@ extension VerifyCodePhoneAuthEventPatterns on VerifyCodePhoneAuthEvent {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _VerifyPhone value)?  verifyPhone,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _VerifyPhone value)?  verifyPhone,TResult Function( _ResendCode value)?  resendCode,TResult Function( _VerifyCode value)?  verifyCode,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _VerifyPhone() when verifyPhone != null:
-return verifyPhone(_that);case _:
+return verifyPhone(_that);case _ResendCode() when resendCode != null:
+return resendCode(_that);case _VerifyCode() when verifyCode != null:
+return verifyCode(_that);case _:
   return orElse();
 
 }
@@ -109,11 +79,13 @@ return verifyPhone(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _VerifyPhone value)  verifyPhone,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _VerifyPhone value)  verifyPhone,required TResult Function( _ResendCode value)  resendCode,required TResult Function( _VerifyCode value)  verifyCode,}){
 final _that = this;
 switch (_that) {
 case _VerifyPhone():
-return verifyPhone(_that);case _:
+return verifyPhone(_that);case _ResendCode():
+return resendCode(_that);case _VerifyCode():
+return verifyCode(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -130,11 +102,13 @@ return verifyPhone(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _VerifyPhone value)?  verifyPhone,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _VerifyPhone value)?  verifyPhone,TResult? Function( _ResendCode value)?  resendCode,TResult? Function( _VerifyCode value)?  verifyCode,}){
 final _that = this;
 switch (_that) {
 case _VerifyPhone() when verifyPhone != null:
-return verifyPhone(_that);case _:
+return verifyPhone(_that);case _ResendCode() when resendCode != null:
+return resendCode(_that);case _VerifyCode() when verifyCode != null:
+return verifyCode(_that);case _:
   return null;
 
 }
@@ -151,10 +125,12 @@ return verifyPhone(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String phoneNumber,  String accessToken)?  verifyPhone,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String phoneNumber,  String accessToken)?  verifyPhone,TResult Function( String phoneNumber)?  resendCode,TResult Function( String verificationId,  String code)?  verifyCode,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _VerifyPhone() when verifyPhone != null:
-return verifyPhone(_that.phoneNumber,_that.accessToken);case _:
+return verifyPhone(_that.phoneNumber,_that.accessToken);case _ResendCode() when resendCode != null:
+return resendCode(_that.phoneNumber);case _VerifyCode() when verifyCode != null:
+return verifyCode(_that.verificationId,_that.code);case _:
   return orElse();
 
 }
@@ -172,10 +148,12 @@ return verifyPhone(_that.phoneNumber,_that.accessToken);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String phoneNumber,  String accessToken)  verifyPhone,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String phoneNumber,  String accessToken)  verifyPhone,required TResult Function( String phoneNumber)  resendCode,required TResult Function( String verificationId,  String code)  verifyCode,}) {final _that = this;
 switch (_that) {
 case _VerifyPhone():
-return verifyPhone(_that.phoneNumber,_that.accessToken);case _:
+return verifyPhone(_that.phoneNumber,_that.accessToken);case _ResendCode():
+return resendCode(_that.phoneNumber);case _VerifyCode():
+return verifyCode(_that.verificationId,_that.code);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -192,10 +170,12 @@ return verifyPhone(_that.phoneNumber,_that.accessToken);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String phoneNumber,  String accessToken)?  verifyPhone,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String phoneNumber,  String accessToken)?  verifyPhone,TResult? Function( String phoneNumber)?  resendCode,TResult? Function( String verificationId,  String code)?  verifyCode,}) {final _that = this;
 switch (_that) {
 case _VerifyPhone() when verifyPhone != null:
-return verifyPhone(_that.phoneNumber,_that.accessToken);case _:
+return verifyPhone(_that.phoneNumber,_that.accessToken);case _ResendCode() when resendCode != null:
+return resendCode(_that.phoneNumber);case _VerifyCode() when verifyCode != null:
+return verifyCode(_that.verificationId,_that.code);case _:
   return null;
 
 }
@@ -206,16 +186,16 @@ return verifyPhone(_that.phoneNumber,_that.accessToken);case _:
 /// @nodoc
 
 
-class _VerifyPhone implements VerifyCodePhoneAuthEvent {
-  const _VerifyPhone({required this.phoneNumber, required this.accessToken});
+class _VerifyPhone extends VerifyCodePhoneAuthEvent {
+  const _VerifyPhone({required this.phoneNumber, required this.accessToken}): super._();
   
 
-@override final  String phoneNumber;
-@override final  String accessToken;
+ final  String phoneNumber;
+ final  String accessToken;
 
 /// Create a copy of VerifyCodePhoneAuthEvent
 /// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
+@JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
 _$VerifyPhoneCopyWith<_VerifyPhone> get copyWith => __$VerifyPhoneCopyWithImpl<_VerifyPhone>(this, _$identity);
 
@@ -241,7 +221,7 @@ String toString() {
 /// @nodoc
 abstract mixin class _$VerifyPhoneCopyWith<$Res> implements $VerifyCodePhoneAuthEventCopyWith<$Res> {
   factory _$VerifyPhoneCopyWith(_VerifyPhone value, $Res Function(_VerifyPhone) _then) = __$VerifyPhoneCopyWithImpl;
-@override @useResult
+@useResult
 $Res call({
  String phoneNumber, String accessToken
 });
@@ -260,10 +240,144 @@ class __$VerifyPhoneCopyWithImpl<$Res>
 
 /// Create a copy of VerifyCodePhoneAuthEvent
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? phoneNumber = null,Object? accessToken = null,}) {
+@pragma('vm:prefer-inline') $Res call({Object? phoneNumber = null,Object? accessToken = null,}) {
   return _then(_VerifyPhone(
 phoneNumber: null == phoneNumber ? _self.phoneNumber : phoneNumber // ignore: cast_nullable_to_non_nullable
 as String,accessToken: null == accessToken ? _self.accessToken : accessToken // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class _ResendCode extends VerifyCodePhoneAuthEvent {
+  const _ResendCode({required this.phoneNumber}): super._();
+  
+
+ final  String phoneNumber;
+
+/// Create a copy of VerifyCodePhoneAuthEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ResendCodeCopyWith<_ResendCode> get copyWith => __$ResendCodeCopyWithImpl<_ResendCode>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ResendCode&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,phoneNumber);
+
+@override
+String toString() {
+  return 'VerifyCodePhoneAuthEvent.resendCode(phoneNumber: $phoneNumber)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ResendCodeCopyWith<$Res> implements $VerifyCodePhoneAuthEventCopyWith<$Res> {
+  factory _$ResendCodeCopyWith(_ResendCode value, $Res Function(_ResendCode) _then) = __$ResendCodeCopyWithImpl;
+@useResult
+$Res call({
+ String phoneNumber
+});
+
+
+
+
+}
+/// @nodoc
+class __$ResendCodeCopyWithImpl<$Res>
+    implements _$ResendCodeCopyWith<$Res> {
+  __$ResendCodeCopyWithImpl(this._self, this._then);
+
+  final _ResendCode _self;
+  final $Res Function(_ResendCode) _then;
+
+/// Create a copy of VerifyCodePhoneAuthEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? phoneNumber = null,}) {
+  return _then(_ResendCode(
+phoneNumber: null == phoneNumber ? _self.phoneNumber : phoneNumber // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class _VerifyCode extends VerifyCodePhoneAuthEvent {
+  const _VerifyCode({required this.verificationId, required this.code}): super._();
+  
+
+ final  String verificationId;
+ final  String code;
+
+/// Create a copy of VerifyCodePhoneAuthEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$VerifyCodeCopyWith<_VerifyCode> get copyWith => __$VerifyCodeCopyWithImpl<_VerifyCode>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _VerifyCode&&(identical(other.verificationId, verificationId) || other.verificationId == verificationId)&&(identical(other.code, code) || other.code == code));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,verificationId,code);
+
+@override
+String toString() {
+  return 'VerifyCodePhoneAuthEvent.verifyCode(verificationId: $verificationId, code: $code)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$VerifyCodeCopyWith<$Res> implements $VerifyCodePhoneAuthEventCopyWith<$Res> {
+  factory _$VerifyCodeCopyWith(_VerifyCode value, $Res Function(_VerifyCode) _then) = __$VerifyCodeCopyWithImpl;
+@useResult
+$Res call({
+ String verificationId, String code
+});
+
+
+
+
+}
+/// @nodoc
+class __$VerifyCodeCopyWithImpl<$Res>
+    implements _$VerifyCodeCopyWith<$Res> {
+  __$VerifyCodeCopyWithImpl(this._self, this._then);
+
+  final _VerifyCode _self;
+  final $Res Function(_VerifyCode) _then;
+
+/// Create a copy of VerifyCodePhoneAuthEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? verificationId = null,Object? code = null,}) {
+  return _then(_VerifyCode(
+verificationId: null == verificationId ? _self.verificationId : verificationId // ignore: cast_nullable_to_non_nullable
+as String,code: null == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }

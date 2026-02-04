@@ -1,5 +1,6 @@
 import 'package:car_app_new/core/helper/spacing.dart';
 import 'package:car_app_new/features/auth/presention/widgets/custom_divider.dart';
+import 'package:car_app_new/features/user/home/presention/widgets/bset_cars_section.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/home_app_bar.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/section_brands.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/section_search.dart';
@@ -39,6 +40,14 @@ class HomePageBody extends StatelessWidget {
             child: SectionBrands(),
           ),
         ),
+        SliverToBoxAdapter(
+          child: verticalSpace(20.h),
+        ),
+        SliverPadding(padding:  EdgeInsets.only(bottom: 20.sp),
+        sliver:  const SliverToBoxAdapter(
+    
+        ),
+        )
       ],
     );
   }

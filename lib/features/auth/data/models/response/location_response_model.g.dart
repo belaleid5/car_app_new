@@ -6,9 +6,9 @@ part of 'location_response_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-LocationResponseModel _$LocationResponseModelFromJson(
+_LocationResponseModel _$LocationResponseModelFromJson(
   Map<String, dynamic> json,
-) => LocationResponseModel(
+) => _LocationResponseModel(
   data: (json['data'] as List<dynamic>)
       .map((e) => LocationModel.fromJson(e as Map<String, dynamic>))
       .toList(),
@@ -21,9 +21,9 @@ LocationResponseModel _$LocationResponseModelFromJson(
 );
 
 Map<String, dynamic> _$LocationResponseModelToJson(
-  LocationResponseModel instance,
+  _LocationResponseModel instance,
 ) => <String, dynamic>{
-  'data': instance.data.map((e) => e.toJson()).toList(),
-  'links': instance.links?.toJson(),
-  'meta': instance.meta?.toJson(),
+  'data': instance.data,
+  'links': instance.links,
+  'meta': instance.meta,
 };

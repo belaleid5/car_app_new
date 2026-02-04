@@ -1,5 +1,5 @@
 import 'package:car_app_new/core/styles/theme/my_colors.dart';
-import 'package:car_app_new/features/auth/data/models/response/location_model.dart';
+import 'package:car_app_new/core/shared/model/location_model.dart';
 import 'package:car_app_new/features/auth/presention/widgets/sign_up/locaation_input_decortion.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -39,7 +39,7 @@ class LocationDropdownWidget extends StatelessWidget {
         .map(
           (location) => DropdownMenuItem<int>(
             value: location.id,
-            child: Text(location.name),
+            child: Text(location.name!),
           ),
         )
         .toList();
