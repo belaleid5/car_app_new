@@ -1,17 +1,13 @@
-class AppRoutesNames{
-    static const splashRoute = '/splash';
+class AppRoutesNames {
+  static const mainBoarding = '/main_boarding';
+
+  static const pageViewBoarding = '/page_view_boarding';
+  static const firstOnBoarding = '/first_onBoarding';
+  static const secondOnBoarding = '/second_onBoarding';
   static const loginRoute = '/login';
   static const signUpRoute = '/signin';
-  static const forgetPasswordRoute = "/forgetPassword";
-  static const mainRoute = "/mainRoute";
-  static const homeRoute = "/homeRoute";
-
-  static const searchRoute = "/search";
-  static const filterSearchRoute = "/filterSearch";
-  static const verifyPhoneRoute = "/verifyPhone";
-  static const verifyConfirmPasswordRoute = "/veriyConfirmPasswordRoute";
-  static const otpRoute = "/otp";
-  static const onBoarding = "/onBoard";
-  static const carDetilesHomeRoute = "/carDetilesHomeRoute";
-
+  static const settingsRoute = '/settings';
+  static const homePage = '/home_page';
+  static const ConfirmRoute = '/  Confirm_route';
+  static const verificationRoute = '/verification_route';
 }
