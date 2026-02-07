@@ -20,4 +20,9 @@ class AppImages {
   static const String notificationIcon = 'assets/icons/notifications_icon.svg';
   static const String personImage = 'assets/images/person.png';
   static const String brandImage = 'assets/images/brand_image.png';
+//home icon
+  static const String dollarIcon = 'assets/icons/dollar.svg';
+  static const String locationIcon = 'assets/icons/location.svg';
+  static const String favoriteIcon = 'assets/icons/favorite_icon.svg';
+  static const String setsIcon = 'assets/icons/sets.svg';
 }

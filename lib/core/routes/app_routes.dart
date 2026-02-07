@@ -12,6 +12,7 @@ import 'package:car_app_new/features/onBording/presention/pages/on_boarding_oage
 import 'package:car_app_new/features/onBording/presention/pages/on_boarding_page_one.dart';
 import 'package:car_app_new/features/onBording/presention/pages/page_view_on_boarding.dart';
 import 'package:car_app_new/features/settings/presention/screens/settings_page.dart';
+import 'package:car_app_new/features/user/home/presention/manger/bloc/bestcars_bloc.dart';
 import 'package:car_app_new/features/user/home/presention/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -46,8 +47,22 @@ class AppRouter {
 
       case AppRoutesNames.secondOnBoarding:
         return MaterialPageRoute(builder: (_) => const OnBoardingPageTwo());
+
+
       case AppRoutesNames.homePage:
-        return MaterialPageRoute(builder: (_) => const HomePage());
+        return MaterialPageRoute(
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider<GetBestCarsBloc>(
+                create: (context) => sl<GetBestCarsBloc>(),
+              ),
+            ],
+            child: const HomePage(),
+          ),
+        );
+
+
+
 
       case AppRoutesNames.settingsRoute:
         return MaterialPageRoute(builder: (_) => const SettingsPage());

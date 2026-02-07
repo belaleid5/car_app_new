@@ -4,6 +4,7 @@ import 'package:car_app_new/features/auth/data/models/request/register_request_m
 import 'package:car_app_new/features/auth/data/models/response/location_response_model.dart'; // ✅ بس دي
 import 'package:car_app_new/features/auth/data/models/response/user_response_model.dart';
 import 'package:car_app_new/features/auth/data/models/response/verify_code_phone_response_model.dart';
+import 'package:car_app_new/features/user/home/data/models/cars_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -26,10 +27,15 @@ abstract class ApiService {
   @GET(ApiConstants.registerLocationsEndpoint)
   Future<LocationResponseModel> getLocations();
 
-  @POST('https://qent.azurewebsites.net/api/auth/phone/request_verify_code/')
+  @POST(ApiConstants.verifyCodePhoneEndpoint)
   @FormUrlEncoded() 
   Future<VerifyPhoneResponseModel> verifyCodePhoneRequest(
-    @Field('phone') String phoneNumber, // ← اسم الـ field حسب الـ API
+    @Field('phone') String phoneNumber,
     @Field('access_token') String accessToken,
   );
+
+    @GET(ApiConstants.carsEndpoint)
+  Future<List<CarsModel>> getCars();
+    @GET(ApiConstants.brandsEndpoint)
+  Future<List<CarsModel>> getBrands();
 }

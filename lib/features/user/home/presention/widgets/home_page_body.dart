@@ -20,7 +20,7 @@ class HomePageBody extends StatelessWidget {
           sliver: const HomeAppBar(),
         ),
         const SliverToBoxAdapter(
-          child: Expanded(child: CustomDivider()),
+          child: CustomDivider(),
         ),
         SliverToBoxAdapter(
           child: verticalSpace(10.h),
@@ -43,11 +43,8 @@ class HomePageBody extends StatelessWidget {
         SliverToBoxAdapter(
           child: verticalSpace(20.h),
         ),
-        SliverPadding(padding:  EdgeInsets.only(bottom: 20.sp),
-        sliver:  const SliverToBoxAdapter(
-    
-        ),
-        )
+
+        const BestCarsSection(),
       ],
     );
   }

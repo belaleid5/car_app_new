@@ -22,7 +22,7 @@ _CarsModel _$CarsModelFromJson(Map<String, dynamic> json) => _CarsModel(
       .map((e) => CarFeatureModel.fromJson(e as Map<String, dynamic>))
       .toList(),
   seatingCapacity: json['seating_capacity'] as String,
-  location: LocationResponseModel.fromJson(
+  location: LocationHomeModel.fromJson(
     json['location'] as Map<String, dynamic>,
   ),
   averageRate: (json['average_rate'] as num).toInt(),

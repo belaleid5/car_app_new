@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CarsModel {
 
- int get id; String get name; String get description; int get owner;@JsonKey(name: 'first_image') String get firstImage; List<CarImageModel> get images;@JsonKey(name: 'car_type') String get carType; BrandModel get brand; ColorModel get color;@JsonKey(name: 'car_features') List<CarFeatureModel> get carFeatures;@JsonKey(name: 'seating_capacity') String get seatingCapacity; LocationResponseModel get location;@JsonKey(name: 'average_rate') int get averageRate;@JsonKey(name: 'is_for_rent') bool get isForRent;@JsonKey(name: 'daily_rent') String? get dailyRent;@JsonKey(name: 'weekly_rent') String? get weeklyRent;@JsonKey(name: 'monthly_rent') String? get monthlyRent;@JsonKey(name: 'yearly_rent') String? get yearlyRent;@JsonKey(name: 'is_for_pay') bool get isForPay; String? get price;@JsonKey(name: 'available_to_book') bool get availableToBook; List<ReviewModel> get reviews;@JsonKey(name: 'reviews_count') int get reviewsCount;@JsonKey(name: 'reviews_avg') double get reviewsAvg;
+ int get id; String get name; String get description; int get owner;@JsonKey(name: 'first_image') String get firstImage; List<CarImageModel> get images;@JsonKey(name: 'car_type') String get carType; BrandModel get brand; ColorModel get color;@JsonKey(name: 'car_features') List<CarFeatureModel> get carFeatures;@JsonKey(name: 'seating_capacity') String get seatingCapacity; LocationHomeModel get location;@JsonKey(name: 'average_rate') int get averageRate;@JsonKey(name: 'is_for_rent') bool get isForRent;@JsonKey(name: 'daily_rent') String? get dailyRent;@JsonKey(name: 'weekly_rent') String? get weeklyRent;@JsonKey(name: 'monthly_rent') String? get monthlyRent;@JsonKey(name: 'yearly_rent') String? get yearlyRent;@JsonKey(name: 'is_for_pay') bool get isForPay; String? get price;@JsonKey(name: 'available_to_book') bool get availableToBook; List<ReviewModel> get reviews;@JsonKey(name: 'reviews_count') int get reviewsCount;@JsonKey(name: 'reviews_avg') double get reviewsAvg;
 /// Create a copy of CarsModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,11 +48,11 @@ abstract mixin class $CarsModelCopyWith<$Res>  {
   factory $CarsModelCopyWith(CarsModel value, $Res Function(CarsModel) _then) = _$CarsModelCopyWithImpl;
 @useResult
 $Res call({
- int id, String name, String description, int owner,@JsonKey(name: 'first_image') String firstImage, List<CarImageModel> images,@JsonKey(name: 'car_type') String carType, BrandModel brand, ColorModel color,@JsonKey(name: 'car_features') List<CarFeatureModel> carFeatures,@JsonKey(name: 'seating_capacity') String seatingCapacity, LocationResponseModel location,@JsonKey(name: 'average_rate') int averageRate,@JsonKey(name: 'is_for_rent') bool isForRent,@JsonKey(name: 'daily_rent') String? dailyRent,@JsonKey(name: 'weekly_rent') String? weeklyRent,@JsonKey(name: 'monthly_rent') String? monthlyRent,@JsonKey(name: 'yearly_rent') String? yearlyRent,@JsonKey(name: 'is_for_pay') bool isForPay, String? price,@JsonKey(name: 'available_to_book') bool availableToBook, List<ReviewModel> reviews,@JsonKey(name: 'reviews_count') int reviewsCount,@JsonKey(name: 'reviews_avg') double reviewsAvg
+ int id, String name, String description, int owner,@JsonKey(name: 'first_image') String firstImage, List<CarImageModel> images,@JsonKey(name: 'car_type') String carType, BrandModel brand, ColorModel color,@JsonKey(name: 'car_features') List<CarFeatureModel> carFeatures,@JsonKey(name: 'seating_capacity') String seatingCapacity, LocationHomeModel location,@JsonKey(name: 'average_rate') int averageRate,@JsonKey(name: 'is_for_rent') bool isForRent,@JsonKey(name: 'daily_rent') String? dailyRent,@JsonKey(name: 'weekly_rent') String? weeklyRent,@JsonKey(name: 'monthly_rent') String? monthlyRent,@JsonKey(name: 'yearly_rent') String? yearlyRent,@JsonKey(name: 'is_for_pay') bool isForPay, String? price,@JsonKey(name: 'available_to_book') bool availableToBook, List<ReviewModel> reviews,@JsonKey(name: 'reviews_count') int reviewsCount,@JsonKey(name: 'reviews_avg') double reviewsAvg
 });
 
 
-$BrandModelCopyWith<$Res> get brand;$ColorModelCopyWith<$Res> get color;$LocationResponseModelCopyWith<$Res> get location;
+$BrandModelCopyWith<$Res> get brand;$ColorModelCopyWith<$Res> get color;
 
 }
 /// @nodoc
@@ -79,7 +79,7 @@ as BrandModel,color: null == color ? _self.color : color // ignore: cast_nullabl
 as ColorModel,carFeatures: null == carFeatures ? _self.carFeatures : carFeatures // ignore: cast_nullable_to_non_nullable
 as List<CarFeatureModel>,seatingCapacity: null == seatingCapacity ? _self.seatingCapacity : seatingCapacity // ignore: cast_nullable_to_non_nullable
 as String,location: null == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
-as LocationResponseModel,averageRate: null == averageRate ? _self.averageRate : averageRate // ignore: cast_nullable_to_non_nullable
+as LocationHomeModel,averageRate: null == averageRate ? _self.averageRate : averageRate // ignore: cast_nullable_to_non_nullable
 as int,isForRent: null == isForRent ? _self.isForRent : isForRent // ignore: cast_nullable_to_non_nullable
 as bool,dailyRent: freezed == dailyRent ? _self.dailyRent : dailyRent // ignore: cast_nullable_to_non_nullable
 as String?,weeklyRent: freezed == weeklyRent ? _self.weeklyRent : weeklyRent // ignore: cast_nullable_to_non_nullable
@@ -111,15 +111,6 @@ $ColorModelCopyWith<$Res> get color {
   
   return $ColorModelCopyWith<$Res>(_self.color, (value) {
     return _then(_self.copyWith(color: value));
-  });
-}/// Create a copy of CarsModel
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$LocationResponseModelCopyWith<$Res> get location {
-  
-  return $LocationResponseModelCopyWith<$Res>(_self.location, (value) {
-    return _then(_self.copyWith(location: value));
   });
 }
 }
@@ -165,10 +156,7 @@ return $default(_that);case _:
 final _that = this;
 switch (_that) {
 case _CarsModel():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -203,7 +191,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String name,  String description,  int owner, @JsonKey(name: 'first_image')  String firstImage,  List<CarImageModel> images, @JsonKey(name: 'car_type')  String carType,  BrandModel brand,  ColorModel color, @JsonKey(name: 'car_features')  List<CarFeatureModel> carFeatures, @JsonKey(name: 'seating_capacity')  String seatingCapacity,  LocationResponseModel location, @JsonKey(name: 'average_rate')  int averageRate, @JsonKey(name: 'is_for_rent')  bool isForRent, @JsonKey(name: 'daily_rent')  String? dailyRent, @JsonKey(name: 'weekly_rent')  String? weeklyRent, @JsonKey(name: 'monthly_rent')  String? monthlyRent, @JsonKey(name: 'yearly_rent')  String? yearlyRent, @JsonKey(name: 'is_for_pay')  bool isForPay,  String? price, @JsonKey(name: 'available_to_book')  bool availableToBook,  List<ReviewModel> reviews, @JsonKey(name: 'reviews_count')  int reviewsCount, @JsonKey(name: 'reviews_avg')  double reviewsAvg)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String name,  String description,  int owner, @JsonKey(name: 'first_image')  String firstImage,  List<CarImageModel> images, @JsonKey(name: 'car_type')  String carType,  BrandModel brand,  ColorModel color, @JsonKey(name: 'car_features')  List<CarFeatureModel> carFeatures, @JsonKey(name: 'seating_capacity')  String seatingCapacity,  LocationHomeModel location, @JsonKey(name: 'average_rate')  int averageRate, @JsonKey(name: 'is_for_rent')  bool isForRent, @JsonKey(name: 'daily_rent')  String? dailyRent, @JsonKey(name: 'weekly_rent')  String? weeklyRent, @JsonKey(name: 'monthly_rent')  String? monthlyRent, @JsonKey(name: 'yearly_rent')  String? yearlyRent, @JsonKey(name: 'is_for_pay')  bool isForPay,  String? price, @JsonKey(name: 'available_to_book')  bool availableToBook,  List<ReviewModel> reviews, @JsonKey(name: 'reviews_count')  int reviewsCount, @JsonKey(name: 'reviews_avg')  double reviewsAvg)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CarsModel() when $default != null:
 return $default(_that.id,_that.name,_that.description,_that.owner,_that.firstImage,_that.images,_that.carType,_that.brand,_that.color,_that.carFeatures,_that.seatingCapacity,_that.location,_that.averageRate,_that.isForRent,_that.dailyRent,_that.weeklyRent,_that.monthlyRent,_that.yearlyRent,_that.isForPay,_that.price,_that.availableToBook,_that.reviews,_that.reviewsCount,_that.reviewsAvg);case _:
@@ -224,13 +212,10 @@ return $default(_that.id,_that.name,_that.description,_that.owner,_that.firstIma
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String name,  String description,  int owner, @JsonKey(name: 'first_image')  String firstImage,  List<CarImageModel> images, @JsonKey(name: 'car_type')  String carType,  BrandModel brand,  ColorModel color, @JsonKey(name: 'car_features')  List<CarFeatureModel> carFeatures, @JsonKey(name: 'seating_capacity')  String seatingCapacity,  LocationResponseModel location, @JsonKey(name: 'average_rate')  int averageRate, @JsonKey(name: 'is_for_rent')  bool isForRent, @JsonKey(name: 'daily_rent')  String? dailyRent, @JsonKey(name: 'weekly_rent')  String? weeklyRent, @JsonKey(name: 'monthly_rent')  String? monthlyRent, @JsonKey(name: 'yearly_rent')  String? yearlyRent, @JsonKey(name: 'is_for_pay')  bool isForPay,  String? price, @JsonKey(name: 'available_to_book')  bool availableToBook,  List<ReviewModel> reviews, @JsonKey(name: 'reviews_count')  int reviewsCount, @JsonKey(name: 'reviews_avg')  double reviewsAvg)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String name,  String description,  int owner, @JsonKey(name: 'first_image')  String firstImage,  List<CarImageModel> images, @JsonKey(name: 'car_type')  String carType,  BrandModel brand,  ColorModel color, @JsonKey(name: 'car_features')  List<CarFeatureModel> carFeatures, @JsonKey(name: 'seating_capacity')  String seatingCapacity,  LocationHomeModel location, @JsonKey(name: 'average_rate')  int averageRate, @JsonKey(name: 'is_for_rent')  bool isForRent, @JsonKey(name: 'daily_rent')  String? dailyRent, @JsonKey(name: 'weekly_rent')  String? weeklyRent, @JsonKey(name: 'monthly_rent')  String? monthlyRent, @JsonKey(name: 'yearly_rent')  String? yearlyRent, @JsonKey(name: 'is_for_pay')  bool isForPay,  String? price, @JsonKey(name: 'available_to_book')  bool availableToBook,  List<ReviewModel> reviews, @JsonKey(name: 'reviews_count')  int reviewsCount, @JsonKey(name: 'reviews_avg')  double reviewsAvg)  $default,) {final _that = this;
 switch (_that) {
 case _CarsModel():
-return $default(_that.id,_that.name,_that.description,_that.owner,_that.firstImage,_that.images,_that.carType,_that.brand,_that.color,_that.carFeatures,_that.seatingCapacity,_that.location,_that.averageRate,_that.isForRent,_that.dailyRent,_that.weeklyRent,_that.monthlyRent,_that.yearlyRent,_that.isForPay,_that.price,_that.availableToBook,_that.reviews,_that.reviewsCount,_that.reviewsAvg);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return $default(_that.id,_that.name,_that.description,_that.owner,_that.firstImage,_that.images,_that.carType,_that.brand,_that.color,_that.carFeatures,_that.seatingCapacity,_that.location,_that.averageRate,_that.isForRent,_that.dailyRent,_that.weeklyRent,_that.monthlyRent,_that.yearlyRent,_that.isForPay,_that.price,_that.availableToBook,_that.reviews,_that.reviewsCount,_that.reviewsAvg);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -244,7 +229,7 @@ return $default(_that.id,_that.name,_that.description,_that.owner,_that.firstIma
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String name,  String description,  int owner, @JsonKey(name: 'first_image')  String firstImage,  List<CarImageModel> images, @JsonKey(name: 'car_type')  String carType,  BrandModel brand,  ColorModel color, @JsonKey(name: 'car_features')  List<CarFeatureModel> carFeatures, @JsonKey(name: 'seating_capacity')  String seatingCapacity,  LocationResponseModel location, @JsonKey(name: 'average_rate')  int averageRate, @JsonKey(name: 'is_for_rent')  bool isForRent, @JsonKey(name: 'daily_rent')  String? dailyRent, @JsonKey(name: 'weekly_rent')  String? weeklyRent, @JsonKey(name: 'monthly_rent')  String? monthlyRent, @JsonKey(name: 'yearly_rent')  String? yearlyRent, @JsonKey(name: 'is_for_pay')  bool isForPay,  String? price, @JsonKey(name: 'available_to_book')  bool availableToBook,  List<ReviewModel> reviews, @JsonKey(name: 'reviews_count')  int reviewsCount, @JsonKey(name: 'reviews_avg')  double reviewsAvg)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String name,  String description,  int owner, @JsonKey(name: 'first_image')  String firstImage,  List<CarImageModel> images, @JsonKey(name: 'car_type')  String carType,  BrandModel brand,  ColorModel color, @JsonKey(name: 'car_features')  List<CarFeatureModel> carFeatures, @JsonKey(name: 'seating_capacity')  String seatingCapacity,  LocationHomeModel location, @JsonKey(name: 'average_rate')  int averageRate, @JsonKey(name: 'is_for_rent')  bool isForRent, @JsonKey(name: 'daily_rent')  String? dailyRent, @JsonKey(name: 'weekly_rent')  String? weeklyRent, @JsonKey(name: 'monthly_rent')  String? monthlyRent, @JsonKey(name: 'yearly_rent')  String? yearlyRent, @JsonKey(name: 'is_for_pay')  bool isForPay,  String? price, @JsonKey(name: 'available_to_book')  bool availableToBook,  List<ReviewModel> reviews, @JsonKey(name: 'reviews_count')  int reviewsCount, @JsonKey(name: 'reviews_avg')  double reviewsAvg)?  $default,) {final _that = this;
 switch (_that) {
 case _CarsModel() when $default != null:
 return $default(_that.id,_that.name,_that.description,_that.owner,_that.firstImage,_that.images,_that.carType,_that.brand,_that.color,_that.carFeatures,_that.seatingCapacity,_that.location,_that.averageRate,_that.isForRent,_that.dailyRent,_that.weeklyRent,_that.monthlyRent,_that.yearlyRent,_that.isForPay,_that.price,_that.availableToBook,_that.reviews,_that.reviewsCount,_that.reviewsAvg);case _:
@@ -258,8 +243,8 @@ return $default(_that.id,_that.name,_that.description,_that.owner,_that.firstIma
 /// @nodoc
 @JsonSerializable()
 
-class _CarsModel implements CarsModel {
-  const _CarsModel({required this.id, required this.name, required this.description, required this.owner, @JsonKey(name: 'first_image') required this.firstImage, required final  List<CarImageModel> images, @JsonKey(name: 'car_type') required this.carType, required this.brand, required this.color, @JsonKey(name: 'car_features') required final  List<CarFeatureModel> carFeatures, @JsonKey(name: 'seating_capacity') required this.seatingCapacity, required this.location, @JsonKey(name: 'average_rate') required this.averageRate, @JsonKey(name: 'is_for_rent') required this.isForRent, @JsonKey(name: 'daily_rent') this.dailyRent, @JsonKey(name: 'weekly_rent') this.weeklyRent, @JsonKey(name: 'monthly_rent') this.monthlyRent, @JsonKey(name: 'yearly_rent') this.yearlyRent, @JsonKey(name: 'is_for_pay') required this.isForPay, this.price, @JsonKey(name: 'available_to_book') required this.availableToBook, required final  List<ReviewModel> reviews, @JsonKey(name: 'reviews_count') required this.reviewsCount, @JsonKey(name: 'reviews_avg') required this.reviewsAvg}): _images = images,_carFeatures = carFeatures,_reviews = reviews;
+class _CarsModel extends CarsModel {
+  const _CarsModel({required this.id, required this.name, required this.description, required this.owner, @JsonKey(name: 'first_image') required this.firstImage, required final  List<CarImageModel> images, @JsonKey(name: 'car_type') required this.carType, required this.brand, required this.color, @JsonKey(name: 'car_features') required final  List<CarFeatureModel> carFeatures, @JsonKey(name: 'seating_capacity') required this.seatingCapacity, required this.location, @JsonKey(name: 'average_rate') required this.averageRate, @JsonKey(name: 'is_for_rent') required this.isForRent, @JsonKey(name: 'daily_rent') this.dailyRent, @JsonKey(name: 'weekly_rent') this.weeklyRent, @JsonKey(name: 'monthly_rent') this.monthlyRent, @JsonKey(name: 'yearly_rent') this.yearlyRent, @JsonKey(name: 'is_for_pay') required this.isForPay, this.price, @JsonKey(name: 'available_to_book') required this.availableToBook, required final  List<ReviewModel> reviews, @JsonKey(name: 'reviews_count') required this.reviewsCount, @JsonKey(name: 'reviews_avg') required this.reviewsAvg}): _images = images,_carFeatures = carFeatures,_reviews = reviews,super._();
   factory _CarsModel.fromJson(Map<String, dynamic> json) => _$CarsModelFromJson(json);
 
 @override final  int id;
@@ -285,7 +270,7 @@ class _CarsModel implements CarsModel {
 }
 
 @override@JsonKey(name: 'seating_capacity') final  String seatingCapacity;
-@override final  LocationResponseModel location;
+@override final  LocationHomeModel location;
 @override@JsonKey(name: 'average_rate') final  int averageRate;
 @override@JsonKey(name: 'is_for_rent') final  bool isForRent;
 @override@JsonKey(name: 'daily_rent') final  String? dailyRent;
@@ -338,11 +323,11 @@ abstract mixin class _$CarsModelCopyWith<$Res> implements $CarsModelCopyWith<$Re
   factory _$CarsModelCopyWith(_CarsModel value, $Res Function(_CarsModel) _then) = __$CarsModelCopyWithImpl;
 @override @useResult
 $Res call({
- int id, String name, String description, int owner,@JsonKey(name: 'first_image') String firstImage, List<CarImageModel> images,@JsonKey(name: 'car_type') String carType, BrandModel brand, ColorModel color,@JsonKey(name: 'car_features') List<CarFeatureModel> carFeatures,@JsonKey(name: 'seating_capacity') String seatingCapacity, LocationResponseModel location,@JsonKey(name: 'average_rate') int averageRate,@JsonKey(name: 'is_for_rent') bool isForRent,@JsonKey(name: 'daily_rent') String? dailyRent,@JsonKey(name: 'weekly_rent') String? weeklyRent,@JsonKey(name: 'monthly_rent') String? monthlyRent,@JsonKey(name: 'yearly_rent') String? yearlyRent,@JsonKey(name: 'is_for_pay') bool isForPay, String? price,@JsonKey(name: 'available_to_book') bool availableToBook, List<ReviewModel> reviews,@JsonKey(name: 'reviews_count') int reviewsCount,@JsonKey(name: 'reviews_avg') double reviewsAvg
+ int id, String name, String description, int owner,@JsonKey(name: 'first_image') String firstImage, List<CarImageModel> images,@JsonKey(name: 'car_type') String carType, BrandModel brand, ColorModel color,@JsonKey(name: 'car_features') List<CarFeatureModel> carFeatures,@JsonKey(name: 'seating_capacity') String seatingCapacity, LocationHomeModel location,@JsonKey(name: 'average_rate') int averageRate,@JsonKey(name: 'is_for_rent') bool isForRent,@JsonKey(name: 'daily_rent') String? dailyRent,@JsonKey(name: 'weekly_rent') String? weeklyRent,@JsonKey(name: 'monthly_rent') String? monthlyRent,@JsonKey(name: 'yearly_rent') String? yearlyRent,@JsonKey(name: 'is_for_pay') bool isForPay, String? price,@JsonKey(name: 'available_to_book') bool availableToBook, List<ReviewModel> reviews,@JsonKey(name: 'reviews_count') int reviewsCount,@JsonKey(name: 'reviews_avg') double reviewsAvg
 });
 
 
-@override $BrandModelCopyWith<$Res> get brand;@override $ColorModelCopyWith<$Res> get color;@override $LocationResponseModelCopyWith<$Res> get location;
+@override $BrandModelCopyWith<$Res> get brand;@override $ColorModelCopyWith<$Res> get color;
 
 }
 /// @nodoc
@@ -369,7 +354,7 @@ as BrandModel,color: null == color ? _self.color : color // ignore: cast_nullabl
 as ColorModel,carFeatures: null == carFeatures ? _self._carFeatures : carFeatures // ignore: cast_nullable_to_non_nullable
 as List<CarFeatureModel>,seatingCapacity: null == seatingCapacity ? _self.seatingCapacity : seatingCapacity // ignore: cast_nullable_to_non_nullable
 as String,location: null == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
-as LocationResponseModel,averageRate: null == averageRate ? _self.averageRate : averageRate // ignore: cast_nullable_to_non_nullable
+as LocationHomeModel,averageRate: null == averageRate ? _self.averageRate : averageRate // ignore: cast_nullable_to_non_nullable
 as int,isForRent: null == isForRent ? _self.isForRent : isForRent // ignore: cast_nullable_to_non_nullable
 as bool,dailyRent: freezed == dailyRent ? _self.dailyRent : dailyRent // ignore: cast_nullable_to_non_nullable
 as String?,weeklyRent: freezed == weeklyRent ? _self.weeklyRent : weeklyRent // ignore: cast_nullable_to_non_nullable
@@ -402,15 +387,6 @@ $ColorModelCopyWith<$Res> get color {
   
   return $ColorModelCopyWith<$Res>(_self.color, (value) {
     return _then(_self.copyWith(color: value));
-  });
-}/// Create a copy of CarsModel
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$LocationResponseModelCopyWith<$Res> get location {
-  
-  return $LocationResponseModelCopyWith<$Res>(_self.location, (value) {
-    return _then(_self.copyWith(location: value));
   });
 }
 }

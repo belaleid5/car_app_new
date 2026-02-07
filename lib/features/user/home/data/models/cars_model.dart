@@ -1,9 +1,11 @@
-import 'package:car_app_new/features/auth/data/models/response/location_response_model.dart';
+// lib/features/user/home/data/models/cars_model.dart
+
 import 'package:car_app_new/features/user/home/data/models/brand_model.dart';
 import 'package:car_app_new/features/user/home/data/models/car_features_model.dart';
 import 'package:car_app_new/features/user/home/data/models/car_image_model.dart';
 import 'package:car_app_new/features/user/home/data/models/car_review_model.dart';
 import 'package:car_app_new/features/user/home/data/models/color_model.dart';
+import 'package:car_app_new/features/user/home/data/models/location_home_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'cars_model.freezed.dart';
@@ -11,6 +13,7 @@ part 'cars_model.g.dart';
 
 @freezed
 sealed class CarsModel with _$CarsModel {
+  
   const factory CarsModel({
     required int id,
     required String name,
@@ -18,13 +21,12 @@ sealed class CarsModel with _$CarsModel {
     required int owner,
     @JsonKey(name: 'first_image') required String firstImage,
     required List<CarImageModel> images,
-    @JsonKey(name: 'car_type')
-     required String carType,
+    @JsonKey(name: 'car_type') required String carType,
     required BrandModel brand,
     required ColorModel color,
     @JsonKey(name: 'car_features') required List<CarFeatureModel> carFeatures,
     @JsonKey(name: 'seating_capacity') required String seatingCapacity,
-    required LocationResponseModel location,
+    required LocationHomeModel location,
     @JsonKey(name: 'average_rate') required int averageRate,
     @JsonKey(name: 'is_for_rent') required bool isForRent,
     @JsonKey(name: 'daily_rent') String? dailyRent,
@@ -38,6 +40,7 @@ sealed class CarsModel with _$CarsModel {
     @JsonKey(name: 'reviews_count') required int reviewsCount,
     @JsonKey(name: 'reviews_avg') required double reviewsAvg,
   }) = _CarsModel;
+  const CarsModel._();
 
   factory CarsModel.fromJson(Map<String, dynamic> json) =>
       _$CarsModelFromJson(json);
