@@ -5,7 +5,7 @@ import 'package:car_app_new/features/auth/presention/widgets/Custom_wlcome_text.
 import 'package:car_app_new/features/auth/presention/widgets/button_auth.dart';
 import 'package:car_app_new/features/auth/presention/widgets/confirm/custom_text_send_verifcation.dart';
 import 'package:car_app_new/features/auth/presention/widgets/confirm/pinput_field.dart';
-import 'package:car_app_new/features/auth/presention/widgets/secction_logo_and_title_qent.dart';
+import 'package:car_app_new/core/common/widgets/secction_logo_and_title_qent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

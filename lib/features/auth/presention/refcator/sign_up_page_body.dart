@@ -5,7 +5,7 @@ import 'package:car_app_new/core/routes/routes_names.dart';
 import 'package:car_app_new/core/styles/app_images.dart';
 import 'package:car_app_new/core/styles/theme/my_colors.dart';
 import 'package:car_app_new/features/auth/presention/widgets/dont_have_an_acount.dart';
-import 'package:car_app_new/features/auth/presention/widgets/secction_logo_and_title_qent.dart';
+import 'package:car_app_new/core/common/widgets/secction_logo_and_title_qent.dart';
 import 'package:car_app_new/features/auth/presention/widgets/sign_up/section_auth_sign_up.dart';
 import 'package:car_app_new/features/auth/presention/widgets/sign_up/sign_up_text_title.dart';
 import 'package:car_app_new/features/auth/presention/widgets/social_button.dart';

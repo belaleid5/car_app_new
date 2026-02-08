@@ -4,6 +4,7 @@ import 'package:car_app_new/features/auth/presention/manger/bloc_login/login_blo
 import 'package:car_app_new/features/auth/presention/manger/bloc_register/register_bloc.dart';
 import 'package:car_app_new/features/auth/presention/manger/verify_code_manger/verify_code_phone_auth_bloc.dart';
 import 'package:car_app_new/features/auth/presention/screens/confirm_page.dart';
+import 'package:car_app_new/features/auth/presention/screens/forget_password.dart';
 import 'package:car_app_new/features/auth/presention/screens/login_page.dart';
 import 'package:car_app_new/features/auth/presention/screens/sign_up_page.dart';
 import 'package:car_app_new/features/auth/presention/screens/verifcation_page.dart';
@@ -67,11 +68,14 @@ class AppRouter {
       case AppRoutesNames.settingsRoute:
         return MaterialPageRoute(builder: (_) => const SettingsPage());
 
-      case AppRoutesNames.settingsRoute:
-        return MaterialPageRoute(builder: (_) => const SettingsPage());
-
       case AppRoutesNames.ConfirmRoute:
         return MaterialPageRoute(builder: (_) => const ConfirmPage());
+
+
+
+      case AppRoutesNames.forgetPasswordRoute:
+        return MaterialPageRoute(builder: (_) => const ForgetPasswordPage());
+
 
       case AppRoutesNames.verificationRoute:
         return MaterialPageRoute(
