@@ -1,8 +1,9 @@
 import 'package:car_app_new/core/di/di.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
+import 'package:car_app_new/features/auth/presention/manger/bloc_confirm/bloc/confirm_code_bloc.dart';
 import 'package:car_app_new/features/auth/presention/manger/bloc_login/login_bloc.dart';
 import 'package:car_app_new/features/auth/presention/manger/bloc_register/register_bloc.dart';
-import 'package:car_app_new/features/auth/presention/manger/verify_code_phone_auth_bloc.dart';
+import 'package:car_app_new/features/auth/presention/manger/bloc_verify_code/verify_code_phone_auth_bloc.dart';
 import 'package:car_app_new/features/auth/presention/screens/confirm_page.dart';
 import 'package:car_app_new/features/auth/presention/screens/login_page.dart';
 import 'package:car_app_new/features/auth/presention/screens/sign_up_page.dart';
@@ -56,7 +57,12 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const SettingsPage());
 
       case AppRoutesNames.ConfirmRoute:
-        return MaterialPageRoute(builder: (_) => const ConfirmPage());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => sl<ConfirmCodeBloc>(),
+            child: const ConfirmPage(),
+          ),
+        );
 
       case AppRoutesNames.verificationRoute:
         return MaterialPageRoute(

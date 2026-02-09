@@ -124,7 +124,7 @@ class _ApiService implements ApiService {
           )
           .compose(
             _dio.options,
-            'https://qent.azurewebsites.net/api/auth/phone/request_verify_code/',
+            '/auth/phone/request_verify_code/',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -134,6 +134,46 @@ class _ApiService implements ApiService {
     late VerifyPhoneResponseModel _value;
     try {
       _value = VerifyPhoneResponseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<ConfirmCodeResponseModel> confirmCode(
+    String code,
+    String verifyToken,
+    String accessToken,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = {
+      'code': code,
+      'verify_token': verifyToken,
+      'access_token': accessToken,
+    };
+    final _options = _setStreamType<ConfirmCodeResponseModel>(
+      Options(
+            method: 'POST',
+            headers: _headers,
+            extra: _extra,
+            contentType: 'application/x-www-form-urlencoded',
+          )
+          .compose(
+            _dio.options,
+            'https://qent.azurewebsites.net/api/auth/phone/confirm_verify_code/',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late ConfirmCodeResponseModel _value;
+    try {
+      _value = ConfirmCodeResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, _result);
       rethrow;
