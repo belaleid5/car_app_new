@@ -1,6 +1,7 @@
 import 'package:car_app_new/core/constants/api_constants.dart';
 import 'package:car_app_new/features/auth/data/models/request/login_request_model.dart';
 import 'package:car_app_new/features/auth/data/models/request/register_request_model.dart';
+import 'package:car_app_new/features/auth/data/models/response/confirm_code_response_model.dart';
 import 'package:car_app_new/features/auth/data/models/response/location_response_model.dart'; // ✅ بس دي
 import 'package:car_app_new/features/auth/data/models/response/user_response_model.dart';
 import 'package:car_app_new/features/auth/data/models/response/verify_code_phone_response_model.dart';
@@ -38,4 +39,17 @@ abstract class ApiService {
   Future<List<CarsModel>> getCars();
     @GET(ApiConstants.brandsEndpoint)
   Future<List<CarsModel>> getBrands();
+
+
+
+
+  @POST(ApiConstants.confirmCodeEndpoint)
+@FormUrlEncoded()
+Future<ConfirmCodeResponseModel> confirmCode(
+  @Field('code') String code,
+  @Field('verify_token') String verifyToken,
+  @Field('access_token') String accessToken,
+);
+
+
 }

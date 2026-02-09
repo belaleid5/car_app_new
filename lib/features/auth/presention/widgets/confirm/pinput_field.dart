@@ -3,13 +3,22 @@ import 'package:car_app_new/core/styles/theme/my_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 
-class PinputField extends StatelessWidget {
-  const PinputField({super.key});
+class PinputField extends StatefulWidget {
+  const PinputField({required this.controller, super.key});
+  final TextEditingController controller ;
+
+  @override
+  State<PinputField> createState() => _PinputFieldState();
+}
+
+class _PinputFieldState extends State<PinputField> {
+
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Pinput(
+        controller:widget.controller ,
         defaultPinTheme: PinTheme(
           margin: const EdgeInsets.symmetric(horizontal: 6),
           width: 56,

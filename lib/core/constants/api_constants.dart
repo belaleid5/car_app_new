@@ -13,6 +13,7 @@ class ApiConstants {
   static const String registerEndpoint = '$baseUrl/auth/register/';
   static const String registerLocationsEndpoint =
       '$baseUrl/public/register_locations';
+  static const String confirmCodeEndpoint = '$baseUrl/auth/phone/confirm_verify_code/';    
 
   // Timeouts
   static const Duration connectionTimeout = Duration(seconds: 30);

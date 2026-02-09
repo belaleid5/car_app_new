@@ -6,6 +6,8 @@ abstract class BaseVerifyCodePhoneDataSource {
   Future<VerifyPhoneResponseModel> verifyCodePhone({
     required SendCodePhoneRequestModel verifyCodePhoneRequestModel,
   });
+
+
 }
 
 class RemoteVerifyCodePhoneDataSource implements BaseVerifyCodePhoneDataSource {
@@ -24,4 +26,7 @@ class RemoteVerifyCodePhoneDataSource implements BaseVerifyCodePhoneDataSource {
     );
     return result;
   }
+
+
+
 }

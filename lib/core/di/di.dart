@@ -2,15 +2,18 @@ import 'package:car_app_new/core/app/app_cubit/app_cubit_cubit.dart';
 import 'package:car_app_new/core/constants/api_constants.dart';
 import 'package:car_app_new/core/services/api/api_services.dart';
 import 'package:car_app_new/core/services/api/dio_factory.dart';
+import 'package:car_app_new/features/auth/data/data_source/confrim_data_source.dart';
 import 'package:car_app_new/features/auth/data/data_source/login_data_source.dart';
 import 'package:car_app_new/features/auth/data/data_source/register_data_source.dart';
 import 'package:car_app_new/features/auth/data/data_source/verify_code_phone_data_source.dart';
+import 'package:car_app_new/features/auth/data/repo/confirm_repo.dart';
 import 'package:car_app_new/features/auth/data/repo/login_repo.dart';
 import 'package:car_app_new/features/auth/data/repo/register_repo.dart';
 import 'package:car_app_new/features/auth/data/repo/verfiy_code_phone_repo.dart';
+import 'package:car_app_new/features/auth/presention/manger/bloc_confirm/bloc/confirm_code_bloc.dart';
 import 'package:car_app_new/features/auth/presention/manger/bloc_login/login_bloc.dart';
 import 'package:car_app_new/features/auth/presention/manger/bloc_register/register_bloc.dart';
-import 'package:car_app_new/features/auth/presention/manger/verify_code_manger/verify_code_phone_auth_bloc.dart';
+import 'package:car_app_new/features/auth/presention/manger/bloc_verify_code/verify_code_phone_auth_bloc.dart';
 import 'package:car_app_new/features/user/home/data/data_source/home_data_source.dart';
 import 'package:car_app_new/features/user/home/data/repo/home_repo.dart';
 import 'package:car_app_new/features/user/home/presention/manger/bloc/bestcars_bloc.dart';
@@ -66,7 +69,16 @@ Future<void> _initAuth() async {
     )
     ..registerLazySingleton<BaseVerifyCodePhoneDataSource>(
       () => RemoteVerifyCodePhoneDataSource(apiService: sl()),
+    )
+
+
+// confirm Feature
+    ..registerFactory<ConfirmCodeBloc>(() => ConfirmCodeBloc(sl()))
+    ..registerLazySingleton<ConfirmCodePhoneRepo>(() => ConfirmCodePhoneRepo(sl()))
+    ..registerLazySingleton<BaseConfirmCodePhoneDataSource>(
+      () => RemoteConfirmCodePhoneDataSource(apiService: sl()),
     );
+
 }
 
 Future<void> homeFeature() async {
