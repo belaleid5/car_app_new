@@ -1,3 +1,4 @@
+import 'package:car_app_new/core/common/model/message_response_model.dart';
 import 'package:car_app_new/core/constants/api_constants.dart';
 import 'package:car_app_new/features/auth/data/models/request/login_request_model.dart';
 import 'package:car_app_new/features/auth/data/models/request/register_request_model.dart';
@@ -60,4 +61,14 @@ Future<ConfirmCodeResponseModel> confirmCode(
     @Field('email') String email,
   );
 
+
+  @POST(ApiConstants.resetPasswordEndpoint)
+@FormUrlEncoded()
+Future<MessageResponseModel> resetPassword(
+  @Field('code') String code,
+  @Field('reset_token') String resetToken,
+  @Field('password') String password,
+    @Field('confirm_password') String confirmPassword,
+  
+);
 }

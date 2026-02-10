@@ -32,7 +32,7 @@ class RemoteConfirmCodePhoneDataSource implements BaseConfirmCodePhoneDataSource
     final result = await apiService.confirmCode(
       confirmCodeRequestModel.code,
         SharedPref().getString(PrefKeys.accessToken) ?? '',
-       SharedPref().getString(PrefKeys.verifyToken) ?? '',
+        SharedPref().getString(PrefKeys.verifyToken) ?? '',
     );
     return result;
   }
