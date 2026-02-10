@@ -9,8 +9,8 @@ abstract class BaseForgotPasswordDataSource {
   });
 }
 
-class RemoteConfirmCodePhoneDataSource implements BaseForgotPasswordDataSource {
-  RemoteConfirmCodePhoneDataSource({required this.apiService});
+class RemoteForgotPasswordDataSource implements BaseForgotPasswordDataSource {
+  RemoteForgotPasswordDataSource({required this.apiService});
 
   final ApiService apiService;
   

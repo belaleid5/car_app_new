@@ -23,7 +23,7 @@ class LoginBlocListener extends StatelessWidget {
           error: (error) {
             CustomToast.showError(
               context,
-              state is Error ? state.error : 'Login failed. Please try again.',
+              error,
             );
           },
         );

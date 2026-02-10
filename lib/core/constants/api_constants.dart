@@ -15,6 +15,7 @@ class ApiConstants {
       '$baseUrl/public/register_locations';
   static const String confirmCodeEndpoint = '$baseUrl/auth/phone/confirm_verify_code/';    
   static const String forgotPasswordEndpoint = '$baseUrl/auth/forgot_password/';
+  static const String resetPasswordEndpoint = '$baseUrl/auth/reset_password/';
   // Timeouts
   static const Duration connectionTimeout = Duration(seconds: 30);
   static const Duration receiveTimeout = Duration(seconds: 30);
