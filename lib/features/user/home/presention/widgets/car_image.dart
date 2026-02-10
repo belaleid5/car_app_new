@@ -1,6 +1,8 @@
 import 'package:car_app_new/core/common/widgets/custom_image.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
+import 'package:car_app_new/features/user/home/presention/widgets/favorite_icon_home.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CarImage extends StatelessWidget {
   const CarImage({
@@ -16,11 +18,11 @@ class CarImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(16),
-          topRight: Radius.circular(16),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(16.r),
+          topRight: Radius.circular(16.r),
         ),
-        color: context.color.background,
+        color: context.color.stroke,
       ),
 
       child: Stack(
@@ -28,28 +30,13 @@ class CarImage extends StatelessWidget {
           CustomImage(
             imageType: ImagesType.network,
             imagePath: image,
-            height: 120,
+            height: 100.h,
             width: double.infinity,
             boxFit: BoxFit.contain,
-            borderRadius: 16,
+            borderRadius: 16.r,
           ),
 
-          Positioned(
-            top: 8,
-            right: 8,
-            child: GestureDetector(
-              onTap: onFavoriteTap,
-              child: CircleAvatar(
-                backgroundColor: context.color.white,
-                radius: 14,
-                child: Icon(
-                  Icons.favorite_border,
-                  color: context.color.icon,
-                  size: 18,
-                ),
-              ),
-            ),
-          ),
+          FavoriteIconHome(onFavoriteTap: onFavoriteTap),
         ],
       ),
     );

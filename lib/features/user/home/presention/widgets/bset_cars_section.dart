@@ -69,15 +69,15 @@ class _BestCarsSectionState extends State<BestCarsSection> {
                 },
                 childCount: cars.length,
               ),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                mainAxisSpacing: 16,
-                crossAxisSpacing: 8,
+                mainAxisSpacing: 16.sp,
+                crossAxisSpacing: 8.sp,
                 childAspectRatio: 0.68,
               ),
             ),
           );
-        } 
+        }
 
         return const SliverToBoxAdapter(
           child: SizedBox.shrink(),
