@@ -11,4 +11,5 @@ class AppRoutesNames {
   static const ConfirmRoute = '/confirm_route';
   static const verificationRoute = '/verification_route';
   static const forgetPasswordRoute = '/forget_password_route';
+  static const resetPasswordRoute = '/reset_password_route';
 }

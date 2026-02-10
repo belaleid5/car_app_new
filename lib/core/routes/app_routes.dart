@@ -7,6 +7,7 @@ import 'package:car_app_new/features/auth/presention/manger/bloc_verify_code/ver
 import 'package:car_app_new/features/auth/presention/screens/confirm_page.dart';
 import 'package:car_app_new/features/auth/presention/screens/forget_password.dart';
 import 'package:car_app_new/features/auth/presention/screens/login_page.dart';
+import 'package:car_app_new/features/auth/presention/screens/reset_password_page.dart';
 import 'package:car_app_new/features/auth/presention/screens/sign_up_page.dart';
 import 'package:car_app_new/features/auth/presention/screens/verifcation_page.dart';
 import 'package:car_app_new/features/onBording/presention/pages/main_onBorading_page.dart';
@@ -50,7 +51,6 @@ class AppRouter {
       case AppRoutesNames.secondOnBoarding:
         return MaterialPageRoute(builder: (_) => const OnBoardingPageTwo());
 
-
       case AppRoutesNames.homePage:
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(
@@ -63,9 +63,6 @@ class AppRouter {
           ),
         );
 
-
-
-
       case AppRoutesNames.settingsRoute:
         return MaterialPageRoute(builder: (_) => const SettingsPage());
 
@@ -77,11 +74,11 @@ class AppRouter {
           ),
         );
 
-
-
       case AppRoutesNames.forgetPasswordRoute:
         return MaterialPageRoute(builder: (_) => const ForgetPasswordPage());
 
+      case AppRoutesNames.resetPasswordRoute:
+        return MaterialPageRoute(builder: (_) => const ResetPasswordPage());
 
       case AppRoutesNames.verificationRoute:
         return MaterialPageRoute(
