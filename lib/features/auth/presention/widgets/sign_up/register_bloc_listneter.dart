@@ -25,21 +25,16 @@ class RegisterBlocListener extends StatelessWidget {
       },
       listener: (context, state) {
         state.whenOrNull(
-          success: (data) {
-            debugPrint('🎉 Listener: Success triggered!');
-            
+          success: (data) {            
             CustomToast.showSuccess(context, 'Registration successful!');
-            
-            Future.delayed(const Duration(milliseconds: 1500), () {
-              if (context.mounted) {
-                debugPrint('🚀 Navigating to login...');
-                context.pushReplacementNamed(AppRoutesNames.verificationRoute);
-              }
+            Future.delayed(const Duration(milliseconds: 1500), () async {
+                await context.pushReplacementNamed(AppRoutesNames.verificationRoute);          
             });
           },
           error: (error) {
-            debugPrint(' Listener: Error triggered - $error');
-            CustomToast.showError(context, error);
+            CustomToast.showError(context, 
+            state is Error ? error : 'Registration failed. Please try again.'
+            );
           },
         );
       },
@@ -49,7 +44,7 @@ class RegisterBlocListener extends StatelessWidget {
           initial: () => true,
           locationsLoading: () => false,
           locationsLoaded: (_) => false,
-          locationSelected: (_, __) => false,
+          locationSelected: (_, _) => false,
           success: (_) => false,
           error: (_) => false,
           orElse: () => false,

@@ -3,7 +3,7 @@ import 'package:car_app_new/features/auth/data/data_source/forgot_password_data_
 import 'package:car_app_new/features/auth/data/models/response/forgot_password_response_model.dart';
 
 class ForgotPasswordRepo {
-  ForgotPasswordRepo({required this.dataSource});
+  ForgotPasswordRepo( {required this.dataSource});
 
   final BaseForgotPasswordDataSource dataSource;
   Future<ApiResult<ForgotPasswordResponseModel>> forgotPassword({

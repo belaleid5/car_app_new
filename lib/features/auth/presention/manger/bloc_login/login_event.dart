@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-part 'login_event.freezed.dart';  // ✅ هذا السطر كان ناقص!
+part 'login_event.freezed.dart';
 
 @freezed
 class LoginEvent with _$LoginEvent {

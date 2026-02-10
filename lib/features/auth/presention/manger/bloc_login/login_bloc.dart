@@ -16,8 +16,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   final LoginRepo _authRepo;
-  TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   bool rememberMe = false;
