@@ -1,6 +1,8 @@
 import 'package:car_app_new/core/common/widgets/custom_image.dart';
+import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/styles/app_images.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CarLocation extends StatelessWidget {
   const CarLocation({super.key, required this.address});
@@ -14,23 +16,23 @@ class CarLocation extends StatelessWidget {
 
     return Row(
       children: [
-        const CustomImage(
+         CustomImage(
           imageType: ImagesType.svg,
           imagePath: AppImages.locationIcon,
-          height: 16,
-          width: 16,
+          height: 16.h,
+          width: 16.w,
           applySvgColor: true,
           color: Colors.grey,
         ),
 
-        const SizedBox(width: 4),
+        SizedBox(width: 4.w),
         Flexible(
           child: Text(
             address!,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-              fontSize: 13,
+            style: context.textStyle.copyWith(
+              fontSize: 13.sp,
               color: Colors.grey,
             ),
           ),

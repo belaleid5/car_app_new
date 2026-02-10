@@ -5,7 +5,6 @@ import 'package:car_app_new/features/user/home/presention/widgets/car_image.dart
 import 'package:car_app_new/features/user/home/presention/widgets/car_location.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/car_name.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CarCardWidget extends StatelessWidget {
@@ -18,10 +17,10 @@ class CarCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 220.sp,
+      width: 220.w,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16.r),
         boxShadow: const [
           BoxShadow(
             color: Colors.black12,
@@ -34,18 +33,18 @@ class CarCardWidget extends StatelessWidget {
         children: [
           CarImage(image: car.firstImage),
           Padding(
-            padding: const EdgeInsets.all(12),
+            padding: EdgeInsets.all(12.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CarName(name: car.name),
-                const SizedBox(height: 6),
+                SizedBox(height: 4.h),
                 CarRating(rate: car.reviewsAvg),
-                const SizedBox(height: 6),
+                SizedBox(height: 4.h),
                 CarLocation(
                   address: car.location.name ?? car.location.address,
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 8.h),
                 CarFooter(
                   seats: car.seatingCapacity,
                   price: car.dailyRent ?? car.price,

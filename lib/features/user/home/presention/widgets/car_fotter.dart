@@ -20,15 +20,15 @@ class CarFooter extends StatelessWidget {
       children: [
         Row(
           children: [
-          const CustomImage(
+           CustomImage(
           imageType: ImagesType.svg,
           imagePath: AppImages.setsIcon,
-          height: 16,
-          width: 16,
+          height: 16.h,
+          width: 16.w,
           applySvgColor: true,
           color: Colors.grey,
         ),
-            const SizedBox(width: 4),
+             SizedBox(width: 4.w),
             Text(
               '$seats ',
               style: context.textStyle.copyWith(
@@ -37,13 +37,13 @@ class CarFooter extends StatelessWidget {
             ),
           ],
         ),
-        const CustomImage(
+         CustomImage(
           imageType: ImagesType.svg,
           imagePath: AppImages.dollarIcon,
-          height: 16,
-          width: 16,
-          applySvgColor: true,
-          color: Colors.grey,
+          height: 16.h,
+          width: 16.w,
+
+          
         ),
         Text(
           price != null ? '\$${int.parse(price!.split('.')[0])}/Day' : '',

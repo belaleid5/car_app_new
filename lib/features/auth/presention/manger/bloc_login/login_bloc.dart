@@ -20,11 +20,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   TextEditingController passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
-  // 🔥 أضف RememberMe state
   bool rememberMe = false;
   String? rememberMeError;
 
-  // ignore: avoid_positional_boolean_parameters
   void toggleRememberMe(bool value) {
     rememberMe = value;
     if (value) {

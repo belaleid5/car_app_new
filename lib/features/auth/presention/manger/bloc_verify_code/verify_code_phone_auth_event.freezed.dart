@@ -200,8 +200,8 @@ return verifyPhone(_that.phoneNumber,_that.accessToken);case _:
 /// @nodoc
 
 
-class _VerifyPhone extends VerifyCodePhoneAuthEvent {
-  const _VerifyPhone({required this.phoneNumber, required this.accessToken}): super._();
+class _VerifyPhone implements VerifyCodePhoneAuthEvent {
+  const _VerifyPhone({required this.phoneNumber, required this.accessToken});
   
 
 @override final  String phoneNumber;
