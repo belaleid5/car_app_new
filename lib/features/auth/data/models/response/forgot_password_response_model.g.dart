@@ -9,9 +9,9 @@ part of 'forgot_password_response_model.dart';
 _ForgotPasswordResponseModel _$ForgotPasswordResponseModelFromJson(
   Map<String, dynamic> json,
 ) => _ForgotPasswordResponseModel(
-  code: json['code'] as bool,
+  code: json['code'] as String,
   message: json['message'] as String,
-  resetToken: json['resetToken'] as String,
+  resetToken: json['reset_token'] as String,
 );
 
 Map<String, dynamic> _$ForgotPasswordResponseModelToJson(
@@ -19,5 +19,5 @@ Map<String, dynamic> _$ForgotPasswordResponseModelToJson(
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
-  'resetToken': instance.resetToken,
+  'reset_token': instance.resetToken,
 };

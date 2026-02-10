@@ -112,10 +112,7 @@ return forgotPassword(_that);case _:
 final _that = this;
 switch (_that) {
 case _ForgotPassword():
-return forgotPassword(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return forgotPassword(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -174,10 +171,7 @@ return forgotPassword(_that.email);case _:
 @optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String email)  forgotPassword,}) {final _that = this;
 switch (_that) {
 case _ForgotPassword():
-return forgotPassword(_that.email);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return forgotPassword(_that.email);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -206,7 +200,7 @@ return forgotPassword(_that.email);case _:
 
 
 class _ForgotPassword implements ForgotPasswordEvent {
-  const _ForgotPassword(this.email);
+  const _ForgotPassword({required this.email});
   
 
 @override final  String email;
@@ -260,7 +254,7 @@ class __$ForgotPasswordCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? email = null,}) {
   return _then(_ForgotPassword(
-null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }

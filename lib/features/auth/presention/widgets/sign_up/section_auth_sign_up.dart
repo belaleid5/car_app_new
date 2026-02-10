@@ -57,6 +57,3 @@ class SectionAuthSignUP extends StatelessWidget {
     );
   }
 }
-
-
-

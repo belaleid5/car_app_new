@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ForgotPasswordResponseModel {
 
- bool get code; String get message; String get resetToken;
+@JsonKey(name: 'code') String get code;@JsonKey(name: 'message') String get message;@JsonKey(name: 'reset_token') String get resetToken;
 /// Create a copy of ForgotPasswordResponseModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ForgotPasswordResponseModelCopyWith<$Res>  {
   factory $ForgotPasswordResponseModelCopyWith(ForgotPasswordResponseModel value, $Res Function(ForgotPasswordResponseModel) _then) = _$ForgotPasswordResponseModelCopyWithImpl;
 @useResult
 $Res call({
- bool code, String message, String resetToken
+@JsonKey(name: 'code') String code,@JsonKey(name: 'message') String message,@JsonKey(name: 'reset_token') String resetToken
 });
 
 
@@ -68,7 +68,7 @@ class _$ForgotPasswordResponseModelCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? code = null,Object? message = null,Object? resetToken = null,}) {
   return _then(_self.copyWith(
 code: null == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
-as bool,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,resetToken: null == resetToken ? _self.resetToken : resetToken // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -152,7 +152,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool code,  String message,  String resetToken)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'code')  String code, @JsonKey(name: 'message')  String message, @JsonKey(name: 'reset_token')  String resetToken)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ForgotPasswordResponseModel() when $default != null:
 return $default(_that.code,_that.message,_that.resetToken);case _:
@@ -173,7 +173,7 @@ return $default(_that.code,_that.message,_that.resetToken);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool code,  String message,  String resetToken)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'code')  String code, @JsonKey(name: 'message')  String message, @JsonKey(name: 'reset_token')  String resetToken)  $default,) {final _that = this;
 switch (_that) {
 case _ForgotPasswordResponseModel():
 return $default(_that.code,_that.message,_that.resetToken);}
@@ -190,7 +190,7 @@ return $default(_that.code,_that.message,_that.resetToken);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool code,  String message,  String resetToken)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'code')  String code, @JsonKey(name: 'message')  String message, @JsonKey(name: 'reset_token')  String resetToken)?  $default,) {final _that = this;
 switch (_that) {
 case _ForgotPasswordResponseModel() when $default != null:
 return $default(_that.code,_that.message,_that.resetToken);case _:
@@ -205,12 +205,12 @@ return $default(_that.code,_that.message,_that.resetToken);case _:
 @JsonSerializable()
 
 class _ForgotPasswordResponseModel implements ForgotPasswordResponseModel {
-  const _ForgotPasswordResponseModel({required this.code, required this.message, required this.resetToken});
+  const _ForgotPasswordResponseModel({@JsonKey(name: 'code') required this.code, @JsonKey(name: 'message') required this.message, @JsonKey(name: 'reset_token') required this.resetToken});
   factory _ForgotPasswordResponseModel.fromJson(Map<String, dynamic> json) => _$ForgotPasswordResponseModelFromJson(json);
 
-@override final  bool code;
-@override final  String message;
-@override final  String resetToken;
+@override@JsonKey(name: 'code') final  String code;
+@override@JsonKey(name: 'message') final  String message;
+@override@JsonKey(name: 'reset_token') final  String resetToken;
 
 /// Create a copy of ForgotPasswordResponseModel
 /// with the given fields replaced by the non-null parameter values.
@@ -245,7 +245,7 @@ abstract mixin class _$ForgotPasswordResponseModelCopyWith<$Res> implements $For
   factory _$ForgotPasswordResponseModelCopyWith(_ForgotPasswordResponseModel value, $Res Function(_ForgotPasswordResponseModel) _then) = __$ForgotPasswordResponseModelCopyWithImpl;
 @override @useResult
 $Res call({
- bool code, String message, String resetToken
+@JsonKey(name: 'code') String code,@JsonKey(name: 'message') String message,@JsonKey(name: 'reset_token') String resetToken
 });
 
 
@@ -265,7 +265,7 @@ class __$ForgotPasswordResponseModelCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? code = null,Object? message = null,Object? resetToken = null,}) {
   return _then(_ForgotPasswordResponseModel(
 code: null == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
-as bool,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,resetToken: null == resetToken ? _self.resetToken : resetToken // ignore: cast_nullable_to_non_nullable
 as String,
   ));
