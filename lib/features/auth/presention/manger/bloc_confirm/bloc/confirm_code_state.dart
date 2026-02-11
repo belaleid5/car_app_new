@@ -1,5 +1,4 @@
 import 'package:car_app_new/features/auth/data/models/response/confirm_code_response_model.dart';
-import 'package:car_app_new/features/auth/data/models/response/user_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'confirm_code_state.freezed.dart';

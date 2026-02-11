@@ -1,3 +1,4 @@
+import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/features/auth/presention/refcator/reset_password_body.dart';
 import 'package:flutter/material.dart';
 
@@ -6,15 +7,9 @@ class ResetPasswordPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: ResetPasswordBody(),
+    return Scaffold(
+      backgroundColor: context.color.background,
+      body: const ResetPasswordBody(),
     );
   }
 }
-
-
-
-
-
-
-

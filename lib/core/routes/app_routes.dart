@@ -5,6 +5,7 @@ import 'package:car_app_new/features/auth/presention/manger/bloc_login/login_blo
 import 'package:car_app_new/features/auth/presention/manger/bloc_register/register_bloc.dart';
 import 'package:car_app_new/features/auth/presention/manger/bloc_verify_code/verify_code_phone_auth_bloc.dart';
 import 'package:car_app_new/features/auth/presention/manger/forgot_password/bloc/forgot_password_bloc.dart';
+import 'package:car_app_new/features/auth/presention/manger/reset_password/bloc/reset_password_bloc.dart';
 import 'package:car_app_new/features/auth/presention/screens/confirm_page.dart';
 import 'package:car_app_new/features/auth/presention/screens/forget_password.dart';
 import 'package:car_app_new/features/auth/presention/screens/login_page.dart';
@@ -75,14 +76,25 @@ class AppRouter {
           ),
         );
 
-      case AppRoutesNames.forgetPasswordRoute:
-        return MaterialPageRoute(builder: (_) => const ForgetPasswordPage());
-
       case AppRoutesNames.resetPasswordRoute:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (context) {
+            final resetToken = settings.arguments as String?;
+            print('🛣️ AppRouter - Reset Token: $resetToken');
+
+            return BlocProvider(
+              create: (context) => sl<ResetPasswordBloc>(),
+              child: const ResetPasswordPage(),
+            );
+          },
+        );
+
+      case AppRoutesNames.forgetPasswordRoute:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => sl<ForgotPasswordBloc>(),
-            child: const ResetPasswordPage(),
+            child: const ForgetPasswordPage(),
           ),
         );
 
