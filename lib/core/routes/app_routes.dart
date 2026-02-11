@@ -8,6 +8,7 @@ import 'package:car_app_new/features/auth/presention/manger/forgot_password/bloc
 import 'package:car_app_new/features/auth/presention/screens/confirm_page.dart';
 import 'package:car_app_new/features/auth/presention/screens/forget_password.dart';
 import 'package:car_app_new/features/auth/presention/screens/login_page.dart';
+import 'package:car_app_new/features/auth/presention/screens/reset_password_page.dart';
 import 'package:car_app_new/features/auth/presention/screens/sign_up_page.dart';
 import 'package:car_app_new/features/auth/presention/screens/verifcation_page.dart';
 import 'package:car_app_new/features/onBording/presention/pages/main_onBorading_page.dart';
@@ -81,7 +82,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => sl<ForgotPasswordBloc>(),
-            child: const ForgetPasswordPage(),
+            child: const ResetPasswordPage(),
           ),
         );
 

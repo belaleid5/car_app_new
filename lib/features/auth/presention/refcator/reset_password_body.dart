@@ -1,3 +1,5 @@
+import 'package:car_app_new/core/common/widgets/secction_logo_and_title_qent.dart';
+import 'package:car_app_new/features/auth/presention/widgets/reset_password/section_confirm_password.dart';
 import 'package:flutter/material.dart';
 
 class ResetPasswordBody extends StatelessWidget {
@@ -5,6 +7,13 @@ class ResetPasswordBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const CustomScrollView(
+      slivers: [
+        SliverAppBar(title: SectionLogoAndTitleQent()),
+        SliverToBoxAdapter(
+          child: SectionConfirmPassword(),
+        ),
+      ],
+    );
   }
 }

@@ -22,6 +22,7 @@ class CustomBlocListenerForgotPassword extends StatelessWidget {
             CustomToast.showSuccess(context, user.message);
             await context.pushReplacementNamed(
               AppRoutesNames.loginRoute,
+              arguments: user.resetToken,
             );
           },
           error: (error) {

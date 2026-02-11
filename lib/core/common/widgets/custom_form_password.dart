@@ -50,7 +50,7 @@ class _CustomTextFormPasswordState extends State<CustomTextFormPassword> {
     
       validate: widget.validate,
       keyboardType: TextInputType.visiblePassword,
-      textCapitalization: TextCapitalization.none, // ✅  
+      textCapitalization: TextCapitalization.none,   
       isPassword: !_isPasswordVisible,
       heightAfterIt: widget.heightAfterIt,
       autofocus: widget.autofocus,

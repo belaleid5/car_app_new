@@ -7,7 +7,9 @@ class ResetPasswordRepo {
   ResetPasswordRepo(this.datasource);
 
   final BaseResetPasswordDataSource datasource;
-  Future<ApiResult<MessageResponseModel>> confirmCode({
+
+
+  Future<ApiResult<MessageResponseModel>> resetPassword({
     required ResetPasswordRequestModel resetPassword,
   }) async {
     try {

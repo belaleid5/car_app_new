@@ -1,7 +1,7 @@
 import 'package:car_app_new/core/extensions/app_validators.dart';
 
 import 'package:car_app_new/features/auth/presention/manger/bloc_register/register_bloc.dart';
-import 'package:car_app_new/features/auth/presention/widgets/login/custom_form_password.dart';
+import 'package:car_app_new/core/common/widgets/custom_form_password.dart';
 import 'package:car_app_new/features/auth/presention/widgets/login/custom_text_form_email.dart';
 import 'package:car_app_new/features/auth/presention/widgets/sign_up/available_to_create_car_check_box.dart';
 import 'package:car_app_new/features/auth/presention/widgets/sign_up/custom_text_form_country.dart';

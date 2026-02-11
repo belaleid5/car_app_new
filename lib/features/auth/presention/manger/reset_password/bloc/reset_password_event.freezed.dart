@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ResetPasswordEvent {
 
- String get email; String get code; String get newPassword;
+ ResetPasswordRequestModel get resetPassword;
 /// Create a copy of ResetPasswordEvent
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $ResetPasswordEventCopyWith<ResetPasswordEvent> get copyWith => _$ResetPasswordE
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ResetPasswordEvent&&(identical(other.email, email) || other.email == email)&&(identical(other.code, code) || other.code == code)&&(identical(other.newPassword, newPassword) || other.newPassword == newPassword));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ResetPasswordEvent&&(identical(other.resetPassword, resetPassword) || other.resetPassword == resetPassword));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,email,code,newPassword);
+int get hashCode => Object.hash(runtimeType,resetPassword);
 
 @override
 String toString() {
-  return 'ResetPasswordEvent(email: $email, code: $code, newPassword: $newPassword)';
+  return 'ResetPasswordEvent(resetPassword: $resetPassword)';
 }
 
 
@@ -45,11 +45,11 @@ abstract mixin class $ResetPasswordEventCopyWith<$Res>  {
   factory $ResetPasswordEventCopyWith(ResetPasswordEvent value, $Res Function(ResetPasswordEvent) _then) = _$ResetPasswordEventCopyWithImpl;
 @useResult
 $Res call({
- String email, String code, String newPassword
+ ResetPasswordRequestModel resetPassword
 });
 
 
-
+$ResetPasswordRequestModelCopyWith<$Res> get resetPassword;
 
 }
 /// @nodoc
@@ -62,15 +62,22 @@ class _$ResetPasswordEventCopyWithImpl<$Res>
 
 /// Create a copy of ResetPasswordEvent
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? email = null,Object? code = null,Object? newPassword = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? resetPassword = null,}) {
   return _then(_self.copyWith(
-email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
-as String,code: null == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
-as String,newPassword: null == newPassword ? _self.newPassword : newPassword // ignore: cast_nullable_to_non_nullable
-as String,
+resetPassword: null == resetPassword ? _self.resetPassword : resetPassword // ignore: cast_nullable_to_non_nullable
+as ResetPasswordRequestModel,
   ));
 }
-
+/// Create a copy of ResetPasswordEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ResetPasswordRequestModelCopyWith<$Res> get resetPassword {
+  
+  return $ResetPasswordRequestModelCopyWith<$Res>(_self.resetPassword, (value) {
+    return _then(_self.copyWith(resetPassword: value));
+  });
+}
 }
 
 
@@ -114,10 +121,7 @@ return resetPasswordRequested(_that);case _:
 final _that = this;
 switch (_that) {
 case _ResetPasswordRequested():
-return resetPasswordRequested(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return resetPasswordRequested(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -152,10 +156,10 @@ return resetPasswordRequested(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String email,  String code,  String newPassword)?  resetPasswordRequested,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( ResetPasswordRequestModel resetPassword)?  resetPasswordRequested,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ResetPasswordRequested() when resetPasswordRequested != null:
-return resetPasswordRequested(_that.email,_that.code,_that.newPassword);case _:
+return resetPasswordRequested(_that.resetPassword);case _:
   return orElse();
 
 }
@@ -173,13 +177,10 @@ return resetPasswordRequested(_that.email,_that.code,_that.newPassword);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String email,  String code,  String newPassword)  resetPasswordRequested,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( ResetPasswordRequestModel resetPassword)  resetPasswordRequested,}) {final _that = this;
 switch (_that) {
 case _ResetPasswordRequested():
-return resetPasswordRequested(_that.email,_that.code,_that.newPassword);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return resetPasswordRequested(_that.resetPassword);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -193,10 +194,10 @@ return resetPasswordRequested(_that.email,_that.code,_that.newPassword);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String email,  String code,  String newPassword)?  resetPasswordRequested,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( ResetPasswordRequestModel resetPassword)?  resetPasswordRequested,}) {final _that = this;
 switch (_that) {
 case _ResetPasswordRequested() when resetPasswordRequested != null:
-return resetPasswordRequested(_that.email,_that.code,_that.newPassword);case _:
+return resetPasswordRequested(_that.resetPassword);case _:
   return null;
 
 }
@@ -208,12 +209,10 @@ return resetPasswordRequested(_that.email,_that.code,_that.newPassword);case _:
 
 
 class _ResetPasswordRequested implements ResetPasswordEvent {
-  const _ResetPasswordRequested({required this.email, required this.code, required this.newPassword});
+  const _ResetPasswordRequested({required this.resetPassword});
   
 
-@override final  String email;
-@override final  String code;
-@override final  String newPassword;
+@override final  ResetPasswordRequestModel resetPassword;
 
 /// Create a copy of ResetPasswordEvent
 /// with the given fields replaced by the non-null parameter values.
@@ -225,16 +224,16 @@ _$ResetPasswordRequestedCopyWith<_ResetPasswordRequested> get copyWith => __$Res
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ResetPasswordRequested&&(identical(other.email, email) || other.email == email)&&(identical(other.code, code) || other.code == code)&&(identical(other.newPassword, newPassword) || other.newPassword == newPassword));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ResetPasswordRequested&&(identical(other.resetPassword, resetPassword) || other.resetPassword == resetPassword));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,email,code,newPassword);
+int get hashCode => Object.hash(runtimeType,resetPassword);
 
 @override
 String toString() {
-  return 'ResetPasswordEvent.resetPasswordRequested(email: $email, code: $code, newPassword: $newPassword)';
+  return 'ResetPasswordEvent.resetPasswordRequested(resetPassword: $resetPassword)';
 }
 
 
@@ -245,11 +244,11 @@ abstract mixin class _$ResetPasswordRequestedCopyWith<$Res> implements $ResetPas
   factory _$ResetPasswordRequestedCopyWith(_ResetPasswordRequested value, $Res Function(_ResetPasswordRequested) _then) = __$ResetPasswordRequestedCopyWithImpl;
 @override @useResult
 $Res call({
- String email, String code, String newPassword
+ ResetPasswordRequestModel resetPassword
 });
 
 
-
+@override $ResetPasswordRequestModelCopyWith<$Res> get resetPassword;
 
 }
 /// @nodoc
@@ -262,16 +261,23 @@ class __$ResetPasswordRequestedCopyWithImpl<$Res>
 
 /// Create a copy of ResetPasswordEvent
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? email = null,Object? code = null,Object? newPassword = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? resetPassword = null,}) {
   return _then(_ResetPasswordRequested(
-email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
-as String,code: null == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
-as String,newPassword: null == newPassword ? _self.newPassword : newPassword // ignore: cast_nullable_to_non_nullable
-as String,
+resetPassword: null == resetPassword ? _self.resetPassword : resetPassword // ignore: cast_nullable_to_non_nullable
+as ResetPasswordRequestModel,
   ));
 }
 
-
+/// Create a copy of ResetPasswordEvent
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ResetPasswordRequestModelCopyWith<$Res> get resetPassword {
+  
+  return $ResetPasswordRequestModelCopyWith<$Res>(_self.resetPassword, (value) {
+    return _then(_self.copyWith(resetPassword: value));
+  });
+}
 }
 
 // dart format on

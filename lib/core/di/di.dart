@@ -6,17 +6,20 @@ import 'package:car_app_new/features/auth/data/data_source/confrim_data_source.d
 import 'package:car_app_new/features/auth/data/data_source/forgot_password_data_source.dart';
 import 'package:car_app_new/features/auth/data/data_source/login_data_source.dart';
 import 'package:car_app_new/features/auth/data/data_source/register_data_source.dart';
+import 'package:car_app_new/features/auth/data/data_source/reset_password_data_source.dart';
 import 'package:car_app_new/features/auth/data/data_source/verify_code_phone_data_source.dart';
 import 'package:car_app_new/features/auth/data/repo/confirm_repo.dart';
 import 'package:car_app_new/features/auth/data/repo/forgot_password_repo.dart';
 import 'package:car_app_new/features/auth/data/repo/login_repo.dart';
 import 'package:car_app_new/features/auth/data/repo/register_repo.dart';
+import 'package:car_app_new/features/auth/data/repo/reset_password_repo.dart';
 import 'package:car_app_new/features/auth/data/repo/verfiy_code_phone_repo.dart';
 import 'package:car_app_new/features/auth/presention/manger/bloc_confirm/bloc/confirm_code_bloc.dart';
 import 'package:car_app_new/features/auth/presention/manger/bloc_login/login_bloc.dart';
 import 'package:car_app_new/features/auth/presention/manger/bloc_register/register_bloc.dart';
 import 'package:car_app_new/features/auth/presention/manger/bloc_verify_code/verify_code_phone_auth_bloc.dart';
 import 'package:car_app_new/features/auth/presention/manger/forgot_password/bloc/forgot_password_bloc.dart';
+import 'package:car_app_new/features/auth/presention/manger/reset_password/bloc/reset_password_bloc.dart';
 import 'package:car_app_new/features/user/home/data/data_source/home_data_source.dart';
 import 'package:car_app_new/features/user/home/data/repo/home_repo.dart';
 import 'package:car_app_new/features/user/home/presention/manger/bloc/bestcars_bloc.dart';
@@ -90,8 +93,15 @@ Future<void> _initAuth() async {
     ..registerLazySingleton<ForgotPasswordRepo>(() => ForgotPasswordRepo( dataSource: sl()))
     ..registerLazySingleton<BaseForgotPasswordDataSource>(
       () => RemoteForgotPasswordDataSource(apiService: sl()),
-    );
+    )
 
+
+ // forgot password Feature
+    ..registerFactory<ResetPasswordBloc>(() => ResetPasswordBloc(sl()))
+    ..registerLazySingleton<ResetPasswordRepo>(() => ResetPasswordRepo( sl()))
+    ..registerLazySingleton<BaseResetPasswordDataSource>(
+      () => RemoteResetPasswordDataSource(apiService: sl()),
+    );
 }
 
 Future<void> homeFeature() async {
