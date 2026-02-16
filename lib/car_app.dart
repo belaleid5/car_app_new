@@ -15,8 +15,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CarApp extends StatelessWidget {
   const CarApp({super.key});
-
-  // ✅ Design width من Figma
   static const double _designWidth = 430;
 
   @override
@@ -24,7 +22,6 @@ class CarApp extends StatelessWidget {
     return ValueListenableBuilder<bool>(
       valueListenable: ConnectivityController.instance.isConnected,
       builder: (context, isConnected, _) {
-        // ✅ No network - بدون scaling
         if (!isConnected) {
           return MaterialApp(
             debugShowCheckedModeBanner: EnvVariable.instance.isDebugMode,
@@ -32,7 +29,6 @@ class CarApp extends StatelessWidget {
           );
         }
 
-        // ✅ Main app - مع ResponsiveScaledBox فقط
         return BlocProvider(
           create: (_) => sl<AppCubit>()
             ..changeAppThemeMode(
@@ -42,8 +38,8 @@ class CarApp extends StatelessWidget {
           child: GestureDetector(
             onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
             child: ResponsiveScaledBox(
+              autoCalculateMediaQueryData :true,
               width: _designWidth, 
-              autoCalculateMediaQueryData: true, // ✅ Auto adjust MediaQuery
               child: BlocBuilder<AppCubit, AppState>(
                 builder: (context, state) {
                   final cubit = context.read<AppCubit>();

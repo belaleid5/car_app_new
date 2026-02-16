@@ -57,7 +57,7 @@ class _OnBoardingPageViewState extends State<OnBoardingPageView> {
               OnBoardingPageTwo(),
             ],
           ),
-
+      
           Positioned(
             left: 0,
             right: 0,
@@ -77,9 +77,9 @@ class _OnBoardingPageViewState extends State<OnBoardingPageView> {
                         duration: const Duration(milliseconds: 600),
                       ),
                     ),
-
+      
                     SizedBox(height: 25),
-
+      
                     CustomButton(
                       text: _currentPage == 1 ? 'Get Started' : 'Next',
                       onPressed: _nextPage,
@@ -97,7 +97,7 @@ class _OnBoardingPageViewState extends State<OnBoardingPageView> {
                             MyColors.light.white.withOpacity(0.8),
                           ],
                         ),
-
+      
                     SizedBox(height: 40),
                   ],
                 ),

@@ -111,8 +111,8 @@ class AdaptiveInputField extends StatelessWidget {
           textAlignVertical: TextAlignVertical.center,
           style: context.textStyle.copyWith(
               color: context
-                  .colors
-                  .textSecondary, // 👈 غيّر هنا من textPrimary لـ textSecondary
+                  .color
+                  .textSecondary, 
               fontWeight: FontWeight.w400,
               fontSize: 14,
             ),
@@ -129,8 +129,8 @@ class AdaptiveInputField extends StatelessWidget {
             counterText: counterText,
             hintStyle: context.textStyle.copyWith(
               color: context
-                  .colors
-                  .textSecondary, // 👈 غيّر هنا من textPrimary لـ textSecondary
+                  .color
+                  .textSecondary, 
               fontWeight: FontWeight.w400,
               fontSize: 14,
             ),
@@ -163,7 +163,6 @@ class AdaptiveInputField extends StatelessWidget {
               ),
               borderRadius: BorderRadius.circular(radius),
             ),
-            //border: const UnderlineInputBorder(),
             prefixIcon: prefix,
             suffixIcon: suffix != null
                 ? IconButton(

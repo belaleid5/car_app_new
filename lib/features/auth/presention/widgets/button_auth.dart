@@ -1,7 +1,6 @@
 import 'package:car_app_new/core/styles/theme/my_colors.dart';
 import 'package:flutter/material.dart';
 
-
 class ButtonAuth extends StatelessWidget {
   const ButtonAuth({
     this.widgetTitle,
@@ -17,8 +16,9 @@ class ButtonAuth extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: context.colors.button,
+        minimumSize: const Size(390, 62),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(62),
         ),
       ),
       child: widgetTitle ?? const SizedBox.shrink(),

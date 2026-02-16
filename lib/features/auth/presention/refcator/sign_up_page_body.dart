@@ -4,7 +4,6 @@ import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/helper/spacing.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
 import 'package:car_app_new/core/styles/app_images.dart';
-import 'package:car_app_new/core/styles/theme/my_colors.dart';
 import 'package:car_app_new/features/auth/presention/widgets/dont_have_an_acount.dart';
 import 'package:car_app_new/features/auth/presention/widgets/sign_up/section_auth_sign_up.dart';
 import 'package:car_app_new/features/auth/presention/widgets/sign_up/sign_up_text_title.dart';
@@ -45,7 +44,8 @@ class SignUpPageBody extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: CustomButton(
-              textColor: context.colors.black,
+              borderRadius: 15,
+              textColor: context.color.black,
               text: 'Login',
               onPressed: () {},
             ),
