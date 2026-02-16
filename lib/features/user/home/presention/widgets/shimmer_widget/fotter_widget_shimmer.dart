@@ -2,10 +2,9 @@ import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/shimmer_widget/icon_shimmer_widget.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/shimmer_widget/text_shimmer_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class FotterShimerWidget extends StatelessWidget {
-  const FotterShimerWidget({
+class FotterShimmerWidget extends StatelessWidget {
+  const FotterShimmerWidget({
     super.key,
   });
 
@@ -14,7 +13,7 @@ class FotterShimerWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5),
       child: Row(
-        spacing: 2.w,
+        spacing: 2,
         children: [
           IconShimmerWidget(
             iconColor: context.color.stroke,

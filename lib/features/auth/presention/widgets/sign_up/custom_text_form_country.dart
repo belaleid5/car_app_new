@@ -1,7 +1,7 @@
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/styles/theme/my_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:intl_phone_field/intl_phone_field.dart';
 
 class CustomTextFormCountry extends StatelessWidget {
@@ -28,20 +28,20 @@ class CustomTextFormCountry extends StatelessWidget {
         hintText: 'Phone Number',
         hintStyle: TextStyle(
           color: context.color.textSecondary,
-          fontSize: 14.sp,
+          fontSize:20 ,
         ),
         filled: true,
-        contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+        contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.67.r),
+          borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide(color: context.colors.stroke),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.67.r),
+          borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide(color: context.colors.stroke),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.67.r),
+          borderRadius: BorderRadius.circular(10),
         ),
       ),
       initialCountryCode: initialCountryCode,
@@ -60,11 +60,11 @@ class CustomTextFormCountry extends StatelessWidget {
       },
       style: TextStyle(
         color: context.color.textPrimary,
-        fontSize: 16.sp,
+        fontSize: 16,
       ),
       dropdownTextStyle: TextStyle(
         color: context.color.textPrimary,
-        fontSize: 14.sp,
+        fontSize: 16,
       ),
     );
   }

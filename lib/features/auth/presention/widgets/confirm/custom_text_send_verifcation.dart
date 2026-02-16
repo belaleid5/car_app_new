@@ -1,6 +1,6 @@
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class CustomSubTitleTextAuth extends StatelessWidget {
   const CustomSubTitleTextAuth({super.key, required this.subTitle});
@@ -12,7 +12,7 @@ class CustomSubTitleTextAuth extends StatelessWidget {
       child: Text(
         subTitle,
         style: context.textStyle.copyWith(
-          fontSize: 14.sp,
+          fontSize: 20,
           color: context.color.textSecondary,
         ),
       ),

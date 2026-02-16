@@ -1,7 +1,6 @@
 // core/widgets/custom_button.dart
 import 'package:car_app_new/core/styles/theme/my_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -26,21 +25,21 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: width ?? double.infinity,
-      height: height ?? 56.h,
+      height: height ?? 56,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
         backgroundColor: context.colors.white,
-        minimumSize: Size(400.w, 62.h),
+        minimumSize:const Size(400, 62),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.r),
+          borderRadius: BorderRadius.circular(20),
         ),
       ),
         child: Text(
           text,
           style: TextStyle(
             color: textColor ?? context.colors.white,
-            fontSize: 16.sp,
+            fontSize: 16,
             fontWeight: FontWeight.w600,
           ),
         ),

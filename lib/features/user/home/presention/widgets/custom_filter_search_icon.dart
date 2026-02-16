@@ -1,6 +1,5 @@
 import 'package:car_app_new/core/styles/theme/my_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomFilterSearchIcon extends StatelessWidget {
   const CustomFilterSearchIcon({
@@ -10,11 +9,11 @@ class CustomFilterSearchIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50.h,
-      width: 50.w,
+      height: 50,
+      width: 50,
       decoration: BoxDecoration(
         color: MyColors.light.white,
-        borderRadius: BorderRadius.circular(10.67.r),
+        borderRadius: BorderRadius.circular(10.67),
         border: Border.all(
           color: MyColors.light.stroke,
         ),
@@ -26,7 +25,7 @@ class CustomFilterSearchIcon extends StatelessWidget {
         icon: Icon(
           Icons.tune,
           color: MyColors.light.textSecondary,
-          size: 24.sp,
+          size: 24,
         ),
       ),
     );

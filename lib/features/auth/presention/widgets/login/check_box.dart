@@ -1,6 +1,6 @@
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class CustomCheckBox extends StatefulWidget {
   const CustomCheckBox({
@@ -30,13 +30,13 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
       scale: 1.4,
       child: Checkbox(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5.r),
+          borderRadius: BorderRadius.circular(15),
         ),
         side: BorderSide(
           color: context.color.button,
-          width: 2.w,
+          width:0.2 ,
         ),
-        splashRadius: 25.r,
+        splashRadius: 2,
         value: _value,
         onChanged: (v) {
           setState(() {

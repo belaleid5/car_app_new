@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CarRating extends StatelessWidget {
   const CarRating({super.key, required this.rate});
@@ -11,11 +10,11 @@ class CarRating extends StatelessWidget {
       children: [
         Text(
           rate.toStringAsFixed(1),
-          style:  TextStyle(fontSize: 13.sp),
+          style: const TextStyle(fontSize: 13),
         ),
 
-         SizedBox(width: 4.w),
-         Icon(Icons.star, size: 16.h, color: Colors.amber),
+        const SizedBox(width: 4),
+        const Icon(Icons.star, size: 16, color: Colors.amber),
       ],
     );
   }

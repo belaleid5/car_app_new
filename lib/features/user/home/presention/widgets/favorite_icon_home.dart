@@ -30,11 +30,11 @@ class _FavoriteIconHomeState extends State<FavoriteIconHome> {
         },
         child: CircleAvatar(
           backgroundColor: context.color.white,
-          radius: 8,
+          radius: 10,
           child: Icon(
             isFavorite ? Icons.favorite : Icons.favorite_border,
-            color: isFavorite ? Colors.red : context.color.icon,
-            size: 12,
+            color: isFavorite ? context.color.primary : context.color.icon,
+            size: 16,
           ),
         ),
       ),

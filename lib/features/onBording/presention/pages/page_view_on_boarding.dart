@@ -8,7 +8,6 @@ import 'package:car_app_new/features/onBording/presention/pages/on_boarding_oage
 import 'package:car_app_new/features/onBording/presention/pages/on_boarding_page_one.dart';
 import 'package:car_app_new/features/onBording/presention/widgets/custom_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnBoardingPageView extends StatefulWidget {
   const OnBoardingPageView({super.key});
@@ -65,7 +64,7 @@ class _OnBoardingPageViewState extends State<OnBoardingPageView> {
             bottom: 0,
             child: SafeArea(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24.w),
+                padding: EdgeInsets.symmetric(horizontal: 24),
                 child: Column(
                   children: [
                     Center(
@@ -79,7 +78,7 @@ class _OnBoardingPageViewState extends State<OnBoardingPageView> {
                       ),
                     ),
 
-                    SizedBox(height: 25.h),
+                    SizedBox(height: 25),
 
                     CustomButton(
                       text: _currentPage == 1 ? 'Get Started' : 'Next',
@@ -99,7 +98,7 @@ class _OnBoardingPageViewState extends State<OnBoardingPageView> {
                           ],
                         ),
 
-                    SizedBox(height: 40.h),
+                    SizedBox(height: 40),
                   ],
                 ),
               ),

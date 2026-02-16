@@ -6,7 +6,7 @@ import 'package:car_app_new/features/auth/presention/widgets/pinput_field.dart';
 import 'package:car_app_new/features/auth/presention/widgets/reset_password/custom_bloc_listener_reset_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class SectionConfirmPassword extends StatelessWidget {
   const SectionConfirmPassword({super.key});
@@ -16,11 +16,11 @@ class SectionConfirmPassword extends StatelessWidget {
     final formController = context.read<ResetPasswordBloc>().formController;
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 120.h),
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical:45 ),
       child: Form(
         key: formController.formKey,
         child: Column(
-          spacing: 20.h,
+          spacing:10 ,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             PinputField(

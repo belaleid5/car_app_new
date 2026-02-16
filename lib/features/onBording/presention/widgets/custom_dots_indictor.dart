@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomDotIndicator extends StatelessWidget {
-
   const CustomDotIndicator({
     super.key,
     required this.currentPage,
@@ -30,11 +28,13 @@ class CustomDotIndicator extends StatelessWidget {
         (index) => AnimatedContainer(
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeInOut,
-          width: currentPage == index ? activeDotSize.w : inactiveDotSize.w,
-          height: currentPage == index ? activeDotSize.h : inactiveDotSize.h,
-          margin: EdgeInsets.symmetric(horizontal: (spacing / 2).w),
+          width: currentPage == index ? activeDotSize : inactiveDotSize,
+          height: currentPage == index ? activeDotSize : inactiveDotSize,
+          margin: EdgeInsets.symmetric(horizontal: spacing / 2),
           decoration: BoxDecoration(
-            color: currentPage == index ? activeColor : inactiveColor.withOpacity(0.5),
+            color: currentPage == index
+                ? activeColor
+                : inactiveColor.withOpacity(0.5),
             shape: BoxShape.circle,
           ),
         ),

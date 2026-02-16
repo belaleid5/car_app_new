@@ -1,4 +1,3 @@
-import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/helper/spacing.dart' show verticalSpace;
 import 'package:car_app_new/features/user/home/data/models/cars_model.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/car-ratig.dart';
@@ -7,7 +6,6 @@ import 'package:car_app_new/features/user/home/presention/widgets/car_image.dart
 import 'package:car_app_new/features/user/home/presention/widgets/car_location.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/car_name.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CarCardWidget extends StatelessWidget {
   const CarCardWidget({
@@ -20,13 +18,13 @@ class CarCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 220.w,
+      width: 220,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16.r),
-        boxShadow:  [
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
           BoxShadow(
-            color: context.color.black.withValues(alpha: 0.2),
+            color: Colors.black.withValues(alpha: 0.2),
             blurRadius: 8,
           ),
         ],
@@ -34,22 +32,24 @@ class CarCardWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CarImage(image: cars.firstImage), // ✅ firstImage
+          CarImage(image: cars.firstImage),
+
           Padding(
-            padding: EdgeInsets.all(12.w),
+            padding: const EdgeInsets.all(12),
             child: Column(
+              spacing: 6,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CarName(name: cars.name),
-                verticalSpace(4.h),
 
                 CarRating(rate: cars.reviewsAvg),
-                verticalSpace(4.h),
 
                 CarLocation(
                   address: cars.location.name ?? '',
                 ),
-                verticalSpace(8.h),
+
+                verticalSpace(4),
+
                 CarFooter(
                   seats: cars.seatingCapacity,
                   price: cars.dailyRent ?? cars.price,

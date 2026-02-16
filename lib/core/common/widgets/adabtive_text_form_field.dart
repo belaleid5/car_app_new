@@ -2,7 +2,6 @@ import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/styles/theme/my_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AdaptiveInputField extends StatelessWidget {
   const AdaptiveInputField({
@@ -115,7 +114,7 @@ class AdaptiveInputField extends StatelessWidget {
                   .colors
                   .textSecondary, // 👈 غيّر هنا من textPrimary لـ textSecondary
               fontWeight: FontWeight.w400,
-              fontSize: 14.sp,
+              fontSize: 14,
             ),
 
           initialValue: initialValue,
@@ -133,7 +132,7 @@ class AdaptiveInputField extends StatelessWidget {
                   .colors
                   .textSecondary, // 👈 غيّر هنا من textPrimary لـ textSecondary
               fontWeight: FontWeight.w400,
-              fontSize: 14.sp,
+              fontSize: 14,
             ),
             errorStyle: Theme.of(context).textTheme.labelLarge,
             enabledBorder: OutlineInputBorder(

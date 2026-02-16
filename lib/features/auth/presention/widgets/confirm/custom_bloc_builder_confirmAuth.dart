@@ -9,7 +9,6 @@ import 'package:car_app_new/features/auth/presention/manger/bloc_confirm/bloc/co
 import 'package:car_app_new/features/auth/presention/widgets/button_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomBlocBuilderConfirmCodeAuth extends StatelessWidget {
   const CustomBlocBuilderConfirmCodeAuth({
@@ -31,7 +30,7 @@ class CustomBlocBuilderConfirmCodeAuth extends StatelessWidget {
               'Confirm',
               style: context.textStyle.copyWith(
                 color: context.color.background,
-                fontSize: 16.sp,
+                fontSize:20 ,
                 fontWeight: FontWeight.bold,
               ),
             ),

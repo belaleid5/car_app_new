@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CarName extends StatelessWidget {
   const CarName({super.key, required this.name});
@@ -11,8 +10,8 @@ class CarName extends StatelessWidget {
       name,
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
-      style:  TextStyle(
-        fontSize: 16.sp,
+      style: const TextStyle(
+        fontSize: 16,
         fontWeight: FontWeight.w600,
       ),
     );

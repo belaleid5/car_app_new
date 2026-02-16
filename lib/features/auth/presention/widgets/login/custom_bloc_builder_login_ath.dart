@@ -9,7 +9,7 @@ import 'package:car_app_new/features/auth/presention/manger/bloc_login/login_sta
 import 'package:car_app_new/features/auth/presention/widgets/button_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class CustomBlocBuilderLoginAuth extends StatelessWidget {
   const CustomBlocBuilderLoginAuth({
@@ -27,7 +27,7 @@ class CustomBlocBuilderLoginAuth extends StatelessWidget {
                     context.translate(LangKeys.login),
                     style: context.textStyle.copyWith(
                       color: context.color.background,
-                      fontSize: 16.sp,
+                      fontSize:20 ,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

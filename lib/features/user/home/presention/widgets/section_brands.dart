@@ -1,7 +1,7 @@
 import 'package:car_app_new/core/extensions/context_extensions.dart';
+import 'package:car_app_new/core/helper/spacing.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/custom_bloc_builder_brand.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SectionBrands extends StatelessWidget {
   const SectionBrands({super.key});
@@ -14,10 +14,10 @@ class SectionBrands extends StatelessWidget {
         Text(
           'Brands',
           style: context.textStyle.copyWith(
-            fontSize: 16.sp,
+            fontSize: 16,
           ),
         ),
-        SizedBox(height: 12.h),
+        verticalSpace(12),
 
         const CustomBlocBuilderBrand(),
       ],

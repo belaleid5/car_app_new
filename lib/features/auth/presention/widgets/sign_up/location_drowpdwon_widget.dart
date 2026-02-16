@@ -1,12 +1,14 @@
-import 'package:car_app_new/core/styles/theme/my_colors.dart';
 import 'package:car_app_new/core/shared/model/location_model.dart';
+import 'package:car_app_new/core/styles/theme/my_colors.dart';
 import 'package:car_app_new/features/auth/presention/widgets/sign_up/locaation_input_decortion.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LocationDropdownWidget extends StatelessWidget {
   const LocationDropdownWidget({
-    required this.locations, required this.selectedId, required this.onChanged, super.key,
+    required this.locations,
+    required this.selectedId,
+    required this.onChanged,
+    super.key,
   });
 
   final List<LocationModel> locations;
@@ -20,11 +22,10 @@ class LocationDropdownWidget extends StatelessWidget {
       isExpanded: true,
       decoration: LocationInputDecoration.build(context),
       dropdownColor: context.colors.background,
-      borderRadius: BorderRadius.circular(12.r),
+      borderRadius: BorderRadius.circular(12),
       items: _buildItems(context),
       onChanged: locations.isEmpty ? null : onChanged,
-      validator: (value) =>
-          value == null ? 'Please select a location' : null,
+      validator: (value) => value == null ? 'Please select a location' : null,
     );
   }
 

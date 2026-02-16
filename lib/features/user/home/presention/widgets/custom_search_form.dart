@@ -1,7 +1,6 @@
 import 'package:car_app_new/core/common/widgets/adabtive_text_form_field.dart';
 import 'package:car_app_new/core/styles/theme/my_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomSearchForm extends StatelessWidget {
   const CustomSearchForm({
@@ -19,11 +18,11 @@ class CustomSearchForm extends StatelessWidget {
         hintText: 'Search your dream car....',
         textCapitalization: TextCapitalization.none,
         prefix: Padding(
-          padding: EdgeInsets.all(12.w),
+          padding: EdgeInsets.all(12),
           child: Icon(
             Icons.search,
             color: MyColors.light.textSecondary,
-            size: 24.sp,
+            size: 24,
           ),
         ),
         maxLines: 1,

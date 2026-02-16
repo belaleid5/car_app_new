@@ -1,4 +1,5 @@
 import 'dart:math' as math show pi, sin;
+
 import 'package:flutter/material.dart';
 
 class LoadingWidget extends StatefulWidget {
@@ -28,15 +29,18 @@ class LoadingWidget extends StatefulWidget {
   State<LoadingWidget> createState() => _LoadingWidgetState();
 }
 
-class _LoadingWidgetState extends State<LoadingWidget> with SingleTickerProviderStateMixin {
+class _LoadingWidgetState extends State<LoadingWidget>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
   @override
   void initState() {
     super.initState();
 
-    _controller = (widget.controller ?? AnimationController(vsync: this, duration: widget.duration))
-      ..repeat();
+    _controller =
+        (widget.controller ??
+              AnimationController(vsync: this, duration: widget.duration))
+          ..repeat();
   }
 
   @override
@@ -62,13 +66,15 @@ class _LoadingWidgetState extends State<LoadingWidget> with SingleTickerProvider
               left: position,
               top: position,
               child: Transform(
-                transform: Matrix4.rotationZ((360 / itemCount) * i * 0.0174533),
+                // ✅ الاسم الصحيح
+                transform: Matrix4.rotationZ(
+                  (360 / itemCount) * i * 0.0174533,
+                ),
                 child: Align(
-                  alignment: Alignment.center,
                   child: FadeTransition(
                     opacity: DelayTween(
-                      begin: 0.0,
-                      end: 1.0,
+                      begin: 0,
+                      end: 1,
                       delay: i / itemCount,
                     ).animate(_controller),
                     child: SizedBox.fromSize(
@@ -97,10 +103,10 @@ class _LoadingWidgetState extends State<LoadingWidget> with SingleTickerProvider
 
 class DelayTween extends Tween<double> {
   DelayTween({
-    double? begin,
-    double? end,
+    super.begin,
+    super.end,
     required this.delay,
-  }) : super(begin: begin, end: end);
+  });
 
   final double delay;
 

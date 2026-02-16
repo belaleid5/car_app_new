@@ -2,7 +2,6 @@ import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/extensions/custom_shimmer.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/shimmer_widget/icon_shimmer_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ImageCarWidgetShimmer extends StatelessWidget {
   const ImageCarWidgetShimmer({
@@ -14,16 +13,23 @@ class ImageCarWidgetShimmer extends StatelessWidget {
     return Stack(
       children: [
         ClipRRect(
-          borderRadius: BorderRadiusGeometry.only(topLeft: Radius.circular(18.r),topRight: Radius.circular(18.r)),
+          borderRadius: const BorderRadiusGeometry.only(
+            topLeft: Radius.circular(18),
+            topRight: Radius.circular(18),
+          ),
           child: ShimmerWidget.card(
             baseColor: context.color.stroke,
             highlightColor: context.color.white,
-            height: 100.h,
-          
+            height: 100,
           ),
         ),
-        Positioned(top: 8.h, right: 8.w, child: 
-         IconShimmerWidget(iconColor: context.color.primary,)),
+        Positioned(
+          top: 8,
+          right: 8,
+          child: IconShimmerWidget(
+            iconColor: context.color.primary,
+          ),
+        ),
       ],
     );
   }

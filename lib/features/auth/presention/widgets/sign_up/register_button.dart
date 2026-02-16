@@ -8,7 +8,7 @@ import 'package:car_app_new/features/auth/presention/manger/bloc_register/regist
 import 'package:car_app_new/features/auth/presention/widgets/button_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class RegisterButton extends StatelessWidget {
   const RegisterButton({super.key});
@@ -16,7 +16,6 @@ class RegisterButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<RegisterBloc, RegisterState>(
-      // ✅ Listen only to success and error states
       listenWhen: (previous, current) {
         return current.maybeWhen(
           success: (_) => true,
@@ -63,7 +62,7 @@ class RegisterButton extends StatelessWidget {
                   context.translate(LangKeys.signUp),
                   style: context.textStyle.copyWith(
                     color: context.color.background,
-                    fontSize: 16.sp,
+                    fontSize:20 ,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

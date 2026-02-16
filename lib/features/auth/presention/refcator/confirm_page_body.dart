@@ -5,7 +5,6 @@ import 'package:car_app_new/features/auth/presention/widgets/Custom_wlcome_text.
 import 'package:car_app_new/features/auth/presention/widgets/confirm/custom_text_send_verifcation.dart';
 import 'package:car_app_new/features/auth/presention/widgets/confirm/section_confirm_code.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ConfirmPageBody extends StatelessWidget {
   const ConfirmPageBody({super.key});
@@ -13,17 +12,17 @@ class ConfirmPageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24.w),
+      padding: const EdgeInsets.symmetric(horizontal: 24),
       child: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(child: verticalSpace(60.h)),
+          SliverToBoxAdapter(child: verticalSpace(60)),
 
           /// Logo
           const SliverToBoxAdapter(
             child: SectionLogoAndTitleQent(),
           ),
 
-          SliverToBoxAdapter(child: verticalSpace(240.h)),
+          SliverToBoxAdapter(child: verticalSpace(240)),
 
           /// Title
           SliverToBoxAdapter(
@@ -34,7 +33,7 @@ class ConfirmPageBody extends StatelessWidget {
             ),
           ),
 
-          SliverToBoxAdapter(child: verticalSpace(20.h)),
+          SliverToBoxAdapter(child: verticalSpace(20)),
 
           /// Subtitle
           SliverToBoxAdapter(
@@ -43,7 +42,7 @@ class ConfirmPageBody extends StatelessWidget {
             ).animateRightLeft(),
           ),
 
-          SliverToBoxAdapter(child: verticalSpace(30.h)),
+          SliverToBoxAdapter(child: verticalSpace(30)),
 
           /// Confirm Code Section
           const SliverToBoxAdapter(

@@ -1,12 +1,10 @@
 // features/onboarding/presentation/widgets/custom_page_indicator.dart
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomOnBoardingIndicator extends StatelessWidget {
-
   const CustomOnBoardingIndicator({
-    required this.currentPage, 
-    required this.totalPages, 
+    required this.currentPage,
+    required this.totalPages,
     super.key,
     this.activeColor = Colors.white,
     this.inactiveColor = Colors.grey,
@@ -31,12 +29,14 @@ class CustomOnBoardingIndicator extends StatelessWidget {
         (index) => AnimatedContainer(
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeInOut,
-          width: currentPage == index ? dotWidth.w : (dotWidth / 2).w,
-          height: dotHeight.h,
-          margin: EdgeInsets.symmetric(horizontal: (spacing / 2).w),
+          width: currentPage == index ? dotWidth : (dotWidth / 2),
+          height: dotHeight,
+          margin: EdgeInsets.symmetric(horizontal: (spacing / 2)),
           decoration: BoxDecoration(
-            color: currentPage == index ? activeColor : inactiveColor.withOpacity(0.5),
-            borderRadius: BorderRadius.circular(2.r),
+            color: currentPage == index
+                ? activeColor
+                : inactiveColor.withOpacity(0.5),
+            borderRadius: BorderRadius.circular(2),
           ),
         ),
       ),

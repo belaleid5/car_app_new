@@ -7,7 +7,7 @@ import 'package:car_app_new/features/auth/presention/manger/bloc_register/regist
 import 'package:car_app_new/features/auth/presention/widgets/button_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class CustomBlocBuilderRegisterAuth extends StatelessWidget {
   const CustomBlocBuilderRegisterAuth({super.key});
@@ -16,13 +16,12 @@ class CustomBlocBuilderRegisterAuth extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<RegisterBloc, RegisterState>(
       buildWhen: (previous, current) {
-        // امنع الـ rebuild لما يكون success أو error
-        // علشان الـ BlocListener ياخد فرصته الأول
+        
         return current.maybeWhen(
           loading: () => true,
           initial: () => true,
-          success: (_) => false,  // هنا التغيير المهم
-          error: (_) => false,     // هنا التغيير المهم
+          success: (_) => false,  
+          error: (_) => false,     
           locationsLoading: () => false,
           locationsLoaded: (_) => false,
           locationSelected: (_,_) => false,
@@ -42,7 +41,7 @@ class CustomBlocBuilderRegisterAuth extends StatelessWidget {
                   context.translate(LangKeys.signUp),
                   style: context.textStyle.copyWith(
                     color: context.color.background,
-                    fontSize: 16.sp,
+                    fontSize:20 ,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

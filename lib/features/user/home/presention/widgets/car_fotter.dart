@@ -1,8 +1,8 @@
 import 'package:car_app_new/core/common/widgets/custom_image.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
+import 'package:car_app_new/core/helper/spacing.dart';
 import 'package:car_app_new/core/styles/app_images.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CarFooter extends StatelessWidget {
   const CarFooter({
@@ -20,35 +20,33 @@ class CarFooter extends StatelessWidget {
       children: [
         Row(
           children: [
-           CustomImage(
-          imageType: ImagesType.svg,
-          imagePath: AppImages.setsIcon,
-          height: 16.h,
-          width: 16.w,
-          applySvgColor: true,
-          color: context.color.stroke,
-        ),
-             SizedBox(width: 4.w),
+            CustomImage(
+              imageType: ImagesType.svg,
+              imagePath: AppImages.setsIcon,
+              height: 16,
+              width: 16,
+              applySvgColor: true,
+              color: context.color.stroke,
+            ),
+             horizontalSpace(4),
             Text(
               '$seats ',
               style: context.textStyle.copyWith(
-                fontSize: 12.sp,
+                fontSize: 12,
               ),
             ),
           ],
         ),
-         CustomImage(
+        const CustomImage(
           imageType: ImagesType.svg,
           imagePath: AppImages.dollarIcon,
-          height: 16.h,
-          width: 16.w,
-
-          
+          height: 16,
+          width: 16,
         ),
         Text(
           price != null ? '\$${int.parse(price!.split('.')[0])}/Day' : '',
           style: context.textStyle.copyWith(
-            fontSize: 12.sp,
+            fontSize: 12,
             fontWeight: FontWeight.bold,
           ),
         ),

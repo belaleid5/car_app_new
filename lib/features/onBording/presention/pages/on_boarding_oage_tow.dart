@@ -6,7 +6,6 @@ import 'package:car_app_new/features/onBording/presention/widgets/custom_des_on_
 import 'package:car_app_new/features/onBording/presention/widgets/custom_opacity-background_image_on_boarding.dart';
 import 'package:car_app_new/features/onBording/presention/widgets/custom_title_animation_on_boarding.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnBoardingPageTwo extends StatelessWidget {
   const OnBoardingPageTwo({super.key});
@@ -21,24 +20,24 @@ class OnBoardingPageTwo extends StatelessWidget {
         const CustomOpacityColorBackGroundImageObBoarding(),
         SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.w),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 40.h),
-                SizedBox(
-                  width: 56.w,
-                  height: 56.h,
-                  child: const CustomLogoAppSvg(),
+                const SizedBox(height: 40),
+                const SizedBox(
+                  width: 56,
+                  height: 56,
+                  child: CustomLogoAppSvg(),
                 ).animateRotate(),
-                SizedBox(height: 40.h),
+                const SizedBox(height: 40),
                 const CustomTitleAnimationOnBoarding(),
                 const Spacer(),
                 const CustomDescriptionPageOnBoarding().animateBottomToTop(
                   duration: const Duration(milliseconds: 800),
                 ),
                 // Space for fixed bottom section
-                SizedBox(height: 180.h),
+                const SizedBox(height: 180),
               ],
             ),
           ),

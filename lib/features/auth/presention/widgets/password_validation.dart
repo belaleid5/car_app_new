@@ -1,6 +1,7 @@
+import 'package:car_app_new/core/helper/spacing.dart';
 import 'package:car_app_new/core/styles/theme/my_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class PasswordValidations extends StatelessWidget {
 
@@ -22,25 +23,25 @@ class PasswordValidations extends StatelessWidget {
           'At least 1 lowercase letter',
           hasLowerCase,
         ),
-        SizedBox(height: 2.h),
+        verticalSpace(5),
         _buildValidationRow(
           context,
           'At least 1 uppercase letter',
           hasUpperCase,
         ),
-        SizedBox(height: 2.h),
+        verticalSpace(5),
         _buildValidationRow(
           context,
           'At least 1 special character',
           hasSpecialCharacter,
         ),
-        SizedBox(height: 2.h),
+        verticalSpace(5),
         _buildValidationRow(
           context,
           'At least 1 number',
           hasNumber,
         ),
-        SizedBox(height: 2.h),
+        verticalSpace(5),
         _buildValidationRow(
           context,
           'At least 8 characters long',
@@ -61,11 +62,11 @@ class PasswordValidations extends StatelessWidget {
           radius: 2.5,
           backgroundColor: context.colors.textSecondary,
         ),
-        SizedBox(width: 6.w),
+        SizedBox(width:8 ),
         Text(
           text,
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-            fontSize: 13.sp,
+            fontSize:16 ,
             decoration: hasValidated ? TextDecoration.lineThrough : null,
             decorationColor: Colors.green,
             decorationThickness: 2,

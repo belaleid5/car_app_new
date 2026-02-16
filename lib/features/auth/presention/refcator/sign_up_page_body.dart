@@ -10,7 +10,6 @@ import 'package:car_app_new/features/auth/presention/widgets/sign_up/section_aut
 import 'package:car_app_new/features/auth/presention/widgets/sign_up/sign_up_text_title.dart';
 import 'package:car_app_new/features/auth/presention/widgets/social_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignUpPageBody extends StatelessWidget {
   const SignUpPageBody({
@@ -24,25 +23,25 @@ class SignUpPageBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
-            child: verticalSpace(60.h),
+            child: verticalSpace(60),
           ),
           const SliverToBoxAdapter(
             child: SectionLogoAndTitleQent(),
           ),
           SliverToBoxAdapter(
-            child: verticalSpace(40.h),
+            child: verticalSpace(40),
           ),
           const SliverToBoxAdapter(
             child: SignUpTextTitle(),
           ),
           SliverToBoxAdapter(
-            child: verticalSpace(10.h),
+            child: verticalSpace(10),
           ),
           const SliverToBoxAdapter(
             child: SectionAuthSignUP(),
           ),
           SliverToBoxAdapter(
-            child: verticalSpace(20.h),
+            child: verticalSpace(20),
           ),
           SliverToBoxAdapter(
             child: CustomButton(
@@ -52,7 +51,7 @@ class SignUpPageBody extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(
-            child: verticalSpace(20.h),
+            child: verticalSpace(20),
           ),
           const SliverToBoxAdapter(
             child: CustomButtonSocial(
@@ -61,7 +60,7 @@ class SignUpPageBody extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(
-            child: verticalSpace(15.h),
+            child: verticalSpace(15),
           ),
           const SliverToBoxAdapter(
             child: CustomButtonSocial(
@@ -70,7 +69,7 @@ class SignUpPageBody extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(
-            child: verticalSpace(30.h),
+            child: verticalSpace(30),
           ),
           SliverToBoxAdapter(
             child: DontHaveOrHaveAnAccountText(

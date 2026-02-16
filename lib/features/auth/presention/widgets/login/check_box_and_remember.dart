@@ -3,7 +3,7 @@ import 'package:car_app_new/features/auth/presention/manger/bloc_login/login_blo
 import 'package:car_app_new/features/auth/presention/widgets/login/check_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class CustomCheckBoxAndRemember extends StatefulWidget {
   const CustomCheckBoxAndRemember({super.key});
@@ -36,14 +36,14 @@ class _CustomCheckBoxAndRememberState extends State<CustomCheckBoxAndRemember> {
             Text(
               'Remember Me',
               style: context.textStyle.copyWith(
-                fontSize: 14.sp,
+                fontSize: 18,
               ),
             ),
             Text(
               ' *',
               style: TextStyle(
                 color: Colors.red,
-                fontSize: 16.sp,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -51,12 +51,12 @@ class _CustomCheckBoxAndRememberState extends State<CustomCheckBoxAndRemember> {
         ),
         if (errorMessage != null)
           Padding(
-            padding: EdgeInsets.only(top: 4.h, left: 8.w),
+            padding: EdgeInsets.only(top: 5, left:5 ),
             child: Text(
               errorMessage!,
               style: TextStyle(
                 color: Colors.red,
-                fontSize: 12.sp,
+                fontSize:12,
               ),
             ),
           ),

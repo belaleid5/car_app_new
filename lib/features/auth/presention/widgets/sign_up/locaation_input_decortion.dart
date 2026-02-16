@@ -1,7 +1,7 @@
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/styles/theme/my_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class LocationInputDecoration {
   static InputDecoration build(BuildContext context) {
@@ -9,16 +9,16 @@ class LocationInputDecoration {
       hintText: 'Select Location',
       hintStyle: TextStyle(
       color: context.color.textSecondary,
-      fontSize: 14.sp,
+      fontSize: 18,
     ),
       filled: true,
       fillColor: context.colors.background,
       prefixIcon: Icon(
         Icons.location_on_outlined,
         color: context.color.textSecondary,
-        size: 22.sp,
+        size: 16,
       ),
-      contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+      contentPadding: EdgeInsets.symmetric(horizontal:12 , vertical: 8),
       border: _buildBorder(context),
       enabledBorder: _buildBorder(context),
       focusedBorder: _buildBorder(context, focused: true),
@@ -30,10 +30,10 @@ class LocationInputDecoration {
     bool focused = false,
   }) {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(12.r),
+      borderRadius: BorderRadius.circular(15),
       borderSide: BorderSide(
         color: focused ? context.colors.primary : context.colors.stroke,
-        width: focused ? 2.w : 1.w,
+        width: focused ?  25 : 25 ,
       ),
     );
   }

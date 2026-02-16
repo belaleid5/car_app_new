@@ -2,7 +2,6 @@ import 'package:car_app_new/core/common/widgets/custom_image.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/features/user/home/data/models/brand_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ItemBrand extends StatelessWidget {
   const ItemBrand({
@@ -17,15 +16,15 @@ class ItemBrand extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.only(
-            top: 8.sp,
-            bottom: 8.sp,
-            right: 12.sp,
+          padding: const EdgeInsets.only(
+            top: 8,
+            bottom: 8,
+            right: 12,
           ),
           child: CustomImage(
-            width: 80.w,
-            height: 80.h,
-            boxFit: BoxFit.contain,
+            width: 60,
+            height: 60,
+            boxFit: BoxFit.cover,
             imageType: ImagesType.network,
             imagePath: brand.image,
           ),
@@ -33,7 +32,7 @@ class ItemBrand extends StatelessWidget {
         Text(
           brand.name,
           style: context.textStyle.copyWith(
-            fontSize: 12.sp,
+            fontSize: 12,
           ),
         ),
       ],

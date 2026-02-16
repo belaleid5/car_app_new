@@ -9,7 +9,7 @@ import 'package:car_app_new/features/auth/presention/widgets/login/login_bloc_li
 import 'package:car_app_new/features/auth/presention/widgets/login/section_rememper_user_and_forget_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class SectionLoginAuth extends StatelessWidget {
   const SectionLoginAuth({super.key});
@@ -22,7 +22,7 @@ class SectionLoginAuth extends StatelessWidget {
       key: loginBloc.formKey,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        spacing: 10.h,
+        spacing: 5,
         children: [
           CustomTextFormEmail(
             controller: loginBloc.emailController,

@@ -1,7 +1,7 @@
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/features/auth/presention/manger/bloc_register/register_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class AvailableToCreateCarCheckbox extends StatefulWidget {
   const AvailableToCreateCarCheckbox({super.key, required this.registerBloc});
@@ -20,7 +20,7 @@ class _AvailableToCreateCarCheckboxState
     return CheckboxListTile(
       title: Text(
         'Available to create car',
-        style: context.textStyle.copyWith(fontSize: 14.sp),
+        style: context.textStyle.copyWith(fontSize: 16),
       ),
       value: widget.registerBloc.availableToCreateCar,
       onChanged: (value) {

@@ -5,10 +5,9 @@ import 'package:car_app_new/features/onBording/presention/widgets/custom_backgro
 import 'package:car_app_new/features/onBording/presention/widgets/custom_opacity-background_image_on_boarding.dart';
 import 'package:car_app_new/features/onBording/presention/widgets/custom_title_onBoarding_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OnBoardingPageOne extends StatelessWidget {
-  const OnBoardingPageOne();
+  const OnBoardingPageOne({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,22 +19,22 @@ class OnBoardingPageOne extends StatelessWidget {
         const CustomOpacityColorBackGroundImageObBoarding(),
         SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.w),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 40.h),
-                SizedBox(
-                  width: 56.w,
-                  height: 56.h,
-                  child: const CustomLogoAppSvg(),
+                const SizedBox(height: 40),
+                const SizedBox(
+                  width: 56,
+                  height: 56,
+                  child: CustomLogoAppSvg(),
                 ).animateScaleNFadeHorizontal(
                   duration: const Duration(milliseconds: 800),
                 ),
-                SizedBox(height: 32.h),
+                const SizedBox(height: 32),
                 const CustomTitleOnBoardingPage(),
                 // Space for fixed bottom section
-                SizedBox(height: 150.h),
+                const SizedBox(height: 150),
               ],
             ),
           ),

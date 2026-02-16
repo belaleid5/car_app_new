@@ -1,11 +1,11 @@
 import 'package:car_app_new/core/helper/spacing.dart';
 import 'package:car_app_new/features/auth/presention/widgets/custom_divider.dart';
+import 'package:car_app_new/features/user/home/presention/widgets/best_cars_title_section_and_view_all_text.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/bset_cars_section.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/home_app_bar.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/section_brands.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/section_search.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomePageBody extends StatelessWidget {
   const HomePageBody({super.key});
@@ -13,37 +13,47 @@ class HomePageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      shrinkWrap: true,
       slivers: [
-        SliverPadding(
-          padding: EdgeInsets.fromLTRB(24.sp, 20.sp, 24.sp, 0),
-          sliver: const HomeAppBar(),
+        const SliverPadding(
+          padding: EdgeInsets.fromLTRB(24, 20, 24, 0),
+          sliver: HomeAppBar(),
         ),
+
         const SliverToBoxAdapter(
           child: CustomDivider(),
         ),
+
         SliverToBoxAdapter(
-          child: verticalSpace(10.h),
+          child: verticalSpace(10),
         ),
-        SliverPadding(
-          padding: EdgeInsets.symmetric(horizontal: 20.sp),
-          sliver: const SliverToBoxAdapter(
+
+        const SliverPadding(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          sliver: SliverToBoxAdapter(
             child: SectionSearch(),
           ),
         ),
+
         SliverToBoxAdapter(
-          child: verticalSpace(20.h),
+          child: verticalSpace(20),
         ),
-        SliverPadding(
-          padding: EdgeInsets.symmetric(horizontal: 24.sp),
-          sliver: const SliverToBoxAdapter(
+
+        const SliverPadding(
+          padding: EdgeInsets.symmetric(horizontal: 24),
+          sliver: SliverToBoxAdapter(
             child: SectionBrands(),
           ),
         ),
-        SliverToBoxAdapter(
-          child: verticalSpace(20.h),
-        ),
 
+        SliverToBoxAdapter(
+          child: verticalSpace(20),
+        ),
+        const SliverToBoxAdapter(
+          child: BestCarsTitleSectionAndViewAllText(),
+        ),
+        SliverToBoxAdapter(
+          child: verticalSpace(10),
+        ),
         const BestCarsSection(),
       ],
     );

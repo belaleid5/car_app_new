@@ -10,7 +10,7 @@ import 'package:car_app_new/features/auth/presention/widgets/sign_up/custom_text
 import 'package:car_app_new/features/auth/presention/widgets/sign_up/register_bloc_listneter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class SectionAuthSignUP extends StatelessWidget {
   const SectionAuthSignUP({super.key});
@@ -22,7 +22,7 @@ class SectionAuthSignUP extends StatelessWidget {
     return Form(
       key: registerBloc.formKey,
       child: Column(
-        spacing: 10.h,
+        spacing: 8,
         children: [
           CustomTextFormFullName(
             controller: registerBloc.fullNameController,

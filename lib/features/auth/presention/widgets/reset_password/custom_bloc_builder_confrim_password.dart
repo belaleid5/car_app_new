@@ -8,7 +8,7 @@ import 'package:car_app_new/features/auth/presention/manger/reset_password/bloc/
 import 'package:car_app_new/features/auth/presention/widgets/button_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class CustomBlocBuilderResetPassword extends StatelessWidget {
   const CustomBlocBuilderResetPassword({super.key});
@@ -39,7 +39,7 @@ class CustomBlocBuilderResetPassword extends StatelessWidget {
                   'Reset Password',
                   style: context.textStyle.copyWith(
                     color: context.color.background,
-                    fontSize: 16.sp,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

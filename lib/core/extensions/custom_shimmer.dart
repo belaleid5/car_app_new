@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 
 /// Custom shimmer loading widget
@@ -215,8 +214,8 @@ class ShimmerBrandItem extends StatelessWidget {
     return Column(
       children: [
         ShimmerWidget.circular(size: size),
-        SizedBox(height: 8.h),
-        ShimmerWidget.text(width: 60.w, height: 14.h),
+        const SizedBox(height: 8),
+        ShimmerWidget.text(width: 60, height: 14),
       ],
     );
   }
@@ -236,19 +235,19 @@ class ShimmerListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Row(
         children: [
           ShimmerWidget.circular(size: avatarSize),
-          SizedBox(width: 12.w),
+          const SizedBox(width: 12),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ShimmerWidget.text(width: 150.w, height: 16.h),
+                ShimmerWidget.text(width: 150),
                 if (showSubtitle) ...[
-                  SizedBox(height: 8.h),
-                  ShimmerWidget.text(width: 100.w, height: 12.h),
+                  const SizedBox(height: 8),
+                  ShimmerWidget.text(width: 100, height: 12),
                 ],
               ],
             ),
@@ -276,10 +275,10 @@ class ShimmerGridItem extends StatelessWidget {
         ShimmerWidget.card(
           height: imageHeight,
         ),
-        SizedBox(height: 12.h),
-        ShimmerWidget.text(height: 16.h),
-        SizedBox(height: 8.h),
-        ShimmerWidget.text(width: 100.w, height: 14.h),
+        const SizedBox(height: 12),
+        ShimmerWidget.text(),
+        const SizedBox(height: 8),
+        ShimmerWidget.text(width: 100, height: 14),
       ],
     );
   }

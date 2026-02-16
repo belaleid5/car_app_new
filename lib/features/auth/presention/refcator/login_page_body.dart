@@ -10,7 +10,6 @@ import 'package:car_app_new/features/auth/presention/widgets/login/section_login
 import 'package:car_app_new/features/auth/presention/widgets/section_divider_or_text.dart';
 import 'package:car_app_new/features/auth/presention/widgets/social_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginPageBody extends StatelessWidget {
   const LoginPageBody({super.key});
@@ -20,34 +19,36 @@ class LoginPageBody extends StatelessWidget {
     return Stack(
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.w),
+          padding: const EdgeInsets.symmetric(horizontal: 24),
           child: CustomScrollView(
             slivers: [
-              SliverToBoxAdapter(child: verticalSpace(60.h)),
+              SliverToBoxAdapter(child: verticalSpace(60)),
               const SliverToBoxAdapter(child: SectionLogoAndTitleQent()),
-              SliverToBoxAdapter(child: verticalSpace(60.h)),
+              SliverToBoxAdapter(child: verticalSpace(60)),
               SliverToBoxAdapter(
-                child: const CustomTitleTextAuth(title: 'Welcome Back \nReady to hit the road.',).animateRightLeft(),
+                child: const CustomTitleTextAuth(
+                  title: 'Welcome Back \nReady to hit the road.',
+                ).animateRightLeft(),
               ),
-              SliverToBoxAdapter(child: verticalSpace(120.h)),
+              SliverToBoxAdapter(child: verticalSpace(120)),
               const SliverToBoxAdapter(child: SectionLoginAuth()),
-              SliverToBoxAdapter(child: verticalSpace(30.h)),
+              SliverToBoxAdapter(child: verticalSpace(30)),
               const SliverToBoxAdapter(child: SectionOrText()),
-              SliverToBoxAdapter(child: verticalSpace(20.h)),
+              SliverToBoxAdapter(child: verticalSpace(20)),
               const SliverToBoxAdapter(
                 child: CustomButtonSocial(
                   titleButton: 'Apple Now',
                   iconPath: AppImages.appleIcon,
                 ),
               ),
-              SliverToBoxAdapter(child: verticalSpace(15.h)),
+              SliverToBoxAdapter(child: verticalSpace(15)),
               const SliverToBoxAdapter(
                 child: CustomButtonSocial(
                   titleButton: 'Google Play',
                   iconPath: AppImages.googleIcon,
                 ),
               ),
-              SliverToBoxAdapter(child: verticalSpace(30.h)),
+              SliverToBoxAdapter(child: verticalSpace(30)),
               SliverToBoxAdapter(
                 child: DontHaveOrHaveAnAccountText(
                   firstTitle: "Don't have an account? ",

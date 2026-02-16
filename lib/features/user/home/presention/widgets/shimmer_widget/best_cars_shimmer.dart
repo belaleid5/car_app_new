@@ -7,7 +7,6 @@ import 'package:car_app_new/features/user/home/presention/widgets/shimmer_widget
 import 'package:car_app_new/features/user/home/presention/widgets/shimmer_widget/rate_widget_shimmer.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/shimmer_widget/text_shimmer_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BestCarsShimmer extends StatelessWidget {
   const BestCarsShimmer({super.key});
@@ -15,14 +14,13 @@ class BestCarsShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24.w),
+      padding: const EdgeInsets.symmetric(horizontal: 24),
       child: PaginatedGridView<int>(
-        height: 1.8.h,
+        height: 1.3,
         itemCount: 5,
         hasMore: false,
         crossAxisCount: 2,
-        mainAxisSpacing: 12.h,
-        crossAxisSpacing: 8.w,
+        mainAxisSpacing: 12,
         physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemBuilder: (context, index) {
@@ -30,7 +28,7 @@ class BestCarsShimmer extends StatelessWidget {
             width: double.infinity,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(18.r),
+              borderRadius: BorderRadius.circular(18),
               boxShadow: [
                 BoxShadow(
                   color: context.color.black.withValues(alpha: 0.2),
@@ -39,22 +37,22 @@ class BestCarsShimmer extends StatelessWidget {
               ],
             ),
             child: Column(
-              spacing: 2.h,
+              spacing: 2,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const ImageCarWidgetShimmer(),
 
-                verticalSpace(10.h),
+                verticalSpace(10),
 
                 const TextShimmerWidget(),
 
-                verticalSpace(5.h),
-                const RateWidgtetShimmer(),
-                verticalSpace(8.h),
-                const LocationShimerWidget(),
+                verticalSpace(5),
+                const RateWidgetShimmer(),
+                verticalSpace(8),
+                const LocationShimmerWidget(),
 
-                verticalSpace(8.h),
-                const FotterShimerWidget(),
+                verticalSpace(8),
+                const FotterShimmerWidget(),
               ],
             ),
           );

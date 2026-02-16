@@ -2,7 +2,6 @@ import 'package:car_app_new/features/user/home/presention/manger/bloc_brands/bra
 import 'package:car_app_new/features/user/home/presention/manger/bloc_brands/brands_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomFailedLoadWidget extends StatelessWidget {
   const CustomFailedLoadWidget({
@@ -12,13 +11,13 @@ class CustomFailedLoadWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 140.h,
+      height: 140,
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.error_outline, size: 40.w, color: Colors.red),
-            SizedBox(height: 8.h),
+            const Icon(Icons.error_outline, size: 40, color: Colors.red),
+            const SizedBox(height: 8),
             const Text('Failed to load brands'),
             TextButton.icon(
               onPressed: () {

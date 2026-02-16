@@ -1,7 +1,6 @@
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/shared/model/location_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LocationDropdownItems {
   static DropdownMenuItem<int> emptyItem(BuildContext context) {
@@ -11,7 +10,7 @@ class LocationDropdownItems {
         'No locations available',
         style: TextStyle(
       color: context.color.textSecondary,
-      fontSize: 14.sp,
+      fontSize: 14,
     ),
       ),
     );
@@ -27,7 +26,7 @@ class LocationDropdownItems {
         location.name!,
         style: TextStyle(
       color: context.color.textPrimary,
-      fontSize: 14.sp,
+      fontSize: 14,
       fontWeight: FontWeight.w500,
     ),
       ),

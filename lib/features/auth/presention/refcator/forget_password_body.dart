@@ -9,7 +9,6 @@ import 'package:car_app_new/features/auth/presention/widgets/forget_password/cus
 import 'package:car_app_new/features/auth/presention/widgets/forget_password/custom_sup_title_reset_password_page.dart';
 import 'package:car_app_new/features/auth/presention/widgets/login/custom_text_form_email.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ForgetPasswordBody extends StatefulWidget {
   const ForgetPasswordBody({super.key});
@@ -17,20 +16,22 @@ class ForgetPasswordBody extends StatefulWidget {
   @override
   State<ForgetPasswordBody> createState() => _ForgetPasswordBodyState();
 }
+
 GlobalKey<FormState> formKey = GlobalKey<FormState>();
 TextEditingController emailController = TextEditingController();
+
 class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24.sp),
+      padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Form(
         key: formKey,
         child: Column(
-          spacing: 20.h,
+          spacing: 20,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            verticalSpace(40.h * 2),
+            verticalSpace(40 * 2),
 
             const CustomTextResetPassword(),
             const CustomSubTitleResetPasswordPage(),
@@ -43,7 +44,10 @@ class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
               duration: const Duration(milliseconds: 1450),
             ),
 
-            CustomBlocListenerForgotPassword(formKey: formKey, emailController: emailController),
+            CustomBlocListenerForgotPassword(
+              formKey: formKey,
+              emailController: emailController,
+            ),
 
             const CustomButtonReturnLoginScreen().animateRightLeft(
               duration: const Duration(milliseconds: 1650),

@@ -1,7 +1,7 @@
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class CustomButtonReturnLoginScreen extends StatelessWidget {
   const CustomButtonReturnLoginScreen({
@@ -17,7 +17,7 @@ class CustomButtonReturnLoginScreen extends StatelessWidget {
       child: Text(
         'Back to Login',
         style: context.textStyle.copyWith(
-          fontSize: 14.sp,
+          fontSize: 22,
           color: context.color.textPrimary,
         ),
       ),

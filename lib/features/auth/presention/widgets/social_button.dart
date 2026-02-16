@@ -1,7 +1,7 @@
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/helper/spacing.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:flutter_svg/svg.dart';
 
 class CustomButtonSocial extends StatelessWidget {
@@ -19,9 +19,8 @@ class CustomButtonSocial extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: context.color.white,
-        minimumSize: Size(400.w, 62.h),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.r),
+          borderRadius: BorderRadius.circular(12),
         ),
       ),
       onPressed: () {},
@@ -29,12 +28,12 @@ class CustomButtonSocial extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SvgPicture.asset(iconPath),
-          horizontalSpace(8.w),
+          horizontalSpace(5),
           Text(
             titleButton,
             style: TextStyle(
               color: context.color.black,
-              fontSize: 16.sp,
+              fontSize:20 ,
               fontWeight: FontWeight.w500,
             ),
           ),

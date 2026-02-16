@@ -8,7 +8,6 @@ import 'package:car_app_new/features/auth/presention/manger/bloc_register/regist
 import 'package:car_app_new/features/auth/presention/widgets/button_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterBlocListener extends StatelessWidget {
   const RegisterBlocListener({super.key});
@@ -63,7 +62,7 @@ class RegisterBlocListener extends StatelessWidget {
                   context.translate(LangKeys.signUp),
                   style: context.textStyle.copyWith(
                     color: context.color.background,
-                    fontSize: 16.sp,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

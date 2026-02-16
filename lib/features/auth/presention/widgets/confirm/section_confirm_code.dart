@@ -9,7 +9,6 @@ import 'package:car_app_new/features/auth/presention/widgets/confirm/custom_bloc
 import 'package:car_app_new/features/auth/presention/widgets/pinput_field.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SectionConfirmCode extends StatefulWidget {
   const SectionConfirmCode({super.key});
@@ -22,26 +21,23 @@ class _SectionConfirmCodeState extends State<SectionConfirmCode> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _codeController = TextEditingController();
 
-
   @override
   Widget build(BuildContext context) {
- return Form(
+    return Form(
       key: _formKey,
       child: Column(
         children: [
           PinputField(
-            
             controller: _codeController,
           ).animateShakeAlarm(),
 
-          verticalSpace(40.h),
+          verticalSpace(10),
 
           BlocListener<ConfirmCodeBloc, ConfirmCodeState>(
             listener: (context, state) {
               state.whenOrNull(
                 success: (user) async {
-                  CustomToast.showSuccess(
-                      context, 'Confirm code successful');
+                  CustomToast.showSuccess(context, 'Confirm code successful');
                   await context.pushReplacementNamed(
                     AppRoutesNames.loginRoute,
                   );

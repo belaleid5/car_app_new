@@ -5,7 +5,7 @@ import 'package:car_app_new/features/auth/presention/manger/forgot_password/bloc
 import 'package:car_app_new/features/auth/presention/widgets/button_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class CustomBlocBuilderForgotPasswordAuth extends StatelessWidget {
   const CustomBlocBuilderForgotPasswordAuth({
@@ -33,7 +33,7 @@ class CustomBlocBuilderForgotPasswordAuth extends StatelessWidget {
                   'Continue',
                   style: context.textStyle.copyWith(
                     color: context.color.background,
-                    fontSize: 16.sp,
+                    fontSize:20 ,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

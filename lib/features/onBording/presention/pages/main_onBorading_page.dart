@@ -5,7 +5,6 @@ import 'package:car_app_new/core/routes/routes_names.dart';
 import 'package:car_app_new/core/services/shared_pref/shared_keys.dart';
 import 'package:car_app_new/core/services/shared_pref/shared_pref.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MainOnboardingPage extends StatefulWidget {
   const MainOnboardingPage({super.key});
@@ -22,12 +21,14 @@ class _MainOnboardingPageState extends State<MainOnboardingPage> {
   }
 
   Future<void> _navigateToWelcome() async {
-    // ignore: inference_failure_on_instance_creation
     await Future.delayed(const Duration(seconds: 3));
     if (mounted) {
-
-      
-   await   Navigator.pushReplacementNamed(context,SharedPref().getString(PrefKeys.accessToken) !=null? AppRoutesNames.homePage: AppRoutesNames.pageViewBoarding);
+      await Navigator.pushReplacementNamed(
+        context,
+        SharedPref().getString(PrefKeys.accessToken) != null
+            ? AppRoutesNames.homePage
+            : AppRoutesNames.pageViewBoarding,
+      );
     }
   }
 
@@ -40,26 +41,22 @@ class _MainOnboardingPageState extends State<MainOnboardingPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Logo with Multiple Animations
-            SizedBox(
-              width: 120.w,
-              height: 120.h,
-              child: const CustomLogoAppSvg(),
-            )
-                .animateScaleNFadeHorizontal(
-                  duration: const Duration(milliseconds: 1000),
-                )
-                .animateRotate(
-                  duration: const Duration(milliseconds: 1500),
-                ),
+            const SizedBox(
+              width: 120,
+              height: 120,
+              child: CustomLogoAppSvg(),
+            ).animateScaleNFadeHorizontal().animateRotate(
+              duration: const Duration(milliseconds: 1500),
+            ),
 
-            SizedBox(height: 32.h),
+            const SizedBox(height: 32),
 
             // App Name with Shimmer
-            Text(
+            const Text(
               'Car Rental',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 48.sp,
+                fontSize: 48,
                 fontWeight: FontWeight.bold,
               ),
             ).animateShimmer(
@@ -70,14 +67,14 @@ class _MainOnboardingPageState extends State<MainOnboardingPage> {
               ],
             ),
 
-            SizedBox(height: 16.h),
+            const SizedBox(height: 16),
 
             // Tagline with Fade
             Text(
               'Your Journey Starts Here',
               style: TextStyle(
                 color: Colors.white.withOpacity(0.7),
-                fontSize: 16.sp,
+                fontSize: 16,
               ),
             ).animateBottomToTop(
               duration: const Duration(milliseconds: 800),

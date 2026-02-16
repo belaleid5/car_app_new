@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomDescriptionPageOnBoarding extends StatelessWidget {
   const CustomDescriptionPageOnBoarding({
@@ -14,7 +13,7 @@ class CustomDescriptionPageOnBoarding extends StatelessWidget {
       "Let's get started on your journey.",
       style: TextStyle(
         color: Colors.white.withOpacity(0.8),
-        fontSize: 14.sp,
+        fontSize: 14,
         height: 1.5,
       ),
     );

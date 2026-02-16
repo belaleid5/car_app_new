@@ -9,8 +9,7 @@ import 'package:car_app_new/core/helper/spacing.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
 import 'package:car_app_new/core/services/shared_pref/shared_keys.dart';
 import 'package:car_app_new/core/services/shared_pref/shared_pref.dart';
-import 'package:car_app_new/features/auth/presention/manger/bloc_verify_code/verify_code_phone_auth_bloc.dart'
-   ;
+import 'package:car_app_new/features/auth/presention/manger/bloc_verify_code/verify_code_phone_auth_bloc.dart';
 import 'package:car_app_new/features/auth/presention/manger/bloc_verify_code/verify_code_phone_auth_event.dart';
 import 'package:car_app_new/features/auth/presention/widgets/Custom_wlcome_text.dart';
 import 'package:car_app_new/features/auth/presention/widgets/button_auth.dart';
@@ -18,7 +17,6 @@ import 'package:car_app_new/features/auth/presention/widgets/confirm/custom_text
 import 'package:car_app_new/features/auth/presention/widgets/sign_up/custom_text_form_country.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class VerificationPageBody extends StatelessWidget {
   const VerificationPageBody({
@@ -28,15 +26,15 @@ class VerificationPageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24.sp),
+      padding: const EdgeInsets.symmetric(horizontal: 24),
       child: CustomScrollView(
         slivers: [
           SliverAppBar(
             backgroundColor: context.color.background,
-            leadingWidth: 150.w,
+            leadingWidth: 150,
             leading: const SectionLogoAndTitleQent(),
           ),
-          SliverToBoxAdapter(child: verticalSpace(60.h * 4)),
+          SliverToBoxAdapter(child: verticalSpace(60 * 4)),
           SliverToBoxAdapter(
             child: Center(
               child: const CustomTitleTextAuth(
@@ -44,13 +42,13 @@ class VerificationPageBody extends StatelessWidget {
               ).animateRightLeft(),
             ),
           ),
-          SliverToBoxAdapter(child: verticalSpace(20.h)),
+          SliverToBoxAdapter(child: verticalSpace(20)),
           SliverToBoxAdapter(
             child: const CustomSubTitleTextAuth(
               subTitle: 'We have sent you an SMS with a code to number',
             ).animateRightLeft(),
           ),
-          SliverToBoxAdapter(child: verticalSpace(60.h * 2)),
+          SliverToBoxAdapter(child: verticalSpace(60 * 2)),
           const SliverToBoxAdapter(
             child: SectionVerificationAuth(),
           ),
@@ -114,7 +112,7 @@ class _SectionVerificationAuthState extends State<SectionVerificationAuth> {
                   print('Dial Code: $dialCode');
                 },
               ),
-              verticalSpace(20.h),
+              verticalSpace(20),
               ButtonAuth(
                 widgetTitle: isLoading
                     ? loadingWidget(context)
@@ -122,7 +120,7 @@ class _SectionVerificationAuthState extends State<SectionVerificationAuth> {
                         'Verification',
                         style: context.textStyle.copyWith(
                           color: context.color.background,
-                          fontSize: 16.sp,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

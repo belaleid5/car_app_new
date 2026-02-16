@@ -2,10 +2,9 @@ import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/shimmer_widget/icon_shimmer_widget.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/shimmer_widget/text_shimmer_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LocationShimerWidget extends StatelessWidget {
-  const LocationShimerWidget({
+class LocationShimmerWidget extends StatelessWidget {
+  const LocationShimmerWidget({
     super.key,
   });
 
@@ -14,7 +13,7 @@ class LocationShimerWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5),
       child: Row(
-        spacing: 8.w,
+        spacing: 8,
         children: [
           IconShimmerWidget(
             iconColor: context.color.stroke,
