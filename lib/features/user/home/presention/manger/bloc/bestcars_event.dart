@@ -1,12 +1,14 @@
-// lib/features/user/home/presention/manger/bloc/bestcars_event.dart
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-abstract class GetBestCarsEvent {
-  const GetBestCarsEvent();
-}
+part 'bestcars_event.freezed.dart';
 
-class Started extends GetBestCarsEvent {
-  final int? page;
-  final int? limit;
-
-  const Started({this.page, this.limit});
+@freezed
+class BestCarsEvent with _$BestCarsEvent {
+  const factory BestCarsEvent.fetchBestCars({
+    @Default(1) int page,
+  }) = _FetchBestCars;
+  
+  const factory BestCarsEvent.loadMoreBestCars() = _LoadMoreBestCars;
+  
+  const factory BestCarsEvent.refreshBestCars() = _RefreshBestCars;
 }

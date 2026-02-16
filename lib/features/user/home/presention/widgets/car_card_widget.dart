@@ -1,3 +1,5 @@
+import 'package:car_app_new/core/extensions/context_extensions.dart';
+import 'package:car_app_new/core/helper/spacing.dart' show verticalSpace;
 import 'package:car_app_new/features/user/home/data/models/cars_model.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/car-ratig.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/car_fotter.dart';
@@ -10,9 +12,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CarCardWidget extends StatelessWidget {
   const CarCardWidget({
     super.key,
-    required this.car,
+    required this.cars,
   });
-  final CarsModel car;
+
+  final CarsModel cars;
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +24,9 @@ class CarCardWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16.r),
-        boxShadow: const [
+        boxShadow:  [
           BoxShadow(
-            color: Colors.black12,
+            color: context.color.black.withValues(alpha: 0.2),
             blurRadius: 8,
           ),
         ],
@@ -31,23 +34,25 @@ class CarCardWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CarImage(image: car.firstImage),
+          CarImage(image: cars.firstImage), // ✅ firstImage
           Padding(
             padding: EdgeInsets.all(12.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CarName(name: car.name),
-                SizedBox(height: 4.h),
-                CarRating(rate: car.reviewsAvg),
-                SizedBox(height: 4.h),
+                CarName(name: cars.name),
+                verticalSpace(4.h),
+
+                CarRating(rate: cars.reviewsAvg),
+                verticalSpace(4.h),
+
                 CarLocation(
-                  address: car.location.name ?? car.location.address,
+                  address: cars.location.name ?? '',
                 ),
-                SizedBox(height: 8.h),
+                verticalSpace(8.h),
                 CarFooter(
-                  seats: car.seatingCapacity,
-                  price: car.dailyRent ?? car.price,
+                  seats: cars.seatingCapacity,
+                  price: cars.dailyRent ?? cars.price,
                 ),
               ],
             ),

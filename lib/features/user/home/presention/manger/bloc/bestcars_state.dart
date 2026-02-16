@@ -1,25 +1,15 @@
-// lib/features/user/home/presention/manger/bloc/bestcars_state.dart
-
 import 'package:car_app_new/features/user/home/data/models/cars_model.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-abstract class GetBestCarsState {
-  const GetBestCarsState();
-}
+part 'bestcars_state.freezed.dart';
 
-class Initial extends GetBestCarsState {
-  const Initial();
-}
-
-class Loading extends GetBestCarsState {
-  const Loading();
-}
-
-class Success extends GetBestCarsState {
-  final List<CarsModel> cars;
-  const Success(this.cars);
-}
-
-class Error extends GetBestCarsState {
-  final String message;
-  const Error(this.message);
+@freezed
+class BestCarsState with _$BestCarsState {
+  const factory BestCarsState.loading() = _Loading;
+  const factory BestCarsState.success({
+    required List<CarsModel> cars,
+    required bool hasMore,
+    required int currentPage,
+  }) = _Success;
+  const factory BestCarsState.error({required String message}) = _Error;
 }

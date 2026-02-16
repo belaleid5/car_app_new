@@ -19,6 +19,7 @@ class MyColors extends ThemeExtension<MyColors> {
     required this.black,
     required this.spinKitColor,
     required this.divider,
+    required this.rate,
   });
   // ========== Main Colors ==========
   final Color primary;
@@ -35,7 +36,8 @@ class MyColors extends ThemeExtension<MyColors> {
   final Color button;
   final Color icon;
   final Color background;
-    final Color divider;
+  final Color divider;
+  final Color rate;
 
   // ========== Common Colors ==========
   final Color white;
@@ -44,7 +46,7 @@ class MyColors extends ThemeExtension<MyColors> {
 
   // ========== Light Theme Colors ==========
   static const MyColors light = MyColors(
-    primary: Color(0xFFFFFFFF),
+    primary: Color(0xFF000000),
     secondary: Color(0xFFEDEDED),
     tertiary: Color(0xFF3B82F6),
     textPrimary: Color(0xFF000000),
@@ -58,11 +60,12 @@ class MyColors extends ThemeExtension<MyColors> {
     black: Color(0xFF000000),
     spinKitColor: Color(0xFFFFFFFF),
     divider: Color(0xFF767676),
+    rate: Color(0xFFFFC107),
   );
 
   // ========== Dark Theme Colors ==========
   static const MyColors dark = MyColors(
-    primary: Color(0xFF000000),
+    primary: Color(0xFFFFFFFF),
     secondary: Color(0xFF454545),
     tertiary: Color(0xFF3B82F6),
     textPrimary: Color(0xFFFFFFFF),
@@ -76,6 +79,7 @@ class MyColors extends ThemeExtension<MyColors> {
     black: Color(0xFF000000),
     spinKitColor: Color(0xFF000000),
     divider: Color(0xFFFFFFFF),
+    rate: Color(0xFFFFC107),
   );
 
   @override
@@ -92,10 +96,9 @@ class MyColors extends ThemeExtension<MyColors> {
     Color? background,
     Color? white,
     Color? black,
-    Color ? divider,
+    Color? divider,
   }) {
     return MyColors(
-
       primary: primary ?? this.primary,
       secondary: secondary ?? this.secondary,
       tertiary: tertiary ?? this.tertiary,
@@ -110,6 +113,7 @@ class MyColors extends ThemeExtension<MyColors> {
       black: black ?? this.black,
       spinKitColor: spinKitColor,
       divider: divider ?? this.divider,
+      rate: rate ?? rate,
     );
   }
 
@@ -131,7 +135,8 @@ class MyColors extends ThemeExtension<MyColors> {
       white: Color.lerp(white, other.white, t)!,
       black: Color.lerp(black, other.black, t)!,
       spinKitColor: Color.lerp(spinKitColor, other.spinKitColor, t)!,
-      divider: Color.lerp(spinKitColor, other.divider, t)!,
+      divider: Color.lerp(divider, other.divider, t)!,
+      rate: Color.lerp(rate, other.rate, t)!,
     );
   }
 }

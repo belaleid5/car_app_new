@@ -18,6 +18,9 @@ import 'package:car_app_new/features/onBording/presention/pages/on_boarding_page
 import 'package:car_app_new/features/onBording/presention/pages/page_view_on_boarding.dart';
 import 'package:car_app_new/features/settings/presention/screens/settings_page.dart';
 import 'package:car_app_new/features/user/home/presention/manger/bloc/bestcars_bloc.dart';
+import 'package:car_app_new/features/user/home/presention/manger/bloc/bestcars_event.dart';
+import 'package:car_app_new/features/user/home/presention/manger/bloc_brands/brands_bloc.dart';
+import 'package:car_app_new/features/user/home/presention/manger/bloc_brands/brands_event.dart';
 import 'package:car_app_new/features/user/home/presention/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -57,8 +60,12 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(
             providers: [
-              BlocProvider<GetBestCarsBloc>(
-                create: (context) => sl<GetBestCarsBloc>(),
+              BlocProvider<BestCarsBloc>(
+                create: (context) => sl<BestCarsBloc>()..add(const BestCarsEvent.fetchBestCars()),
+              ),
+              BlocProvider<BrandsBloc>(
+                create: (context) =>
+                    sl<BrandsBloc>()..add(const BrandsEvent.getBrands()),
               ),
             ],
             child: const HomePage(),
@@ -82,7 +89,6 @@ class AppRouter {
           builder: (context) {
             final resetToken = settings.arguments as String?;
             print('🛣️ AppRouter - Reset Token: $resetToken');
-
             return BlocProvider(
               create: (context) => sl<ResetPasswordBloc>(),
               child: const ResetPasswordPage(),

@@ -1,5 +1,5 @@
 import 'package:car_app_new/core/extensions/context_extensions.dart';
-import 'package:car_app_new/core/styles/app_images.dart';
+import 'package:car_app_new/features/user/home/presention/widgets/custom_bloc_builder_brand.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,34 +17,9 @@ class SectionBrands extends StatelessWidget {
             fontSize: 16.sp,
           ),
         ),
+        SizedBox(height: 12.h),
 
-        SizedBox(
-          height: 150.h,
-          child: ListView.separated(
-            shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) => Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: 8.sp,
-                    bottom: 8.sp,
-                    right: 12.sp,
-                  ),
-                  child: Image.asset(AppImages.brandImage),
-                ),
-                Text(
-                  'Lamborghini',
-                  style: context.textStyle.copyWith(
-                    fontSize: 12.sp,
-                  ),
-                ),
-              ],
-            ),
-            separatorBuilder: (context, index) => const Spacer(),
-            itemCount: 5,
-          ),
-        ),
+        const CustomBlocBuilderBrand(),
       ],
     );
   }

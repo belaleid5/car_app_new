@@ -1,6 +1,6 @@
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/helper/spacing.dart';
-import 'package:car_app_new/core/common/widgets/secction_logo_and_title_qent.dart';
+import 'package:car_app_new/core/common/widgets/section_logo_and_title_qent.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/circle_user_image.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/notification_home_widget.dart';
 import 'package:flutter/material.dart';

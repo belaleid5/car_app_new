@@ -26,7 +26,7 @@ class CarFooter extends StatelessWidget {
           height: 16.h,
           width: 16.w,
           applySvgColor: true,
-          color: Colors.grey,
+          color: context.color.stroke,
         ),
              SizedBox(width: 4.w),
             Text(

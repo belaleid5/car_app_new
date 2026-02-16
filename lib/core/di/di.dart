@@ -23,6 +23,7 @@ import 'package:car_app_new/features/auth/presention/manger/reset_password/bloc/
 import 'package:car_app_new/features/user/home/data/data_source/home_data_source.dart';
 import 'package:car_app_new/features/user/home/data/repo/home_repo.dart';
 import 'package:car_app_new/features/user/home/presention/manger/bloc/bestcars_bloc.dart';
+import 'package:car_app_new/features/user/home/presention/manger/bloc_brands/brands_bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -31,11 +32,11 @@ final GetIt sl = GetIt.instance;
 Future<void> setupDI() async {
   await _initCore();
   await _initAuth();
- await homeFeature();
+  await homeFeature();
 }
 
 Future<void> _initCore() async {
-   sl.registerLazySingleton<Dio>(
+  sl.registerLazySingleton<Dio>(
     () => Dio(
       BaseOptions(
         baseUrl: ApiConstants.baseUrl,
@@ -76,41 +77,39 @@ Future<void> _initAuth() async {
     ..registerLazySingleton<BaseVerifyCodePhoneDataSource>(
       () => RemoteVerifyCodePhoneDataSource(apiService: sl()),
     )
-
-
-// confirm Feature
+    // confirm Feature
     ..registerFactory<ConfirmCodeBloc>(() => ConfirmCodeBloc(sl()))
-    ..registerLazySingleton<ConfirmCodePhoneRepo>(() => ConfirmCodePhoneRepo(sl()))
+    ..registerLazySingleton<ConfirmCodePhoneRepo>(
+      () => ConfirmCodePhoneRepo(sl()),
+    )
     ..registerLazySingleton<BaseConfirmCodePhoneDataSource>(
       () => RemoteConfirmCodePhoneDataSource(apiService: sl()),
     )
-
-
-
-
     // forgot password Feature
     ..registerFactory<ForgotPasswordBloc>(() => ForgotPasswordBloc(sl()))
-    ..registerLazySingleton<ForgotPasswordRepo>(() => ForgotPasswordRepo( dataSource: sl()))
+    ..registerLazySingleton<ForgotPasswordRepo>(
+      () => ForgotPasswordRepo(dataSource: sl()),
+    )
     ..registerLazySingleton<BaseForgotPasswordDataSource>(
       () => RemoteForgotPasswordDataSource(apiService: sl()),
     )
-
-
- // forgot password Feature
+    // forgot password Feature
     ..registerFactory<ResetPasswordBloc>(() => ResetPasswordBloc(sl()))
-    ..registerLazySingleton<ResetPasswordRepo>(() => ResetPasswordRepo( sl()))
+    ..registerLazySingleton<ResetPasswordRepo>(() => ResetPasswordRepo(sl()))
     ..registerLazySingleton<BaseResetPasswordDataSource>(
       () => RemoteResetPasswordDataSource(apiService: sl()),
     );
 }
 
+// Home Feature
 Future<void> homeFeature() async {
   sl
-    ..registerFactory<GetBestCarsBloc>(() => GetBestCarsBloc(repository: sl()))
+    ..registerFactory<BestCarsBloc>(() => BestCarsBloc( sl()))
     ..registerLazySingleton<HomeCarsRepository>(
       () => HomeCarsRepository(remoteDataSource: sl()),
     )
     ..registerLazySingleton<HomeCarsRemoteDataSource>(
-      HomeCarsRemoteDataSourceImpl.new,
-    );
+      () => HomeCarsRemoteDataSourceImpl(sl()),
+    )
+    ..registerFactory<BrandsBloc>(() => BrandsBloc(sl()));
 }
