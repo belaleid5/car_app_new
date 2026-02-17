@@ -1,4 +1,4 @@
-import 'package:car_app_new/core/common/widgets/grid_view.dart';
+import 'package:car_app_new/core/common/widgets/smooth_list_view.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/helper/spacing.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/shimmer_widget/fotter_widget_shimmer.dart';
@@ -15,48 +15,52 @@ class BestCarsShimmer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: PaginatedGridView<int>(
-        height: 1.3,
-        itemCount: 5,
-        hasMore: false,
-        crossAxisCount: 2,
-        mainAxisSpacing: 12,
-        physics: const NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          return Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(18),
-              boxShadow: [
-                BoxShadow(
-                  color: context.color.black.withValues(alpha: 0.2),
-                  blurRadius: 8,
+      child: SizedBox(
+        height: 250,
+
+        child: SmoothListView.builder(
+          scrollDirection: Axis.horizontal,
+          duration: const Duration(milliseconds: 300),
+          itemCount: 5,
+          physics: const NeverScrollableScrollPhysics(),
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.only(right: 16),
+              child: Container(
+                width: 200,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(18),
+                  boxShadow: [
+                    BoxShadow(
+                      color: context.color.black.withValues(alpha: 0.2),
+                      blurRadius: 8,
+                    ),
+                  ],
                 ),
-              ],
-            ),
-            child: Column(
-              spacing: 2,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const ImageCarWidgetShimmer(),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const ImageCarWidgetShimmer(),
 
-                verticalSpace(10),
+                    verticalSpace(10),
 
-                const TextShimmerWidget(),
+                    const TextShimmerWidget(),
 
-                verticalSpace(5),
-                const RateWidgetShimmer(),
-                verticalSpace(8),
-                const LocationShimmerWidget(),
+                    verticalSpace(5),
+                    const RateWidgetShimmer(),
 
-                verticalSpace(8),
-                const FotterShimmerWidget(),
-              ],
-            ),
-          );
-        },
+                    verticalSpace(8),
+                    const LocationShimmerWidget(),
+
+                    verticalSpace(8),
+                    const FotterShimmerWidget(),
+                  ],
+                ),
+              ),
+            );
+          },
+        ),
       ),
     );
   }

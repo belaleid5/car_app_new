@@ -8,11 +8,9 @@ class CustomDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Divider(
-        color: context.color.divider,
-        thickness: 2,
-      ),
+    return Divider(
+      color: context.color.divider,
+      thickness: 2,
     );
   }
 }
