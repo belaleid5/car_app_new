@@ -3,7 +3,7 @@ import 'package:car_app_new/core/app/connectivitiy_controller.dart';
 import 'package:car_app_new/core/app/env_varible.dart';
 import 'package:car_app_new/core/common/screens/no_network.dart';
 import 'package:car_app_new/core/di/di.dart';
-import 'package:car_app_new/core/helper/responsive_scaled.dart';
+import 'package:car_app_new/core/helper/app_responsive.dart';
 import 'package:car_app_new/core/language/app_localizations_setup.dart';
 import 'package:car_app_new/core/routes/app_routes.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
