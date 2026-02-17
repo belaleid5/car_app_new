@@ -1,4 +1,4 @@
-import 'package:car_app_new/car_app.dart';
+import 'package:car_app_new/core/common/model/car_app.dart';
 import 'package:car_app_new/core/app/bloc_observer.dart';
 import 'package:car_app_new/core/app/connectivitiy_controller.dart';
 import 'package:car_app_new/core/app/env_varible.dart';

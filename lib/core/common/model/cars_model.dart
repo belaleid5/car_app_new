@@ -1,11 +1,11 @@
 // lib/features/user/home/data/models/cars_model.dart
 
-import 'package:car_app_new/features/user/home/data/models/brand_model.dart';
-import 'package:car_app_new/features/user/home/data/models/car_features_model.dart';
-import 'package:car_app_new/features/user/home/data/models/car_image_model.dart';
-import 'package:car_app_new/features/user/home/data/models/car_review_model.dart';
-import 'package:car_app_new/features/user/home/data/models/color_model.dart';
-import 'package:car_app_new/features/user/home/data/models/location_home_model.dart';
+import 'package:car_app_new/core/common/model/brand_model.dart';
+import 'package:car_app_new/core/common/model/car_features_model.dart';
+import 'package:car_app_new/core/common/model/car_image_model.dart';
+import 'package:car_app_new/core/common/model/car_review_model.dart';
+import 'package:car_app_new/core/common/model/color_model.dart';
+import 'package:car_app_new/core/common/model/location_home_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'cars_model.freezed.dart';

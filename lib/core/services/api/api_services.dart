@@ -7,9 +7,9 @@ import 'package:car_app_new/features/auth/data/models/response/forgot_password_r
 import 'package:car_app_new/features/auth/data/models/response/location_response_model.dart'; // ✅ بس دي
 import 'package:car_app_new/features/auth/data/models/response/user_response_model.dart';
 import 'package:car_app_new/features/auth/data/models/response/verify_code_phone_response_model.dart';
-import 'package:car_app_new/features/user/home/data/models/brands_response_model.dart';
+import 'package:car_app_new/core/common/model/brands_response_model.dart';
 import 'package:car_app_new/features/user/home/data/models/cars_response_model.dart';
-import 'package:car_app_new/features/user/home/data/models/cars_model.dart';
+import 'package:car_app_new/core/common/model/cars_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 

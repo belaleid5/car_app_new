@@ -21,7 +21,7 @@ class _MainOnboardingPageState extends State<MainOnboardingPage> {
   }
 
   Future<void> _navigateToWelcome() async {
-    await Future.delayed(const Duration(seconds: 3));
+    await Future<void>.delayed(const Duration(seconds: 3));
     if (mounted) {
       await Navigator.pushReplacementNamed(
         context,
