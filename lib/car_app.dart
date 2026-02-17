@@ -32,14 +32,12 @@ class CarApp extends StatelessWidget {
         return BlocProvider(
           create: (_) => sl<AppCubit>()
             ..changeAppThemeMode(
-              sharedMode:
-                  SharedPref().getBoolean(PrefKeys.themeMode) ?? false,
+              sharedMode: SharedPref().getBoolean(PrefKeys.themeMode) ?? false,
             ),
           child: GestureDetector(
             onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-            child: ResponsiveScaledBox(
-              autoCalculateMediaQueryData :true,
-              width: _designWidth, 
+            child: AppResponsive(
+              width: _designWidth,
               child: BlocBuilder<AppCubit, AppState>(
                 builder: (context, state) {
                   final cubit = context.read<AppCubit>();
@@ -50,8 +48,7 @@ class CarApp extends StatelessWidget {
                     onGenerateRoute: AppRouter.onGenerateRoute,
                     initialRoute: AppRoutesNames.mainBoarding,
                     theme: cubit.isDark ? themeDark() : themeLight(),
-                    supportedLocales:
-                        AppLocalizationsSetup.supportedLocales,
+                    supportedLocales: AppLocalizationsSetup.supportedLocales,
                     localizationsDelegates:
                         AppLocalizationsSetup.localizationsDelegates,
                     locale: const Locale('en'),
