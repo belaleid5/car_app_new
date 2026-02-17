@@ -1,6 +1,6 @@
 import 'package:car_app_new/core/extensions/animation_extensions.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
-import 'package:car_app_new/core/functions/spink_kit.dart';
+import 'package:car_app_new/core/common/functions/spink_kit.dart';
 import 'package:car_app_new/features/auth/presention/manger/forgot_password/bloc/forgot_password_bloc.dart';
 import 'package:car_app_new/features/auth/presention/widgets/button_auth.dart';
 import 'package:flutter/material.dart';

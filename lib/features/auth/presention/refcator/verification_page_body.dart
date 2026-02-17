@@ -3,7 +3,7 @@ import 'package:car_app_new/core/extensions/animation_extensions.dart';
 import 'package:car_app_new/core/extensions/app_validators.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/extensions/custom_toast.dart';
-import 'package:car_app_new/core/functions/spink_kit.dart';
+import 'package:car_app_new/core/common/functions/spink_kit.dart';
 import 'package:car_app_new/core/helper/navigator_extenstion.dart';
 import 'package:car_app_new/core/helper/spacing.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
