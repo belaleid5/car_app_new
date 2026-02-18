@@ -1,4 +1,4 @@
-import 'package:car_app_new/features/user/home/data/models/cars_model.dart';
+import 'package:car_app_new/core/common/model/cars_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'cars_response_model.freezed.dart';

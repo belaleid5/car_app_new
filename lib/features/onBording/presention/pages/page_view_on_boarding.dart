@@ -3,7 +3,7 @@ import 'package:car_app_new/core/common/widgets/custom_button.dart';
 import 'package:car_app_new/core/extensions/animation_extensions.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
-import 'package:car_app_new/core/styles/theme/my_colors.dart';
+import 'package:car_app_new/core/app/theme/my_colors.dart';
 import 'package:car_app_new/features/onBording/presention/pages/on_boarding_oage_tow.dart';
 import 'package:car_app_new/features/onBording/presention/pages/on_boarding_page_one.dart';
 import 'package:car_app_new/features/onBording/presention/widgets/custom_indicator.dart';

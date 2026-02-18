@@ -1,5 +1,5 @@
 import 'package:car_app_new/core/helper/spacing.dart' show verticalSpace;
-import 'package:car_app_new/features/user/home/data/models/cars_model.dart';
+import 'package:car_app_new/core/common/model/cars_model.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/car-ratig.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/car_fotter.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/car_image.dart';

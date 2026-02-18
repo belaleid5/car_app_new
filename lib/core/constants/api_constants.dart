@@ -8,6 +8,7 @@ class ApiConstants {
   static const String updateCarEndpoint = '$baseUrl/cars';
   static const String deleteCarEndpoint = '$baseUrl/cars';
   static const String brandsEndpoint = '$baseUrl/brands';
+  static const String nerestCarsEndpoint = '$baseUrl/cars/nearest';
   static const String loginEndpoint = '$baseUrl/auth/login/';
   static const String verifyCodePhoneEndpoint =
       '/auth/phone/request_verify_code/';

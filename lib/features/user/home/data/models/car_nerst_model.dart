@@ -1,20 +1,17 @@
-// lib/features/user/home/data/models/cars_model.dart
-
-import 'package:car_app_new/features/user/home/data/models/brand_model.dart';
-import 'package:car_app_new/features/user/home/data/models/car_features_model.dart';
-import 'package:car_app_new/features/user/home/data/models/car_image_model.dart';
-import 'package:car_app_new/features/user/home/data/models/car_review_model.dart';
-import 'package:car_app_new/features/user/home/data/models/color_model.dart';
-import 'package:car_app_new/features/user/home/data/models/location_home_model.dart';
+import 'package:car_app_new/core/common/model/brand_model.dart';
+import 'package:car_app_new/core/common/model/car_features_model.dart';
+import 'package:car_app_new/core/common/model/car_image_model.dart';
+import 'package:car_app_new/core/common/model/car_review_model.dart';
+import 'package:car_app_new/core/common/model/color_model.dart';
+import 'package:car_app_new/core/shared/model/location_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'cars_model.freezed.dart';
-part 'cars_model.g.dart';
+part 'car_nerst_model.freezed.dart';
+part 'car_nerst_model.g.dart';
 
 @freezed
-sealed class CarsModel with _$CarsModel {
-  
-  const factory CarsModel({
+sealed class CarNerstModel with _$CarNerstModel {
+  const factory CarNerstModel({
     required int id,
     required String name,
     required String description,
@@ -26,7 +23,7 @@ sealed class CarsModel with _$CarsModel {
     required ColorModel color,
     @JsonKey(name: 'car_features') required List<CarFeatureModel> carFeatures,
     @JsonKey(name: 'seating_capacity') required String seatingCapacity,
-    required LocationHomeModel location,
+    required LocationModel location,
     @JsonKey(name: 'average_rate') required int averageRate,
     @JsonKey(name: 'is_for_rent') required bool isForRent,
     @JsonKey(name: 'daily_rent') String? dailyRent,
@@ -39,9 +36,8 @@ sealed class CarsModel with _$CarsModel {
     required List<ReviewModel> reviews,
     @JsonKey(name: 'reviews_count') required int reviewsCount,
     @JsonKey(name: 'reviews_avg') required double reviewsAvg,
-  }) = _CarsModel;
-  const CarsModel._();
+  }) = _CarNerstModel;
 
-  factory CarsModel.fromJson(Map<String, dynamic> json) =>
-      _$CarsModelFromJson(json);
+  factory CarNerstModel.fromJson(Map<String, dynamic> json) =>
+      _$CarNerstModelFromJson(json);
 }

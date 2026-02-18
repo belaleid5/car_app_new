@@ -1,3 +1,4 @@
+import 'package:car_app_new/core/common/model/brands_response_model.dart';
 import 'package:car_app_new/core/common/model/message_response_model.dart';
 import 'package:car_app_new/core/constants/api_constants.dart';
 import 'package:car_app_new/features/auth/data/models/request/login_request_model.dart';
@@ -7,7 +8,7 @@ import 'package:car_app_new/features/auth/data/models/response/forgot_password_r
 import 'package:car_app_new/features/auth/data/models/response/location_response_model.dart'; // ✅ بس دي
 import 'package:car_app_new/features/auth/data/models/response/user_response_model.dart';
 import 'package:car_app_new/features/auth/data/models/response/verify_code_phone_response_model.dart';
-import 'package:car_app_new/features/user/home/data/models/brands_response_model.dart';
+import 'package:car_app_new/features/user/home/data/models/car_nerest_response_model.dart';
 import 'package:car_app_new/features/user/home/data/models/cars_response_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
@@ -37,7 +38,7 @@ abstract class ApiService {
     @Field('phone') String phoneNumber,
     @Field('access_token') String accessToken,
   );
-    @POST(ApiConstants.confirmCodeEndpoint)
+  @POST(ApiConstants.confirmCodeEndpoint)
   @FormUrlEncoded()
   Future<ConfirmCodeResponseModel> confirmCode(
     @Field('code') String code,
@@ -60,20 +61,21 @@ abstract class ApiService {
     @Field('confirm_password') String confirmPassword,
   );
 
-  
-
-//Home API
+  //Home API
   @GET(ApiConstants.carsEndpoint)
-Future<CarsResponseModel> getCars({
-  @Query('page') int? page,
-  @Query('limit') int? limit,
-});
-
+  Future<CarsResponseModel> getCars({
+    @Query('page') int? page,
+    @Query('limit') int? limit,
+  });
 
   @GET(ApiConstants.brandsEndpoint)
   Future<BrandsResponseModel> getBrands({
     @Query('page') int? page,
   });
 
-
+  @GET(ApiConstants.nerestCarsEndpoint)
+  Future<CarsNerestResponseModel> getNerestCars({
+    @Query('page') int? page,
+    @Query('limit') int? limit,
+  });
 }

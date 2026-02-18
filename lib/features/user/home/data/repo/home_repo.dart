@@ -1,7 +1,8 @@
+import 'package:car_app_new/core/common/model/brands_response_model.dart';
 import 'package:car_app_new/core/errors/api_error_handler.dart';
 import 'package:car_app_new/core/services/api/api_result.dart';
 import 'package:car_app_new/features/user/home/data/data_source/home_data_source.dart';
-import 'package:car_app_new/features/user/home/data/models/brands_response_model.dart';
+import 'package:car_app_new/features/user/home/data/models/car_nerest_response_model.dart';
 import 'package:car_app_new/features/user/home/data/models/cars_response_model.dart';
 
 class HomeCarsRepository {
@@ -32,7 +33,10 @@ Future<ApiResult<CarsResponseModel>> getBestCars({
   }
 }
 
-  Future<ApiResult<List<BrandsResponseModel>>> getBrands() async {
+Future<ApiResult<List<BrandsResponseModel>>> getBrands({
+  int? page,
+ int? limit,
+}) async {
     try {
       final result = await _remoteDataSource.getBrands();
       return ApiResult.success(result);
@@ -43,4 +47,22 @@ Future<ApiResult<CarsResponseModel>> getBestCars({
       );
     }
   }
+
+
+
+
+
+
+Future<ApiResult<CarsNerestResponseModel>> getNerestCars() async {
+    try {
+      final result = await _remoteDataSource.getNerestCars();
+      return ApiResult.success(result);
+    } catch (error) {
+      return ApiResult.failure(
+        ErrorHandler.handle(error).apiErrorModel.message ??
+            'Something went wrong, please try again',
+      );
+    }
+  }
+
 }
