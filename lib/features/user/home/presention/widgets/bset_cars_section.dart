@@ -1,5 +1,4 @@
-import 'package:car_app_new/core/common/widgets/grid_view.dart';
-import 'package:car_app_new/core/common/model/cars_model.dart';
+import 'package:car_app_new/core/common/widgets/smooth_list_view.dart';
 import 'package:car_app_new/features/user/home/presention/manger/bloc/bestcars_bloc.dart';
 import 'package:car_app_new/features/user/home/presention/manger/bloc/bestcars_state.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/car_card_widget.dart';
@@ -23,30 +22,32 @@ class BestCarsSection extends StatelessWidget {
             child: Center(child: Text('Error: $message')),
           ),
 
-          success:
-              (
-                cars,
-                hasMore,
-                currentPage,
-              ) {
-                return SliverToBoxAdapter(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 24),
-                    child: PaginatedGridView<CarsModel>(
-                      height: 1.3,
-                      itemCount: cars.length,
-                      hasMore: false,
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 12,
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemBuilder: (context, index) {
-                        return CarCardWidget(cars: cars[index]);
-                      },
-                    ),
+          success: (cars, hasMore, currentPage) {
+            return SliverToBoxAdapter(
+              child: SizedBox(
+                height: 250,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: SmoothListView.builder(
+                    smoothScroll: true,
+                    scrollDirection: Axis.horizontal,
+                    duration: const Duration(milliseconds: 300),
+                    itemCount: cars.length,
+                    shrinkWrap: false,
+                    physics: const BouncingScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: CarCardWidget(
+                          cars: cars[index],
+                        ),
+                      );
+                    },
                   ),
-                );
-              },
+                ),
+              ),
+            );
+          },
         );
       },
     );

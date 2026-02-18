@@ -14,6 +14,7 @@ class CustomTitleTextAuth extends StatelessWidget {
       title,
       style: context.textStyle.copyWith(
         fontSize: 25,
+        color: context.color.primary,
       ),
     );
   }

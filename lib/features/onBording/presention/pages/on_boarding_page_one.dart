@@ -11,35 +11,37 @@ class OnBoardingPageOne extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        const CustomBackGroundImageOnBoarding(
-          imagePath: AppImages.onBoardingScreenOne,
-        ),
-        const CustomOpacityColorBackGroundImageObBoarding(),
-        SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 40),
-                const SizedBox(
-                  width: 56,
-                  height: 56,
-                  child: CustomLogoAppSvg(),
-                ).animateScaleNFadeHorizontal(
-                  duration: const Duration(milliseconds: 800),
-                ),
-                const SizedBox(height: 32),
-                const CustomTitleOnBoardingPage(),
-                // Space for fixed bottom section
-                const SizedBox(height: 150),
-              ],
+    return SingleChildScrollView(
+      child: Stack(
+        children: [
+          const CustomBackGroundImageOnBoarding(
+            imagePath: AppImages.onBoardingScreenOne,
+          ),
+          const CustomOpacityColorBackGroundImageObBoarding(),
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 40),
+                  const SizedBox(
+                    width: 56,
+                    height: 56,
+                    child: CustomLogoAppSvg(),
+                  ).animateScaleNFadeHorizontal(
+                    duration: const Duration(milliseconds: 800),
+                  ),
+                  const SizedBox(height: 32),
+                  const CustomTitleOnBoardingPage(),
+                  // Space for fixed bottom section
+                  const SizedBox(height: 150),
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

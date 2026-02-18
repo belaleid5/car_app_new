@@ -9,7 +9,6 @@ import 'package:car_app_new/features/auth/data/models/response/user_response_mod
 import 'package:car_app_new/features/auth/data/models/response/verify_code_phone_response_model.dart';
 import 'package:car_app_new/core/common/model/brands_response_model.dart';
 import 'package:car_app_new/features/user/home/data/models/cars_response_model.dart';
-import 'package:car_app_new/core/common/model/cars_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 

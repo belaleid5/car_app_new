@@ -3,7 +3,7 @@ import 'package:car_app_new/core/app/connectivitiy_controller.dart';
 import 'package:car_app_new/core/app/env_varible.dart';
 import 'package:car_app_new/core/common/screens/no_network.dart';
 import 'package:car_app_new/core/di/di.dart';
-import 'package:car_app_new/core/helper/responsive_scaled.dart';
+import 'package:car_app_new/core/helper/app_responsive.dart';
 import 'package:car_app_new/core/language/app_localizations_setup.dart';
 import 'package:car_app_new/core/routes/app_routes.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
@@ -37,7 +37,7 @@ class CarApp extends StatelessWidget {
             ),
           child: GestureDetector(
             onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-            child: ResponsiveScaledBox(
+            child: AppResponsive(
               width: _designWidth,
               child: BlocBuilder<AppCubit, AppState>(
                 builder: (context, state) {
@@ -47,7 +47,7 @@ class CarApp extends StatelessWidget {
                     debugShowCheckedModeBanner:
                         EnvVariable.instance.isDebugMode,
                     onGenerateRoute: AppRouter.onGenerateRoute,
-                    initialRoute: AppRoutesNames.mainBoarding,
+                    initialRoute: AppRoutesNames.homePage,
                     theme: cubit.isDark ? themeDark() : themeLight(),
                     supportedLocales: AppLocalizationsSetup.supportedLocales,
                     localizationsDelegates:

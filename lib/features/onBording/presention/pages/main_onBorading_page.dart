@@ -1,9 +1,10 @@
-// features/onboarding/presentation/pages/splash_page.dart
-import 'package:car_app_new/core/common/widgets/custom_logo_app_svg.dart';
 import 'package:car_app_new/core/extensions/animation_extensions.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
 import 'package:car_app_new/core/services/shared_pref/shared_keys.dart';
 import 'package:car_app_new/core/services/shared_pref/shared_pref.dart';
+import 'package:car_app_new/features/onBording/presention/widgets/custom_title_splash_screen.dart';
+import 'package:car_app_new/features/onBording/presention/widgets/custom_logo_splash.dart';
+import 'package:car_app_new/features/onBording/presention/widgets/custom_suptitle_splash_screen.dart';
 import 'package:flutter/material.dart';
 
 class MainOnboardingPage extends StatefulWidget {
@@ -36,50 +37,34 @@ class _MainOnboardingPageState extends State<MainOnboardingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Logo with Multiple Animations
-            const SizedBox(
-              width: 120,
-              height: 120,
-              child: CustomLogoAppSvg(),
-            ).animateScaleNFadeHorizontal().animateRotate(
-              duration: const Duration(milliseconds: 1500),
-            ),
-
-            const SizedBox(height: 32),
-
-            // App Name with Shimmer
-            const Text(
-              'Car Rental',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 48,
-                fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const CustomSplashLogo()
+                  .animateScaleNFadeHorizontal()
+                  .animateRotate(
+                    duration: const Duration(milliseconds: 1500),
+                  ),
+        
+              const SizedBox(height: 32),
+        
+              const CustomTitleSplashScreen().animateShimmer(
+                colors: [
+                  Colors.white.withOpacity(0.5),
+                  Colors.white,
+                  Colors.white.withOpacity(0.5),
+                ],
               ),
-            ).animateShimmer(
-              colors: [
-                Colors.white.withOpacity(0.5),
-                Colors.white,
-                Colors.white.withOpacity(0.5),
-              ],
-            ),
-
-            const SizedBox(height: 16),
-
-            // Tagline with Fade
-            Text(
-              'Your Journey Starts Here',
-              style: TextStyle(
-                color: Colors.white.withOpacity(0.7),
-                fontSize: 16,
+        
+              const SizedBox(height: 16),
+        
+              const CustomSupTitleSplashScreen().animateBottomToTop(
+                duration: const Duration(milliseconds: 800),
               ),
-            ).animateBottomToTop(
-              duration: const Duration(milliseconds: 800),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

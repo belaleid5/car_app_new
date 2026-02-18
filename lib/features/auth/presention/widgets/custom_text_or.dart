@@ -9,12 +9,12 @@ class CustomTextOr extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Text(
-        'Or',
+        'OR',
         style: TextStyle(
-          color: context.color.primary,
-          fontSize: 22,
+          color: context.color.textPrimary,
+          fontSize: 14,
         ),
       ),
     );

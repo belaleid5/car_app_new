@@ -2,27 +2,27 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-class ResponsiveScaledBox extends StatelessWidget {
-  final double? width;
-  final Widget child;
-  final bool autoCalculateMediaQueryData;
+class AppResponsive extends StatelessWidget {
 
-  const ResponsiveScaledBox(
+  const AppResponsive(
       {super.key,
       required this.width,
       required this.child,
       this.autoCalculateMediaQueryData = true});
+  final double? width;
+  final Widget child;
+  final bool autoCalculateMediaQueryData;
 
   @override
   Widget build(BuildContext context) {
     if (width != null) {
       return LayoutBuilder(
         builder: (context, constraints) {
-          double aspectRatio = constraints.maxWidth / constraints.maxHeight;
-          double scaledWidth = width!;
-          double scaledHeight = width! / aspectRatio;
+          final aspectRatio = constraints.maxWidth / constraints.maxHeight;
+          final scaledWidth = width!;
+          final scaledHeight = width! / aspectRatio;
 
-          Widget childHolder = FittedBox(
+          final Widget childHolder = FittedBox(
             fit: BoxFit.fitWidth,
             alignment: Alignment.topCenter,
             child: Container(
@@ -34,20 +34,20 @@ class ResponsiveScaledBox extends StatelessWidget {
           );
 
           if (autoCalculateMediaQueryData) {
-            MediaQueryData mediaQueryData = MediaQuery.of(context);
+            final mediaQueryData = MediaQuery.of(context);
 
-            bool overrideMediaQueryData = (mediaQueryData.size ==
+            final overrideMediaQueryData = (mediaQueryData.size ==
                 Size(constraints.maxWidth, constraints.maxHeight));
 
-            EdgeInsets scaledViewInsets = getScaledViewInsets(
+            final scaledViewInsets = getAppInsets(
                 mediaQueryData: mediaQueryData,
                 screenSize: mediaQueryData.size,
                 scaledSize: Size(scaledWidth, scaledHeight));
-            EdgeInsets scaledViewPadding = getScaledViewPadding(
+            final scaledViewPadding = getResponsiveViewPadding(
                 mediaQueryData: mediaQueryData,
                 screenSize: mediaQueryData.size,
                 scaledSize: Size(scaledWidth, scaledHeight));
-            EdgeInsets scaledPadding = getScaledPadding(
+            final scaledPadding = getPadding(
                 padding: scaledViewPadding, insets: scaledViewInsets);
 
             if (overrideMediaQueryData) {
@@ -70,27 +70,27 @@ class ResponsiveScaledBox extends StatelessWidget {
     return child;
   }
 
-  EdgeInsets getScaledViewInsets(
+  EdgeInsets getAppInsets(
       {required MediaQueryData mediaQueryData,
       required Size screenSize,
       required Size scaledSize}) {
-    double leftInsetFactor = mediaQueryData.viewInsets.left / screenSize.width;
-    double topInsetFactor = mediaQueryData.viewInsets.top / screenSize.height;
-    double rightInsetFactor =
+    final leftInsetFactor = mediaQueryData.viewInsets.left / screenSize.width;
+    final topInsetFactor = mediaQueryData.viewInsets.top / screenSize.height;
+    final rightInsetFactor =
         mediaQueryData.viewInsets.right / screenSize.width;
-    double bottomInsetFactor =
+    final bottomInsetFactor =
         mediaQueryData.viewInsets.bottom / screenSize.height;
 
-    double scaledLeftInset = leftInsetFactor * scaledSize.width;
-    double scaledTopInset = topInsetFactor * scaledSize.height;
-    double scaledRightInset = rightInsetFactor * scaledSize.width;
-    double scaledBottomInset = bottomInsetFactor * scaledSize.height;
+    final scaledLeftInset = leftInsetFactor * scaledSize.width;
+    final scaledTopInset = topInsetFactor * scaledSize.height;
+    final scaledRightInset = rightInsetFactor * scaledSize.width;
+    final scaledBottomInset = bottomInsetFactor * scaledSize.height;
 
     return EdgeInsets.fromLTRB(
         scaledLeftInset, scaledTopInset, scaledRightInset, scaledBottomInset);
   }
 
-  EdgeInsets getScaledViewPadding(
+  EdgeInsets getResponsiveViewPadding(
       {required MediaQueryData mediaQueryData,
       required Size screenSize,
       required Size scaledSize}) {
@@ -99,13 +99,13 @@ class ResponsiveScaledBox extends StatelessWidget {
     double scaledRightPadding;
     double scaledBottomPadding;
 
-    double leftPaddingFactor =
+    final leftPaddingFactor =
         mediaQueryData.viewPadding.left / screenSize.width;
-    double topPaddingFactor =
+    final topPaddingFactor =
         mediaQueryData.viewPadding.top / screenSize.height;
-    double rightPaddingFactor =
+    final rightPaddingFactor =
         mediaQueryData.viewPadding.right / screenSize.width;
-    double bottomPaddingFactor =
+    final bottomPaddingFactor =
         mediaQueryData.viewPadding.bottom / screenSize.height;
 
     scaledLeftPadding = leftPaddingFactor * scaledSize.width;
@@ -117,7 +117,7 @@ class ResponsiveScaledBox extends StatelessWidget {
         scaledRightPadding, scaledBottomPadding);
   }
 
-  EdgeInsets getScaledPadding(
+  EdgeInsets getPadding(
       {required EdgeInsets padding, required EdgeInsets insets}) {
     double scaledLeftPadding;
     double scaledTopPadding;
@@ -125,9 +125,9 @@ class ResponsiveScaledBox extends StatelessWidget {
     double scaledBottomPadding;
 
     scaledLeftPadding = max(0, padding.left - insets.left);
-    scaledTopPadding = max(0.0, padding.top - insets.top);
-    scaledRightPadding = max(0.0, padding.right - insets.right);
-    scaledBottomPadding = max(0.0, padding.bottom - insets.bottom);
+    scaledTopPadding = max(0, padding.top - insets.top);
+    scaledRightPadding = max(0, padding.right - insets.right);
+    scaledBottomPadding = max(0, padding.bottom - insets.bottom);
 
     return EdgeInsets.fromLTRB(scaledLeftPadding, scaledTopPadding,
         scaledRightPadding, scaledBottomPadding);
