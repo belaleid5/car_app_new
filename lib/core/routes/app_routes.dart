@@ -23,7 +23,7 @@ import 'package:car_app_new/features/user/home/presention/manger/bloc_brands/bra
 import 'package:car_app_new/features/user/home/presention/manger/bloc_brands/brands_event.dart';
 import 'package:car_app_new/features/user/home/presention/manger/nerest_cars_bloc/bloc/nerest_car_bloc.dart';
 import 'package:car_app_new/features/user/home/presention/manger/nerest_cars_bloc/bloc/nerest_car_event.dart';
-import 'package:car_app_new/features/user/home/presention/pages/home_page.dart';
+import 'package:car_app_new/features/user/main_bottom_bar/presention/pages/main_bottom_bar_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -58,12 +58,14 @@ class AppRouter {
       case AppRoutesNames.secondOnBoarding:
         return MaterialPageRoute(builder: (_) => const OnBoardingPageTwo());
 
-      case AppRoutesNames.homePage:
+      case AppRoutesNames.bottomNavBarRoute:
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(
             providers: [
               BlocProvider<BestCarsBloc>(
-                create: (context) => sl<BestCarsBloc>()..add(const BestCarsEvent.fetchBestCars()),
+                create: (context) =>
+                    sl<BestCarsBloc>()
+                      ..add(const BestCarsEvent.fetchBestCars()),
               ),
               BlocProvider<BrandsBloc>(
                 create: (context) =>
@@ -71,10 +73,11 @@ class AppRouter {
               ),
               BlocProvider<NerestCarsBloc>(
                 create: (context) =>
-                    sl<NerestCarsBloc>()..add(const NerestCarsEvent.fetchNerestCars()),
+                    sl<NerestCarsBloc>()
+                      ..add(const NerestCarsEvent.fetchNerestCars()),
               ),
             ],
-            child: const HomePage(),
+            child: const MainBottomBarScreen(),
           ),
         );
 

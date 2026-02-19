@@ -12,4 +12,5 @@ class AppRoutesNames {
   static const verificationRoute = '/verification_route';
   static const forgetPasswordRoute = '/forget_password_route';
   static const resetPasswordRoute = '/reset_password_route';
+  static const bottomNavBarRoute = '/bottom_nav_bar_route';
 }

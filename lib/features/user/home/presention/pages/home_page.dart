@@ -1,4 +1,3 @@
-import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/home_page_body.dart';
 import 'package:flutter/material.dart';
 
@@ -7,9 +6,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: context.color.background,
-      body: const HomePageBody(),
-    );
+    return const HomePageBody();
   }
 }

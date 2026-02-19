@@ -25,6 +25,7 @@ import 'package:car_app_new/features/user/home/data/repo/home_repo.dart';
 import 'package:car_app_new/features/user/home/presention/manger/best_cars_bloc/bestcars_bloc.dart';
 import 'package:car_app_new/features/user/home/presention/manger/bloc_brands/brands_bloc.dart';
 import 'package:car_app_new/features/user/home/presention/manger/nerest_cars_bloc/bloc/nerest_car_bloc.dart';
+import 'package:car_app_new/features/user/main_bottom_bar/presention/manger/bottom_nav_bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -34,6 +35,7 @@ Future<void> setupDI() async {
   await _initCore();
   await _initAuth();
   await homeFeature();
+  await bottomNavFeature();
 }
 
 Future<void> _initCore() async {
@@ -105,7 +107,7 @@ Future<void> _initAuth() async {
 // Home Feature
 Future<void> homeFeature() async {
   sl
-    ..registerFactory<BestCarsBloc>(() => BestCarsBloc( sl()))
+    ..registerFactory<BestCarsBloc>(() => BestCarsBloc(sl()))
     ..registerLazySingleton<HomeCarsRepository>(
       () => HomeCarsRepository(remoteDataSource: sl()),
     )
@@ -113,5 +115,10 @@ Future<void> homeFeature() async {
       () => HomeCarsRemoteDataSourceImpl(sl()),
     )
     ..registerFactory<BrandsBloc>(() => BrandsBloc(sl()))
-     ..registerFactory<NerestCarsBloc>(() => NerestCarsBloc(sl()));
+    ..registerFactory<NerestCarsBloc>(() => NerestCarsBloc(sl()));
+}
+
+// Bottom Nav Feature
+Future<void> bottomNavFeature() async {
+  sl..registerFactory<BottomNavCBubit>(() => BottomNavCBubit());
 }

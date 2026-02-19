@@ -25,4 +25,12 @@ class AppImages {
   static const String locationIcon = 'assets/icons/location.svg';
   static const String favoriteIcon = 'assets/icons/favorite_icon.svg';
   static const String setsIcon = 'assets/icons/sets.svg';
+
+
+  //bottom Nav Icons
+  static const String homeIcon = 'assets/icons/homeIcone.svg';
+  static const String searchIcon = 'assets/icons/searchIcon.svg';
+  static const String inboxIcon = 'assets/icons/inboxIcon.svg';
+  static const String profileIcon = 'assets/icons/userIcon.svg';
+  static const String notificationIconBottomNav = 'assets/icons/NotificationsIcon.svg';
 }
