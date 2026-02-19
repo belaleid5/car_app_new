@@ -9,7 +9,7 @@ import 'package:car_app_new/core/routes/app_routes.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
 import 'package:car_app_new/core/services/shared_pref/shared_keys.dart';
 import 'package:car_app_new/core/services/shared_pref/shared_pref.dart';
-import 'package:car_app_new/core/styles/theme/app_theme.dart';
+import 'package:car_app_new/core/app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -47,7 +47,7 @@ class CarApp extends StatelessWidget {
                     debugShowCheckedModeBanner:
                         EnvVariable.instance.isDebugMode,
                     onGenerateRoute: AppRouter.onGenerateRoute,
-                    initialRoute: AppRoutesNames.homePage,
+                    initialRoute: AppRoutesNames.mainBoarding,
                     theme: cubit.isDark ? themeDark() : themeLight(),
                     supportedLocales: AppLocalizationsSetup.supportedLocales,
                     localizationsDelegates:

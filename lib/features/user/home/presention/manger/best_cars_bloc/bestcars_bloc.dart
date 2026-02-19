@@ -2,8 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:car_app_new/core/services/api/api_result.dart';
 import 'package:car_app_new/core/common/model/cars_model.dart';
 import 'package:car_app_new/features/user/home/data/repo/home_repo.dart';
-import 'package:car_app_new/features/user/home/presention/manger/bloc/bestcars_event.dart';
-import 'package:car_app_new/features/user/home/presention/manger/bloc/bestcars_state.dart';
+import 'package:car_app_new/features/user/home/presention/manger/best_cars_bloc/bestcars_event.dart';
+import 'package:car_app_new/features/user/home/presention/manger/best_cars_bloc/bestcars_state.dart';
 
 class BestCarsBloc extends Bloc<BestCarsEvent, BestCarsState> {
   BestCarsBloc(this._repository) : super(const BestCarsState.loading()) {

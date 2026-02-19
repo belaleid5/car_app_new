@@ -1,10 +1,11 @@
 import 'package:car_app_new/core/helper/spacing.dart';
 import 'package:car_app_new/features/auth/presention/widgets/custom_divider.dart';
-import 'package:car_app_new/features/user/home/presention/widgets/best_cars_title_section_and_view_all_text.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/bset_cars_section.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/home_app_bar.dart';
+import 'package:car_app_new/features/user/home/presention/widgets/nerest_cars_section.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/section_brands.dart';
 import 'package:car_app_new/features/user/home/presention/widgets/section_search.dart';
+import 'package:car_app_new/features/user/home/presention/widgets/title_section_and_view_all_text.dart';
 import 'package:flutter/material.dart';
 
 class HomePageBody extends StatelessWidget {
@@ -46,15 +47,24 @@ class HomePageBody extends StatelessWidget {
         ),
 
         SliverToBoxAdapter(
-          child: verticalSpace(20),
+          child: verticalSpace(10),
         ),
         const SliverToBoxAdapter(
-          child: BestCarsTitleSectionAndViewAllText(),
+          child: TitleSectionAndViewAllText(title: 'Best Cars'),
         ),
         SliverToBoxAdapter(
           child: verticalSpace(10),
         ),
         const BestCarsSection(),
+        SliverToBoxAdapter(
+          child: verticalSpace(10),
+        ),
+        const SliverToBoxAdapter(
+          child: TitleSectionAndViewAllText(title: 'Nearby'),
+        ),
+        const SliverToBoxAdapter(
+          child: NerestCarsSection(),
+        ),
       ],
     );
   }
