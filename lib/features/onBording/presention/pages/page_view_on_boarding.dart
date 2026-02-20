@@ -1,9 +1,10 @@
 // features/onboarding/presentation/pages/onboarding_main_page.dart
+import 'package:car_app_new/core/app/theme/my_colors.dart';
 import 'package:car_app_new/core/common/widgets/custom_button.dart';
 import 'package:car_app_new/core/extensions/animation_extensions.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
+import 'package:car_app_new/core/helper/spacing.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
-import 'package:car_app_new/core/app/theme/my_colors.dart';
 import 'package:car_app_new/features/onBording/presention/pages/on_boarding_oage_tow.dart';
 import 'package:car_app_new/features/onBording/presention/pages/on_boarding_page_one.dart';
 import 'package:car_app_new/features/onBording/presention/widgets/custom_indicator.dart';
@@ -57,35 +58,36 @@ class _OnBoardingPageViewState extends State<OnBoardingPageView> {
               OnBoardingPageTwo(),
             ],
           ),
-      
+
           Positioned(
             left: 0,
             right: 0,
             bottom: 0,
             child: SafeArea(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24),
+                padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Column(
                   children: [
                     Center(
-                      child: CustomOnBoardingIndicator(
-                        currentPage: _currentPage,
-                        totalPages: 2,
-                        activeColor: MyColors.light.white,
-                        inactiveColor: MyColors.light.icon,
-                      ).animateScaleNFadeHorizontal(
-                        duration: const Duration(milliseconds: 600),
-                      ),
+                      child:
+                          CustomOnBoardingIndicator(
+                            currentPage: _currentPage,
+                            totalPages: 2,
+                            activeColor: MyColors.light.white,
+                            inactiveColor: MyColors.light.icon,
+                          ).animateScaleNFadeHorizontal(
+                            duration: const Duration(milliseconds: 600),
+                          ),
                     ),
-      
-                    SizedBox(height: 25),
-      
+
+                    verticalSpace(25),
+
                     CustomButton(
-                      text: _currentPage == 1 ? 'Get Started' : 'Next',
-                      onPressed: _nextPage,
-                      backgroundColor: MyColors.light.white,
-                      textColor: MyColors.light.black,
-                    )
+                          text: _currentPage == 1 ? 'Get Started' : 'Next',
+                          onPressed: _nextPage,
+                          backgroundColor: MyColors.light.white,
+                          textColor: MyColors.light.black,
+                        )
                         .animateBottomToTop(
                           duration: const Duration(milliseconds: 800),
                         )
@@ -97,8 +99,8 @@ class _OnBoardingPageViewState extends State<OnBoardingPageView> {
                             MyColors.light.white.withOpacity(0.8),
                           ],
                         ),
-      
-                    SizedBox(height: 40),
+
+                    verticalSpace(40),
                   ],
                 ),
               ),

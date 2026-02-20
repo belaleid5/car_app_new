@@ -61,7 +61,7 @@ class MyColors extends ThemeExtension<MyColors> {
     rate: Color(0xFFFBBF24),
     white: Color(0xFFFFFFFF),
     black: Color(0xFF000000),
-    spinKitColor: Color(0xFF1A1A1A),
+    spinKitColor: Color(0xFFFFFFFF),
   );
 
   // ========== Dark Theme Colors ==========

@@ -8,7 +8,7 @@ class ConfirmPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.colors.primary,
+      backgroundColor: context.colors.background,
       resizeToAvoidBottomInset: true,
 
       body: const ConfirmPageBody(),

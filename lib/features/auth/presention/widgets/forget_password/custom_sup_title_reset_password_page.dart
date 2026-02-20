@@ -13,8 +13,8 @@ class CustomSubTitleResetPasswordPage extends StatelessWidget {
       "Enter the email address associated with your account and\nwe'll send you a link to reset your password.",
       style: context.textStyle.copyWith(
         fontSize: 12,
-        color: context.color.icon.withOpacity(0.7),
-        fontWeight: FontWeight.w300,
+        color: context.color.textSecondary,
+        fontWeight: FontWeight.w500,
       ),
     );
   }

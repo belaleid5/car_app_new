@@ -1,7 +1,7 @@
+import 'package:car_app_new/core/common/functions/spink_kit.dart';
 import 'package:car_app_new/core/extensions/animation_extensions.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/extensions/custom_toast.dart';
-import 'package:car_app_new/core/common/functions/spink_kit.dart';
 import 'package:car_app_new/core/language/lang_keys.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
 import 'package:car_app_new/features/auth/presention/manger/bloc_register/register_bloc.dart';
@@ -24,15 +24,18 @@ class RegisterBlocListener extends StatelessWidget {
       },
       listener: (context, state) {
         state.whenOrNull(
-          success: (data) {            
+          success: (data) {
             CustomToast.showSuccess(context, 'Registration successful!');
             Future.delayed(const Duration(milliseconds: 1500), () async {
-                await context.pushReplacementNamed(AppRoutesNames.verificationRoute);          
+              await context.pushReplacementNamed(
+                AppRoutesNames.verificationRoute,
+              );
             });
           },
           error: (error) {
-            CustomToast.showError(context, 
-            state is Error ? error : 'Registration failed. Please try again.'
+            CustomToast.showError(
+              context,
+              'Registration failed. Please try again.',
             );
           },
         );
@@ -41,11 +44,7 @@ class RegisterBlocListener extends StatelessWidget {
         return current.maybeWhen(
           loading: () => true,
           initial: () => true,
-          locationsLoading: () => false,
-          locationsLoaded: (_) => false,
-          locationSelected: (_, _) => false,
-          success: (_) => false,
-          error: (_) => false,
+          error: (_) => true,
           orElse: () => false,
         );
       },

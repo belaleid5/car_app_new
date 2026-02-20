@@ -17,14 +17,12 @@ class ConfirmPageBody extends StatelessWidget {
         slivers: [
           SliverToBoxAdapter(child: verticalSpace(60)),
 
-          /// Logo
           const SliverToBoxAdapter(
             child: SectionLogoAndTitleQent(),
           ),
 
-          SliverToBoxAdapter(child: verticalSpace(240)),
+          SliverToBoxAdapter(child: verticalSpace(50 * 5)),
 
-          /// Title
           SliverToBoxAdapter(
             child: Center(
               child: const CustomTitleTextAuth(
@@ -33,21 +31,13 @@ class ConfirmPageBody extends StatelessWidget {
             ),
           ),
 
-          SliverToBoxAdapter(child: verticalSpace(20)),
-
-          /// Subtitle
           SliverToBoxAdapter(
             child: const CustomSubTitleTextAuth(
               subTitle: 'We have sent a code to your phone',
             ).animateRightLeft(),
           ),
-
-          SliverToBoxAdapter(child: verticalSpace(30)),
-
-          /// Confirm Code Section
-          const SliverToBoxAdapter(
-            child: SectionConfirmCode(),
-          ),
+          SliverToBoxAdapter(child: verticalSpace(40)),
+          const SliverToBoxAdapter(child: SectionConfirmCode()),
         ],
       ),
     );

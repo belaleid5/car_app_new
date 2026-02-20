@@ -15,6 +15,8 @@ RegisterRequestModel _$RegisterRequestModelFromJson(
   password: json['password'] as String,
   countryId: (json['country_id'] as num).toInt(),
   locationId: (json['location_id'] as num).toInt(),
+  dateOfBirth: json['date_of_birth'] as String,
+  nationalId: json['national_id'] as String,
   availableToCreateCar: json['available_to_create_car'] as bool? ?? false,
 );
 
@@ -25,6 +27,8 @@ Map<String, dynamic> _$RegisterRequestModelToJson(
   'email': instance.email,
   'phone': instance.phone,
   'password': instance.password,
+  'date_of_birth': instance.dateOfBirth,
+  'national_id': instance.nationalId,
   'country_id': instance.countryId,
   'location_id': instance.locationId,
   'available_to_create_car': instance.availableToCreateCar,

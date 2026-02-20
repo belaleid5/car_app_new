@@ -15,7 +15,6 @@ class _CustomLocationDropdownState extends State<CustomLocationDropdown> {
   @override
   void initState() {
     super.initState();
-    // Load locations
     context.read<RegisterBloc>().add(const RegisterEvent.getLocations());
   }
 
@@ -23,7 +22,6 @@ class _CustomLocationDropdownState extends State<CustomLocationDropdown> {
   Widget build(BuildContext context) {
     return BlocBuilder<RegisterBloc, RegisterState>(
       buildWhen: (previous, current) {
-        // ✅ Rebuild on loading, loaded, AND locationSelected
         return current.maybeWhen(
           locationsLoading: () => true,
           locationsLoaded: (_) => true,
@@ -49,7 +47,6 @@ class _CustomLocationDropdownState extends State<CustomLocationDropdown> {
             );
           },
           
-          // ✅ Handle locationSelected state
           locationSelected: (locationId, locations) {
             return LocationDropdownWidget(
               locations: locations,

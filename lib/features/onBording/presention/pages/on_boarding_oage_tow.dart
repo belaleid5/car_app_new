@@ -19,40 +19,27 @@ class OnBoardingPageTwo extends StatelessWidget {
         ),
         const CustomOpacityColorBackGroundImageObBoarding(),
         SafeArea(
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              return SingleChildScrollView(
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(
-                    minHeight: constraints.maxHeight, 
-                  ),
-                  child: IntrinsicHeight(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 24),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const SizedBox(height: 40),
-                          const SizedBox(
-                            width: 56,
-                            height: 56,
-                            child: CustomLogoAppSvg(),
-                          ).animateRotate(),
-                          const SizedBox(height: 40),
-                          const CustomTitleAnimationOnBoarding(),
-                          const Spacer(), 
-                          const CustomDescriptionPageOnBoarding()
-                              .animateBottomToTop(
-                            duration: const Duration(milliseconds: 800),
-                          ),
-                          const SizedBox(height: 180),
-                        ],
-                      ),
-                    ),
-                  ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 40),
+                const SizedBox(
+                  width: 56,
+                  height: 56,
+                  child: CustomLogoAppSvg(),
+                ).animateRotate(),
+                const SizedBox(height: 40),
+                const CustomTitleAnimationOnBoarding(),
+                const Spacer(), 
+                const CustomDescriptionPageOnBoarding()
+                    .animateBottomToTop(
+                  duration: const Duration(milliseconds: 800),
                 ),
-              );
-            },
+                const SizedBox(height: 180),
+              ],
+            ),
           ),
         ),
       ],

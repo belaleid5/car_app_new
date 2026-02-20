@@ -1,16 +1,16 @@
-import 'package:car_app_new/core/extensions/app_validators.dart';
-
-import 'package:car_app_new/features/auth/presention/manger/bloc_register/register_bloc.dart';
+import 'package:car_app_new/core/common/widgets/birth_date_field.dart';
 import 'package:car_app_new/core/common/widgets/custom_form_password.dart';
+import 'package:car_app_new/core/extensions/app_validators.dart';
+import 'package:car_app_new/features/auth/presention/manger/bloc_register/register_bloc.dart';
 import 'package:car_app_new/features/auth/presention/widgets/login/custom_text_form_email.dart';
 import 'package:car_app_new/features/auth/presention/widgets/sign_up/available_to_create_car_check_box.dart';
 import 'package:car_app_new/features/auth/presention/widgets/sign_up/custom_text_form_country.dart';
 import 'package:car_app_new/features/auth/presention/widgets/sign_up/custom_text_form_full_name.dart';
 import 'package:car_app_new/features/auth/presention/widgets/sign_up/custom_text_form_location.dart';
+import 'package:car_app_new/features/auth/presention/widgets/sign_up/national_id_form_field.dart';
 import 'package:car_app_new/features/auth/presention/widgets/sign_up/register_bloc_listneter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 
 class SectionAuthSignUP extends StatelessWidget {
   const SectionAuthSignUP({super.key});
@@ -48,6 +48,7 @@ class SectionAuthSignUP extends StatelessWidget {
           ),
 
           const CustomLocationDropdown(),
+       
 
           AvailableToCreateCarCheckbox(registerBloc: registerBloc),
 

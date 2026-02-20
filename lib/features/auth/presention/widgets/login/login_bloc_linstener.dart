@@ -17,8 +17,8 @@ class LoginBlocListener extends StatelessWidget {
       listener: (context, state) async {
         await state.whenOrNull(
           success: (data) async {
-              CustomToast.showSuccess(context, 'Login successful!');
-             await context.pushReplacementNamed(AppRoutesNames.homePage);
+            CustomToast.showSuccess(context, 'Login successful!');
+            await context.pushReplacementNamed(AppRoutesNames.bottomNavBarRoute);
           },
           error: (error) {
             CustomToast.showError(
@@ -31,6 +31,4 @@ class LoginBlocListener extends StatelessWidget {
       child: const CustomBlocBuilderLoginAuth(),
     );
   }
-
-
 }

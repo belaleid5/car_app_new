@@ -12,6 +12,8 @@ class RegisterRequestModel {
     required this.password,
     required this.countryId,
     required this.locationId,
+    required this.dateOfBirth,
+    required this.nationalId,
     this.availableToCreateCar = false,
   });
 
@@ -23,6 +25,10 @@ class RegisterRequestModel {
   final String email;
   final String phone;
   final String password;
+  @JsonKey(name: 'date_of_birth')
+  final String dateOfBirth;
+  @JsonKey(name: 'national_id')
+  final String nationalId;
   
   @JsonKey(name: 'country_id')
   final int countryId;

@@ -2,7 +2,7 @@ import 'package:car_app_new/core/common/animations/animation_do.dart';
 import 'package:car_app_new/core/enums/bottom_nav_enums.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/styles/app_images.dart';
-import 'package:car_app_new/features/user/main_bottom_bar/presention/manger/bottom_nav_bloc.dart';
+import 'package:car_app_new/features/user/main_bottom_bar/presention/manger/bottom_nav_cubit.dart';
 import 'package:car_app_new/features/user/main_bottom_bar/presention/manger/bottom_nav_state.dart';
 import 'package:car_app_new/features/user/main_bottom_bar/presention/widgets/icon_tap_nav_bar.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +16,6 @@ class MainBottomNavBar extends StatelessWidget {
     return CustomFadeInUp(
       duration: 800,
       child: Padding(
-        // ✅ بعد عن الجوانب والأسفل
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
         child: Container(
           height: 80,
@@ -24,13 +23,12 @@ class MainBottomNavBar extends StatelessWidget {
             color: context.color.button,
             borderRadius: BorderRadius.circular(32),
           ),
-          // ✅ الأيقونات في النص
           child: Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: BlocBuilder<BottomNavCBubit, BottomNavState>(
+              child: BlocBuilder<BottomNavCubit, BottomNavState>(
                 builder: (context, state) {
-                  final cubit = context.read<BottomNavCBubit>();
+                  final cubit = context.read<BottomNavCubit>();
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -53,7 +51,8 @@ class MainBottomNavBar extends StatelessWidget {
                       ),
                       IconTapNavBar(
                         icon: AppImages.notificationIcon,
-                        isSelected: cubit.navBarEnum == NavBarEnum.notification,
+                        isSelected: 
+                        cubit.navBarEnum == NavBarEnum.notification,
                         onTap: () =>
                             cubit.selectedNavBarIcons(NavBarEnum.notification),
                       ),

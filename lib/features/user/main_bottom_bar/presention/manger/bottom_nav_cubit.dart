@@ -2,10 +2,8 @@ import 'package:car_app_new/core/enums/bottom_nav_enums.dart';
 import 'package:car_app_new/features/user/main_bottom_bar/presention/manger/bottom_nav_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
-
-class BottomNavCBubit extends Cubit<BottomNavState> {
-  BottomNavCBubit() : super(const BottomNavState.initial());
+class BottomNavCubit extends Cubit<BottomNavState> {
+  BottomNavCubit() : super(const BottomNavState.initial());
 
   NavBarEnum navBarEnum = NavBarEnum.home;
 
@@ -18,8 +16,7 @@ class BottomNavCBubit extends Cubit<BottomNavState> {
       navBarEnum = NavBarEnum.inbox;
     } else if (viewEnum == NavBarEnum.profile) {
       navBarEnum = NavBarEnum.profile;
-    }
-    else if (viewEnum == NavBarEnum.notification) {
+    } else if (viewEnum == NavBarEnum.notification) {
       navBarEnum = NavBarEnum.notification;
     }
     emit(BottomNavState.barSeletedIcons(navBarEnum: navBarEnum));

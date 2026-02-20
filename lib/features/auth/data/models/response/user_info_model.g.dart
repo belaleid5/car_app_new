@@ -19,6 +19,9 @@ UserInfoModel _$UserInfoModelFromJson(Map<String, dynamic> json) =>
       location: json['location'] == null
           ? null
           : LocationModel.fromJson(json['location'] as Map<String, dynamic>),
+      nationalId: json['nationalId'] as String?,
+      birthDate: json['birthDate'] as String?,
+      birthTime: json['birthTime'] as String?,
     );
 
 Map<String, dynamic> _$UserInfoModelToJson(UserInfoModel instance) =>
@@ -27,6 +30,9 @@ Map<String, dynamic> _$UserInfoModelToJson(UserInfoModel instance) =>
       'full_name': instance.fullName,
       'email': instance.email,
       'phone': instance.phone,
+      'nationalId': instance.nationalId,
+      'birthDate': instance.birthDate,
+      'birthTime': instance.birthTime,
       'phone_is_verified': instance.phoneIsVerified,
       'country': instance.country,
       'location': instance.location,

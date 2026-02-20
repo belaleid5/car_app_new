@@ -5,7 +5,7 @@ import 'package:car_app_new/core/helper/spacing.dart';
 import 'package:car_app_new/core/language/lang_keys.dart';
 import 'package:car_app_new/features/auth/presention/widgets/forget_password/custom_bloc_listener_forgot_password.dart';
 import 'package:car_app_new/features/auth/presention/widgets/forget_password/custom_button_return_login_screen.dart';
-import 'package:car_app_new/features/auth/presention/widgets/forget_password/custom_reset_password.dart';
+import 'package:car_app_new/features/auth/presention/widgets/forget_password/custom_frgot_password_section.dart';
 import 'package:car_app_new/features/auth/presention/widgets/forget_password/custom_sup_title_reset_password_page.dart';
 import 'package:car_app_new/features/auth/presention/widgets/login/custom_text_form_email.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +33,7 @@ class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
           children: [
             verticalSpace(40 * 2),
 
-            const CustomTextResetPassword(),
+            const CustomTextForgotPasswordSection(),
             const CustomSubTitleResetPasswordPage(),
 
             CustomTextFormEmail(

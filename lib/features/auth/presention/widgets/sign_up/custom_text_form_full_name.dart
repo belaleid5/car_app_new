@@ -2,8 +2,10 @@ import 'package:car_app_new/core/common/widgets/adabtive_text_form_field.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormFullName extends StatelessWidget {
-  const CustomTextFormFullName({super.key, required this.controller, // 🔥 أضف controller, super.key,, super.key,
-    this.validate, // 🔥 أضف validate
+  const CustomTextFormFullName({
+    super.key,
+    required this.controller,
+    this.validate,
   });
 
   final TextEditingController controller;
@@ -13,9 +15,9 @@ class CustomTextFormFullName extends StatelessWidget {
   Widget build(BuildContext context) {
     return AdaptiveInputField(
       context: context,
-      controller: controller, // 🔥 استخدم الـ controller
+      controller: controller,   
       hintText: 'Full Name',
-      validate: validate, // 🔥 أضف validation
+      validate: validate, 
     );
   }
 }

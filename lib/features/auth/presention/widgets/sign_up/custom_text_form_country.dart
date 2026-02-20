@@ -1,7 +1,6 @@
-import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/app/theme/my_colors.dart';
+import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
-
 import 'package:intl_phone_field/intl_phone_field.dart';
 
 class CustomTextFormCountry extends StatelessWidget {
@@ -10,7 +9,7 @@ class CustomTextFormCountry extends StatelessWidget {
     this.controller,
     this.validate,
     this.onChanged,
-    this.onCountryChanged,   
+    this.onCountryChanged,
     this.initialCountryCode = 'EG',
   });
 
@@ -28,10 +27,13 @@ class CustomTextFormCountry extends StatelessWidget {
         hintText: 'Phone Number',
         hintStyle: TextStyle(
           color: context.color.textSecondary,
-          fontSize:20 ,
+          fontSize: 14,
         ),
         filled: true,
-        contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 15,
+          vertical: 10,
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide(color: context.colors.stroke),
@@ -48,8 +50,8 @@ class CustomTextFormCountry extends StatelessWidget {
       onChanged: (phone) {
         onChanged?.call(phone.completeNumber);
         onCountryChanged?.call(
-          phone.countryISOCode,  
-          '+${phone.countryCode}', 
+          phone.countryISOCode,
+          '+${phone.countryCode}',
         );
       },
       validator: (phone) {

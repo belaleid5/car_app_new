@@ -14,6 +14,10 @@ class UserInfoModel {
     required this.phoneIsVerified,
     this.country,
     this.location,
+    this.nationalId,
+    this.birthDate,
+    this.birthTime,
+
   });
 
   factory UserInfoModel.fromJson(Map<String, dynamic> json) =>
@@ -25,6 +29,9 @@ class UserInfoModel {
   
   final String email;
   final String phone;
+  final String ? nationalId;
+  final String ? birthDate;
+  final String ? birthTime;
   
   @JsonKey(name: 'phone_is_verified')
   final bool phoneIsVerified;

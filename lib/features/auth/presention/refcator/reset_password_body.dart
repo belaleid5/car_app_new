@@ -11,10 +11,12 @@ class ResetPasswordBody extends StatelessWidget {
     return CustomScrollView(
       slivers: [
         SliverAppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: context.color.background,
           title: const SectionLogoAndTitleQent(),
         ),
-        const SliverToBoxAdapter(
+        const SliverFillRemaining(
+          hasScrollBody: false,
           child: SectionConfirmPassword(),
         ),
       ],

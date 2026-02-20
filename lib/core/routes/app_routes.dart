@@ -1,3 +1,4 @@
+import 'package:car_app_new/core/common/animations/custom_page_route.dart';
 import 'package:car_app_new/core/di/di.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
 import 'package:car_app_new/features/auth/presention/manger/bloc_confirm/bloc/confirm_code_bloc.dart';
@@ -31,48 +32,63 @@ class AppRouter {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRoutesNames.loginRoute:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => sl<LoginBloc>(),
+        return CustomPageRoute(
+          settings: settings,
+          page: BlocProvider(
+            create: (_) => sl<LoginBloc>(),
             child: const LoginPage(),
           ),
         );
 
       case AppRoutesNames.signUpRoute:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => sl<RegisterBloc>(),
+        return CustomPageRoute(
+          settings: settings,
+          page: BlocProvider(
+            create: (_) => sl<RegisterBloc>(),
             child: const SignUpPage(),
           ),
         );
 
       case AppRoutesNames.mainBoarding:
-        return MaterialPageRoute(builder: (_) => const MainOnboardingPage());
+        return CustomPageRoute(
+          settings: settings,
+          page: const MainOnboardingPage(),
+        );
 
       case AppRoutesNames.pageViewBoarding:
-        return MaterialPageRoute(builder: (_) => const OnBoardingPageView());
+        return CustomPageRoute(
+          settings: settings,
+          page: const OnBoardingPageView(),
+        );
 
       case AppRoutesNames.firstOnBoarding:
-        return MaterialPageRoute(builder: (_) => const OnBoardingPageOne());
+        return CustomPageRoute(
+          settings: settings,
+          page: const OnBoardingPageOne(),
+        );
 
       case AppRoutesNames.secondOnBoarding:
-        return MaterialPageRoute(builder: (_) => const OnBoardingPageTwo());
+        return CustomPageRoute(
+          settings: settings,
+          page: const OnBoardingPageTwo(),
+        );
 
       case AppRoutesNames.bottomNavBarRoute:
-        return MaterialPageRoute(
-          builder: (_) => MultiBlocProvider(
+        return CustomPageRoute(
+          settings: settings,
+          page: MultiBlocProvider(
             providers: [
               BlocProvider<BestCarsBloc>(
-                create: (context) =>
+                create: (_) =>
                     sl<BestCarsBloc>()
                       ..add(const BestCarsEvent.fetchBestCars()),
               ),
               BlocProvider<BrandsBloc>(
-                create: (context) =>
+                create: (_) =>
                     sl<BrandsBloc>()..add(const BrandsEvent.getBrands()),
               ),
               BlocProvider<NerestCarsBloc>(
-                create: (context) =>
+                create: (_) =>
                     sl<NerestCarsBloc>()
                       ..add(const NerestCarsEvent.fetchNerestCars()),
               ),
@@ -82,48 +98,51 @@ class AppRouter {
         );
 
       case AppRoutesNames.settingsRoute:
-        return MaterialPageRoute(builder: (_) => const SettingsPage());
+        return CustomPageRoute(
+          settings: settings,
+          page: const SettingsPage(),
+        );
 
       case AppRoutesNames.ConfirmRoute:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => sl<ConfirmCodeBloc>(),
+        return CustomPageRoute(
+          settings: settings,
+          page: BlocProvider(
+            create: (_) => sl<ConfirmCodeBloc>(),
             child: const ConfirmPage(),
           ),
         );
 
       case AppRoutesNames.resetPasswordRoute:
-        return MaterialPageRoute(
+        return CustomPageRoute(
           settings: settings,
-          builder: (context) {
-            final resetToken = settings.arguments as String?;
-            print('🛣️ AppRouter - Reset Token: $resetToken');
-            return BlocProvider(
-              create: (context) => sl<ResetPasswordBloc>(),
-              child: const ResetPasswordPage(),
-            );
-          },
+          page: BlocProvider(
+            create: (_) => sl<ResetPasswordBloc>(),
+            child: const ResetPasswordPage(),
+          ),
         );
 
       case AppRoutesNames.forgetPasswordRoute:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => sl<ForgotPasswordBloc>(),
+        return CustomPageRoute(
+          settings: settings,
+          page: BlocProvider(
+            create: (_) => sl<ForgotPasswordBloc>(),
             child: const ForgetPasswordPage(),
           ),
         );
 
       case AppRoutesNames.verificationRoute:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => sl<VerifyCodePhoneAuthBloc>(),
+        return CustomPageRoute(
+          settings: settings,
+          page: BlocProvider(
+            create: (_) => sl<VerifyCodePhoneAuthBloc>(),
             child: const VerificationPage(),
           ),
         );
 
       default:
-        return MaterialPageRoute(
-          builder: (_) => Scaffold(
+        return CustomPageRoute(
+          settings: settings,
+          page: Scaffold(
             body: Center(
               child: Text('Page not found: ${settings.name}'),
             ),
