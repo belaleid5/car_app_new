@@ -20,11 +20,11 @@ import 'package:car_app_new/features/auth/presention/manger/bloc_register/regist
 import 'package:car_app_new/features/auth/presention/manger/bloc_verify_code/verify_code_phone_auth_bloc.dart';
 import 'package:car_app_new/features/auth/presention/manger/forgot_password/bloc/forgot_password_bloc.dart';
 import 'package:car_app_new/features/auth/presention/manger/reset_password/bloc/reset_password_bloc.dart';
-import 'package:car_app_new/features/user/home/data/data_source/home_data_source.dart';
-import 'package:car_app_new/features/user/home/data/repo/home_repo.dart';
-import 'package:car_app_new/features/user/home/presention/manger/best_cars_bloc/bestcars_bloc.dart';
-import 'package:car_app_new/features/user/home/presention/manger/bloc_brands/brands_bloc.dart';
-import 'package:car_app_new/features/user/home/presention/manger/nerest_cars_bloc/bloc/nerest_car_bloc.dart';
+import 'package:car_app_new/features/car/home/data/data_source/home_data_source.dart';
+import 'package:car_app_new/features/car/home/data/repo/home_repo.dart';
+import 'package:car_app_new/features/car/home/presention/manger/best_cars_bloc/bestcars_bloc.dart';
+import 'package:car_app_new/features/car/home/presention/manger/bloc_brands/brands_bloc.dart';
+import 'package:car_app_new/features/car/home/presention/manger/nerest_cars_bloc/bloc/nerest_car_bloc.dart';
 import 'package:car_app_new/features/user/main_bottom_bar/presention/manger/bottom_nav_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';

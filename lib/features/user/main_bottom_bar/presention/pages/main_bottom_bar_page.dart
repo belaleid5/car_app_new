@@ -1,14 +1,14 @@
 import 'package:car_app_new/core/di/di.dart';
 import 'package:car_app_new/core/enums/bottom_nav_enums.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
-import 'package:car_app_new/features/user/home/presention/widgets/home_page_body.dart';
+import 'package:car_app_new/features/car/home/presention/widgets/home_page_body.dart';
 import 'package:car_app_new/features/user/inpox/presention/pages/inpox.dart';
 import 'package:car_app_new/features/user/main_bottom_bar/presention/manger/bottom_nav_cubit.dart';
 import 'package:car_app_new/features/user/main_bottom_bar/presention/manger/bottom_nav_state.dart';
 import 'package:car_app_new/features/user/main_bottom_bar/presention/refactors/bottom_nav_bar_main.dart';
 import 'package:car_app_new/features/user/notifications/presention/pages/notifications.dart';
 import 'package:car_app_new/features/user/profile/presention/pages/profile.dart';
-import 'package:car_app_new/features/user/search/presention/pages/search.dart';
+import 'package:car_app_new/features/car/search/presention/pages/search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

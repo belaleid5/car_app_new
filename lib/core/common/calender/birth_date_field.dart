@@ -1,15 +1,9 @@
-import 'dart:math' as math;
 import 'package:car_app_new/core/common/calender/birth_date_dialog.dart';
 import 'package:car_app_new/core/common/widgets/adabtive_text_form_field.dart';
 import 'package:flutter/material.dart';
 
 
 class BirthDateField extends StatefulWidget {
-  final ValueChanged<DateTime>? onDateChanged;
-  final ValueChanged<TimeOfDay>? onTimeChanged;
-  final String? Function(DateTime? date, TimeOfDay? time)? validator;
-  final DateTime? initialDate;
-  final TimeOfDay? initialTime;
 
   const BirthDateField({
     super.key,
@@ -19,6 +13,11 @@ class BirthDateField extends StatefulWidget {
     this.initialDate,
     this.initialTime,
   });
+  final ValueChanged<DateTime>? onDateChanged;
+  final ValueChanged<TimeOfDay>? onTimeChanged;
+  final String? Function(DateTime? date, TimeOfDay? time)? validator;
+  final DateTime? initialDate;
+  final TimeOfDay? initialTime;
 
   @override
   State<BirthDateField> createState() => _BirthDateFieldState();
