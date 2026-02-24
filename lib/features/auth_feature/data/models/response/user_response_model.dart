@@ -1,5 +1,5 @@
 import 'package:car_app_new/features/auth_feature/data/models/response/tokens_model.dart';
-import 'package:car_app_new/core/common/model/user_model.dart';
+import 'package:car_app_new/features/auth_feature/data/models/response/user_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'user_response_model.g.dart';
