@@ -9,7 +9,7 @@ part of 'user_response_model.dart';
 UserResponseModel _$UserResponseModelFromJson(Map<String, dynamic> json) =>
     UserResponseModel(
       message: json['message'] as String,
-      userInfo: UserInfoModel.fromJson(json['user'] as Map<String, dynamic>),
+      userInfo: UserModel.fromJson(json['user'] as Map<String, dynamic>),
       tokens: TokensModel.fromJson(json['tokens'] as Map<String, dynamic>),
     );
 

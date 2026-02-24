@@ -12,8 +12,15 @@ _UserModel _$UserModelFromJson(Map<String, dynamic> json) => _UserModel(
   email: json['email'] as String,
   phone: json['phone'] as String,
   phoneIsVerified: json['phone_is_verified'] as bool,
-  country: CountryModel.fromJson(json['country'] as Map<String, dynamic>),
-  location: LocationModel.fromJson(json['location'] as Map<String, dynamic>),
+  balance: (json['balance'] as num).toDouble(),
+  nationalId: (json['national_id'] as num?)?.toInt(),
+  dateOfBirth: json['date_of_birth'] as String?,
+  country: json['country'] == null
+      ? null
+      : CountryModel.fromJson(json['country'] as Map<String, dynamic>),
+  location: json['location'] == null
+      ? null
+      : LocationModel.fromJson(json['location'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$UserModelToJson(_UserModel instance) =>
@@ -23,6 +30,9 @@ Map<String, dynamic> _$UserModelToJson(_UserModel instance) =>
       'email': instance.email,
       'phone': instance.phone,
       'phone_is_verified': instance.phoneIsVerified,
+      'balance': instance.balance,
+      'national_id': instance.nationalId,
+      'date_of_birth': instance.dateOfBirth,
       'country': instance.country,
       'location': instance.location,
     };
