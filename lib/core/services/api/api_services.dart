@@ -1,4 +1,5 @@
 import 'package:car_app_new/core/common/model/brands_response_model.dart';
+import 'package:car_app_new/core/common/model/cars_model.dart';
 import 'package:car_app_new/core/common/model/message_response_model.dart';
 import 'package:car_app_new/core/constants/api_constants.dart';
 import 'package:car_app_new/features/auth_feature/data/models/request/login_request_model.dart';
@@ -86,4 +87,20 @@ Future<CarDetailsModel> getCarDetails({
 });
 
 
+
+
+@GET(ApiConstants.searchEndpoint)
+Future<CarsResponseModel> filterSearchCars({
+  @Query('page') int page = 1,
+  @Query('limit') int limit = 10,
+  @Query('name_car') String? nameCar,
+  @Query('brand_id') int? brandId,
+  @Query('car_type') String? carType,
+  @Query('type_payment') String? typePayment,
+  @Query('color_id') int? colorId,
+  @Query('location_id') int? locationId,
+  @Query('seating_capacity') int? seatingCapacity,
+  @Query('fuel_type') String? fuelType,
+  
+});
 }

@@ -366,6 +366,56 @@ class _ApiService implements ApiService {
     return _value;
   }
 
+  @override
+  Future<CarsResponseModel> filterSearchCars({
+    int page = 1,
+    int limit = 10,
+    String? nameCar,
+    int? brandId,
+    String? carType,
+    String? typePayment,
+    int? colorId,
+    int? locationId,
+    int? seatingCapacity,
+    String? fuelType,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'page': page,
+      r'limit': limit,
+      r'name_car': nameCar,
+      r'brand_id': brandId,
+      r'car_type': carType,
+      r'type_payment': typePayment,
+      r'color_id': colorId,
+      r'location_id': locationId,
+      r'seating_capacity': seatingCapacity,
+      r'fuel_type': fuelType,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<CarsResponseModel>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'https://qent.azurewebsites.net/api/cars/search',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late CarsResponseModel _value;
+    try {
+      _value = CarsResponseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, _result);
+      rethrow;
+    }
+    return _value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||

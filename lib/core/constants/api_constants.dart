@@ -4,11 +4,13 @@ class ApiConstants {
   // Endpoints
   static const String carsEndpoint = '$baseUrl/cars';
   static const String carDetailsEndpoint = '$baseUrl/cars';
-  static const String createCarEndpoint = '$baseUrl/cars';
+  static const String searchEndpoint = '$baseUrl/cars/search';
   static const String updateCarEndpoint = '$baseUrl/cars';
   static const String deleteCarEndpoint = '$baseUrl/cars';
   static const String brandsEndpoint = '$baseUrl/brands';
   static const String nerestCarsEndpoint = '$baseUrl/cars/nearest';
+
+  //Auth Endpoints
   static const String loginEndpoint = '$baseUrl/auth/login/';
   static const String verifyCodePhoneEndpoint =
       '/auth/phone/request_verify_code/';
