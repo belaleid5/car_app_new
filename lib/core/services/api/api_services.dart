@@ -1,13 +1,16 @@
+import 'package:car_app_new/core/common/model/brands_response_model.dart';
 import 'package:car_app_new/core/common/model/message_response_model.dart';
 import 'package:car_app_new/core/constants/api_constants.dart';
-import 'package:car_app_new/features/auth/data/models/request/login_request_model.dart';
-import 'package:car_app_new/features/auth/data/models/request/register_request_model.dart';
-import 'package:car_app_new/features/auth/data/models/response/confirm_code_response_model.dart';
-import 'package:car_app_new/features/auth/data/models/response/forgot_password_response_model.dart';
-import 'package:car_app_new/features/auth/data/models/response/location_response_model.dart'; // ✅ بس دي
-import 'package:car_app_new/features/auth/data/models/response/user_response_model.dart';
-import 'package:car_app_new/features/auth/data/models/response/verify_code_phone_response_model.dart';
-import 'package:car_app_new/features/user/home/data/models/cars_model.dart';
+import 'package:car_app_new/features/auth_feature/data/models/request/login_request_model.dart';
+import 'package:car_app_new/features/auth_feature/data/models/request/register_request_model.dart';
+import 'package:car_app_new/features/auth_feature/data/models/response/confirm_code_response_model.dart';
+import 'package:car_app_new/features/auth_feature/data/models/response/forgot_password_response_model.dart';
+import 'package:car_app_new/features/auth_feature/data/models/response/location_response_model.dart'; // ✅ بس دي
+import 'package:car_app_new/features/auth_feature/data/models/response/user_response_model.dart';
+import 'package:car_app_new/features/auth_feature/data/models/response/verify_code_phone_response_model.dart';
+import 'package:car_app_new/features/car_feature/details/data/models/car_details_model.dart';
+import 'package:car_app_new/features/car_feature/home/data/models/car_nerest_response_model.dart';
+import 'package:car_app_new/features/car_feature/home/data/models/cars_response_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -31,29 +34,18 @@ abstract class ApiService {
   Future<LocationResponseModel> getLocations();
 
   @POST(ApiConstants.verifyCodePhoneEndpoint)
-  @FormUrlEncoded() 
+  @FormUrlEncoded()
   Future<VerifyPhoneResponseModel> verifyCodePhoneRequest(
     @Field('phone') String phoneNumber,
     @Field('access_token') String accessToken,
   );
-
-    @GET(ApiConstants.carsEndpoint)
-  Future<List<CarsModel>> getCars();
-    @GET(ApiConstants.brandsEndpoint)
-  Future<List<CarsModel>> getBrands();
-
-
-
-
   @POST(ApiConstants.confirmCodeEndpoint)
-@FormUrlEncoded()
-Future<ConfirmCodeResponseModel> confirmCode(
-  @Field('code') String code,
-  @Field('verify_token') String verifyToken,
-  @Field('access_token') String accessToken,
-);
-
-
+  @FormUrlEncoded()
+  Future<ConfirmCodeResponseModel> confirmCode(
+    @Field('code') String code,
+    @Field('verify_token') String verifyToken,
+    @Field('access_token') String accessToken,
+  );
 
   @POST(ApiConstants.forgotPasswordEndpoint)
   @FormUrlEncoded()
@@ -61,14 +53,37 @@ Future<ConfirmCodeResponseModel> confirmCode(
     @Field('email') String email,
   );
 
-
   @POST(ApiConstants.resetPasswordEndpoint)
-@FormUrlEncoded()
-Future<MessageResponseModel> resetPassword(
-  @Field('code') String code,
-  @Field('reset_token') String resetToken,
-  @Field('password') String password,
+  @FormUrlEncoded()
+  Future<MessageResponseModel> resetPassword(
+    @Field('code') String code,
+    @Field('reset_token') String resetToken,
+    @Field('password') String password,
     @Field('confirm_password') String confirmPassword,
-  
-);
+  );
+
+  //Home API
+  @GET(ApiConstants.carsEndpoint)
+  Future<CarsResponseModel> getCars({
+    @Query('page') int? page,
+    @Query('limit') int? limit,
+  });
+
+  @GET(ApiConstants.brandsEndpoint)
+  Future<BrandsResponseModel> getBrands({
+    @Query('page') int? page,
+  });
+
+  @GET(ApiConstants.nerestCarsEndpoint)
+  Future<CarsNerestResponseModel> getNerestCars({
+    @Query('page') int? page,
+    @Query('limit') int? limit,
+  });
+
+ @GET('${ApiConstants.carDetailsEndpoint}/{carId}')
+Future<CarDetailsModel> getCarDetails({
+  @Path('carId') required String carId,
+});
+
+
 }

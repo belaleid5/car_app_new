@@ -1,8 +1,7 @@
 import 'package:car_app_new/core/extensions/context_extensions.dart';
-import 'package:car_app_new/core/styles/theme/my_colors.dart';
+import 'package:car_app_new/core/app/theme/my_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AdaptiveInputField extends StatelessWidget {
   const AdaptiveInputField({
@@ -112,10 +111,10 @@ class AdaptiveInputField extends StatelessWidget {
           textAlignVertical: TextAlignVertical.center,
           style: context.textStyle.copyWith(
               color: context
-                  .colors
-                  .textSecondary, // 👈 غيّر هنا من textPrimary لـ textSecondary
+                  .color
+                  .textSecondary, 
               fontWeight: FontWeight.w400,
-              fontSize: 14.sp,
+              fontSize: 14,
             ),
 
           initialValue: initialValue,
@@ -130,10 +129,10 @@ class AdaptiveInputField extends StatelessWidget {
             counterText: counterText,
             hintStyle: context.textStyle.copyWith(
               color: context
-                  .colors
-                  .textSecondary, // 👈 غيّر هنا من textPrimary لـ textSecondary
+                  .color
+                  .textSecondary, 
               fontWeight: FontWeight.w400,
-              fontSize: 14.sp,
+              fontSize: 14,
             ),
             errorStyle: Theme.of(context).textTheme.labelLarge,
             enabledBorder: OutlineInputBorder(
@@ -164,7 +163,6 @@ class AdaptiveInputField extends StatelessWidget {
               ),
               borderRadius: BorderRadius.circular(radius),
             ),
-            //border: const UnderlineInputBorder(),
             prefixIcon: prefix,
             suffixIcon: suffix != null
                 ? IconButton(
