@@ -13,18 +13,22 @@ import 'package:car_app_new/features/auth_feature/presention/screens/login_page.
 import 'package:car_app_new/features/auth_feature/presention/screens/reset_password_page.dart';
 import 'package:car_app_new/features/auth_feature/presention/screens/sign_up_page.dart';
 import 'package:car_app_new/features/auth_feature/presention/screens/verifcation_page.dart';
-import 'package:car_app_new/features/on_bording_feature/presention/pages/main_onBorading_page.dart';
-import 'package:car_app_new/features/on_bording_feature/presention/pages/on_boarding_oage_tow.dart';
-import 'package:car_app_new/features/on_bording_feature/presention/pages/on_boarding_page_one.dart';
-import 'package:car_app_new/features/on_bording_feature/presention/pages/page_view_on_boarding.dart';
-import 'package:car_app_new/features/user_feature/settings/presention/screens/settings_page.dart';
+import 'package:car_app_new/features/car_feature/details/data/repo/cars_details_repo.dart';
+import 'package:car_app_new/features/car_feature/details/presention/manger/bloc/cars_details_bloc.dart';
+import 'package:car_app_new/features/car_feature/details/presention/manger/bloc/cars_details_event.dart';
+import 'package:car_app_new/features/car_feature/details/presention/screens/car_details_screen.dart';
 import 'package:car_app_new/features/car_feature/home/presention/manger/best_cars_bloc/bestcars_bloc.dart';
 import 'package:car_app_new/features/car_feature/home/presention/manger/best_cars_bloc/bestcars_event.dart';
 import 'package:car_app_new/features/car_feature/home/presention/manger/bloc_brands/brands_bloc.dart';
 import 'package:car_app_new/features/car_feature/home/presention/manger/bloc_brands/brands_event.dart';
 import 'package:car_app_new/features/car_feature/home/presention/manger/nerest_cars_bloc/bloc/nerest_car_bloc.dart';
 import 'package:car_app_new/features/car_feature/home/presention/manger/nerest_cars_bloc/bloc/nerest_car_event.dart';
+import 'package:car_app_new/features/on_bording_feature/presention/pages/main_onBorading_page.dart';
+import 'package:car_app_new/features/on_bording_feature/presention/pages/on_boarding_oage_tow.dart';
+import 'package:car_app_new/features/on_bording_feature/presention/pages/on_boarding_page_one.dart';
+import 'package:car_app_new/features/on_bording_feature/presention/pages/page_view_on_boarding.dart';
 import 'package:car_app_new/features/user_feature/main_bottom_bar/presention/pages/main_bottom_bar_page.dart';
+import 'package:car_app_new/features/user_feature/settings/presention/screens/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -94,6 +98,19 @@ class AppRouter {
               ),
             ],
             child: const MainBottomBarScreen(),
+          ),
+        );
+
+      case AppRoutesNames.carsDetailsRoute:
+        final carId = settings.arguments! as String;
+
+        return CustomPageRoute(
+          settings: settings,
+          page: BlocProvider(
+            create: (context) =>
+                CarDetailsBloc(sl<CarsDetailsRepo>())
+                  ..add(CarDetailsEvent.getCarDetails(carId: carId)),
+            child: const CarsDetailsScreen(),
           ),
         );
 

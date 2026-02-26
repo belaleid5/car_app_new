@@ -1,7 +1,7 @@
 import 'package:car_app_new/features/car_feature/home/presention/manger/nerest_cars_bloc/bloc/nerest_car_bloc.dart';
 import 'package:car_app_new/features/car_feature/home/presention/manger/nerest_cars_bloc/bloc/nerest_car_state.dart';
 import 'package:car_app_new/features/car_feature/home/presention/widgets/list_nerst_cars.dart';
-import 'package:car_app_new/features/car_feature/home/presention/widgets/shimmer_widget/list_nerest_cars_shimmer.dart';
+import 'package:car_app_new/core/common/widgets/list_shimmer_big_image_cars.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,7 +14,7 @@ class NerestCarsSection extends StatelessWidget {
       builder: (context, state) {
         return state.when(
           initial: () => const SizedBox.shrink(),
-          loading: ListShimmerNerestCars.new,
+          loading: ListShimmerBigImageCars.new,
           success: (cars, hasMore, currentPage) {
             return ListNerestCars(cars: cars);
           },

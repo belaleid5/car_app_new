@@ -1,6 +1,8 @@
 import 'package:car_app_new/core/common/model/cars_model.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
+import 'package:car_app_new/core/helper/navigator_extenstion.dart';
 import 'package:car_app_new/core/helper/spacing.dart' show verticalSpace;
+import 'package:car_app_new/core/routes/routes_names.dart';
 import 'package:car_app_new/features/car_feature/home/presention/widgets/car-ratig.dart';
 import 'package:car_app_new/features/car_feature/home/presention/widgets/car_fotter.dart';
 import 'package:car_app_new/features/car_feature/home/presention/widgets/car_image.dart';
@@ -35,7 +37,15 @@ class CarCardWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CarImage(image: cars.firstImage),
+            GestureDetector(
+              onTap: () {
+                context.pushNamed(
+                  AppRoutesNames.carsDetailsRoute,
+                  arguments: cars.id.toString(),
+                );
+              },
+              child: CarImage(image: cars.firstImage),
+            ),
 
             Padding(
               padding: const EdgeInsets.all(12),

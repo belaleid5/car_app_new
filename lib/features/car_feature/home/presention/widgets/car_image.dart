@@ -1,10 +1,10 @@
 import 'package:car_app_new/core/common/widgets/custom_image.dart';
+import 'package:car_app_new/core/common/widgets/favorite_icon.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
-import 'package:car_app_new/features/car_feature/home/presention/widgets/favorite_icon_home.dart';
 import 'package:flutter/material.dart';
 
 class CarImage extends StatelessWidget {
-  const  CarImage({
+  const CarImage({
     super.key,
     required this.image,
     this.onFavoriteTap,
@@ -35,7 +35,11 @@ class CarImage extends StatelessWidget {
             borderRadius: 16,
           ),
 
-          FavoriteIconHome(onFavoriteTap: onFavoriteTap),
+          CustomFavoriteIcon(
+            padding: 4,
+            height: 12,
+            onFavoriteTap: onFavoriteTap,
+          ),
         ],
       ),
     );

@@ -13,11 +13,11 @@ class BestCarsShimmer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: SizedBox(
-        height: 250,
+    return SizedBox(
+      height: 237,
 
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
         child: SmoothListView.builder(
           scrollDirection: Axis.horizontal,
           duration: const Duration(milliseconds: 300),
@@ -27,7 +27,7 @@ class BestCarsShimmer extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.only(right: 16),
               child: Container(
-                width: 200,
+                width: 186,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(18),

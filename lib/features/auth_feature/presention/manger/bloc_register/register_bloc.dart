@@ -51,8 +51,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       },
       selectLocation: (locationId) {
         selectedLocationId = locationId;
-        debugPrint('📍 Location selected in Bloc: $locationId');
-
+        
         final currentLocations = state.maybeWhen(
           locationsLoaded: (locations) => locations,
           locationSelected: (_, locations) => locations,
@@ -73,28 +72,23 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   }
 
   Future<void> _getLocations(Emitter<RegisterState> emit) async {
-    debugPrint('📍 Getting locations...');
+  
     emit(const RegisterState.locationsLoading());
 
     final result = await _registerRepo.getLocations();
 
     await result.when(
       success: (locations) {
-        debugPrint('✅ Locations loaded: ${locations.length}');
         emit(RegisterState.locationsLoaded(locations));
       },
       failure: (error) {
-        debugPrint('❌ Failed to load locations: $error');
         emit(RegisterState.error(error: error));
       },
     );
   }
 
   Future<void> _register(Emitter<RegisterState> emit) async {
-    debugPrint('🔍 selectedCountryId: $selectedCountryId');
-    debugPrint('🔍 selectedLocationId: $selectedLocationId');
-    debugPrint('🔍 dateOfBirth: ${dateOfBirthController.text}');
-    debugPrint('🔍 nationalId: ${nationalIdController.text}');
+   
 
     if (selectedCountryId == null || selectedLocationId == null) {
       emit(
@@ -126,27 +120,15 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       nationalId: nationalIdController.text.trim(),
       availableToCreateCar: availableToCreateCar,
     );
-debugPrint('📤 Request JSON: ${request.toJson()}');
     final result = await _registerRepo.register(request);
-debugPrint('📤 Request JSON: ${request.toJson()}');
+
     await result.when(
       success: (response) async {
-        await SharedPref().setString(
-          PrefKeys.accessToken,
-          response.tokens.accessToken,
-        );
-        await SharedPref().setString(
-          PrefKeys.refreshToken,
-          response.tokens.refreshToken,
-        );
-        await SharedPref().setInt(
-          PrefKeys.userId,
-          response.userInfo.id,
-        );
+       
         emit(RegisterState.success(response));
       },
       failure: (error) {
-        emit(RegisterState.error(error: error)); // ✅ بيرجع للـ button
+        emit(RegisterState.error(error: error)); 
       },
     );
   }

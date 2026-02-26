@@ -1,7 +1,7 @@
 import 'package:car_app_new/core/di/di.dart';
 import 'package:car_app_new/core/enums/bottom_nav_enums.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
-import 'package:car_app_new/features/car_feature/home/presention/widgets/home_page_body.dart';
+import 'package:car_app_new/features/car_feature/home/presention/refactor/home_page_body.dart';
 import 'package:car_app_new/features/user_feature/inpox/presention/pages/inpox.dart';
 import 'package:car_app_new/features/user_feature/main_bottom_bar/presention/manger/bottom_nav_cubit.dart';
 import 'package:car_app_new/features/user_feature/main_bottom_bar/presention/manger/bottom_nav_state.dart';

@@ -1,21 +1,18 @@
-import 'package:car_app_new/core/common/model/cars_model.dart';
 import 'package:car_app_new/core/services/api/api_services.dart';
+import 'package:car_app_new/features/car_feature/details/data/models/car_details_model.dart';
 
+// cars_details_data_source.dart
 abstract class DetailsCarsDataSource {
-  Future<CarsModel> getCarDetails(String carId);
-}
-
-class CarDetailsModel {
+  Future<CarDetailsModel> getCarDetails(String carId);
 }
 
 class DetailsCarsDataSourceImpl implements DetailsCarsDataSource {
-  DetailsCarsDataSourceImpl({required this.apiService});
+  DetailsCarsDataSourceImpl(this._apiService);
+  final ApiService _apiService;
 
-  
-  final ApiService apiService;
-  
   @override
-  Future<CarsModel> getCarDetails(String carId) {
-    return apiService.getCarDetails(carId: carId);
+  Future<CarDetailsModel> getCarDetails(String carId) async {
+    final response = await _apiService.getCarDetails(carId: carId);
+    return response;
   }
 }

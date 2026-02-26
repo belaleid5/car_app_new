@@ -1,5 +1,4 @@
 import 'package:car_app_new/core/common/model/brands_response_model.dart';
-import 'package:car_app_new/core/common/model/cars_model.dart';
 import 'package:car_app_new/core/common/model/message_response_model.dart';
 import 'package:car_app_new/core/constants/api_constants.dart';
 import 'package:car_app_new/features/auth_feature/data/models/request/login_request_model.dart';
@@ -9,6 +8,7 @@ import 'package:car_app_new/features/auth_feature/data/models/response/forgot_pa
 import 'package:car_app_new/features/auth_feature/data/models/response/location_response_model.dart'; // ✅ بس دي
 import 'package:car_app_new/features/auth_feature/data/models/response/user_response_model.dart';
 import 'package:car_app_new/features/auth_feature/data/models/response/verify_code_phone_response_model.dart';
+import 'package:car_app_new/features/car_feature/details/data/models/car_details_model.dart';
 import 'package:car_app_new/features/car_feature/home/data/models/car_nerest_response_model.dart';
 import 'package:car_app_new/features/car_feature/home/data/models/cars_response_model.dart';
 import 'package:dio/dio.dart';
@@ -80,9 +80,10 @@ abstract class ApiService {
     @Query('limit') int? limit,
   });
 
+ @GET('${ApiConstants.carDetailsEndpoint}/{carId}')
+Future<CarDetailsModel> getCarDetails({
+  @Path('carId') required String carId,
+});
 
-    @GET(ApiConstants.carDetailsEndpoint)
-  Future<CarsModel> getCarDetails({
-    @Query('car_id') required String carId,
-  });
+
 }

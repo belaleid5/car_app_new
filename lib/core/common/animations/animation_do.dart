@@ -1,8 +1,7 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:car_app_new/core/services/shared_pref/shared_keys.dart';
 import 'package:car_app_new/core/services/shared_pref/shared_pref.dart';
 import 'package:flutter/material.dart';
-import 'package:animate_do/animate_do.dart';
-
 
 class CustomFadeInDown extends StatelessWidget {
   const CustomFadeInDown({

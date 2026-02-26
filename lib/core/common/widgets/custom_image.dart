@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:car_app_new/core/styles/app_images.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -8,7 +9,6 @@ import 'package:flutter_svg/svg.dart';
 enum ImagesType { svg, png, network, asset, file, memory }
 
 class CustomImage extends StatelessWidget {
-
   const CustomImage({
     required this.imageType,
     required this.imagePath,
@@ -19,7 +19,9 @@ class CustomImage extends StatelessWidget {
     this.boxFit = BoxFit.fill,
     this.color,
     this.applySvgColor = false,
+    this.fallbackPath, 
   });
+
   final ImagesType imageType;
   final String imagePath;
   final double? height;
@@ -28,16 +30,25 @@ class CustomImage extends StatelessWidget {
   final BoxFit boxFit;
   final Color? color;
   final bool applySvgColor;
+  final String? fallbackPath; 
 
   bool _isValidUrl(String url) {
     final uri = Uri.tryParse(url);
     return uri != null && uri.hasAbsolutePath && uri.hasScheme;
   }
 
+  Widget _errorImage() {
+    return ErrorImage(
+      errorHeight: height,
+      errorWidth: width,
+      fit: boxFit,
+      fallbackPath: fallbackPath, 
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget imageWidget;
-
     switch (imageType) {
       case ImagesType.svg:
         imageWidget = SvgPicture.asset(
@@ -49,6 +60,7 @@ class CustomImage extends StatelessWidget {
               ? ColorFilter.mode(color ?? Colors.red, BlendMode.srcIn)
               : null,
         );
+
       case ImagesType.png:
       case ImagesType.asset:
         imageWidget = Image.asset(
@@ -57,10 +69,9 @@ class CustomImage extends StatelessWidget {
           width: width,
           color: color,
           fit: boxFit,
-          errorBuilder: (context, error, stackTrace) {
-            return _errorImage();
-          },
+          errorBuilder: (context, error, stackTrace) => _errorImage(),
         );
+
       case ImagesType.file:
         imageWidget = Image.file(
           File(imagePath),
@@ -68,10 +79,9 @@ class CustomImage extends StatelessWidget {
           width: width,
           color: color,
           fit: boxFit,
-          errorBuilder: (context, error, stackTrace) {
-            return _errorImage();
-          },
+          errorBuilder: (context, error, stackTrace) => _errorImage(),
         );
+
       case ImagesType.memory:
         imageWidget = Image.memory(
           base64Decode(imagePath.split('base64,').last),
@@ -79,10 +89,9 @@ class CustomImage extends StatelessWidget {
           width: width,
           color: color,
           fit: boxFit,
-          errorBuilder: (context, error, stackTrace) {
-            return _errorImage();
-          },
+          errorBuilder: (context, error, stackTrace) => _errorImage(),
         );
+
       case ImagesType.network:
         if (!_isValidUrl(imagePath)) return _errorImage();
         imageWidget = kIsWeb
@@ -92,9 +101,7 @@ class CustomImage extends StatelessWidget {
                 width: width,
                 color: color,
                 fit: boxFit,
-                errorBuilder: (context, error, stackTrace) {
-                  return _errorImage();
-                },
+                errorBuilder: (context, error, stackTrace) => _errorImage(),
               )
             : CachedNetworkImage(
                 imageUrl: imagePath,
@@ -102,9 +109,11 @@ class CustomImage extends StatelessWidget {
                 width: width,
                 color: color,
                 fit: boxFit,
-                errorWidget: (context, error, stackTrace) {
-                  return _errorImage();
-                },
+                placeholder: (context, url) => _PlaceholderImage(
+                  width: width,
+                  height: height,
+                ),
+                errorWidget: (context, url, error) => _errorImage(),
               );
     }
 
@@ -113,26 +122,55 @@ class CustomImage extends StatelessWidget {
       child: imageWidget,
     );
   }
+}
 
-  Widget _errorImage() {
-    return ErrorImage(errorHeight: height, errorWidth: width, fit: boxFit);
+class _PlaceholderImage extends StatelessWidget {
+  const _PlaceholderImage({this.width, this.height});
+
+  final double? width;
+  final double? height;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: width,
+      height: height,
+      color: Colors.grey.shade100,
+      child: Center(
+        child: SizedBox(
+          width: 20,
+          height: 20,
+          child: CircularProgressIndicator(
+            strokeWidth: 2,
+            color: Colors.grey.shade400,
+          ),
+        ),
+      ),
+    );
   }
 }
 
 class ErrorImage extends StatelessWidget {
+  const ErrorImage({
+    super.key,
+    this.errorWidth,
+    this.errorHeight,
+    this.fit,
+    this.fallbackPath,
+  });
+
   final double? errorWidth;
   final double? errorHeight;
   final BoxFit? fit;
-
-  const ErrorImage({super.key, this.errorWidth, this.errorHeight, this.fit});
+  final String? fallbackPath;
 
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      'Logo',
+      fallbackPath ?? AppImages.errorImage,
       height: errorHeight ?? 92,
-      width: errorWidth ?? 143,
-      fit: fit ?? BoxFit.fitHeight,
+      width: errorWidth ?? 92,
+      fit: fit ?? BoxFit.cover,
     );
   }
 }

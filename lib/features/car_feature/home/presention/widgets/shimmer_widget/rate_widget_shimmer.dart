@@ -13,7 +13,7 @@ class RateWidgetShimmer extends StatelessWidget {
     return Row(
       spacing: 5,
       children: [
-        const TextShimmerWidget(),
+        const TextShimmerWidget(width: 20,height: 7,),
         IconShimmerWidget(
           iconColor: context.color.rate,
         ),

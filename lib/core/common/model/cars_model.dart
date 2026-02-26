@@ -18,7 +18,7 @@ sealed class CarsModel with _$CarsModel {
     required int id,
     required String name,
     required String description,
-    required int owner,
+    required int  owner,
     @JsonKey(name: 'first_image') required String firstImage,
     required List<CarImageModel> images,
     @JsonKey(name: 'car_type') required String carType,

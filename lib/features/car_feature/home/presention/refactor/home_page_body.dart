@@ -1,3 +1,4 @@
+import 'package:car_app_new/core/common/animations/animation_do.dart';
 import 'package:car_app_new/core/helper/spacing.dart';
 import 'package:car_app_new/features/auth_feature/presention/widgets/custom_divider.dart';
 import 'package:car_app_new/features/car_feature/home/presention/widgets/bset_cars_section.dart';
@@ -31,7 +32,10 @@ class HomePageBody extends StatelessWidget {
         const SliverPadding(
           padding: EdgeInsets.symmetric(horizontal: 20),
           sliver: SliverToBoxAdapter(
-            child: SectionSearch(),
+            child: CustomFadeInDown(
+              duration: 600,
+              child: SectionSearch(),
+            ),
           ),
         ),
 
@@ -42,29 +46,42 @@ class HomePageBody extends StatelessWidget {
         const SliverPadding(
           padding: EdgeInsets.symmetric(horizontal: 24),
           sliver: SliverToBoxAdapter(
-            child: SectionBrands(),
+            child: CustomFadeInLeft(
+              duration: 600,
+              child: SectionBrands(),
+            ),
           ),
         ),
 
         SliverToBoxAdapter(
           child: verticalSpace(10),
         ),
+
         const SliverToBoxAdapter(
-          child: TitleSectionAndViewAllText(title: 'Best Cars'),
+          child: CustomFadeInLeft(
+            duration: 500,
+            child: TitleSectionAndViewAllText(title: 'Best Cars'),
+          ),
         ),
+
         SliverToBoxAdapter(
           child: verticalSpace(10),
         ),
+
         const BestCarsSection(),
+
         SliverToBoxAdapter(
           child: verticalSpace(10),
         ),
+
         const SliverToBoxAdapter(
-          child: TitleSectionAndViewAllText(title: 'Nearby'),
+          child: CustomFadeInLeft(
+            duration: 500,
+            child: TitleSectionAndViewAllText(title: 'Nearby'),
+          ),
         ),
-        const SliverToBoxAdapter(
-          child: NerestCarsSection(),
-        ),
+
+        const SliverToBoxAdapter(child: NerestCarsSection()),
       ],
     );
   }
