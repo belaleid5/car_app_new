@@ -5,11 +5,12 @@ import 'package:car_app_new/core/styles/app_images.dart';
 import 'package:car_app_new/features/auth_feature/presention/widgets/custom_divider.dart';
 import 'package:flutter/material.dart';
 
-class CustomCarsDetailsAppBar extends StatelessWidget {
-  const CustomCarsDetailsAppBar({
+class CustomCarsDetailsSliverAppBar extends StatelessWidget {
+  const CustomCarsDetailsSliverAppBar({
     super.key,
+    required this.title,
   });
-
+  final String title;
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
@@ -42,7 +43,7 @@ class CustomCarsDetailsAppBar extends StatelessWidget {
       ),
 
       title: Text(
-        'Car Details',
+        title,
         style: context.textStyle.copyWith(
           fontSize: 18,
           fontWeight: FontWeight.w700,

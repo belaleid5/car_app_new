@@ -18,15 +18,11 @@ class CustomFilterSearchIcon extends StatelessWidget {
           color: MyColors.light.stroke,
         ),
       ),
-      child: IconButton(
-        onPressed: () {
-          print('Filter button pressed');
-        },
-        icon: Icon(
+      child:  Icon(
           Icons.tune,
           color: MyColors.light.textSecondary,
           size: 24,
-        ),
+      
       ),
     );
   }

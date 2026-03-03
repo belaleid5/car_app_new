@@ -1,4 +1,4 @@
-import 'package:car_app_new/core/shared/model/location_model.dart';
+import 'package:car_app_new/core/common/model/model/location_model.dart';
 import 'package:car_app_new/core/common/model/pagination_location.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

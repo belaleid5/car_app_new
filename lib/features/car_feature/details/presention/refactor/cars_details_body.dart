@@ -6,7 +6,7 @@ import 'package:car_app_new/features/auth_feature/presention/widgets/custom_divi
 import 'package:car_app_new/features/car_feature/details/presention/widgets/book_now_button.dart';
 import 'package:car_app_new/features/car_feature/details/presention/widgets/car_feature_gride.dart';
 import 'package:car_app_new/features/car_feature/details/presention/widgets/car_review.dart';
-import 'package:car_app_new/features/car_feature/details/presention/widgets/custom_cars_details_app_bar.dart';
+import 'package:car_app_new/core/common/widgets/custom_cars_details_sliver_app_bar.dart';
 import 'package:car_app_new/features/car_feature/details/presention/widgets/information_owner.dart';
 import 'package:car_app_new/features/car_feature/details/presention/widgets/secion_content_car.dart';
 import 'package:car_app_new/features/car_feature/details/presention/widgets/section_carousel_car_image.dart';
@@ -20,7 +20,7 @@ class CarsDetailsBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        const CustomCarsDetailsAppBar(),
+        const CustomCarsDetailsSliverAppBar(title: 'Details Car',),
 
         SliverToBoxAdapter(
           child: CustomFadeInDown(
@@ -87,7 +87,6 @@ class CarsDetailsBody extends StatelessWidget {
 
         SliverToBoxAdapter(child: verticalSpace(5)),
 
- 
         const SliverToBoxAdapter(
           child: CustomFadeInUp(
             duration: 700,
@@ -95,7 +94,6 @@ class CarsDetailsBody extends StatelessWidget {
           ),
         ),
 
-     
         const SliverToBoxAdapter(
           child: CustomFadeInUp(
             duration: 800,

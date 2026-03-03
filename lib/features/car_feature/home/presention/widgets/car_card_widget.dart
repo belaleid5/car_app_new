@@ -10,8 +10,8 @@ import 'package:car_app_new/features/car_feature/home/presention/widgets/car_loc
 import 'package:car_app_new/features/car_feature/home/presention/widgets/car_name.dart';
 import 'package:flutter/material.dart';
 
-class CarCardWidget extends StatelessWidget {
-  const CarCardWidget({
+class CarCardHomeWidget extends StatelessWidget {
+  const CarCardHomeWidget({
     super.key,
     required this.cars,
   });

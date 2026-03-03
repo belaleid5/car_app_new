@@ -6,6 +6,7 @@ class FilterSearchCarsRepo {
   FilterSearchCarsRepo(this.remoteDataSource);
 
   final FilterSearchRemoteDataSource remoteDataSource;
+final Map<String, CarsResponseModel> _cache = {};
 
   Future<ApiResult<CarsResponseModel>> filterSearchCars({
     int page = 1,
@@ -19,6 +20,12 @@ class FilterSearchCarsRepo {
     int? seatingCapacity,
     String? fuelType,
   }) async {
+     final cacheKey = 'brand_${brandId}_page_$page';
+
+    if (_cache.containsKey(cacheKey)) {
+      return ApiResult.success(_cache[cacheKey]!);
+    }
+
     try {
       final response = await remoteDataSource.filterSearchCars(
         page: page,

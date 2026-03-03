@@ -9,11 +9,13 @@ analyzer:
     deprecated_member_use: ignore
     discarded_futures: ignore
     inference_failure_on_function_invocation: ignore
+    inference_failure_on_instance_creation: ignore
     invalid_annotation_target: ignore
     lines_longer_than_80_chars: ignore
     one_member_abstracts: ignore
     recursive_getters: ignore
     strict_raw_type: ignore
+    unnecessary_statements: ignore
     unreachable_switch_case: ignore
     use_setters_to_change_properties: ignore
 include: package:very_good_analysis/analysis_options.yaml

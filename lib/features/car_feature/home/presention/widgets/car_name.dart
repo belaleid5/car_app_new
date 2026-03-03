@@ -8,7 +8,7 @@ class CarName extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       name,
-      maxLines: 1,
+      maxLines: 3,
       overflow: TextOverflow.ellipsis,
       style: const TextStyle(
         fontSize: 16,
