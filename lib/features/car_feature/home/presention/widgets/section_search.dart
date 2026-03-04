@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:car_app_new/core/helper/spacing.dart';
 import 'package:car_app_new/features/car_feature/home/presention/widgets/custom_filter_search_icon.dart';
 import 'package:car_app_new/features/car_feature/home/presention/widgets/custom_search_form.dart';
@@ -5,8 +7,6 @@ import 'package:car_app_new/features/car_feature/search/presention/manger/filter
 import 'package:car_app_new/features/car_feature/search/presention/manger/filter_search_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-
 
 class SectionSearch extends StatefulWidget {
   const SectionSearch({super.key, this.onTap});
@@ -19,6 +19,7 @@ class SectionSearch extends StatefulWidget {
 
 class _SectionSearchState extends State<SectionSearch> {
   final TextEditingController _searchController = TextEditingController();
+  Timer? _debounce;
 
   @override
   void initState() {
@@ -27,15 +28,22 @@ class _SectionSearchState extends State<SectionSearch> {
   }
 
   void _onSearchChanged() {
-    context.read<FilterSearchBloc>().add(
-      FilterSearchEvent.search(
-        nameCar: _searchController.text.isEmpty ? null : _searchController.text,
-      ),
-    );
+    _debounce?.cancel();
+    _debounce = Timer(const Duration(milliseconds: 500), () {
+      if (!mounted) return;
+      context.read<FilterSearchBloc>().add(
+        FilterSearchEvent.search(
+          query: _searchController.text.isEmpty
+              ? null
+              : _searchController.text,
+        ),
+      );
+    });
   }
 
   @override
   void dispose() {
+    _debounce?.cancel();
     _searchController
       ..removeListener(_onSearchChanged)
       ..dispose();
@@ -51,10 +59,7 @@ class _SectionSearchState extends State<SectionSearch> {
           CustomSearchForm(searchController: _searchController),
           horizontalSpace(12),
           GestureDetector(
-            onTap: () {
-              print('icon tapped ✅');
-              widget.onTap?.call();
-            },
+            onTap: widget.onTap,
             child: const CustomFilterSearchIcon(),
           ),
         ],

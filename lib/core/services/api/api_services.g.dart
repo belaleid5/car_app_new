@@ -370,7 +370,7 @@ class _ApiService implements ApiService {
   Future<CarsResponseModel> filterSearchCars({
     int page = 1,
     int limit = 10,
-    String? nameCar,
+    String? query,
     int? brandId,
     String? carType,
     String? typePayment,
@@ -383,7 +383,7 @@ class _ApiService implements ApiService {
     final queryParameters = <String, dynamic>{
       r'page': page,
       r'limit': limit,
-      r'name_car': nameCar,
+      r'query': query,
       r'brand_id': brandId,
       r'car_type': carType,
       r'type_payment': typePayment,

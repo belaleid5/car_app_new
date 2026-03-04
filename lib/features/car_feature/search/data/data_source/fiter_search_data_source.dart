@@ -5,7 +5,7 @@ abstract class FilterSearchRemoteDataSource {
   Future<CarsResponseModel> filterSearchCars({
     int page = 1,
     int limit = 10,
-    String? nameCar,
+    String? query,
     int? brandId,
     String? carType,
     String? typePayment,
@@ -25,7 +25,7 @@ class FilterSearchRemoteDataSourceImpl implements FilterSearchRemoteDataSource {
   Future<CarsResponseModel> filterSearchCars({
     int page = 1,
     int limit = 10,
-    String? nameCar,
+    String? query,
     int? brandId,
     String? carType,
     String? typePayment,
@@ -38,7 +38,7 @@ class FilterSearchRemoteDataSourceImpl implements FilterSearchRemoteDataSource {
       return await _apiService.filterSearchCars(
         page: page,
         limit: limit,
-        nameCar: nameCar,
+        query: query,
         brandId: brandId,
         carType: carType,
         typePayment: typePayment,

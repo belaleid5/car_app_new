@@ -146,10 +146,10 @@ return applyDraft(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String? nameCar,  int? brandId,  String? carType,  String? typePayment,  int? colorId,  int? locationId,  int? seatingCapacity,  String? fuelType)?  search,TResult Function()?  loadMore,TResult Function()?  reset,TResult Function( String? value)?  setCarType,TResult Function( String? value)?  setTypePayment,TResult Function( int? value)?  setColorId,TResult Function( int? value)?  setSeatingCapacity,TResult Function( String? value)?  setFuelType,TResult Function( double min,  double max)?  setPrice,TResult Function()?  resetDraft,TResult Function()?  applyDraft,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String? query,  int? brandId,  String? carType,  String? typePayment,  int? colorId,  int? locationId,  int? seatingCapacity,  String? fuelType)?  search,TResult Function()?  loadMore,TResult Function()?  reset,TResult Function( String? value)?  setCarType,TResult Function( String? value)?  setTypePayment,TResult Function( int? value)?  setColorId,TResult Function( int? value)?  setSeatingCapacity,TResult Function( String? value)?  setFuelType,TResult Function( double min,  double max)?  setPrice,TResult Function()?  resetDraft,TResult Function()?  applyDraft,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Search() when search != null:
-return search(_that.nameCar,_that.brandId,_that.carType,_that.typePayment,_that.colorId,_that.locationId,_that.seatingCapacity,_that.fuelType);case _LoadMore() when loadMore != null:
+return search(_that.query,_that.brandId,_that.carType,_that.typePayment,_that.colorId,_that.locationId,_that.seatingCapacity,_that.fuelType);case _LoadMore() when loadMore != null:
 return loadMore();case _Reset() when reset != null:
 return reset();case _SetCarType() when setCarType != null:
 return setCarType(_that.value);case _SetTypePayment() when setTypePayment != null:
@@ -177,10 +177,10 @@ return applyDraft();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String? nameCar,  int? brandId,  String? carType,  String? typePayment,  int? colorId,  int? locationId,  int? seatingCapacity,  String? fuelType)  search,required TResult Function()  loadMore,required TResult Function()  reset,required TResult Function( String? value)  setCarType,required TResult Function( String? value)  setTypePayment,required TResult Function( int? value)  setColorId,required TResult Function( int? value)  setSeatingCapacity,required TResult Function( String? value)  setFuelType,required TResult Function( double min,  double max)  setPrice,required TResult Function()  resetDraft,required TResult Function()  applyDraft,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String? query,  int? brandId,  String? carType,  String? typePayment,  int? colorId,  int? locationId,  int? seatingCapacity,  String? fuelType)  search,required TResult Function()  loadMore,required TResult Function()  reset,required TResult Function( String? value)  setCarType,required TResult Function( String? value)  setTypePayment,required TResult Function( int? value)  setColorId,required TResult Function( int? value)  setSeatingCapacity,required TResult Function( String? value)  setFuelType,required TResult Function( double min,  double max)  setPrice,required TResult Function()  resetDraft,required TResult Function()  applyDraft,}) {final _that = this;
 switch (_that) {
 case _Search():
-return search(_that.nameCar,_that.brandId,_that.carType,_that.typePayment,_that.colorId,_that.locationId,_that.seatingCapacity,_that.fuelType);case _LoadMore():
+return search(_that.query,_that.brandId,_that.carType,_that.typePayment,_that.colorId,_that.locationId,_that.seatingCapacity,_that.fuelType);case _LoadMore():
 return loadMore();case _Reset():
 return reset();case _SetCarType():
 return setCarType(_that.value);case _SetTypePayment():
@@ -204,10 +204,10 @@ return applyDraft();}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String? nameCar,  int? brandId,  String? carType,  String? typePayment,  int? colorId,  int? locationId,  int? seatingCapacity,  String? fuelType)?  search,TResult? Function()?  loadMore,TResult? Function()?  reset,TResult? Function( String? value)?  setCarType,TResult? Function( String? value)?  setTypePayment,TResult? Function( int? value)?  setColorId,TResult? Function( int? value)?  setSeatingCapacity,TResult? Function( String? value)?  setFuelType,TResult? Function( double min,  double max)?  setPrice,TResult? Function()?  resetDraft,TResult? Function()?  applyDraft,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String? query,  int? brandId,  String? carType,  String? typePayment,  int? colorId,  int? locationId,  int? seatingCapacity,  String? fuelType)?  search,TResult? Function()?  loadMore,TResult? Function()?  reset,TResult? Function( String? value)?  setCarType,TResult? Function( String? value)?  setTypePayment,TResult? Function( int? value)?  setColorId,TResult? Function( int? value)?  setSeatingCapacity,TResult? Function( String? value)?  setFuelType,TResult? Function( double min,  double max)?  setPrice,TResult? Function()?  resetDraft,TResult? Function()?  applyDraft,}) {final _that = this;
 switch (_that) {
 case _Search() when search != null:
-return search(_that.nameCar,_that.brandId,_that.carType,_that.typePayment,_that.colorId,_that.locationId,_that.seatingCapacity,_that.fuelType);case _LoadMore() when loadMore != null:
+return search(_that.query,_that.brandId,_that.carType,_that.typePayment,_that.colorId,_that.locationId,_that.seatingCapacity,_that.fuelType);case _LoadMore() when loadMore != null:
 return loadMore();case _Reset() when reset != null:
 return reset();case _SetCarType() when setCarType != null:
 return setCarType(_that.value);case _SetTypePayment() when setTypePayment != null:
@@ -229,10 +229,10 @@ return applyDraft();case _:
 
 
 class _Search implements FilterSearchEvent {
-  const _Search({this.nameCar, this.brandId, this.carType, this.typePayment, this.colorId, this.locationId, this.seatingCapacity, this.fuelType});
+  const _Search({this.query, this.brandId, this.carType, this.typePayment, this.colorId, this.locationId, this.seatingCapacity, this.fuelType});
   
 
- final  String? nameCar;
+ final  String? query;
  final  int? brandId;
  final  String? carType;
  final  String? typePayment;
@@ -251,16 +251,16 @@ _$SearchCopyWith<_Search> get copyWith => __$SearchCopyWithImpl<_Search>(this, _
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Search&&(identical(other.nameCar, nameCar) || other.nameCar == nameCar)&&(identical(other.brandId, brandId) || other.brandId == brandId)&&(identical(other.carType, carType) || other.carType == carType)&&(identical(other.typePayment, typePayment) || other.typePayment == typePayment)&&(identical(other.colorId, colorId) || other.colorId == colorId)&&(identical(other.locationId, locationId) || other.locationId == locationId)&&(identical(other.seatingCapacity, seatingCapacity) || other.seatingCapacity == seatingCapacity)&&(identical(other.fuelType, fuelType) || other.fuelType == fuelType));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Search&&(identical(other.query, query) || other.query == query)&&(identical(other.brandId, brandId) || other.brandId == brandId)&&(identical(other.carType, carType) || other.carType == carType)&&(identical(other.typePayment, typePayment) || other.typePayment == typePayment)&&(identical(other.colorId, colorId) || other.colorId == colorId)&&(identical(other.locationId, locationId) || other.locationId == locationId)&&(identical(other.seatingCapacity, seatingCapacity) || other.seatingCapacity == seatingCapacity)&&(identical(other.fuelType, fuelType) || other.fuelType == fuelType));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,nameCar,brandId,carType,typePayment,colorId,locationId,seatingCapacity,fuelType);
+int get hashCode => Object.hash(runtimeType,query,brandId,carType,typePayment,colorId,locationId,seatingCapacity,fuelType);
 
 @override
 String toString() {
-  return 'FilterSearchEvent.search(nameCar: $nameCar, brandId: $brandId, carType: $carType, typePayment: $typePayment, colorId: $colorId, locationId: $locationId, seatingCapacity: $seatingCapacity, fuelType: $fuelType)';
+  return 'FilterSearchEvent.search(query: $query, brandId: $brandId, carType: $carType, typePayment: $typePayment, colorId: $colorId, locationId: $locationId, seatingCapacity: $seatingCapacity, fuelType: $fuelType)';
 }
 
 
@@ -271,7 +271,7 @@ abstract mixin class _$SearchCopyWith<$Res> implements $FilterSearchEventCopyWit
   factory _$SearchCopyWith(_Search value, $Res Function(_Search) _then) = __$SearchCopyWithImpl;
 @useResult
 $Res call({
- String? nameCar, int? brandId, String? carType, String? typePayment, int? colorId, int? locationId, int? seatingCapacity, String? fuelType
+ String? query, int? brandId, String? carType, String? typePayment, int? colorId, int? locationId, int? seatingCapacity, String? fuelType
 });
 
 
@@ -288,9 +288,9 @@ class __$SearchCopyWithImpl<$Res>
 
 /// Create a copy of FilterSearchEvent
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? nameCar = freezed,Object? brandId = freezed,Object? carType = freezed,Object? typePayment = freezed,Object? colorId = freezed,Object? locationId = freezed,Object? seatingCapacity = freezed,Object? fuelType = freezed,}) {
+@pragma('vm:prefer-inline') $Res call({Object? query = freezed,Object? brandId = freezed,Object? carType = freezed,Object? typePayment = freezed,Object? colorId = freezed,Object? locationId = freezed,Object? seatingCapacity = freezed,Object? fuelType = freezed,}) {
   return _then(_Search(
-nameCar: freezed == nameCar ? _self.nameCar : nameCar // ignore: cast_nullable_to_non_nullable
+query: freezed == query ? _self.query : query // ignore: cast_nullable_to_non_nullable
 as String?,brandId: freezed == brandId ? _self.brandId : brandId // ignore: cast_nullable_to_non_nullable
 as int?,carType: freezed == carType ? _self.carType : carType // ignore: cast_nullable_to_non_nullable
 as String?,typePayment: freezed == typePayment ? _self.typePayment : typePayment // ignore: cast_nullable_to_non_nullable

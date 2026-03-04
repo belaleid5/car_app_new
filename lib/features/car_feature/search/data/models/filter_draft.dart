@@ -1,6 +1,6 @@
 class SearchFilter {
   const SearchFilter({
-    this.nameCar,
+    this.query,
     this.brandId,
     this.carType,
     this.typePayment,
@@ -10,7 +10,7 @@ class SearchFilter {
     this.fuelType,
   });
 
-  final String? nameCar;
+  final String? query;
   final int? brandId;
   final String? carType;
   final String? typePayment;
@@ -18,8 +18,29 @@ class SearchFilter {
   final int? locationId;
   final int? seatingCapacity;
   final String? fuelType;
-}
 
+  // ✅ أضف copyWith
+  SearchFilter copyWith({
+    String? query,
+    int? brandId,
+    String? carType,
+    String? typePayment,
+    int? colorId,
+    int? locationId,
+    int? seatingCapacity,
+    String? fuelType,
+  }) =>
+      SearchFilter(
+        query: query ?? this.query,
+        brandId: brandId ?? this.brandId,
+        carType: carType ?? this.carType,
+        typePayment: typePayment ?? this.typePayment,
+        colorId: colorId ?? this.colorId,
+        locationId: locationId ?? this.locationId,
+        seatingCapacity: seatingCapacity ?? this.seatingCapacity,
+        fuelType: fuelType ?? this.fuelType,
+      );
+}
 class SearchPagination {
   const SearchPagination({
     this.currentPage = 1,

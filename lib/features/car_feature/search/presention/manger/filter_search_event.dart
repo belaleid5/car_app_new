@@ -7,7 +7,7 @@ part 'filter_search_event.freezed.dart';
 @freezed
 sealed class FilterSearchEvent with _$FilterSearchEvent {
   const factory FilterSearchEvent.search({
-    String? nameCar,
+    String? query,
     int? brandId,
     String? carType,
     String? typePayment,

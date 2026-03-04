@@ -11,7 +11,7 @@ final Map<String, CarsResponseModel> _cache = {};
   Future<ApiResult<CarsResponseModel>> filterSearchCars({
     int page = 1,
     int limit = 10,
-    String? nameCar,
+    String? query,
     int? brandId,
     String? carType,
     String? typePayment,
@@ -30,7 +30,7 @@ final Map<String, CarsResponseModel> _cache = {};
       final response = await remoteDataSource.filterSearchCars(
         page: page,
         limit: limit,
-        nameCar: nameCar,
+        query: query,
         brandId: brandId,
         carType: carType,
         typePayment: typePayment,

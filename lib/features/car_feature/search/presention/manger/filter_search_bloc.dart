@@ -21,13 +21,29 @@ class FilterSearchBloc extends Bloc<FilterSearchEvent, FilterSearchState> {
   SearchFilter _activeFilter = const SearchFilter();
   SearchPagination _pagination = const SearchPagination();
   FilterDraft _draft = const FilterDraft();
+
+  /// The current draft filter being edited in the bottom sheet.
   FilterDraft get draft => _draft;
+
+  // =====================
+  // Event Router
+  // =====================
 
   FutureOr<void> _onEvent(
     FilterSearchEvent event,
     Emitter<FilterSearchState> emit,
   ) => event.map(
-    search: (e) => _onSearch(e, emit),
+    search: (e) async {
+      _activeFilter = SearchFilter(
+        query: e.query,
+        brandId: e.brandId,
+        locationId: e.locationId,
+      );
+      _pagination = const SearchPagination();
+      emit(const FilterSearchState.loading());
+      await _fetchCars(filter: _activeFilter, page: 1, emit: emit);
+      return null;
+    },
     loadMore: (_) => _onLoadMore(emit),
     reset: (_) => _onReset(emit),
     setCarType: (e) => _updateDraft(carType: e.value),
@@ -40,6 +56,11 @@ class FilterSearchBloc extends Bloc<FilterSearchEvent, FilterSearchState> {
     applyDraft: (_) => _onApplyDraft(emit),
   );
 
+  // =====================
+  // Draft
+  // =====================
+
+  /// Updates specific fields in the draft while preserving others.
   void _updateDraft({
     String? carType,
     String? typePayment,
@@ -63,6 +84,7 @@ class FilterSearchBloc extends Bloc<FilterSearchEvent, FilterSearchState> {
   void _resetDraft() => _draft = const FilterDraft();
 
   FutureOr<void> _onApplyDraft(Emitter<FilterSearchState> emit) async {
+    // ✅ filters لوحدها من الصفر
     _activeFilter = SearchFilter(
       carType: _draft.carType,
       typePayment: _draft.typePayment,
@@ -70,37 +92,14 @@ class FilterSearchBloc extends Bloc<FilterSearchEvent, FilterSearchState> {
       seatingCapacity: _draft.seatingCapacity,
       fuelType: _draft.fuelType,
     );
-
     _pagination = const SearchPagination();
     emit(const FilterSearchState.loading());
-
-    await _fetchCars(filter: _activeFilter, page: 1, emit: emit);
-    return null;
-  }
-
-  FutureOr<void> _onSearch(
-    FilterSearchEvent event, // ✅
-    Emitter<FilterSearchState> emit,
-  ) async {
-    final searchEvent = event.mapOrNull(search: (e) => e);
-    if (searchEvent == null) return;
-
-    _activeFilter = SearchFilter(
-      nameCar: searchEvent.nameCar,
-      brandId: searchEvent.brandId,
-      carType: searchEvent.carType,
-      typePayment: searchEvent.typePayment,
-      colorId: searchEvent.colorId,
-      locationId: searchEvent.locationId,
-      seatingCapacity: searchEvent.seatingCapacity,
-      fuelType: searchEvent.fuelType,
-    );
-
-    _pagination = const SearchPagination();
-    emit(const FilterSearchState.loading());
-
     await _fetchCars(filter: _activeFilter, page: 1, emit: emit);
   }
+
+  // =====================
+  // Load More
+  // =====================
 
   FutureOr<void> _onLoadMore(Emitter<FilterSearchState> emit) async {
     final currentSuccess = state.maybeMap(
@@ -118,8 +117,11 @@ class FilterSearchBloc extends Bloc<FilterSearchEvent, FilterSearchState> {
       emit: emit,
       existingCars: currentSuccess.cars,
     );
-    return null;
   }
+
+  // =====================
+  // Reset
+  // =====================
 
   void _onReset(Emitter<FilterSearchState> emit) {
     _activeFilter = const SearchFilter();
@@ -127,6 +129,10 @@ class FilterSearchBloc extends Bloc<FilterSearchEvent, FilterSearchState> {
     _draft = const FilterDraft();
     emit(const FilterSearchState.initial());
   }
+
+  // =====================
+  // Fetch
+  // =====================
 
   Future<void> _fetchCars({
     required SearchFilter filter,
@@ -136,7 +142,7 @@ class FilterSearchBloc extends Bloc<FilterSearchEvent, FilterSearchState> {
   }) async {
     final result = await _repo.filterSearchCars(
       page: page,
-      nameCar: filter.nameCar,
+      query: filter.query,
       brandId: filter.brandId,
       carType: filter.carType,
       typePayment: filter.typePayment,
@@ -167,6 +173,10 @@ class FilterSearchBloc extends Bloc<FilterSearchEvent, FilterSearchState> {
       },
     );
   }
+
+  // =====================
+  // Emit Success
+  // =====================
 
   void _emitSuccess({
     required Emitter<FilterSearchState> emit,

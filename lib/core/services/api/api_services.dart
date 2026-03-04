@@ -93,7 +93,7 @@ Future<CarDetailsModel> getCarDetails({
 Future<CarsResponseModel> filterSearchCars({
   @Query('page') int page = 1,
   @Query('limit') int limit = 10,
-  @Query('name_car') String? nameCar,
+  @Query('query') String? query,
   @Query('brand_id') int? brandId,
   @Query('car_type') String? carType,
   @Query('type_payment') String? typePayment,
