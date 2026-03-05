@@ -21,62 +21,50 @@ class HomePageBody extends StatelessWidget {
           sliver: HomeAppBar(),
         ),
 
-        const SliverToBoxAdapter(
-          child: CustomDivider(),
-        ),
+        const SliverToBoxAdapter(child: CustomDivider()),
 
-        SliverToBoxAdapter(
-          child: verticalSpace(10),
-        ),
+        SliverToBoxAdapter(child: verticalSpace(10)),
 
         const SliverPadding(
           padding: EdgeInsets.symmetric(horizontal: 20),
           sliver: SliverToBoxAdapter(
             child: CustomFadeInDown(
-              duration: 600,
+              duration: 700,
               child: SectionSearch(),
             ),
           ),
         ),
 
-        SliverToBoxAdapter(
-          child: verticalSpace(20),
-        ),
+        SliverToBoxAdapter(child: verticalSpace(20)),
 
         const SliverPadding(
           padding: EdgeInsets.symmetric(horizontal: 24),
           sliver: SliverToBoxAdapter(
             child: CustomFadeInLeft(
-              duration: 600,
+              duration: 800,
               child: SectionBrands(),
             ),
           ),
         ),
 
-        SliverToBoxAdapter(
-          child: verticalSpace(10),
-        ),
+        SliverToBoxAdapter(child: verticalSpace(10)),
 
         const SliverToBoxAdapter(
-          child: CustomFadeInLeft(
-            duration: 500,
+          child: CustomFadeInRight(
+            duration: 900,
             child: TitleSectionAndViewAllText(title: 'Best Cars'),
           ),
         ),
 
-        SliverToBoxAdapter(
-          child: verticalSpace(10),
-        ),
+        SliverToBoxAdapter(child: verticalSpace(10)),
 
         const BestCarsSection(),
 
-        SliverToBoxAdapter(
-          child: verticalSpace(10),
-        ),
+        SliverToBoxAdapter(child: verticalSpace(10)),
 
         const SliverToBoxAdapter(
           child: CustomFadeInLeft(
-            duration: 500,
+            duration: 900,
             child: TitleSectionAndViewAllText(title: 'Nearby'),
           ),
         ),

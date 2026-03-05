@@ -2,11 +2,9 @@ import 'package:car_app_new/core/app/theme/my_colors.dart';
 import 'package:car_app_new/core/common/model/car_review_model.dart';
 import 'package:car_app_new/core/common/widgets/custom_image.dart';
 import 'package:car_app_new/core/common/widgets/name_user.dart';
-import 'package:car_app_new/core/extensions/custom_shimmer.dart';
 import 'package:car_app_new/core/styles/app_images.dart';
 import 'package:car_app_new/features/car_feature/details/presention/widgets/dec_car.dart';
 import 'package:car_app_new/features/car_feature/home/presention/widgets/car-ratig.dart';
-import 'package:car_app_new/features/car_feature/home/presention/widgets/shimmer_widget/rate_widget_shimmer.dart';
 import 'package:flutter/material.dart';
 
 class ReviewCard extends StatelessWidget {
@@ -38,7 +36,7 @@ class ReviewCard extends StatelessWidget {
               children: [
                 ClipOval(
                   child: CustomImage(
-                    imageType: ImagesType.network,
+      imageType: ImagesType.networkSvg,
                     imagePath: review.userImage,
                     fallbackPath: AppImages.personImage,
                     height: 32,

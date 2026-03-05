@@ -27,7 +27,7 @@ class CardItemOurPopluarCars extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomImage(
-                imageType: ImagesType.network,
+  imageType: ImagesType.networkSvg,
                 imagePath: cars.images.reversed.first.image,
                 height: 70,
                 width: 60,

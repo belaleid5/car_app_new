@@ -1,3 +1,4 @@
+import 'package:car_app_new/core/common/animations/animation_do.dart';
 import 'package:car_app_new/core/common/widgets/section_logo_and_title_qent.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/helper/spacing.dart';
@@ -6,20 +7,29 @@ import 'package:car_app_new/features/car_feature/home/presention/widgets/notific
 import 'package:flutter/material.dart';
 
 class HomeAppBar extends StatelessWidget {
-  const HomeAppBar({
-    super.key,
-  });
+  const HomeAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
       backgroundColor: context.color.background,
       leadingWidth: 150,
-      leading: const SectionLogoAndTitleQent(),
+
+      leading: const CustomFadeInDown(
+        duration: 500,
+        child: SectionLogoAndTitleQent(),
+      ),
+
       actions: [
-        const NotificationWidgetHomeIcon(),
+        const CustomFadeInRight(
+          duration: 600,
+          child: NotificationWidgetHomeIcon(),
+        ),
         horizontalSpace(10),
-        const CircleUserImage(),
+        const CustomFadeInRight(
+          duration: 700,
+          child: CircleUserImage(),
+        ),
       ],
     );
   }

@@ -14,30 +14,61 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$FilterSearchState {
 
-
+ CarsFilter get filter;
+/// Create a copy of FilterSearchState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$FilterSearchStateCopyWith<FilterSearchState> get copyWith => _$FilterSearchStateCopyWithImpl<FilterSearchState>(this as FilterSearchState, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterSearchState);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FilterSearchState&&(identical(other.filter, filter) || other.filter == filter));
 }
 
 
 @override
-int get hashCode => runtimeType.hashCode;
+int get hashCode => Object.hash(runtimeType,filter);
 
 @override
 String toString() {
-  return 'FilterSearchState()';
+  return 'FilterSearchState(filter: $filter)';
 }
 
 
 }
 
 /// @nodoc
-class $FilterSearchStateCopyWith<$Res>  {
-$FilterSearchStateCopyWith(FilterSearchState _, $Res Function(FilterSearchState) __);
+abstract mixin class $FilterSearchStateCopyWith<$Res>  {
+  factory $FilterSearchStateCopyWith(FilterSearchState value, $Res Function(FilterSearchState) _then) = _$FilterSearchStateCopyWithImpl;
+@useResult
+$Res call({
+ CarsFilter filter
+});
+
+
+
+
+}
+/// @nodoc
+class _$FilterSearchStateCopyWithImpl<$Res>
+    implements $FilterSearchStateCopyWith<$Res> {
+  _$FilterSearchStateCopyWithImpl(this._self, this._then);
+
+  final FilterSearchState _self;
+  final $Res Function(FilterSearchState) _then;
+
+/// Create a copy of FilterSearchState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? filter = null,}) {
+  return _then(_self.copyWith(
+filter: null == filter ? _self.filter : filter // ignore: cast_nullable_to_non_nullable
+as CarsFilter,
+  ));
+}
+
 }
 
 
@@ -55,15 +86,13 @@ extension FilterSearchStatePatterns on FilterSearchState {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( _Loading value)?  loading,TResult Function( _LoadingMore value)?  loadingMore,TResult Function( _Success value)?  success,TResult Function( _Empty value)?  empty,TResult Function( _Error value)?  error,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( _Loading value)?  loading,TResult Function( _Success value)?  success,TResult Function( _Error value)?  error,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial(_that);case _Loading() when loading != null:
-return loading(_that);case _LoadingMore() when loadingMore != null:
-return loadingMore(_that);case _Success() when success != null:
-return success(_that);case _Empty() when empty != null:
-return empty(_that);case _Error() when error != null:
+return loading(_that);case _Success() when success != null:
+return success(_that);case _Error() when error != null:
 return error(_that);case _:
   return orElse();
 
@@ -82,15 +111,13 @@ return error(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( _Loading value)  loading,required TResult Function( _LoadingMore value)  loadingMore,required TResult Function( _Success value)  success,required TResult Function( _Empty value)  empty,required TResult Function( _Error value)  error,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( _Loading value)  loading,required TResult Function( _Success value)  success,required TResult Function( _Error value)  error,}){
 final _that = this;
 switch (_that) {
 case _Initial():
 return initial(_that);case _Loading():
-return loading(_that);case _LoadingMore():
-return loadingMore(_that);case _Success():
-return success(_that);case _Empty():
-return empty(_that);case _Error():
+return loading(_that);case _Success():
+return success(_that);case _Error():
 return error(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -105,15 +132,13 @@ return error(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( _Loading value)?  loading,TResult? Function( _LoadingMore value)?  loadingMore,TResult? Function( _Success value)?  success,TResult? Function( _Empty value)?  empty,TResult? Function( _Error value)?  error,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( _Loading value)?  loading,TResult? Function( _Success value)?  success,TResult? Function( _Error value)?  error,}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial(_that);case _Loading() when loading != null:
-return loading(_that);case _LoadingMore() when loadingMore != null:
-return loadingMore(_that);case _Success() when success != null:
-return success(_that);case _Empty() when empty != null:
-return empty(_that);case _Error() when error != null:
+return loading(_that);case _Success() when success != null:
+return success(_that);case _Error() when error != null:
 return error(_that);case _:
   return null;
 
@@ -131,15 +156,13 @@ return error(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  loading,TResult Function( List<CarsModel> cars)?  loadingMore,TResult Function( List<CarsModel> cars,  int currentPage,  int lastPage,  int total,  bool hasMore)?  success,TResult Function()?  empty,TResult Function( String message,  List<CarsModel>? previousCars)?  error,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( CarsFilter filter)?  initial,TResult Function( CarsFilter filter)?  loading,TResult Function( List<CarsModel> cars,  CarsFilter filter,  int? currentPage,  int? lastPage,  int? total,  bool hasMore)?  success,TResult Function( String message,  CarsFilter filter,  List<CarsModel>? previousCars)?  error,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
-return initial();case _Loading() when loading != null:
-return loading();case _LoadingMore() when loadingMore != null:
-return loadingMore(_that.cars);case _Success() when success != null:
-return success(_that.cars,_that.currentPage,_that.lastPage,_that.total,_that.hasMore);case _Empty() when empty != null:
-return empty();case _Error() when error != null:
-return error(_that.message,_that.previousCars);case _:
+return initial(_that.filter);case _Loading() when loading != null:
+return loading(_that.filter);case _Success() when success != null:
+return success(_that.cars,_that.filter,_that.currentPage,_that.lastPage,_that.total,_that.hasMore);case _Error() when error != null:
+return error(_that.message,_that.filter,_that.previousCars);case _:
   return orElse();
 
 }
@@ -157,15 +180,13 @@ return error(_that.message,_that.previousCars);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  loading,required TResult Function( List<CarsModel> cars)  loadingMore,required TResult Function( List<CarsModel> cars,  int currentPage,  int lastPage,  int total,  bool hasMore)  success,required TResult Function()  empty,required TResult Function( String message,  List<CarsModel>? previousCars)  error,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( CarsFilter filter)  initial,required TResult Function( CarsFilter filter)  loading,required TResult Function( List<CarsModel> cars,  CarsFilter filter,  int? currentPage,  int? lastPage,  int? total,  bool hasMore)  success,required TResult Function( String message,  CarsFilter filter,  List<CarsModel>? previousCars)  error,}) {final _that = this;
 switch (_that) {
 case _Initial():
-return initial();case _Loading():
-return loading();case _LoadingMore():
-return loadingMore(_that.cars);case _Success():
-return success(_that.cars,_that.currentPage,_that.lastPage,_that.total,_that.hasMore);case _Empty():
-return empty();case _Error():
-return error(_that.message,_that.previousCars);}
+return initial(_that.filter);case _Loading():
+return loading(_that.filter);case _Success():
+return success(_that.cars,_that.filter,_that.currentPage,_that.lastPage,_that.total,_that.hasMore);case _Error():
+return error(_that.message,_that.filter,_that.previousCars);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -179,15 +200,13 @@ return error(_that.message,_that.previousCars);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  loading,TResult? Function( List<CarsModel> cars)?  loadingMore,TResult? Function( List<CarsModel> cars,  int currentPage,  int lastPage,  int total,  bool hasMore)?  success,TResult? Function()?  empty,TResult? Function( String message,  List<CarsModel>? previousCars)?  error,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( CarsFilter filter)?  initial,TResult? Function( CarsFilter filter)?  loading,TResult? Function( List<CarsModel> cars,  CarsFilter filter,  int? currentPage,  int? lastPage,  int? total,  bool hasMore)?  success,TResult? Function( String message,  CarsFilter filter,  List<CarsModel>? previousCars)?  error,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
-return initial();case _Loading() when loading != null:
-return loading();case _LoadingMore() when loadingMore != null:
-return loadingMore(_that.cars);case _Success() when success != null:
-return success(_that.cars,_that.currentPage,_that.lastPage,_that.total,_that.hasMore);case _Empty() when empty != null:
-return empty();case _Error() when error != null:
-return error(_that.message,_that.previousCars);case _:
+return initial(_that.filter);case _Loading() when loading != null:
+return loading(_that.filter);case _Success() when success != null:
+return success(_that.cars,_that.filter,_that.currentPage,_that.lastPage,_that.total,_that.hasMore);case _Error() when error != null:
+return error(_that.message,_that.filter,_that.previousCars);case _:
   return null;
 
 }
@@ -199,112 +218,42 @@ return error(_that.message,_that.previousCars);case _:
 
 
 class _Initial implements FilterSearchState {
-  const _Initial();
+  const _Initial({required this.filter});
   
 
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Initial);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'FilterSearchState.initial()';
-}
-
-
-}
-
-
-
-
-/// @nodoc
-
-
-class _Loading implements FilterSearchState {
-  const _Loading();
-  
-
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Loading);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'FilterSearchState.loading()';
-}
-
-
-}
-
-
-
-
-/// @nodoc
-
-
-class _LoadingMore implements FilterSearchState {
-  const _LoadingMore({required final  List<CarsModel> cars}): _cars = cars;
-  
-
- final  List<CarsModel> _cars;
- List<CarsModel> get cars {
-  if (_cars is EqualUnmodifiableListView) return _cars;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_cars);
-}
-
+@override final  CarsFilter filter;
 
 /// Create a copy of FilterSearchState
 /// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$LoadingMoreCopyWith<_LoadingMore> get copyWith => __$LoadingMoreCopyWithImpl<_LoadingMore>(this, _$identity);
+_$InitialCopyWith<_Initial> get copyWith => __$InitialCopyWithImpl<_Initial>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LoadingMore&&const DeepCollectionEquality().equals(other._cars, _cars));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Initial&&(identical(other.filter, filter) || other.filter == filter));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_cars));
+int get hashCode => Object.hash(runtimeType,filter);
 
 @override
 String toString() {
-  return 'FilterSearchState.loadingMore(cars: $cars)';
+  return 'FilterSearchState.initial(filter: $filter)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$LoadingMoreCopyWith<$Res> implements $FilterSearchStateCopyWith<$Res> {
-  factory _$LoadingMoreCopyWith(_LoadingMore value, $Res Function(_LoadingMore) _then) = __$LoadingMoreCopyWithImpl;
-@useResult
+abstract mixin class _$InitialCopyWith<$Res> implements $FilterSearchStateCopyWith<$Res> {
+  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) _then) = __$InitialCopyWithImpl;
+@override @useResult
 $Res call({
- List<CarsModel> cars
+ CarsFilter filter
 });
 
 
@@ -312,19 +261,85 @@ $Res call({
 
 }
 /// @nodoc
-class __$LoadingMoreCopyWithImpl<$Res>
-    implements _$LoadingMoreCopyWith<$Res> {
-  __$LoadingMoreCopyWithImpl(this._self, this._then);
+class __$InitialCopyWithImpl<$Res>
+    implements _$InitialCopyWith<$Res> {
+  __$InitialCopyWithImpl(this._self, this._then);
 
-  final _LoadingMore _self;
-  final $Res Function(_LoadingMore) _then;
+  final _Initial _self;
+  final $Res Function(_Initial) _then;
 
 /// Create a copy of FilterSearchState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? cars = null,}) {
-  return _then(_LoadingMore(
-cars: null == cars ? _self._cars : cars // ignore: cast_nullable_to_non_nullable
-as List<CarsModel>,
+@override @pragma('vm:prefer-inline') $Res call({Object? filter = null,}) {
+  return _then(_Initial(
+filter: null == filter ? _self.filter : filter // ignore: cast_nullable_to_non_nullable
+as CarsFilter,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class _Loading implements FilterSearchState {
+  const _Loading({required this.filter});
+  
+
+@override final  CarsFilter filter;
+
+/// Create a copy of FilterSearchState
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$LoadingCopyWith<_Loading> get copyWith => __$LoadingCopyWithImpl<_Loading>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Loading&&(identical(other.filter, filter) || other.filter == filter));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,filter);
+
+@override
+String toString() {
+  return 'FilterSearchState.loading(filter: $filter)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$LoadingCopyWith<$Res> implements $FilterSearchStateCopyWith<$Res> {
+  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) _then) = __$LoadingCopyWithImpl;
+@override @useResult
+$Res call({
+ CarsFilter filter
+});
+
+
+
+
+}
+/// @nodoc
+class __$LoadingCopyWithImpl<$Res>
+    implements _$LoadingCopyWith<$Res> {
+  __$LoadingCopyWithImpl(this._self, this._then);
+
+  final _Loading _self;
+  final $Res Function(_Loading) _then;
+
+/// Create a copy of FilterSearchState
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? filter = null,}) {
+  return _then(_Loading(
+filter: null == filter ? _self.filter : filter // ignore: cast_nullable_to_non_nullable
+as CarsFilter,
   ));
 }
 
@@ -335,7 +350,7 @@ as List<CarsModel>,
 
 
 class _Success implements FilterSearchState {
-  const _Success({required final  List<CarsModel> cars, required this.currentPage, required this.lastPage, required this.total, this.hasMore = false}): _cars = cars;
+  const _Success({required final  List<CarsModel> cars, required this.filter, this.currentPage, this.lastPage, this.total, this.hasMore = false}): _cars = cars;
   
 
  final  List<CarsModel> _cars;
@@ -345,14 +360,15 @@ class _Success implements FilterSearchState {
   return EqualUnmodifiableListView(_cars);
 }
 
- final  int currentPage;
- final  int lastPage;
- final  int total;
+@override final  CarsFilter filter;
+ final  int? currentPage;
+ final  int? lastPage;
+ final  int? total;
 @JsonKey() final  bool hasMore;
 
 /// Create a copy of FilterSearchState
 /// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
 _$SuccessCopyWith<_Success> get copyWith => __$SuccessCopyWithImpl<_Success>(this, _$identity);
 
@@ -360,16 +376,16 @@ _$SuccessCopyWith<_Success> get copyWith => __$SuccessCopyWithImpl<_Success>(thi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Success&&const DeepCollectionEquality().equals(other._cars, _cars)&&(identical(other.currentPage, currentPage) || other.currentPage == currentPage)&&(identical(other.lastPage, lastPage) || other.lastPage == lastPage)&&(identical(other.total, total) || other.total == total)&&(identical(other.hasMore, hasMore) || other.hasMore == hasMore));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Success&&const DeepCollectionEquality().equals(other._cars, _cars)&&(identical(other.filter, filter) || other.filter == filter)&&(identical(other.currentPage, currentPage) || other.currentPage == currentPage)&&(identical(other.lastPage, lastPage) || other.lastPage == lastPage)&&(identical(other.total, total) || other.total == total)&&(identical(other.hasMore, hasMore) || other.hasMore == hasMore));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_cars),currentPage,lastPage,total,hasMore);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_cars),filter,currentPage,lastPage,total,hasMore);
 
 @override
 String toString() {
-  return 'FilterSearchState.success(cars: $cars, currentPage: $currentPage, lastPage: $lastPage, total: $total, hasMore: $hasMore)';
+  return 'FilterSearchState.success(cars: $cars, filter: $filter, currentPage: $currentPage, lastPage: $lastPage, total: $total, hasMore: $hasMore)';
 }
 
 
@@ -378,9 +394,9 @@ String toString() {
 /// @nodoc
 abstract mixin class _$SuccessCopyWith<$Res> implements $FilterSearchStateCopyWith<$Res> {
   factory _$SuccessCopyWith(_Success value, $Res Function(_Success) _then) = __$SuccessCopyWithImpl;
-@useResult
+@override @useResult
 $Res call({
- List<CarsModel> cars, int currentPage, int lastPage, int total, bool hasMore
+ List<CarsModel> cars, CarsFilter filter, int? currentPage, int? lastPage, int? total, bool hasMore
 });
 
 
@@ -397,13 +413,14 @@ class __$SuccessCopyWithImpl<$Res>
 
 /// Create a copy of FilterSearchState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? cars = null,Object? currentPage = null,Object? lastPage = null,Object? total = null,Object? hasMore = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? cars = null,Object? filter = null,Object? currentPage = freezed,Object? lastPage = freezed,Object? total = freezed,Object? hasMore = null,}) {
   return _then(_Success(
 cars: null == cars ? _self._cars : cars // ignore: cast_nullable_to_non_nullable
-as List<CarsModel>,currentPage: null == currentPage ? _self.currentPage : currentPage // ignore: cast_nullable_to_non_nullable
-as int,lastPage: null == lastPage ? _self.lastPage : lastPage // ignore: cast_nullable_to_non_nullable
-as int,total: null == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
-as int,hasMore: null == hasMore ? _self.hasMore : hasMore // ignore: cast_nullable_to_non_nullable
+as List<CarsModel>,filter: null == filter ? _self.filter : filter // ignore: cast_nullable_to_non_nullable
+as CarsFilter,currentPage: freezed == currentPage ? _self.currentPage : currentPage // ignore: cast_nullable_to_non_nullable
+as int?,lastPage: freezed == lastPage ? _self.lastPage : lastPage // ignore: cast_nullable_to_non_nullable
+as int?,total: freezed == total ? _self.total : total // ignore: cast_nullable_to_non_nullable
+as int?,hasMore: null == hasMore ? _self.hasMore : hasMore // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
 }
@@ -414,43 +431,12 @@ as bool,
 /// @nodoc
 
 
-class _Empty implements FilterSearchState {
-  const _Empty();
-  
-
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Empty);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'FilterSearchState.empty()';
-}
-
-
-}
-
-
-
-
-/// @nodoc
-
-
 class _Error implements FilterSearchState {
-  const _Error({required this.message, final  List<CarsModel>? previousCars}): _previousCars = previousCars;
+  const _Error({required this.message, required this.filter, final  List<CarsModel>? previousCars}): _previousCars = previousCars;
   
 
  final  String message;
+@override final  CarsFilter filter;
  final  List<CarsModel>? _previousCars;
  List<CarsModel>? get previousCars {
   final value = _previousCars;
@@ -463,7 +449,7 @@ class _Error implements FilterSearchState {
 
 /// Create a copy of FilterSearchState
 /// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
 _$ErrorCopyWith<_Error> get copyWith => __$ErrorCopyWithImpl<_Error>(this, _$identity);
 
@@ -471,16 +457,16 @@ _$ErrorCopyWith<_Error> get copyWith => __$ErrorCopyWithImpl<_Error>(this, _$ide
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Error&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._previousCars, _previousCars));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Error&&(identical(other.message, message) || other.message == message)&&(identical(other.filter, filter) || other.filter == filter)&&const DeepCollectionEquality().equals(other._previousCars, _previousCars));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,message,const DeepCollectionEquality().hash(_previousCars));
+int get hashCode => Object.hash(runtimeType,message,filter,const DeepCollectionEquality().hash(_previousCars));
 
 @override
 String toString() {
-  return 'FilterSearchState.error(message: $message, previousCars: $previousCars)';
+  return 'FilterSearchState.error(message: $message, filter: $filter, previousCars: $previousCars)';
 }
 
 
@@ -489,9 +475,9 @@ String toString() {
 /// @nodoc
 abstract mixin class _$ErrorCopyWith<$Res> implements $FilterSearchStateCopyWith<$Res> {
   factory _$ErrorCopyWith(_Error value, $Res Function(_Error) _then) = __$ErrorCopyWithImpl;
-@useResult
+@override @useResult
 $Res call({
- String message, List<CarsModel>? previousCars
+ String message, CarsFilter filter, List<CarsModel>? previousCars
 });
 
 
@@ -508,10 +494,11 @@ class __$ErrorCopyWithImpl<$Res>
 
 /// Create a copy of FilterSearchState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? message = null,Object? previousCars = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? message = null,Object? filter = null,Object? previousCars = freezed,}) {
   return _then(_Error(
 message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
-as String,previousCars: freezed == previousCars ? _self._previousCars : previousCars // ignore: cast_nullable_to_non_nullable
+as String,filter: null == filter ? _self.filter : filter // ignore: cast_nullable_to_non_nullable
+as CarsFilter,previousCars: freezed == previousCars ? _self._previousCars : previousCars // ignore: cast_nullable_to_non_nullable
 as List<CarsModel>?,
   ));
 }

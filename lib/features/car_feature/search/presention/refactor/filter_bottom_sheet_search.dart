@@ -1,3 +1,4 @@
+import 'package:car_app_new/core/common/animations/animation_do.dart';
 import 'package:car_app_new/core/common/widgets/fotter_filter_botto_sheet.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/helper/spacing.dart';
@@ -15,24 +16,31 @@ import 'package:car_app_new/features/car_feature/search/presention/widget/bottom
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class FilterBottomSheetSearch extends StatelessWidget {
-  const FilterBottomSheetSearch._();
+class FilterBottomSheet extends StatefulWidget {
+  const FilterBottomSheet({super.key});
 
   static Future<void> show(BuildContext context) {
+    final bloc = context.read<FilterSearchBloc>();
+
     return showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       builder: (_) => BlocProvider.value(
-        value: context.read<FilterSearchBloc>(),
-        child: const FilterBottomSheetSearch._(),
+        value: bloc,
+        child: const FilterBottomSheet(),
       ),
     );
   }
 
   @override
+  State<FilterBottomSheet> createState() => _FilterBottomSheetState();
+}
+
+class _FilterBottomSheetState extends State<FilterBottomSheet> {
+  @override
   Widget build(BuildContext context) {
-    final draft = context.read<FilterSearchBloc>().draft;
+    final draft = context.read<FilterSearchBloc>().currentFilter;
 
     return DraggableScrollableSheet(
       initialChildSize: 0.9,
@@ -49,19 +57,30 @@ class FilterBottomSheetSearch extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const HeaderFilter(),
+              const CustomFadeInDown(
+                duration: 400,
+                child: HeaderFilter(),
+              ),
+
               const CustomDivider(),
+
               ..._section(
+                duration: 500,
+                direction: _Direction.left,
                 title: 'Type of Cars',
                 child: CarTypeSelector(
-                  initialValue: draft.carType,
+                  initialValue: draft.type,
                   onChanged: (v) => context.read<FilterSearchBloc>().add(
                     FilterSearchEvent.setCarType(v),
                   ),
                 ),
               ),
+
               const CustomDivider(),
+
               ..._section(
+                duration: 600,
+                direction: _Direction.right,
                 title: 'Price Range',
                 child: PriceSection(
                   initialMin: draft.minPrice,
@@ -71,20 +90,31 @@ class FilterBottomSheetSearch extends StatelessWidget {
                   ),
                 ),
               ),
+
               const CustomDivider(),
+
               ..._section(
+                duration: 700,
+                direction: _Direction.left,
                 title: 'Rental Time',
                 child: CarTextSelector(
                   items: TextListsFilterDataSource.rentalTimes,
-                  initialValue: draft.typePayment,
                   onChanged: (v) => context.read<FilterSearchBloc>().add(
                     FilterSearchEvent.setTypePayment(v),
                   ),
                 ),
               ),
-              const PickUpAndDropDate(),
+
+              const CustomFadeInUp(
+                duration: 700,
+                child: PickUpAndDropDate(),
+              ),
+
               const CustomDivider(),
+
               ..._section(
+                duration: 800,
+                direction: _Direction.right,
                 title: 'Colors',
                 child: ColorSelector(
                   initialColorId: draft.colorId,
@@ -93,7 +123,10 @@ class FilterBottomSheetSearch extends StatelessWidget {
                   ),
                 ),
               ),
+
               ..._section(
+                duration: 900,
+                direction: _Direction.left,
                 title: 'Seating Capacity',
                 child: CarTextSelector(
                   items: TextListsFilterDataSource.seats,
@@ -105,7 +138,10 @@ class FilterBottomSheetSearch extends StatelessWidget {
                   ),
                 ),
               ),
+
               ..._section(
+                duration: 1000,
+                direction: _Direction.right,
                 title: 'Fuel Type',
                 child: CarTextSelector(
                   items: TextListsFilterDataSource.fuelTypes,
@@ -115,10 +151,15 @@ class FilterBottomSheetSearch extends StatelessWidget {
                   ),
                 ),
               ),
+
               const CustomDivider(),
-              FotterFilterBottomSheet(
-                onApply: () => _onApply(context),
-                onClear: () => _onClear(context),
+
+              CustomFadeInUp(
+                duration: 1100,
+                child: FotterFilterBottomSheet(
+                  onApply: () => _onApply(context),
+                  onClear: () => _onClear(context),
+                ),
               ),
             ],
           ),
@@ -139,16 +180,32 @@ class FilterBottomSheetSearch extends StatelessWidget {
   }
 }
 
-List<Widget> _section({required String title, required Widget child}) => [
-  verticalSpace(10),
-  Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 24),
-    child: CustomTileSection(title: title),
-  ),
-  verticalSpace(10),
-  Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 24),
-    child: child,
-  ),
-  verticalSpace(10),
-];
+enum _Direction { left, right, up, down }
+
+List<Widget> _section({
+  required String title,
+  required Widget child,
+  required int duration,
+  required _Direction direction,
+}) {
+  Widget wrap(Widget w) => switch (direction) {
+    _Direction.left => CustomFadeInLeft(duration: duration, child: w),
+    _Direction.right => CustomFadeInRight(duration: duration, child: w),
+    _Direction.up => CustomFadeInUp(duration: duration, child: w),
+    _Direction.down => CustomFadeInDown(duration: duration, child: w),
+  };
+
+  return [
+    verticalSpace(10),
+    Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: wrap(CustomTileSection(title: title)),
+    ),
+    verticalSpace(10),
+    Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: wrap(child),
+    ),
+    verticalSpace(10),
+  ];
+}

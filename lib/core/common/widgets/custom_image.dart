@@ -6,7 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-enum ImagesType { svg, png, network, asset, file, memory }
+enum ImagesType { svg, png, network, asset, file, memory, networkSvg }
 
 class CustomImage extends StatelessWidget {
   const CustomImage({
@@ -19,7 +19,7 @@ class CustomImage extends StatelessWidget {
     this.boxFit = BoxFit.fill,
     this.color,
     this.applySvgColor = false,
-    this.fallbackPath, 
+    this.fallbackPath,
   });
 
   final ImagesType imageType;
@@ -30,7 +30,10 @@ class CustomImage extends StatelessWidget {
   final BoxFit boxFit;
   final Color? color;
   final bool applySvgColor;
-  final String? fallbackPath; 
+  final String? fallbackPath;
+
+  // ✅ بدّل http إلى https
+  String get _securePath => imagePath.replaceFirst('http://', 'https://');
 
   bool _isValidUrl(String url) {
     final uri = Uri.tryParse(url);
@@ -42,15 +45,17 @@ class CustomImage extends StatelessWidget {
       errorHeight: height,
       errorWidth: width,
       fit: boxFit,
-      fallbackPath: fallbackPath, 
+      fallbackPath: fallbackPath,
     );
   }
 
   @override
   Widget build(BuildContext context) {
     Widget imageWidget;
+
     switch (imageType) {
       case ImagesType.svg:
+        // ✅ الـ assets مش محتاجة تبديل
         imageWidget = SvgPicture.asset(
           imagePath,
           height: height,
@@ -59,6 +64,22 @@ class CustomImage extends StatelessWidget {
           colorFilter: applySvgColor
               ? ColorFilter.mode(color ?? Colors.red, BlendMode.srcIn)
               : null,
+        );
+
+      case ImagesType.networkSvg:
+        if (!_isValidUrl(_securePath)) return _errorImage();
+        imageWidget = SvgPicture.network(
+          _securePath, // ✅
+          height: height,
+          width: width,
+          fit: boxFit,
+          colorFilter: applySvgColor
+              ? ColorFilter.mode(color ?? Colors.red, BlendMode.srcIn)
+              : null,
+          placeholderBuilder: (_) => _PlaceholderImage(
+            width: width,
+            height: height,
+          ),
         );
 
       case ImagesType.png:
@@ -93,10 +114,10 @@ class CustomImage extends StatelessWidget {
         );
 
       case ImagesType.network:
-        if (!_isValidUrl(imagePath)) return _errorImage();
+        if (!_isValidUrl(_securePath)) return _errorImage();
         imageWidget = kIsWeb
             ? Image.network(
-                imagePath,
+                _securePath, // ✅
                 height: height,
                 width: width,
                 color: color,
@@ -104,7 +125,7 @@ class CustomImage extends StatelessWidget {
                 errorBuilder: (context, error, stackTrace) => _errorImage(),
               )
             : CachedNetworkImage(
-                imageUrl: imagePath,
+                imageUrl: _securePath, // ✅
                 height: height,
                 width: width,
                 color: color,

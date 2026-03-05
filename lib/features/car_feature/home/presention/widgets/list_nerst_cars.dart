@@ -8,6 +8,7 @@ class ListNerestCars extends StatelessWidget {
   const ListNerestCars({super.key, required this.cars});
 
   final List<CarNerstModel> cars;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -20,18 +21,20 @@ class ListNerestCars extends StatelessWidget {
           final car = cars[index];
 
           return Container(
+            width: 390,
+            margin: const EdgeInsets.symmetric(horizontal: 24),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               color: context.color.stroke,
             ),
-            width: 390,
-
-            margin: const EdgeInsets.symmetric(horizontal: 24),
+            // ✅ شيل الـ CircleAvatar وحط الصورة مباشرة
             child: CustomImage(
-              imageType: ImagesType.network,
-              imagePath: car.firstImage,
-              width: 320,
-              boxFit: BoxFit.contain,
+              borderRadius: 16,
+              imageType: ImagesType.networkSvg, // ✅ fallback لو null
+              imagePath: car.firstImage ?? '',
+              width: 390,
+              height: 130,
+              boxFit: BoxFit.contain, // ✅ contain أحسن للسيارات
             ),
           );
         },

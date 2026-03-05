@@ -1,19 +1,12 @@
+
 import 'package:car_app_new/core/services/api/api_services.dart';
 import 'package:car_app_new/features/car_feature/home/data/models/cars_response_model.dart';
+import 'package:car_app_new/features/car_feature/search/data/models/cars_filter.dart';
+
+
 
 abstract class FilterSearchRemoteDataSource {
-  Future<CarsResponseModel> filterSearchCars({
-    int page = 1,
-    int limit = 10,
-    String? query,
-    int? brandId,
-    String? carType,
-    String? typePayment,
-    int? colorId,
-    int? locationId,
-    int? seatingCapacity,
-    String? fuelType,
-  });
+  Future<CarsResponseModel> filterSearchCars(CarsFilter filter);
 }
 
 class FilterSearchRemoteDataSourceImpl implements FilterSearchRemoteDataSource {
@@ -22,30 +15,16 @@ class FilterSearchRemoteDataSourceImpl implements FilterSearchRemoteDataSource {
   final ApiService _apiService;
 
   @override
-  Future<CarsResponseModel> filterSearchCars({
-    int page = 1,
-    int limit = 10,
-    String? query,
-    int? brandId,
-    String? carType,
-    String? typePayment,
-    int? colorId,
-    int? locationId,
-    int? seatingCapacity,
-    String? fuelType,
-  }) async {
+  Future<CarsResponseModel> filterSearchCars(CarsFilter filter) async {
     try {
       return await _apiService.filterSearchCars(
-        page: page,
-        limit: limit,
-        query: query,
-        brandId: brandId,
-        carType: carType,
-        typePayment: typePayment,
-        colorId: colorId,
-        locationId: locationId,
-        seatingCapacity: seatingCapacity,
-        fuelType: fuelType,
+        query: filter.query,
+        brandId: filter.brandId,
+        carType: filter.type,
+        colorId: filter.colorId,
+        locationId: filter.locationId,
+        seatingCapacity: filter.seatingCapacity,
+        fuelType: filter.fuelType,
       );
     } catch (e) {
       throw Exception(e.toString());

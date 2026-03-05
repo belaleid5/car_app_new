@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 
 class CarImage extends StatelessWidget {
   const CarImage({
-    super.key,
-    required this.image,
+    required this.image, super.key,
     this.onFavoriteTap,
   });
 
@@ -21,16 +20,16 @@ class CarImage extends StatelessWidget {
           topLeft: Radius.circular(16),
           topRight: Radius.circular(16),
         ),
-        color: context.color.stroke,
+        color: context.color.stroke, 
       ),
-
       child: Stack(
         children: [
           CustomImage(
-            imageType: ImagesType.network,
+            imageType: ImagesType.networkSvg,
             imagePath: image,
             height: 100,
-            width: double.infinity,
+
+            width: 200,
             boxFit: BoxFit.contain,
             borderRadius: 16,
           ),

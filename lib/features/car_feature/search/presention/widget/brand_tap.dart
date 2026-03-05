@@ -2,7 +2,6 @@ import 'package:car_app_new/core/common/model/brand_model.dart';
 import 'package:car_app_new/core/common/widgets/custom_image.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class BrandTap extends StatelessWidget {
   const BrandTap({
@@ -37,12 +36,17 @@ class BrandTap extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             if (brand.image.isNotEmpty)
-              CustomImage(
-                imageType: brand.id == 0 ? ImagesType.svg : ImagesType.network,
-                imagePath: brand.image,
-                height: 34,
-                width: 34,
-                boxFit: BoxFit.cover,
+              CircleAvatar(
+                backgroundColor: context.color.black,
+                child: CustomImage(
+                  imageType: brand.id == 0
+                      ? ImagesType.svg
+                      : ImagesType.networkSvg,
+                  imagePath: brand.image,
+                  height: 34,
+                  width: 34,
+                  boxFit: BoxFit.cover,
+                ),
               ),
             Text(
               brand.name,

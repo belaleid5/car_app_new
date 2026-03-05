@@ -145,8 +145,8 @@ Future<void> carsDetailsFeature() async {
 Future<void> searchFiterCars() async {
   sl
     ..registerFactory<FilterSearchBloc>(() => FilterSearchBloc(sl()))
-    ..registerLazySingleton<FilterSearchCarsRepo>(
-      () => FilterSearchCarsRepo(sl()),
+    ..registerLazySingleton<CarsFilterRepositoryImpl>(
+      () => CarsFilterRepositoryImpl(sl()),
     )
     ..registerLazySingleton<FilterSearchRemoteDataSource>(
       () => FilterSearchRemoteDataSourceImpl(sl()),

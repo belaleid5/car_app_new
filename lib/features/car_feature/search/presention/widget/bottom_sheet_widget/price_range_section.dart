@@ -4,13 +4,17 @@ import 'package:car_app_new/features/car_feature/search/presention/widget/bottom
 import 'package:flutter/material.dart';
 
 class PriceRangeSection extends StatelessWidget {
-  const PriceRangeSection({super.key, 
+  const PriceRangeSection({
+    super.key,
     required this.values,
     required this.onChanged,
   });
 
   final RangeValues values;
   final ValueChanged<RangeValues> onChanged;
+
+  static const double _min = 0;
+  static const double _max = 500; 
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +24,8 @@ class PriceRangeSection extends StatelessWidget {
           height: 60,
           child: CustomPaint(
             painter: PricePointer(
-              activeStart: values.start / 250,
-              activeEnd: values.end / 250,
+              activeStart: values.start / _max, 
+              activeEnd: values.end / _max,
               activeColor: context.color.black,
               inactiveColor: context.color.stroke,
             ),
@@ -42,8 +46,7 @@ class PriceRangeSection extends StatelessWidget {
           ),
           child: RangeSlider(
             values: values,
-            min: 0,
-            max: 250,
+            max: _max, 
             onChanged: onChanged,
           ),
         ),

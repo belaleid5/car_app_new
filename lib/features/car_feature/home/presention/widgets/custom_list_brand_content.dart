@@ -1,5 +1,5 @@
-import 'package:car_app_new/core/common/widgets/list_view.dart';
 import 'package:car_app_new/core/common/model/brand_model.dart';
+import 'package:car_app_new/core/common/widgets/list_view.dart';
 import 'package:car_app_new/features/car_feature/home/presention/widgets/item_brand.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +25,7 @@ class CustomListBrandContent extends StatelessWidget {
         itemBuilder: (context, index) {
           final brand = brandsList[index];
           return Padding(
-            padding: const EdgeInsets.only(right: 12),
+            padding: const EdgeInsets.only(right: 40),
             child: ItemBrand(brand: brand),
           );
         },

@@ -1,3 +1,4 @@
+import 'package:car_app_new/core/common/animations/animation_do.dart';
 import 'package:car_app_new/core/common/widgets/custom_cars_details_sliver_app_bar.dart';
 import 'package:car_app_new/core/helper/spacing.dart';
 import 'package:car_app_new/features/car_feature/home/presention/widgets/section_search.dart';
@@ -32,28 +33,63 @@ class _SearchFilterBodyState extends State<SearchFilterBody> {
     return CustomScrollView(
       slivers: [
         const CustomCarsDetailsSliverAppBar(title: 'Search'),
+
         SliverToBoxAdapter(child: verticalSpace(10)),
+
         SliverPadding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           sliver: SliverToBoxAdapter(
-            child: SectionSearch(
-              onTap: () => FilterBottomSheetSearch.show(context),
+            child: CustomFadeInDown(
+              duration: 600,
+              child: SectionSearch(
+                onTap: () => FilterBottomSheet.show(context),
+              ),
             ),
           ),
         ),
+
         SliverToBoxAdapter(child: verticalSpace(20)),
-        const SliverToBoxAdapter(child: SectionBrandsFilter()),
+
+        const SliverToBoxAdapter(
+          child: CustomFadeInLeft(
+            duration: 700,
+            child: SectionBrandsFilter(),
+          ),
+        ),
+
         SliverToBoxAdapter(child: verticalSpace(20)),
+
         const SliverToBoxAdapter(
-          child: TitleSectionAndViewAllText(title: 'Recommended For You'),
+          child: CustomFadeInRight(
+            duration: 800,
+            child: TitleSectionAndViewAllText(title: 'Recommended For You'),
+          ),
         ),
+
         SliverToBoxAdapter(child: verticalSpace(10)),
-        const SliverToBoxAdapter(child: SectionRecommendtionForYou()),
-        SliverToBoxAdapter(child: verticalSpace(10)),
+
         const SliverToBoxAdapter(
-          child: TitleSectionAndViewAllText(title: 'Our Popular Cars'),
+          child: CustomFadeInUp(
+            duration: 900,
+            child: SectionRecommendtionForYou(),
+          ),
         ),
-        const SliverToBoxAdapter(child: SectionOurPopularCars()),
+
+        SliverToBoxAdapter(child: verticalSpace(10)),
+
+        const SliverToBoxAdapter(
+          child: CustomFadeInLeft(
+            duration: 900,
+            child: TitleSectionAndViewAllText(title: 'Our Popular Cars'),
+          ),
+        ),
+
+        const SliverToBoxAdapter(
+          child: CustomFadeInUp(
+            duration: 1000,
+            child: SectionOurPopularCars(),
+          ),
+        ),
       ],
     );
   }

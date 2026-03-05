@@ -27,9 +27,6 @@ class CustomGridViewRecommendtionCarItem extends StatelessWidget {
         crossAxisSpacing: 10,
         hasMore: hasMore,
         height: 1.2,
-        loadMore: () => context.read<FilterSearchBloc>().add(
-          const FilterSearchEvent.loadMore(),
-        ),
         itemBuilder: (context, index) => Padding(
           padding: const EdgeInsetsGeometry.only(left: 10),
           child: CarCardRecommendtionForYou(cars: cars[index]),

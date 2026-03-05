@@ -1,4 +1,4 @@
-import 'package:car_app_new/core/extensions/animation_extensions.dart';
+import 'package:car_app_new/core/common/animations/animation_do.dart';
 import 'package:car_app_new/core/extensions/app_validators.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/helper/spacing.dart';
@@ -10,15 +10,15 @@ import 'package:car_app_new/features/auth_feature/presention/widgets/forget_pass
 import 'package:car_app_new/features/auth_feature/presention/widgets/login/custom_text_form_email.dart';
 import 'package:flutter/material.dart';
 
+GlobalKey<FormState> formKey = GlobalKey<FormState>();
+TextEditingController emailController = TextEditingController();
+
 class ForgetPasswordBody extends StatefulWidget {
   const ForgetPasswordBody({super.key});
 
   @override
   State<ForgetPasswordBody> createState() => _ForgetPasswordBodyState();
 }
-
-GlobalKey<FormState> formKey = GlobalKey<FormState>();
-TextEditingController emailController = TextEditingController();
 
 class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
   @override
@@ -33,24 +33,41 @@ class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
           children: [
             verticalSpace(40 * 2),
 
-            const CustomTextForgotPasswordSection(),
-            const CustomSubTitleResetPasswordPage(),
-
-            CustomTextFormEmail(
-              controller: emailController,
-              hintText: context.translate(LangKeys.email),
-              validate: AppValidators.validateEmail,
-            ).animateRightLeft(
-              duration: const Duration(milliseconds: 1450),
+            // ✅ العنوان يهبط من فوق
+            const CustomFadeInDown(
+              duration: 500,
+              child: CustomTextForgotPasswordSection(),
             ),
 
-            CustomBlocListenerForgotPassword(
-              formKey: formKey,
-              emailController: emailController,
+            // ✅ السب تايتل يجي من الشمال
+            const CustomFadeInLeft(
+              duration: 700,
+              child: CustomSubTitleResetPasswordPage(),
             ),
 
-            const CustomButtonReturnLoginScreen().animateRightLeft(
-              duration: const Duration(milliseconds: 1650),
+            // ✅ الإيميل يجي من اليمين
+            CustomFadeInRight(
+              duration: 900,
+              child: CustomTextFormEmail(
+                controller: emailController,
+                hintText: context.translate(LangKeys.email),
+                validate: AppValidators.validateEmail,
+              ),
+            ),
+
+            // ✅ الزرار يطلع من تحت ببطء
+            CustomFadeInUp(
+              duration: 1100,
+              child: CustomBlocListenerForgotPassword(
+                formKey: formKey,
+                emailController: emailController,
+              ),
+            ),
+
+            // ✅ زرار الرجوع يهبط من فوق في الآخر
+            const CustomFadeInDown(
+              duration: 1300,
+              child: CustomButtonReturnLoginScreen(),
             ),
           ],
         ),

@@ -90,13 +90,12 @@ Future<CarDetailsModel> getCarDetails({
 
 
 @GET(ApiConstants.searchEndpoint)
-Future<CarsResponseModel> filterSearchCars({
+Future<CarsResponseModel>filterSearchCars({
   @Query('page') int page = 1,
   @Query('limit') int limit = 10,
   @Query('query') String? query,
   @Query('brand_id') int? brandId,
   @Query('car_type') String? carType,
-  @Query('type_payment') String? typePayment,
   @Query('color_id') int? colorId,
   @Query('location_id') int? locationId,
   @Query('seating_capacity') int? seatingCapacity,

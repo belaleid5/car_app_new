@@ -12,20 +12,17 @@ class SectionOurPopularCars extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FilterSearchBloc, FilterSearchState>(
-      builder: (context, state) {
-        return state.when(
-          initial: () => const ShimmerListOurPopularCars(),
-          empty: EmptyView.new,
-          loading: () => const ShimmerListOurPopularCars(), 
-          loadingMore: (cars) => ListOurPopularCars(cars: cars),
-          success: (cars, currentPage, lastPage, total, hasMore) => cars.isEmpty
-              ? const  EmptyView()
-              : ListOurPopularCars(cars: cars),
-          error: (message, previousCars) => previousCars != null
-              ? ListOurPopularCars(cars: previousCars)
-              : const  EmptyView(),
-        );
-      },
+      builder: (context, state) => state.when(
+        initial: (_) => const ShimmerListOurPopularCars(),
+        loading: (_) => const ShimmerListOurPopularCars(),
+        success: (cars, draft, currentPage, lastPage, total, hasMore) =>
+            cars.isEmpty
+                ? const EmptyView()
+                : ListOurPopularCars(cars: cars),
+        error: (message, draft, previousCars) => previousCars != null
+            ? ListOurPopularCars(cars: previousCars)
+            : const EmptyView(),
+      ),
     );
   }
 }
