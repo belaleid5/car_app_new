@@ -17,7 +17,7 @@ class SectionRecommendetionForYouShimmer extends StatelessWidget {
         height: 1.2,
 
         itemBuilder: (context, index) => const Padding(
-          padding: EdgeInsets.only(right: 5, left: 10),
+          padding: EdgeInsets.only(right: 5, left: 10,top: 10),
           child: CarItemCatdShimmer(),
         ),
       ),

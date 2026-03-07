@@ -1,10 +1,7 @@
 import 'package:car_app_new/core/common/model/cars_model.dart';
 import 'package:car_app_new/core/common/widgets/grid_view.dart';
-import 'package:car_app_new/features/car_feature/search/presention/manger/filter_search_bloc.dart';
-import 'package:car_app_new/features/car_feature/search/presention/manger/filter_search_event.dart';
 import 'package:car_app_new/features/car_feature/search/presention/widget/car_card_recommendtion_for_you.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomGridViewRecommendtionCarItem extends StatelessWidget {
   const CustomGridViewRecommendtionCarItem({

@@ -1,10 +1,4 @@
-import 'package:car_app_new/core/extensions/context_extensions.dart';
-import 'package:car_app_new/core/helper/spacing.dart';
-import 'package:car_app_new/features/car_feature/home/presention/widgets/shimmer_widget/fotter_widget_shimmer.dart';
-import 'package:car_app_new/features/car_feature/home/presention/widgets/shimmer_widget/image_car_shimmer_widget.dart';
-import 'package:car_app_new/features/car_feature/home/presention/widgets/shimmer_widget/location_widget_shimmer.dart';
-import 'package:car_app_new/features/car_feature/home/presention/widgets/shimmer_widget/rate_widget_shimmer.dart';
-import 'package:car_app_new/features/car_feature/home/presention/widgets/shimmer_widget/text_shimmer_widget.dart';
+import 'package:car_app_new/core/extensions/custom_shimmer.dart';
 import 'package:flutter/material.dart';
 
 class CarItemCatdShimmer extends StatelessWidget {
@@ -14,39 +8,78 @@ class CarItemCatdShimmer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 16),
-      child: Container(
-        width: 186,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(18),
-          boxShadow: [
-            BoxShadow(
-              color: context.color.black.withValues(alpha: 0.2),
-              blurRadius: 8,
+    return Container(
+      width: 186,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.08),
+            blurRadius: 12,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ShimmerWidget.card(
+            height: 100,
+            width: 186,
+          ),
+
+          Padding(
+            padding: const EdgeInsets.all(12),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ShimmerWidget.text(width: 120, height: 14),
+                const SizedBox(height: 8),
+
+                //
+                Row(
+                  children: [
+                    ShimmerWidget.text(width: 30, height: 12),
+                    const SizedBox(width: 6),
+                    ShimmerWidget.square(size: 16, radius: 4),
+                  ],
+                ),
+                const SizedBox(height: 8),
+
+                // Location
+                Row(
+                  children: [
+                    ShimmerWidget.square(size: 14, radius: 4),
+                    const SizedBox(width: 6),
+                    ShimmerWidget.text(width: 100, height: 12),
+                  ],
+                ),
+                const SizedBox(height: 12),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        ShimmerWidget.square(size: 14, radius: 4),
+                        const SizedBox(width: 4),
+                        ShimmerWidget.text(width: 45, height: 12),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        ShimmerWidget.square(size: 14, radius: 4),
+                        const SizedBox(width: 4),
+                        ShimmerWidget.text(width: 50, height: 12),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
             ),
-          ],
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const ImageCarWidgetShimmer(),
-    
-            verticalSpace(10),
-    
-            const TextShimmerWidget(),
-    
-            verticalSpace(5),
-            const RateWidgetShimmer(),
-    
-            verticalSpace(8),
-            const LocationShimmerWidget(),
-    
-            verticalSpace(8),
-            const FotterShimmerWidget(),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

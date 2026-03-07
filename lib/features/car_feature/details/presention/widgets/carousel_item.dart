@@ -1,5 +1,6 @@
 import 'package:car_app_new/core/common/widgets/custom_image.dart';
 import 'package:car_app_new/core/common/widgets/favorite_icon.dart';
+import 'package:car_app_new/core/styles/app_images.dart';
 import 'package:flutter/material.dart';
 
 class CarouselItem {
@@ -22,13 +23,13 @@ class CarouselCard extends StatelessWidget {
     return GestureDetector(
       onTap: item.onTap,
       child: Stack(
-      
         fit: StackFit.expand,
         children: [
           CustomImage(
-            imageType: ImagesType.network,
+            imageType: ImagesType.networkSvg,
             boxFit: BoxFit.contain,
             imagePath: item.imageUrl,
+            fallbackPath: AppImages.whiteFerrari,
           ),
 
           CustomFavoriteIcon(

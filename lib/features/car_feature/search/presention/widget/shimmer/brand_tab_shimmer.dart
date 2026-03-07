@@ -1,5 +1,5 @@
+import 'package:car_app_new/core/extensions/custom_shimmer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class BrandsTapShimmer extends StatelessWidget {
   const BrandsTapShimmer({super.key});
@@ -10,15 +10,14 @@ class BrandsTapShimmer extends StatelessWidget {
       height: 44,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
+        physics: const NeverScrollableScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 4),
         itemCount: 5,
         separatorBuilder: (_, __) => const SizedBox(width: 8),
-        itemBuilder: (_, __) => Container(
+        itemBuilder: (_, __) => ShimmerWidget.rounded(
           width: 80,
-          decoration: BoxDecoration(
-            color: Colors.grey.shade200,
-            borderRadius: BorderRadius.circular(100),
-          ),
+          height: 44,
+          radius: 100,
         ),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:car_app_new/core/app/theme/my_colors.dart';
 import 'package:car_app_new/core/extensions/animation_extensions.dart';
 import 'package:car_app_new/core/helper/spacing.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
@@ -37,7 +38,7 @@ class _MainOnboardingPageState extends State<MainOnboardingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: context.colors.background,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -50,19 +51,19 @@ class _MainOnboardingPageState extends State<MainOnboardingPage> {
 
             verticalSpace(32),
 
-            const CustomTitleSplashScreen().animateShimmer(
-              colors: [
-                Colors.white.withOpacity(0.5),
-                Colors.white,
-                Colors.white.withOpacity(0.5),
-              ],
+            const CustomTitleSplashScreen().animateRightLeft(
+              duration: const Duration(milliseconds: 700),
             ),
 
             verticalSpace(16),
 
-            const CustomSupTitleSplashScreen().animateBottomToTop(
-              duration: const Duration(milliseconds: 800),
-            ),
+            const CustomSupTitleSplashScreen()
+                .animateBlur(
+                  duration: const Duration(milliseconds: 600),
+                )
+                .animateBottomToTop(
+                  duration: const Duration(milliseconds: 800),
+                ),
           ],
         ),
       ),

@@ -10,7 +10,6 @@ class CustomTitleSplashScreen extends StatelessWidget {
     return const Text(
       'Car Rental',
       style: TextStyle(
-        color: Colors.white,
         fontSize: 48,
         fontWeight: FontWeight.bold,
       ),

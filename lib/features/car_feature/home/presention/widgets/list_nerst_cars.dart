@@ -1,6 +1,7 @@
 import 'package:car_app_new/core/common/widgets/custom_image.dart';
 import 'package:car_app_new/core/common/widgets/smooth_list_view.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
+import 'package:car_app_new/core/styles/app_images.dart';
 import 'package:car_app_new/features/car_feature/home/data/models/car_nerst_model.dart';
 import 'package:flutter/material.dart';
 
@@ -27,14 +28,15 @@ class ListNerestCars extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               color: context.color.stroke,
             ),
-            // ✅ شيل الـ CircleAvatar وحط الصورة مباشرة
             child: CustomImage(
               borderRadius: 16,
-              imageType: ImagesType.networkSvg, // ✅ fallback لو null
-              imagePath: car.firstImage ?? '',
+              imageType: ImagesType.network,
+              fallbackPath: AppImages.whiteFerrari,
+
+              imagePath: car.firstImage,
               width: 390,
               height: 130,
-              boxFit: BoxFit.contain, // ✅ contain أحسن للسيارات
+              boxFit: BoxFit.contain,
             ),
           );
         },
