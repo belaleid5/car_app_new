@@ -1,4 +1,6 @@
 import 'package:car_app_new/core/common/model/brands_response_model.dart';
+import 'package:car_app_new/core/common/model/car_review_model.dart';
+import 'package:car_app_new/core/common/model/cars_model.dart';
 import 'package:car_app_new/core/common/model/message_response_model.dart';
 import 'package:car_app_new/core/constants/api_constants.dart';
 import 'package:car_app_new/features/auth_feature/data/models/request/login_request_model.dart';
@@ -11,6 +13,7 @@ import 'package:car_app_new/features/auth_feature/data/models/response/verify_co
 import 'package:car_app_new/features/car_feature/details/data/models/car_details_model.dart';
 import 'package:car_app_new/features/car_feature/home/data/models/car_nerest_response_model.dart';
 import 'package:car_app_new/features/car_feature/home/data/models/cars_response_model.dart';
+import 'package:car_app_new/features/user_feature/reviews/data/model/review_reesponse_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -86,4 +89,31 @@ Future<CarDetailsModel> getCarDetails({
 });
 
 
+
+
+@GET(ApiConstants.searchEndpoint)
+Future<CarsResponseModel>filterSearchCars({
+  @Query('page') int page = 1,
+  @Query('limit') int limit = 10,
+  @Query('query') String? query,
+  @Query('brand_id') int? brandId,
+  @Query('car_type') String? carType,
+  @Query('color_id') int? colorId,
+  @Query('location_id') int? locationId,
+  @Query('seating_capacity') int? seatingCapacity,
+  @Query('fuel_type') String? fuelType,
+  
+});
+
+
+
+
+
+
+  @POST(ApiConstants.reviewsEndpoint)
+  @FormUrlEncoded()
+  Future<ReviewResponseModel> addReview(
+    @Body() ReviewModel reviewModel,
+   
+  );
 }

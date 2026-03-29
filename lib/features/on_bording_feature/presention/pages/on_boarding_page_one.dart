@@ -1,5 +1,5 @@
+import 'package:car_app_new/core/common/animations/animation_do.dart';
 import 'package:car_app_new/core/common/widgets/custom_logo_app_svg.dart';
-import 'package:car_app_new/core/extensions/animation_extensions.dart';
 import 'package:car_app_new/core/helper/spacing.dart';
 import 'package:car_app_new/core/styles/app_images.dart';
 import 'package:car_app_new/features/on_bording_feature/presention/widgets/custom_background_image_on_boarding.dart';
@@ -14,8 +14,11 @@ class OnBoardingPageOne extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const CustomBackGroundImageOnBoarding(
-          imagePath: AppImages.onBoardingScreenOne,
+        const CustomFadeInLeft(
+          duration: 1000,
+          child: CustomBackGroundImageOnBoarding(
+            imagePath: AppImages.onBoardingScreenOne,
+          ),
         ),
         const CustomOpacityColorBackGroundImageObBoarding(),
         SafeArea(
@@ -25,16 +28,23 @@ class OnBoardingPageOne extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 verticalSpace(40),
-                const SizedBox(
-                  width: 56,
-                  height: 56,
-                  child: CustomLogoAppSvg(),
-                ).animateScaleNFadeHorizontal(
-                  duration: const Duration(milliseconds: 800),
+
+                const CustomFadeInDown(
+                  duration: 700,
+                  child: SizedBox(
+                    width: 56,
+                    height: 56,
+                    child: CustomLogoAppSvg(),
+                  ),
                 ),
+
                 const SizedBox(height: 32),
-                const CustomTitleOnBoardingPage(),
-                // Space for fixed bottom section
+
+                const CustomFadeInRight(
+                  duration: 900,
+                  child: CustomTitleOnBoardingPage(),
+                ),
+
                 const SizedBox(height: 150),
               ],
             ),

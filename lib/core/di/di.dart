@@ -28,7 +28,10 @@ import 'package:car_app_new/features/car_feature/home/data/repo/home_repo.dart';
 import 'package:car_app_new/features/car_feature/home/presention/manger/best_cars_bloc/bestcars_bloc.dart';
 import 'package:car_app_new/features/car_feature/home/presention/manger/bloc_brands/brands_bloc.dart';
 import 'package:car_app_new/features/car_feature/home/presention/manger/nerest_cars_bloc/bloc/nerest_car_bloc.dart';
-import 'package:car_app_new/features/user_feature/main_bottom_bar/presention/manger/bottom_nav_cubit.dart';
+import 'package:car_app_new/features/car_feature/search/data/data_source/fiter_search_data_source.dart';
+import 'package:car_app_new/features/car_feature/search/data/repo/filter_search_cars_repo.dart';
+import 'package:car_app_new/features/car_feature/search/presention/manger/filter_search_bloc.dart';
+import 'package:car_app_new/features/main_bottom_bar/presention/manger/bottom_nav_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -40,6 +43,7 @@ Future<void> setupDI() async {
   await homeFeature();
   await bottomNavFeature();
   await carsDetailsFeature();
+  await searchFiterCars();
 }
 
 Future<void> _initCore() async {
@@ -135,5 +139,16 @@ Future<void> carsDetailsFeature() async {
     )
     ..registerLazySingleton<DetailsCarsDataSource>(
       () => DetailsCarsDataSourceImpl(sl()),
+    );
+}
+
+Future<void> searchFiterCars() async {
+  sl
+    ..registerFactory<FilterSearchBloc>(() => FilterSearchBloc(sl()))
+    ..registerLazySingleton<CarsFilterRepositoryImpl>(
+      () => CarsFilterRepositoryImpl(sl()),
+    )
+    ..registerLazySingleton<FilterSearchRemoteDataSource>(
+      () => FilterSearchRemoteDataSourceImpl(sl()),
     );
 }

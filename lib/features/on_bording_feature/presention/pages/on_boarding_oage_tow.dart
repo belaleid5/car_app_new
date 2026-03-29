@@ -1,5 +1,5 @@
+import 'package:car_app_new/core/common/animations/animation_do.dart';
 import 'package:car_app_new/core/common/widgets/custom_logo_app_svg.dart';
-import 'package:car_app_new/core/extensions/animation_extensions.dart';
 import 'package:car_app_new/core/styles/app_images.dart';
 import 'package:car_app_new/features/on_bording_feature/presention/widgets/custom_background_image_on_boarding.dart';
 import 'package:car_app_new/features/on_bording_feature/presention/widgets/custom_des_on_boarding.dart';
@@ -12,32 +12,47 @@ class OnBoardingPageTwo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return const Stack(
       children: [
-        const CustomBackGroundImageOnBoarding(
-          imagePath: AppImages.onBoardingScreenTow,
+        CustomFadeInRight(
+          duration: 1000,
+          child: CustomBackGroundImageOnBoarding(
+            imagePath: AppImages.onBoardingScreenTow,
+          ),
         ),
-        const CustomOpacityColorBackGroundImageObBoarding(),
+        CustomOpacityColorBackGroundImageObBoarding(),
         SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
+            padding: EdgeInsets.symmetric(horizontal: 24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 40),
-                const SizedBox(
-                  width: 56,
-                  height: 56,
-                  child: CustomLogoAppSvg(),
-                ).animateRotate(),
-                const SizedBox(height: 40),
-                const CustomTitleAnimationOnBoarding(),
-                const Spacer(), 
-                const CustomDescriptionPageOnBoarding()
-                    .animateBottomToTop(
-                  duration: const Duration(milliseconds: 800),
+                SizedBox(height: 40),
+
+                CustomFadeInDown(
+                  duration: 600,
+                  child: SizedBox(
+                    width: 56,
+                    height: 56,
+                    child: CustomLogoAppSvg(),
+                  ),
                 ),
-                const SizedBox(height: 180),
+
+                SizedBox(height: 40),
+
+                CustomFadeInLeft(
+                  duration: 800,
+                  child: CustomTitleAnimationOnBoarding(),
+                ),
+
+                Spacer(),
+
+                CustomFadeInUp(
+                  duration: 900,
+                  child: CustomDescriptionPageOnBoarding(),
+                ),
+
+                SizedBox(height: 180),
               ],
             ),
           ),

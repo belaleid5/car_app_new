@@ -1,8 +1,8 @@
+import 'package:car_app_new/core/common/model/model/location_model.dart';
 import 'package:car_app_new/core/errors/api_error_handler.dart';
 import 'package:car_app_new/core/services/api/api_result.dart';
 import 'package:car_app_new/core/services/api/api_services.dart';
 import 'package:car_app_new/features/auth_feature/data/models/request/register_request_model.dart';
-import 'package:car_app_new/core/shared/model/location_model.dart';
 import 'package:car_app_new/features/auth_feature/data/models/response/user_response_model.dart';
 
 class RegisterRepo {
@@ -25,8 +25,8 @@ class RegisterRepo {
 
   Future<ApiResult<List<LocationModel>>> getLocations() async {
     try {
-      final response = await _apiService.getLocations(); 
-      return ApiResult.success(response.data); 
+      final response = await _apiService.getLocations();
+      return ApiResult.success(response.data);
     } catch (error) {
       return ApiResult.failure(
         ErrorHandler.handle(error).apiErrorModel.message!,

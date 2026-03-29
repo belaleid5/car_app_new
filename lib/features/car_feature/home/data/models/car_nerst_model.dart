@@ -3,7 +3,7 @@ import 'package:car_app_new/core/common/model/car_features_model.dart';
 import 'package:car_app_new/core/common/model/car_image_model.dart';
 import 'package:car_app_new/core/common/model/car_review_model.dart';
 import 'package:car_app_new/core/common/model/color_model.dart';
-import 'package:car_app_new/core/shared/model/location_model.dart';
+import 'package:car_app_new/core/common/model/model/location_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'car_nerst_model.freezed.dart';

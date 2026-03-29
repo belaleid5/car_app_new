@@ -7,10 +7,9 @@ class CustomSupTitleSplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return const Text(
       'Your Journey Starts Here',
       style: TextStyle(
-        color: Colors.white.withOpacity(0.7),
         fontSize: 16,
       ),
     );

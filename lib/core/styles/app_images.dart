@@ -43,6 +43,14 @@ class AppImages {
   static const String userImage = 'assets/images/userImage.png';
   static const String arrowRightIcon = 'assets/icons/arrowRightIcon.svg';
 
+  static const String allBrandsImage = 'assets/images/allBrands.svg';
+  static const String calendarIcon = 'assets/icons/calender_icon.svg';
+  static const String placeholderImage = 'assets/images/placeholder.svg';
+
+  //empty screen
+    static const String emptyImage = 'assets/images/empty_box_car.png';
+  static const String whiteFerrari = 'assets/images/white_ferrari.png';
+
   //bottom Nav Icons
   static const String homeIcon = 'assets/icons/homeIcone.svg';
   static const String searchIcon = 'assets/icons/searchIcon.svg';

@@ -1,5 +1,5 @@
 import 'package:car_app_new/core/app/theme/my_colors.dart';
-import 'package:car_app_new/core/shared/model/location_model.dart';
+import 'package:car_app_new/core/common/model/model/location_model.dart';
 import 'package:car_app_new/features/auth_feature/presention/widgets/sign_up/locaation_input_decortion.dart';
 import 'package:flutter/material.dart';
 

@@ -1,5 +1,5 @@
+import 'package:car_app_new/core/common/model/model/location_model.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
-import 'package:car_app_new/core/shared/model/location_model.dart';
 import 'package:flutter/material.dart';
 
 class LocationDropdownItems {

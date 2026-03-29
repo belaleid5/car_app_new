@@ -366,6 +366,86 @@ class _ApiService implements ApiService {
     return _value;
   }
 
+  @override
+  Future<CarsResponseModel> filterSearchCars({
+    int page = 1,
+    int limit = 10,
+    String? query,
+    int? brandId,
+    String? carType,
+    int? colorId,
+    int? locationId,
+    int? seatingCapacity,
+    String? fuelType,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'page': page,
+      r'limit': limit,
+      r'query': query,
+      r'brand_id': brandId,
+      r'car_type': carType,
+      r'color_id': colorId,
+      r'location_id': locationId,
+      r'seating_capacity': seatingCapacity,
+      r'fuel_type': fuelType,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<CarsResponseModel>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            'https://qent.azurewebsites.net/api/cars/search',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late CarsResponseModel _value;
+    try {
+      _value = CarsResponseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<ReviewResponseModel> addReview(ReviewModel reviewModel) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = reviewModel;
+    final _options = _setStreamType<ReviewResponseModel>(
+      Options(
+            method: 'POST',
+            headers: _headers,
+            extra: _extra,
+            contentType: 'application/x-www-form-urlencoded',
+          )
+          .compose(
+            _dio.options,
+            'https://qent.azurewebsites.net/api/cars/1/reviews/add',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late ReviewResponseModel _value;
+    try {
+      _value = ReviewResponseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, _result);
+      rethrow;
+    }
+    return _value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||

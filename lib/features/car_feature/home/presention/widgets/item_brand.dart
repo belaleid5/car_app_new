@@ -1,6 +1,6 @@
+import 'package:car_app_new/core/common/model/brand_model.dart';
 import 'package:car_app_new/core/common/widgets/custom_image.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
-import 'package:car_app_new/core/common/model/brand_model.dart';
 import 'package:flutter/material.dart';
 
 class ItemBrand extends StatelessWidget {
@@ -21,12 +21,16 @@ class ItemBrand extends StatelessWidget {
             bottom: 8,
             right: 12,
           ),
-          child: CustomImage(
-            width: 60,
-            height: 60,
-            boxFit: BoxFit.cover,
-            imageType: ImagesType.network,
-            imagePath: brand.image,
+          child: CircleAvatar(
+            backgroundColor: context.color.black,
+
+            child: CustomImage(
+              width: 60,
+              height: 60,
+              boxFit: BoxFit.cover,
+              imageType: ImagesType.networkSvg,
+              imagePath: brand.image,
+            ),
           ),
         ),
         Text(

@@ -1,5 +1,5 @@
 import 'package:car_app_new/core/enums/bottom_nav_enums.dart';
-import 'package:car_app_new/features/user_feature/main_bottom_bar/presention/manger/bottom_nav_state.dart';
+import 'package:car_app_new/features/main_bottom_bar/presention/manger/bottom_nav_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BottomNavCubit extends Cubit<BottomNavState> {

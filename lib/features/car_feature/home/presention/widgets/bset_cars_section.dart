@@ -36,7 +36,7 @@ class BestCarsSection extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.only(right: 10),
-                        child: CarCardWidget(
+                        child: CarCardHomeWidget(
                           cars: cars[index],
                         ),
                       );
@@ -51,3 +51,5 @@ class BestCarsSection extends StatelessWidget {
     );
   }
 }
+
+

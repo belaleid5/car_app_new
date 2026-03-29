@@ -1,10 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:car_app_new/core/common/model/model/location_model.dart';
 import 'package:car_app_new/core/services/api/api_result.dart';
-import 'package:car_app_new/core/services/shared_pref/shared_keys.dart';
-import 'package:car_app_new/core/services/shared_pref/shared_pref.dart';
-import 'package:car_app_new/core/shared/model/location_model.dart';
+
 import 'package:car_app_new/features/auth_feature/data/models/request/register_request_model.dart';
 import 'package:car_app_new/features/auth_feature/data/models/response/user_response_model.dart';
 import 'package:car_app_new/features/auth_feature/data/repo/register_repo.dart';

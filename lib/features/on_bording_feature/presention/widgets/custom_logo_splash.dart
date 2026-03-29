@@ -8,10 +8,16 @@ class CustomSplashLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return Container(
       width: 120,
       height: 120,
-      child: CustomLogoAppSvg(),
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(
+          width: 1.2,
+        ),
+      ),
+      child: const CustomLogoAppSvg(),
     );
   }
 }

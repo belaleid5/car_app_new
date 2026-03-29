@@ -1,4 +1,5 @@
 import 'package:car_app_new/core/common/animations/custom_page_route.dart';
+import 'package:car_app_new/core/common/screens/empty_screen.dart';
 import 'package:car_app_new/core/di/di.dart';
 import 'package:car_app_new/core/routes/routes_names.dart';
 import 'package:car_app_new/features/auth_feature/presention/manger/bloc_confirm/bloc/confirm_code_bloc.dart';
@@ -23,11 +24,13 @@ import 'package:car_app_new/features/car_feature/home/presention/manger/bloc_bra
 import 'package:car_app_new/features/car_feature/home/presention/manger/bloc_brands/brands_event.dart';
 import 'package:car_app_new/features/car_feature/home/presention/manger/nerest_cars_bloc/bloc/nerest_car_bloc.dart';
 import 'package:car_app_new/features/car_feature/home/presention/manger/nerest_cars_bloc/bloc/nerest_car_event.dart';
+import 'package:car_app_new/features/car_feature/search/presention/manger/filter_search_bloc.dart';
+import 'package:car_app_new/features/car_feature/search/presention/manger/filter_search_event.dart';
+import 'package:car_app_new/features/main_bottom_bar/presention/pages/main_bottom_bar_page.dart';
 import 'package:car_app_new/features/on_bording_feature/presention/pages/main_onBorading_page.dart';
 import 'package:car_app_new/features/on_bording_feature/presention/pages/on_boarding_oage_tow.dart';
 import 'package:car_app_new/features/on_bording_feature/presention/pages/on_boarding_page_one.dart';
 import 'package:car_app_new/features/on_bording_feature/presention/pages/page_view_on_boarding.dart';
-import 'package:car_app_new/features/user_feature/main_bottom_bar/presention/pages/main_bottom_bar_page.dart';
 import 'package:car_app_new/features/user_feature/settings/presention/screens/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -96,6 +99,13 @@ class AppRouter {
                     sl<NerestCarsBloc>()
                       ..add(const NerestCarsEvent.fetchNerestCars()),
               ),
+
+              BlocProvider<FilterSearchBloc>(
+                create: (_) => sl<FilterSearchBloc>()
+                  ..add(
+                    const FilterSearchEvent.search(),
+                  ),
+              ),
             ],
             child: const MainBottomBarScreen(),
           ),
@@ -155,6 +165,9 @@ class AppRouter {
             child: const VerificationPage(),
           ),
         );
+
+      case AppRoutesNames.emptyScreen:
+        return CustomPageRoute(settings: settings, page: const EmptyScreen());
 
       default:
         return CustomPageRoute(

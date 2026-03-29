@@ -44,6 +44,7 @@ class CarApp extends StatelessWidget {
                   final cubit = context.read<AppCubit>();
 
                   return MaterialApp(
+                    showPerformanceOverlay: true,
                     debugShowCheckedModeBanner:
                         EnvVariable.instance.isDebugMode,
                     onGenerateRoute: AppRouter.onGenerateRoute,

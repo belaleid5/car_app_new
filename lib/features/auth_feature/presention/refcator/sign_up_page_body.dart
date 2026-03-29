@@ -1,3 +1,4 @@
+import 'package:car_app_new/core/common/animations/animation_do.dart';
 import 'package:car_app_new/core/common/widgets/custom_button.dart';
 import 'package:car_app_new/core/common/widgets/section_logo_and_title_qent.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
@@ -11,9 +12,7 @@ import 'package:car_app_new/features/auth_feature/presention/widgets/social_butt
 import 'package:flutter/material.dart';
 
 class SignUpPageBody extends StatelessWidget {
-  const SignUpPageBody({
-    super.key,
-  });
+  const SignUpPageBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,63 +20,83 @@ class SignUpPageBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(
-            child: verticalSpace(60),
-          ),
+          SliverToBoxAdapter(child: verticalSpace(60)),
+
           const SliverToBoxAdapter(
-            child: SectionLogoAndTitleQent(),
-          ),
-          SliverToBoxAdapter(
-            child: verticalSpace(40),
-          ),
-          const SliverToBoxAdapter(
-            child: SignUpTextTitle(),
-          ),
-          SliverToBoxAdapter(
-            child: verticalSpace(10),
-          ),
-          const SliverToBoxAdapter(
-            child: SectionAuthSignUP(),
-          ),
-          SliverToBoxAdapter(
-            child: verticalSpace(20),
-          ),
-          SliverToBoxAdapter(
-            child: CustomButton(
-              borderRadius: 15,
-              textColor: context.color.black,
-              text: 'Login',
-              onPressed: () {},
+            child: CustomFadeInDown(
+              duration: 500,
+              child: SectionLogoAndTitleQent(),
             ),
           ),
-          SliverToBoxAdapter(
-            child: verticalSpace(20),
-          ),
+
+          SliverToBoxAdapter(child: verticalSpace(40)),
+
           const SliverToBoxAdapter(
-            child: CustomButtonSocial(
-              titleButton: 'Apple Now',
-              iconPath: AppImages.appleIcon,
+            child: CustomFadeInRight(
+              duration: 600,
+              child: SignUpTextTitle(),
             ),
           ),
-          SliverToBoxAdapter(
-            child: verticalSpace(15),
-          ),
+
+          SliverToBoxAdapter(child: verticalSpace(10)),
+
           const SliverToBoxAdapter(
-            child: CustomButtonSocial(
-              titleButton: 'Google Play',
-              iconPath: AppImages.googleIcon,
+            child: CustomFadeInUp(
+              duration: 1200,
+              child: SectionAuthSignUP(),
             ),
           ),
+
+          SliverToBoxAdapter(child: verticalSpace(20)),
+
           SliverToBoxAdapter(
-            child: verticalSpace(30),
+            child: CustomFadeInLeft(
+              duration: 700,
+              child: CustomButton(
+                borderRadius: 15,
+                textColor: context.color.black,
+                text: 'Login',
+                onPressed: () {},
+              ),
+            ),
           ),
+
+          SliverToBoxAdapter(child: verticalSpace(20)),
+
+          const SliverToBoxAdapter(
+            child: CustomFadeInRight(
+              duration: 800,
+              child: CustomButtonSocial(
+                titleButton: 'Apple Now',
+                iconPath: AppImages.appleIcon,
+              ),
+            ),
+          ),
+
+          SliverToBoxAdapter(child: verticalSpace(15)),
+
+          const SliverToBoxAdapter(
+            child: CustomFadeInLeft(
+              duration: 900,
+              child: CustomButtonSocial(
+                titleButton: 'Google Play',
+                iconPath: AppImages.googleIcon,
+              ),
+            ),
+          ),
+
+          SliverToBoxAdapter(child: verticalSpace(30)),
+
           SliverToBoxAdapter(
-            child: DontHaveOrHaveAnAccountText(
-              firstTitle: 'Already have an account? ',
-              secondTitle: 'Log In',
-              onTap: () async {
-                await context.pushReplacementNamed(AppRoutesNames.loginRoute);
-              },
+            child: CustomFadeInDown(
+              duration: 1000,
+              child: DontHaveOrHaveAnAccountText(
+                firstTitle: 'Already have an account? ',
+                secondTitle: 'Log In',
+                onTap: () async {
+                  await context.pushReplacementNamed(AppRoutesNames.loginRoute);
+                },
+              ),
             ),
           ),
         ],

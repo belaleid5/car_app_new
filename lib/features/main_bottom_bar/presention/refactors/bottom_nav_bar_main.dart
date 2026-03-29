@@ -2,9 +2,9 @@ import 'package:car_app_new/core/common/animations/animation_do.dart';
 import 'package:car_app_new/core/enums/bottom_nav_enums.dart';
 import 'package:car_app_new/core/extensions/context_extensions.dart';
 import 'package:car_app_new/core/styles/app_images.dart';
-import 'package:car_app_new/features/user_feature/main_bottom_bar/presention/manger/bottom_nav_cubit.dart';
-import 'package:car_app_new/features/user_feature/main_bottom_bar/presention/manger/bottom_nav_state.dart';
-import 'package:car_app_new/features/user_feature/main_bottom_bar/presention/widgets/icon_tap_nav_bar.dart';
+import 'package:car_app_new/features/main_bottom_bar/presention/manger/bottom_nav_cubit.dart';
+import 'package:car_app_new/features/main_bottom_bar/presention/manger/bottom_nav_state.dart';
+import 'package:car_app_new/features/main_bottom_bar/presention/widgets/icon_tap_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

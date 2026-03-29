@@ -1,3 +1,4 @@
+import 'package:car_app_new/features/car_feature/search/presention/refactor/search_filter_body.dart';
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatelessWidget {
@@ -6,7 +7,7 @@ class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Text('Search'),
+      body: SearchFilterBody(),
     );
   }
 }
